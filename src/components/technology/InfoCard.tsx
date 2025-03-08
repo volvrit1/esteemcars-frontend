@@ -13,8 +13,6 @@ interface data {
   listContent: string[];
 }
 
-
-
 export default function InfoCard({ datas }: InfoCardProps) {
   return (
     <div
@@ -44,7 +42,7 @@ export default function InfoCard({ datas }: InfoCardProps) {
             </div>
           ))}
         <Link
-          href="/about-us"
+          href="/contact-us"
           className="col-span-2 w-full m-auto px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base md:text-lg bg-transparent text-white rounded-none shadow-md border transition flex justify-center items-center"
         >
           Learn More About Our Drone Systems{" "}

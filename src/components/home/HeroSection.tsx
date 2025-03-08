@@ -1,25 +1,29 @@
+import { getBanners } from "@/utils/server";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
 
-const HeroSection = ({
+const HeroSection = async ({
   title,
   description,
   image,
   textShow,
+  slug,
 }: {
   title: string;
   description: string;
   link?: string;
   image: string;
   textShow?: boolean;
+  slug?: string;
 }) => {
+  const { data } = await getBanners(slug);
   return (
     <div
       className="relative w-full  h-[80vh] mt-[7rem] md:h-screen 2xl:h-[70vh] bg-cover  md:bg-cover"
       style={{
-        backgroundImage: `url(${image})`,
+        backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_URL}${data[0]?.image})`,
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
       }}
@@ -35,7 +39,7 @@ const HeroSection = ({
           </p>
           <div className="flex justify-between items-center">
             <Link
-              href={"/about-us"}
+              href={"/contact-us"}
               className="rounded bg-[#1262A1] px-5 py-2 text-gray-50 flex justify-between items-center"
             >
               Learn More{" "}

@@ -23,3 +23,8 @@ input::-webkit-inner-spin-button {
 .range::-webkit-slider-thumb {
   background: #00fd0a;
 }
+
+
+.some-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Webkit-based browsers (Chrome, Safari) */
+}

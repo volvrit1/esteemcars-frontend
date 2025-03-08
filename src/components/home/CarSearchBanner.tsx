@@ -1,5 +1,6 @@
 import { ISection } from "@/utils/server";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 
@@ -16,9 +17,9 @@ const CarSearchBanner = ({ sectionData }: { sectionData?: ISection }) => {
             "Use our car comparison tool to help you decide which vehicle best meets your needs and purchase it"}
         </p>
         <div className="flex justify-center items-center gap-4">
-          <button className="bg-[#1262A1]   lg:px-12 p-0 h-14 font-light rounded-lg">
+          <Link href={"#loanApplication"} className="bg-[#1262A1] hover:bg-gray-400 transition-colors ease-in-out  lg:px-12 lg:py-4 p-0 h-14 font-light rounded-lg">
             Get Your Finance Today
-          </button>
+          </Link>
           <button className="rounded-lg p-2 px-4 h-14 text-gray-900 text-3xl bg-transparent border border-[#ff8e42]">
             <IoIosArrowForward width={16} height={16} />
           </button>

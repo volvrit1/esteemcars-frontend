@@ -10,7 +10,10 @@ export default function HeaderSection({
   subTitle: string;
   description: string;
   textColor?: string;
+  slug?:string
 }) {
+
+  
   return (
     <div className="lg:w-4/6 m-auto mb-8 text-center">
       <h2

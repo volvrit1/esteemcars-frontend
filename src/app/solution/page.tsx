@@ -5,7 +5,6 @@ import LoanApplication from "@/components/home/LoanApplication";
 import Testimonials from "@/components/home/Tesomonials";
 import Faq from "@/components/support/Faq";
 import { lexendDeca } from "@/data/font";
-import { getServiceData } from "@/utils/server";
 import React from "react";
 import LoanSolution from "../../components/whyUs/LoanSolution";
 import LoanApproval from "@/components/whyUs/LoanApproval";
@@ -27,6 +26,7 @@ const page = async () => {
         link={data?.link}
         image={data?.image}
         textShow={true}
+        slug="slution"
       />
       <LoanApproval />
       <LoanSolution />

@@ -50,7 +50,7 @@ export default function InfoCard2({ datas }: InfoCardProps) {
             </div>
           ))}
         <Link
-          href="/about-us"
+          href="/contact-us"
           className={` col-span-2 ${
             datas.length === 2 ? "col-span-2" : "col-span-3"
           } w-full m-auto px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base md:text-lg bg-transparent text-white rounded-none shadow-md border transition flex justify-center items-center`}

@@ -5,7 +5,6 @@ import Vision from "@/components/whyUs/Vision";
 import WeDone from "@/components/whyUs/WeDone";
 import HeroSection from "@/components/home/HeroSection";
 import { lexendDeca } from "@/data/font";
-import { getAboutData } from "@/utils/server";
 import Why from "@/components/home/Why";
 import WhyUsBanner from "@/components/whyUs/WhyUsBanner";
 import CreditScore from "@/components/whyUs/CreditScore";

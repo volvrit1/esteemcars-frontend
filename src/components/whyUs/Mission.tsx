@@ -10,7 +10,7 @@ const Mission = ({ sectionData }: { sectionData: ISection | undefined }) => {
       {/* Left Column - Image */}
       <div className="w-4/5  lg:w-2/5 flex justify-center mb-6 lg:mb-0">
         <Image
-          src={ "/images/droneArmy.png"} // Ensure this image exists in the public folder
+          src={"/images/droneArmy.png"} // Ensure this image exists in the public folder
           alt="Explore Image"
           width={800}
           height={630}
@@ -31,10 +31,11 @@ const Mission = ({ sectionData }: { sectionData: ISection | undefined }) => {
           {sectionData?.subtitle || "Our Mission"}
         </h2>
         <p className="text-base sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px] line-clamp-3 md:line-clamp-none text-gray-900 mt-4 leading-8">
-          {sectionData?.description || "Our mission is to provide the best possible experience for our customers."}
+          {sectionData?.description ||
+            "Our mission is to provide the best possible experience for our customers."}
         </p>
         <Link
-          href={"/about-us"}
+          href={"/contact-us"}
           className="mt-6 px-6 py-3 sm:px-8 sm:py-2 text-sm sm:text-base md:text-lg bg-transparent text-gray-900 border-gray-900 rounded-none shadow-md border transition"
         >
           Explore More

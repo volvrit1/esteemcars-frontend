@@ -7,6 +7,18 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "example.com",
       },
+      {
+        protocol: "https",
+        hostname: "192.168.1.20",
+      },
+      {
+        protocol: "http",
+        hostname: `${process.env.ROW_URL}`,
+      },
+      {
+        protocol: "https",
+        hostname: `${process.env.ROW_URL}`,
+      },
     ],
   },
   async rewrites() {

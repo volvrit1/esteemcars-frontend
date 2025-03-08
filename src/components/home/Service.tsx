@@ -52,7 +52,7 @@ const Service = ({ sectionData }: { sectionData: ISection }) => {
               <p className="text-sm md:text-xs mb-6">{data?.description}</p>
               <div className="w-full flex justify-end items-center">
                 <Link
-                  href={"/about-us"}
+                  href={"/contact-us"}
                   className="bg-gray-50 text-gray-800 rounded-full text-2xl p-1.5 w-10 h-10"
                 >
                   <GoArrowUpRight width={30} height={30} />

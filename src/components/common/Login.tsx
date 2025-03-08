@@ -1,10 +1,13 @@
 "use client";
 import { Post } from "@/utils/api";
+import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function LoginModal({ isOpen, onClose, setSignUpOpen }: any) {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,14 +30,19 @@ export default function LoginModal({ isOpen, onClose, setSignUpOpen }: any) {
       password,
     };
     try {
-      const res: any = await Post("api/user/login", data, 5000);
-      if (res?.success) {
-        setEmail("");
-        setPassword("");
-        onClose();
-        console.log("Login successful", res);
-      } else {
-        console.error("Login failed", res);
+      if (validate()) {
+        const res: any = await Post("api/user/login", data, 5000);
+        if (res?.success) {
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("userData", JSON.stringify(res.data.userData));
+          router.push("/account");
+          setEmail("");
+          setPassword("");
+          onClose();
+          console.log("Login successful", res);
+        } else {
+          console.error("Login failed", res);
+        }
       }
     } catch (error) {
       console.error("Login failed", error);
@@ -48,13 +56,15 @@ export default function LoginModal({ isOpen, onClose, setSignUpOpen }: any) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[5000]">
       <div className="w-auto flex justify-center items-center bg-white rounded-lg overflow-hidden">
-        <div className="bg-white h-[80vh] p-8 w-1/2 max-w-md relative">
-          <img
+        <div className="bg-white h-[80vh] p-6 w-1/2 max-w-md relative">
+          <Image
+            width={800}
+            height={800}
             src="/images/signup.png"
             alt="Car"
-            className="w-full h-full object-cover object-left"
+            className="w-full h-full object-cover object-left rounded"
           />
         </div>
 

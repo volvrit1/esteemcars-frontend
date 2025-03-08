@@ -1,5 +1,3 @@
-const BASE_URL = "http://localhost:5000";
-
 export interface ProductData {
   result: {
     _id: string;
@@ -72,7 +70,7 @@ export interface SectionData {
 
 export const getData = async (url: string) => {
   try {
-    const response = await fetch(`${BASE_URL}${url}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}${url}`);
     if (!response.ok) {
       throw new Error("Failed to fetch section data");
     }
@@ -84,221 +82,35 @@ export const getData = async (url: string) => {
   }
 };
 
-// export const getHomeData = async () => {
-//   const heroSection = await getData("/api/page");
-//   const whoWeAreSection = await getData("/api/section");
-//   const serviceSection = await getData("/api/section");
-//   const videoSection = await getData("/api/section");
-//   const weBestSection = await getData("/api/section");
-//   const ourPartnerSection = await getData("/api/section");
-//   const whySection = await getData("/api/section");
-//   const newsSection = await getData("/api/news");
-
-//   return {
-//     heroSection,
-//     whoWeAreSection,
-//     serviceSection,
-//     videoSection,
-//     weBestSection,
-//     ourPartnerSection,
-//     whySection,
-//     newsSection,
-//   };
-// };
-
-export const getHomeData = async () => {
-  const homePageData: IPageResponse[] = await getData("/api/home");
-  if (homePageData.length === 0) return { loading: false };
-
-  const {
-    title,
-    subTitle,
-    description,
-    videoUrl,
-    section1,
-    section2,
-    section3,
-    section4,
-    section5,
-    section6,
-    section7,
-  } = homePageData[0];
-
-  const loading = title && subTitle && description && videoUrl ? true : false;
-  return {
-    title,
-    subTitle,
-    description,
-    videoUrl,
-    loading,
-    section1,
-    section2,
-    section3,
-    section4,
-    section5,
-    section6,
-    section7,
-  };
+export const getTestimonials = async () => {
+  const testimonialsData: any = await getData("/api/testimonial");
+  if (testimonialsData.length === 0) return { loading: false };
+  const loading = testimonialsData.length === 0 ? true : false;
+  return { loading, data: testimonialsData };
 };
 
-export const getAboutData = async () => {
-  const aboutPageData: IPageResponse[] = await getData("/api/about");
-  if (aboutPageData.length === 0) return { loading: false };
+export const getFaqs = async () => {
+  const faqData: any = await getData("/api/faq");
 
-  const {
-    title,
-    subTitle,
-    description,
-    videoUrl,
-    section1,
-    section2,
-    section3,
-    section4,
-  } = aboutPageData[0];
-  const loading = title && subTitle && description && videoUrl ? true : false;
-  return {
-    title,
-    subTitle,
-    description,
-    videoUrl,
-    loading,
-    section1,
-    section2,
-    section3,
-    section4,
-  };
+  return { data: faqData };
 };
 
-export const getServiceData = async () => {
-  const servicePageData: IPageResponse[] = await getData("/api/service");
-  if (servicePageData.length === 0) return { loading: false };
-
-  const {
-    title,
-    subTitle,
-    description,
-    videoUrl,
-    section1,
-    section2,
-    section3,
-    section4,
-    section5,
-  } = servicePageData[0];
-  const loading = title && subTitle && description && videoUrl ? true : false;
-  return {
-    title,
-    subTitle,
-    description,
-    videoUrl,
-    loading,
-    section1,
-    section2,
-    section3,
-    section4,
-    section5,
-  };
-};
-
-export const getTechnologyData = async () => {
-  const technologyPageData: IPageResponse[] = await getData("/api/technology");
-  if (technologyPageData.length === 0) return { loading: false };
-
-  const {
-    title,
-    subTitle,
-    description,
-    videoUrl,
-    section1,
-    section2,
-    section3,
-    section4,
-  } = technologyPageData[0];
-  const loading = title && subTitle && description && videoUrl ? true : false;
-  return {
-    title,
-    subTitle,
-    description,
-    videoUrl,
-    loading,
-    section1,
-    section2,
-    section3,
-    section4,
-  };
-};
-
-export const getCareerData = async () => {
-  const careerPageData: IPageResponse[] = await getData("/api/career");
-  if (careerPageData.length === 0) return { loading: false };
-
-  const {
-    title,
-    subTitle,
-    description,
-    videoUrl,
-    section1,
-    section2,
-    section3,
-  } = careerPageData[0];
-  const loading = title && subTitle && description && videoUrl ? true : false;
-  return {
-    title,
-    subTitle,
-    description,
-    videoUrl,
-    loading,
-    section1,
-    section2,
-    section3,
-  };
-};
-export const getApplicationData = async () => {
-  const applicationPageData: IPageResponse[] = await getData(
-    "/api/application"
-  );
-  if (applicationPageData.length === 0) return { loading: false };
-  const {
-    title,
-    subTitle,
-    description,
-    videoUrl,
-    section1,
-    section2,
-    section3,
-    section4,
-  } = applicationPageData[0];
-  const loading = title && subTitle && description && videoUrl ? true : false;
-  return {
-    loading,
-    title,
-    subTitle,
-    description,
-    videoUrl,
-    section1,
-    section2,
-    section3,
-    section4,
-  };
+export const getBanners = async (slug: any) => {
+  const bannerData: any = await getData(`/api/banner?slug=${slug}`);
+  return { data: bannerData };
 };
 
 export const getBlogData = async () => {
   const blogPageData: any[] = await getData("/api/blog");
-  if (blogPageData.length === 0) return { loading: false };
-
-  const loading = blogPageData.length === 0 ? false : true;
+  console.log(blogPageData);
   return {
-    loading,
-    blogPageData,
+    data: blogPageData,
   };
 };
 
 export const getBlogSlugData = async (slug: any) => {
   const blogPageSlugData: any[] = await getData(`/api/blog?slug=${slug}`);
-  if (blogPageSlugData.length === 0) return { loading: false };
-
-  const loading = blogPageSlugData.length === 0 ? false : true;
   return {
-    loading,
     blogPageSlugData,
   };
 };

@@ -18,6 +18,7 @@ export default function Advancing({ sectionData }: { sectionData: ISection|undef
         title={sectionData?.title || data?.title}
         subTitle={""}
         description={sectionData?.description || data?.description}
+        slug="advancing"
       />
       <Link
         href="/contact-us"

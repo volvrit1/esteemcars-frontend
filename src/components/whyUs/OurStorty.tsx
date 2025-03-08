@@ -51,7 +51,7 @@ const OurStory = ({ sectionData }: { sectionData: ISection | undefined }) => {
             aliquip ex ea commodo consequat.
           </p> */}
           <Link
-            href={"/about-us"}
+            href={"/contact-us"}
             className="mt-6 px-6 py-3 sm:px-8 sm:py-2 text-sm sm:text-base md:text-lg bg-transparent text-white rounded-none shadow-md border transition"
           >
             Explore More

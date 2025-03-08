@@ -1,11 +1,11 @@
-import { ISection, SubContent } from "@/utils/server";
+import { getBlogData } from "@/utils/server";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { GoArrowUpRight } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
 
-const LatestNews = ({ sectionData }: { sectionData?: ISection }) => {
+const LatestNews = async () => {
+  const {  data } = await getBlogData();
   const datas = [
     {
       title: "15 ways to grow your saas in 21 days with no money",
@@ -41,8 +41,8 @@ const LatestNews = ({ sectionData }: { sectionData?: ISection }) => {
         </h3>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
-        {datas &&
-          datas?.map((data: any, index: number) => (
+        {data &&
+          data?.map((data: any, index: number) => (
             <div
               key={index}
               className="container mx-auto mb-4 lg:mb-0 lg:p-2 flex flex-col lg:flex-col items-center justify-between"
@@ -50,7 +50,7 @@ const LatestNews = ({ sectionData }: { sectionData?: ISection }) => {
               {/* Left Column - Image */}
               <div className=" h-60 w-full flex justify-center rounded overflow-hidden ">
                 <Image
-                  src={data?.image} // Ensure this image exists in the public folder
+                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${data?.coverImage}`} // Ensure this image exists in the public folder
                   alt="Explore Image"
                   width={800}
                   height={630}
@@ -67,7 +67,7 @@ const LatestNews = ({ sectionData }: { sectionData?: ISection }) => {
                   {data?.title}
                 </h2>
                 <Link
-                  href={"/"}
+                  href={`/blogs/${data?.slug}`}
                   className="mt-6 w-12 h-12   text-sm sm:text-base md:text-lg bg-transparent text-black rounded  border border-[#F75D34] transition flex justify-center items-center"
                 >
                   <IoIosArrowForward

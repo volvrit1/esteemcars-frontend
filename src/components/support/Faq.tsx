@@ -1,5 +1,7 @@
 "use client";
-import { useState } from "react";
+import { getFaqs } from "@/utils/server";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import { BsDash } from "react-icons/bs";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { IoIosAdd, IoIosArrowForward } from "react-icons/io";
@@ -34,6 +36,14 @@ const faqs = [
 
 const Faq = () => {
   const [openIndex, setOpenIndex] = useState<number>(0); // First FAQ open by default
+  const [data, setData] = useState<any>();
+  useEffect(() => {
+    const getFaqsData = async () => {
+      const { data } = await getFaqs();
+      setData(data);
+    };
+    getFaqsData();
+  }, []);
 
   const toggleFAQ = (index: number) => {
     setOpenIndex((prev) => (prev === index ? -1 : index));
@@ -52,42 +62,43 @@ const Faq = () => {
         </h3>
       </div>
       <div className="lg:px-28 space-y-4 p-4">
-        {faqs.map((faq, index) => (
-          <div key={index} className="rounded">
-            <button
-              className={`w-full text-left p-8 rounded flex justify-between items-center   border-gray-800 border hover:bg-[#1262A1] hover:text-gray-50 ${
-                openIndex === index
-                  ? "bg-[#1262A1] text-gray-50"
-                  : "bg-gray-100 text-gray-600"
-              }`}
-              onClick={() => toggleFAQ(index)}
-            >
-              <span className="font-medium">{faq.question}</span>
-              <span className="text-xl">
-                {openIndex === index ? (
-                  <BsDash width={16} height={16} />
-                ) : (
-                  <IoIosAdd width={16} height={16} />
-                )}
-              </span>
-            </button>
-            <div
-              className={`transition-all duration-300 overflow-hidden text-gray-600 ${
-                openIndex === index
-                  ? "max-h-40 p-4 border-t bg-transparent "
-                  : "max-h-0 p-0"
-              }`}
-            >
-              {openIndex === index && <p className="text-lg">{faq.answer}</p>}
+        {data &&
+          data.map((faq: any, index: any) => (
+            <div key={index} className="rounded">
+              <button
+                className={`w-full text-left p-8 rounded flex justify-between items-center   border-gray-800 border hover:bg-[#1262A1] hover:text-gray-50 ${
+                  openIndex === index
+                    ? "bg-[#1262A1] text-gray-50"
+                    : "bg-gray-100 text-gray-600"
+                }`}
+                onClick={() => toggleFAQ(index)}
+              >
+                <span className="font-medium">{faq.question}</span>
+                <span className="text-xl">
+                  {openIndex === index ? (
+                    <BsDash width={16} height={16} />
+                  ) : (
+                    <IoIosAdd width={16} height={16} />
+                  )}
+                </span>
+              </button>
+              <div
+                className={`transition-all duration-300 overflow-hidden text-gray-600 ${
+                  openIndex === index
+                    ? "max-h-40 p-4 border-t bg-transparent "
+                    : "max-h-0 p-0"
+                }`}
+              >
+                {openIndex === index && <p className="text-lg">{faq.answer}</p>}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
       <div className="flex justify-center items-center gap-4 p-4">
-        <button className="bg-[#1262A1] lg:px-6 p-2 lg:h-12 font-light rounded-lg">
+        <Link href={"#loanApplication"} className="bg-[#1262A1] lg:px-6 lg:py-3 p-2 lg:h-12 font-light rounded-lg hover:bg-gray-500 transform ease-in-out transition-colors ">
           Get Your Car Finance Today
-        </button>
-        <button className="rounded-lg p-4 lg:-2 px-4 lg:h-12 text-gray-900 text-3xl bg-transparent border border-[#ff8e42]">
+        </Link>
+        <button className="rounded-lg p-2 lg:-2 px-4 lg:h-12 text-gray-900 text-3xl bg-transparent border border-[#ff8e42]">
           <IoIosArrowForward width={16} height={16} />
         </button>
         <button className="text-gray-900 h-12 font-semibold ">

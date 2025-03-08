@@ -1,23 +1,10 @@
-import Image from "next/image";
 import React from "react";
 import { AiFillThunderbolt } from "react-icons/ai";
 import {
   FaCarSide,
-  FaCreditCard,
-  FaDollarSign,
-  FaFileInvoice,
-  FaRegAddressCard,
-  FaRegFileAlt,
-  FaRegHandshake,
-  FaShuttleVan,
-  FaTruckMonster,
 } from "react-icons/fa";
-import { FaCalendarDays } from "react-icons/fa6";
-import { ImArrowRight } from "react-icons/im";
 import { IoIosAddCircleOutline } from "react-icons/io";
-import { MdChair } from "react-icons/md";
 import { TbMoneybag } from "react-icons/tb";
-import { TiUser } from "react-icons/ti";
 
 export default function Step1({
   nextStep,

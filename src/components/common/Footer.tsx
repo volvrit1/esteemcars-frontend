@@ -1,3 +1,4 @@
+import { Post } from "@/utils/api";
 import Image from "next/image";
 import React from "react";
 import {
@@ -8,6 +9,8 @@ import {
   FaGoogle,
   FaLinkedinIn,
 } from "react-icons/fa";
+import NewsLetter from "./NewsLetter";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -45,11 +48,21 @@ const Footer = () => {
           <div className="col-span-1">
             <h3 className="text-lg font-semibold">Company</h3>
             <ul className="mt-2 space-y-3 text-xs text-gray-300 font-thin">
-              <li>Home</li>
-              <li>About Us</li>
-              <li>Vehicles</li>
-              <li>Finance</li>
-              <li>Contact Us</li>
+              <Link href={"/"} className="mb-2 block">
+                <li>Home</li>
+              </Link>
+              <Link href={"/why-us"}  className="mb-2 block">
+                <li>Why Us</li>
+              </Link>
+              <Link href={"/solution"}  className="mb-2 block">
+                <li>Solution</li>
+              </Link>
+              <Link href={"/blogs"}  className="mb-2 block">
+                <li>Blogs</li>
+              </Link>
+              <Link href={"/contact-us"} className="mb-2 block">
+                <li>Contact Us</li>
+              </Link>
             </ul>
           </div>
           <div className="col-span-1">
@@ -85,16 +98,7 @@ const Footer = () => {
           </div>
           <div className="col-span-2">
             <h3 className="text-lg font-light">Newsletter</h3>
-            <div className="mt-2">
-              <input
-                type="email"
-                placeholder="example@gmail.com"
-                className="w-full p-2 text-black text-xs rounded-2xl bg-transparent border"
-              />
-              <button className="w-full mt-2 p-2 bg-[#1262A1] text-white font-light rounded-lg">
-                Submit
-              </button>
-            </div>
+            <NewsLetter />
           </div>
         </div>
         <div className="border-t border-gray-700 mt-6 py-4 text-center flex justify-between text-gray-400">

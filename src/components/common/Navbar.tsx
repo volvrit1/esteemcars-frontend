@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import MobileMenu from "./MobileMenu";
 import { TbArrowRightToArc } from "react-icons/tb";
@@ -12,10 +12,28 @@ import SignUpModal from "./SignUp";
 
 const Navbar = () => {
   const pathname = usePathname(); // Get current route
-  const [isOpen, setIsOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
   const [signUpOpen, setSignUpOpen] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
+  const [button, setButton] = useState("");
+  const [auth, setAuth] = useState<boolean>(false);
+  const handelLogout = () => {
+    setIsLogin(false);
+    setLoginOpen(false);
+    setSignUpOpen(false);
+    localStorage.removeItem("token");
+  };
 
+  let token: any | null;
+  useEffect(() => {
+    // This code runs only on the client side
+    if (typeof window !== "undefined") {
+      token = localStorage.getItem("token");
+      // const token = localStorage.getItem("token");
+    }
+  }, [auth]);
+
+  // Define the menuItems array
   const menuItems = [
     { name: "Home", path: "/" },
     { name: "Why Us", path: "/why-us" },
@@ -23,6 +41,11 @@ const Navbar = () => {
     { name: "Blogs", path: "/blogs" },
     { name: "Contact Us", path: "/contact-us" },
   ];
+
+  // Conditionally add "Account" as an object to the menuItems array if the token exists
+  if (token) {
+    menuItems.push({ name: "Account", path: "/account" });
+  }
 
   return (
     <nav
@@ -64,11 +87,13 @@ const Navbar = () => {
         <MobileMenu />
         <Link
           href={""}
-          onClick={() => setLoginOpen(true)}
+          onClick={() => {
+            token ? setIsLogin(true) : setSignUpOpen(true);
+          }}
           className="hidden lg:flex justify-center items-center border rounded-lg text-sm  border-gray-50 px-5 py-2 text-gray-50"
         >
-          Signup/Login
-          <TbArrowRightToArc width={16} height={16} className="" />
+          {token ? "Log Out" : "Signup/Log In"}
+          <TbArrowRightToArc width={16} height={16} className="ml-2" />
         </Link>
       </div>
       <LoginModal
@@ -81,6 +106,26 @@ const Navbar = () => {
         onClose={() => setSignUpOpen(false)}
         setLoginOpen={setLoginOpen}
       />
+
+      {isLogin && (
+        <div className="absolute left-1/2 -translate-x-1/2 top-52  bg-white shadow-lg w-2/5 border rounded-xl h-44 text-gray-600 p-8">
+          <h2 className="text-2xl mb-4">Are you sure want to log out?</h2>
+          <div className="flex justify-between items-center gap-4  border-b border-gray-50 h-20">
+            <button
+              className="p-2 px-5 w-1/2 bg-gray-400 rounded btn text-gray-50 outline-none hover:bg-gray-300"
+              onClick={() => setIsLogin(false)}
+            >
+              No
+            </button>
+            <button
+              className="p-2 px-5 w-1/2 bg-blue-500 rounded btn text-gray-50 outline-none hover:bg-blue-400"
+              onClick={handelLogout}
+            >
+              Yes
+            </button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

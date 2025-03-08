@@ -1,5 +1,3 @@
-import CarLoanWizard from "@/components/common/CarLoanWizard";
-import ContactUsForm from "@/components/contact/ContactUsForm";
 import CarSearchBanner from "@/components/home/CarSearchBanner";
 import ContactSection from "@/components/home/ContactSection";
 import EmiCalculator from "@/components/home/EmiCalculator";
@@ -15,19 +13,6 @@ import Why from "@/components/home/Why";
 import Faq from "@/components/support/Faq";
 
 const Home = async () => {
-  // const {
-  //   loading,
-  //   title,
-  //   description,
-  //   section1,
-  //   section2,
-  //   section3,
-  //   section4,
-  //   section5,
-  //   section6,
-  //   section7,
-  // } = await getHomeData();
-  // if (!loading) return null;
   const data = {
     title: "Your All In One Solution For Unmanned System Force",
     description:
@@ -43,6 +28,7 @@ const Home = async () => {
         image={data?.image}
         link={"/contact"}
         textShow={false}
+        slug="home"
       />
       <OurPartners />
       <HowDifferent />

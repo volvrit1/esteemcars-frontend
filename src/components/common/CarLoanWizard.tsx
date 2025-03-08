@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiFillThunderbolt } from "react-icons/ai";
 import {
   FaCar,
@@ -39,6 +39,7 @@ import Step8 from "./wizardForm/Step8";
 
 const CarLoanWizard = () => {
   const [step, setStep] = useState(1);
+  const [userData, setUserData] = useState<any>();
   const [formData, setFormData] = useState<any>({
     userType: "",
     vehicleMake: "",
@@ -47,13 +48,13 @@ const CarLoanWizard = () => {
     vehicleVariant: "",
     kmDriven: "",
     tradeCar: "",
-    title: "",
-    firstName: "",
-    middleName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    dob: "",
+    title: userData?.title ?? "",
+    firstName: userData?.firstName ?? "",
+    middleName: userData?.middleName ?? "",
+    lastName: userData?.lastName ?? "",
+    email: userData?.email ?? "",
+    mobileNo: userData?.mobileNo ?? "",
+    dob: userData?.dob ?? "",
     employerName: "",
     companyName: "",
     companyAddress: "",
@@ -108,7 +109,41 @@ const CarLoanWizard = () => {
     motorVehicleExpenses: "",
   });
 
-  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    const storedUserData = localStorage.getItem("userData");
+
+    if (storedUserData) {
+      const parsedUserData = JSON.parse(storedUserData);
+      setUserData(parsedUserData);
+    }
+  }, []); // Run only on component mount
+
+  // Update formData when userData changes
+  useEffect(() => {
+    if (userData) {
+      setFormData((prevFormData: any) => ({
+        ...prevFormData,
+        title: userData.title ?? "",
+        firstName: userData.firstName ?? "",
+        middleName: userData.middleName ?? "",
+        lastName: userData.lastName ?? "",
+        email: userData.email ?? "",
+        mobileNo: userData.mobileNo ?? "",
+        dob: userData.dob ?? "",
+        role: userData.role ?? "user", // Default to "user"
+        nzCitizen: userData.nzCitizen ?? false, // Default to false
+        citizenshipDetails: userData.citizenshipDetails ?? [], // Default to empty array
+        birthCountry: userData.birthCountry ?? "",
+        address: userData.address ?? "",
+        city: userData.city ?? "",
+        postalCode: userData.postalCode ?? "",
+        timeAtCurrentAddressInYears: userData.timeAtCurrentAddressInYears ?? "",
+        timeAtCurrentAddressInMonths:
+          userData.timeAtCurrentAddressInMonths ?? "",
+        residentType: userData.residentType ?? "", // Default to empty string or set to a default
+      }));
+    }
+  }, [userData]); // This will run when userData is updated
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -165,7 +200,6 @@ const CarLoanWizard = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
 
     try {
       const formDataToSend = new FormData();
@@ -182,6 +216,7 @@ const CarLoanWizard = () => {
         }
       });
 
+      formDataToSend.append("userId", userData?.id);
       const response: any = await Post("api/loan-query", formDataToSend);
 
       if (response?.success) {
@@ -262,13 +297,11 @@ const CarLoanWizard = () => {
     } catch (error) {
       toast.info("Failed to submit application.");
     } finally {
-      setLoading(false);
     }
   };
 
   const handleCallRequest = async (e: any) => {
     e.preventDefault();
-    setLoading(true);
 
     try {
       const formDataToSend = new FormData();
@@ -286,8 +319,9 @@ const CarLoanWizard = () => {
       });
 
       formDataToSend.append("callbackRequested", "true");
+      formDataToSend.append("userId", userData?.id);
 
-      const response: any = await Post("api/lead", formDataToSend);
+      const response: any = await Post("api/lead", formDataToSend);   
 
       if (response.success) {
         toast.success("Application submitted successfully!");
@@ -364,7 +398,6 @@ const CarLoanWizard = () => {
     } catch (error) {
       toast.info("Failed to submit application.");
     } finally {
-      setLoading(false);
     }
   };
 

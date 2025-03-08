@@ -1,12 +1,16 @@
-import { ISection, SubContent } from "@/utils/server";
+import { getTestimonials, ISection, SubContent } from "@/utils/server";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { GoArrowUpRight } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
-const Testimonials = ({ sectionData }: { sectionData?: ISection }) => {
+const Testimonials = async () => {
+  const { loading, data } = await getTestimonials();
+
   const datas = [
     {
       title: "Elizabeth Thomas",
@@ -42,46 +46,98 @@ const Testimonials = ({ sectionData }: { sectionData?: ISection }) => {
         </h3>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
-        {datas &&
-          datas?.map((data: any, index: number) => (
+        {data &&
+          data?.map((data: any, index: number) => (
             <div
               key={index}
               className="container mx-auto lg:p-2 flex flex-col lg:flex-col items-center justify-between mb-8 lg:mb-0"
             >
-              {/* Left Column - Image */}
               <div className="relative h-60 w-60 flex justify-center rounded-full border  border-green-200   ">
                 <Image
-                  src={data?.image} // Ensure this image exists in the public folder
+                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${data?.image}`} // Ensure this image exists in the public folder
                   alt="Explore Image"
                   width={800}
                   height={630}
                   className="rounded-full w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl object-cover"
                 />
-                <span className="absolute left-[-2rem] top-0 shadow-lg rounded w-2/5  px-1 py-4 text-center bg-white  flex flex-col justify-center items-center">
+                <span className="absolute left-[-2rem] top-0 shadow-lg rounded w-2/5 mb-1  px-1 py-4 text-center bg-white  flex flex-col justify-center items-center">
                   <FaStar
                     width={24}
                     height={24}
                     className="bg-yellow-400 text-xl rounded p-1"
                   />
-                  <span className="text-gray-600 text-xs">{"4.7/5"}</span>
+                  <span className="text-gray-600 text-xs">
+                    {" "}
+                    {`${(parseFloat(data?.rating) || 0).toFixed(1)}/5`}
+                  </span>
                   <span className="text-gray-600 text-xs">
                     {"Good Service"}
                   </span>
                 </span>
               </div>
 
-              {/* Right Column - Content */}
               <div className={` w-full mt-8 lg:mt-4 lg:text-center  `}>
                 <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-bold text-gray-900 leading-7 mb-1">
-                  {data?.title}
+                  {data?.name}
                 </h2>
                 <h2 className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl font-normal tracking-widest text-gray-900 leading-7 mb-3">
-                  {data?.description}
+                  {data?.review}
                 </h2>
               </div>
             </div>
           ))}
       </div>
+      {/* <Swiper
+          spaceBetween={30}
+          slidesPerView={1}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
+        >
+          {data &&
+            data.map((item: any, index: any) => (
+              <SwiperSlide key={index}>
+                <div className="container mx-auto lg:p-2 flex flex-col lg:flex-col items-center justify-between mb-8 lg:mb-0">
+                  
+                  <div className="relative h-60 w-60 flex justify-center rounded-full border border-green-200">
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
+                      alt="Explore Image"
+                      width={800}
+                      height={630}
+                      className="rounded-full w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl object-cover"
+                    />
+                    <span className="absolute left-[-2rem] top-0 shadow-lg rounded w-2/5 mb-1 px-1 py-4 text-center bg-white flex flex-col justify-center items-center">
+                      <FaStar
+                        width={24}
+                        height={24}
+                        className="bg-yellow-400 text-xl rounded p-1"
+                      />
+                      <span className="text-gray-600 text-xs">
+                        {`${(parseFloat(item?.rating) || 0).toFixed(1)}/5`}
+                      </span>
+                      <span className="text-gray-600 text-xs">Good Service</span>
+                    </span>
+                  </div>
+
+                  
+                  <div className="w-full mt-8 lg:mt-4 lg:text-center">
+                    <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-bold text-gray-900 leading-7 mb-1">
+                      {item?.name}
+                    </h2>
+                    <h2 className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl font-normal tracking-widest text-gray-900 leading-7 mb-3">
+                      {item?.review}
+                    </h2>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+        </Swiper> */}
     </div>
   );
 };

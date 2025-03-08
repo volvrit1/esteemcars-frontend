@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 
 const EmiCalculator = () => {
@@ -26,9 +27,9 @@ const EmiCalculator = () => {
           <br />
           {"Your Monthly Payment"}
         </h2>
-        <button className="bg-[#1262A1] px-14  h-11 text-sm rounded">
+        <Link href={"#loanApplication"} className="bg-[#1262A1] hover:bg-gray-400 transition-colors ease-in-out px-14 lg:py-3  h-11 text-sm rounded">
           Get Started
-        </button>
+        </Link> 
       </div>
       <div className="w-full lg:w-2/5 p-4">
         <div className="mb-4">

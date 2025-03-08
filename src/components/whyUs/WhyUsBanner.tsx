@@ -24,7 +24,7 @@ export default function WhyUsBanner() {
             }
           </p>
           <Link
-            href={"/about-us"}
+            href={"/contact-us"}
             className="mt-6 px-6 py-3 sm:px-10 sm:py-3 text-sm sm:text-sm md:text-sm bg-[#1262A1] text-gray-100 border-gray-900 rounded shadow-md border transition"
           >
             Know More

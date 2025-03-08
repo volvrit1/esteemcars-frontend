@@ -20,6 +20,7 @@ export default function page() {
         link={data?.link}
         image={data?.image}
         textShow={true}
+        slug="contact"
       />
      <ContactSection />
      <Faq />
