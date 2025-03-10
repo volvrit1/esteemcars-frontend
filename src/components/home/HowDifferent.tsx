@@ -61,7 +61,7 @@ const HowDifferent = ({ sectionData }: { sectionData?: ISection }) => {
             </li>{" "}
             <li className="flex justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-gray-800 mt-4 p-2 leading-8">
               <Image
-                src={"/images/challengeicon3.png"}
+                src={"/assets/challengeicon3.png"}
                 width={35}
                 height={35}
                 alt="icon"
