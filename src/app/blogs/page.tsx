@@ -27,10 +27,4 @@ export default function Page() {
   );
 }
 
-// Fetch the data and revalidate every 3 minutes
-export async function getStaticProps() {
-  return {
-    props: {}, // Add any props you need to pass to the page
-    revalidate: 180, // This will revalidate the page every 3 minutes (180 seconds)
-  };
-}
+export const revalidate = 60; 

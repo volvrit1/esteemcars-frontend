@@ -26,8 +26,8 @@ const page = async () => {
         link={data?.link}
         image={data?.image}
         textShow={true}
-        slug="slution"
-      />
+        slug="solution"
+      />x
       <LoanApproval />
       <LoanSolution />
       <LoanApplication />
@@ -42,10 +42,5 @@ const page = async () => {
 
 export default page;
 
-// Add ISR logic for revalidation every 3 minutes
-export async function getStaticProps() {
-  return {
-    props: {}, // Any required props for the page can be passed here
-    revalidate: 180, // Revalidate the page every 3 minutes (180 seconds)
-  };
-}
+
+export const revalidate = 60;

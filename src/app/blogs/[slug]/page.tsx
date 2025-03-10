@@ -150,12 +150,9 @@ const page = () => {
   );
 };
 
-// Add getStaticProps to enable ISR revalidation
-export async function getStaticProps() {
-  return {
-    props: {}, // Any props you need to pass to the page
-    revalidate: 180, // The page will revalidate every 3 minutes (180 seconds)
-  };
-}
+
 
 export default page;
+
+
+export const revalidate = 60; 
