@@ -20,10 +20,11 @@ const page = async () => {
   const data = {
     title: "About Us",
     description:
-      "  SkyField, powered by Vanguard Systems Ltd., is your one-stop solution for Unmanned Systems Forces. We offer a comprehensive range of products and services designed to enhance the capabilities and effectiveness of your unmanned systems operations. SkyField is committed to fulfilling the evolving needs of Unmanned Systems Forces. We specialize in developing and manufacturing a comprehensive range of solutions, from extending the operator's reach beyond the frontlines to providing real-time situational awareness and advanced counter-UAS  capabilities.",
+      "SkyField, powered by Vanguard Systems Ltd., is your one-stop solution for Unmanned Systems Forces. We offer a comprehensive range of products and services designed to enhance the capabilities and effectiveness of your unmanned systems operations. SkyField is committed to fulfilling the evolving needs of Unmanned Systems Forces. We specialize in developing and manufacturing a comprehensive range of solutions, from extending the operator's reach beyond the frontlines to providing real-time situational awareness and advanced counter-UAS capabilities.",
     video: "/videos/heroSection.mp4",
     link: "/",
   };
+
   return (
     <div className={`${lexendDeca.className}`}>
       <WhyUsBanner />
@@ -40,3 +41,11 @@ const page = async () => {
 };
 
 export default page;
+
+// Add ISR logic for revalidation every 3 minutes
+export async function getStaticProps() {
+  return {
+    props: {}, // Any required props for the page can be passed here
+    revalidate: 180, // Revalidate the page every 3 minutes (180 seconds)
+  };
+}

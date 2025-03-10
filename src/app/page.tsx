@@ -12,14 +12,15 @@ import Testimonials from "@/components/home/Tesomonials";
 import Why from "@/components/home/Why";
 import Faq from "@/components/support/Faq";
 
-const Home = async () => {
+const Home = () => {
   const data = {
     title: "Your All In One Solution For Unmanned System Force",
     description:
-      "  SkyField, powered by Vanguard Systems Ltd., is your one-stop solution for Unmanned Systems Forces. We offer a comprehensive range of products and services designed to enhance the capabilities and effectiveness of your unmanned systems operations. SkyField is committed to fulfilling the evolving needs of Unmanned Systems Forces. We specialize in developing and manufacturing a comprehensive range of solutions, from extending the operator's reach beyond the frontlines to providing real-time situational awareness and advanced counter-UAS  capabilities.",
+      "  SkyField, powered by Vanguard Systems Ltd., is your one-stop solution for Unmanned Systems Forces. We offer a comprehensive range of products and services designed to enhance the capabilities and effectiveness of your unmanned systems operations. SkyField is committed to fulfilling the evolving needs of Unmanned Systems Forces. We specialize in developing and manufacturing a comprehensive range of solutions, from extending the operator's reach beyond the frontlines to providing real-time situational awareness and advanced counter-UAS capabilities.",
     image: "/images/bgHeroImage.png",
     link: "/",
   };
+
   return (
     <div>
       <HeroSection
@@ -42,11 +43,6 @@ const Home = async () => {
       <Testimonials />
       <Faq />
       <ContactSection />
-      {/* <CarLoanWizard /> */}
-      {/* <WeBestSection /> */}
-      {/*
-      {section2 && <Service sectionData={section2} />}
-      {section7 && <LatestNews sectionData={section7} />} */}
     </div>
   );
 };

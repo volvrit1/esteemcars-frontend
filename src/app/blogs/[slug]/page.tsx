@@ -55,10 +55,11 @@ const page = () => {
   const data = {
     title: "Blog",
     description:
-      "  SkyField, powered by Vanguard Systems Ltd., is your one-stop solution for Unmanned Systems Forces. We offer a comprehensive range of products and services designed to enhance the capabilities and effectiveness of your unmanned systems operations. SkyField is committed to fulfilling the evolving needs of Unmanned Systems Forces. We specialize in developing and manufacturing a comprehensive range of solutions, from extending the operator's reach beyond the frontlines to providing real-time situational awareness and advanced counter-UAS  capabilities.",
+      "SkyField, powered by Vanguard Systems Ltd., is your one-stop solution for Unmanned Systems Forces. We offer a comprehensive range of products and services designed to enhance the capabilities and effectiveness of your unmanned systems operations. SkyField is committed to fulfilling the evolving needs of Unmanned Systems Forces. We specialize in developing and manufacturing a comprehensive range of solutions, from extending the operator's reach beyond the frontlines to providing real-time situational awareness and advanced counter-UAS capabilities.",
     video: "/videos/heroSection.mp4",
     link: "/",
   };
+
   return (
     <div className="bg-gray-50 mt-[7rem]">
       <div className="max-w-7xl lg:max-w-6xl m-auto p-4 lg:py-4">
@@ -103,24 +104,6 @@ const page = () => {
           ></p>
         </div>
 
-        {/* <div className="mt-12">
-          <h3 className="text-2xl font-semibold text-gray-800">Comments</h3>
-          <div className="mt-4">
-            {<div className="bg-gray-100 p-4 rounded-lg mb-4">
-              <p className="font-semibold">User Name</p>
-              <p className="text-gray-600">
-                This is a sample comment on the blog post.
-              </p>
-            </div>}
-            <div className="bg-gray-100 p-4 rounded-lg">
-              <p className="font-semibold">Another User</p>
-              <p className="text-gray-600">
-                Interesting insights! Thanks for sharing.
-              </p>
-            </div>
-          </div>
-        </div> */}
-
         <div className="mt-8">
           <h3 className="text-2xl font-semibold text-gray-800">Latest Blogs</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
@@ -130,10 +113,9 @@ const page = () => {
                   key={index}
                   className="container mx-auto mb-4 lg:mb-0 lg:p-2 flex flex-col lg:flex-col items-center justify-between"
                 >
-                  {/* Left Column - Image */}
                   <div className=" h-60 w-full flex justify-center rounded overflow-hidden ">
                     <Image
-                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${data?.coverImage}`} // Ensure this image exists in the public folder
+                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${data?.coverImage}`}
                       alt="Explore Image"
                       width={800}
                       height={630}
@@ -141,9 +123,8 @@ const page = () => {
                     />
                   </div>
 
-                  {/* Right Column - Content */}
                   <div className={` w-full mt-8 lg:mt-4 lg:text-left  `}>
-                    <h2 className="text-lg  sm:text-xl md:text-xl lg:text-xl xl:text-xl font-normal tracking-widest text-gray-900 leading-7 mb-3">
+                    <h2 className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl font-normal tracking-widest text-gray-900 leading-7 mb-3">
                       {"Loan"}
                     </h2>
                     <h2 className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl font-bold text-gray-900 leading-7 mb-1">
@@ -151,7 +132,7 @@ const page = () => {
                     </h2>
                     <Link
                       href={`/blogs/${data?.slug}`}
-                      className="mt-6 w-12 h-12   text-sm sm:text-base md:text-lg bg-transparent text-black rounded  border border-[#F75D34] transition flex justify-center items-center"
+                      className="mt-6 w-12 h-12 text-sm sm:text-base md:text-lg bg-transparent text-black rounded  border border-[#F75D34] transition flex justify-center items-center"
                     >
                       <IoIosArrowForward
                         width={18}
@@ -168,5 +149,13 @@ const page = () => {
     </div>
   );
 };
+
+// Add getStaticProps to enable ISR revalidation
+export async function getStaticProps() {
+  return {
+    props: {}, // Any props you need to pass to the page
+    revalidate: 180, // The page will revalidate every 3 minutes (180 seconds)
+  };
+}
 
 export default page;

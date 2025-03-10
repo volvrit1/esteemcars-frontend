@@ -27,3 +27,13 @@ export default function page() {
     </div>
   );
 }
+
+
+
+// Add ISR logic for revalidation every 3 minutes
+export async function getStaticProps() {
+  return {
+    props: {}, // You can pass any required props here
+    revalidate: 180, // Revalidate the page every 3 minutes (180 seconds)
+  };
+}
