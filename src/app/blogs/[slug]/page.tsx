@@ -38,7 +38,7 @@ const page = () => {
         setLoadingBlogList(true);
         setBlog(blogPageSlugData?.[0]);
       } catch (error) {
-        console.error("Error fetching blog:", error);
+        console.log("Error fetching blog:", error);
       } finally {
         setLoadingBlogList(false);
       }
@@ -150,9 +150,6 @@ const page = () => {
   );
 };
 
-
-
 export default page;
 
-
-export const revalidate = 60; 
+export const revalidate = 60;

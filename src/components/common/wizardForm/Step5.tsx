@@ -361,13 +361,13 @@ export default function Step1({
         </div>
 
         {/* Upload Driving License */}
-        <div className="mt-4">
+        <div className="w-fit">
           <label className="block font-medium">Upload Driving License:</label>
           <input
             type="file"
             onChange={handleFileChange}
             name="driverLicenseDocument"
-            className="mt-2 border p-2 rounded text-gray-800"
+            className="mt-0.5 w-full border p-2 rounded text-gray-800"
           />
           {errors.driverLicenseDocument && (
             <p className="text-red-500">{errors.driverLicenseDocument}</p>

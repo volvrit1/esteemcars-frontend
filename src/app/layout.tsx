@@ -46,6 +46,7 @@ export default function RootLayout({
       <body
         className={`${jost.variable} ${inter.variable} font-[jost] antialiased`}
       >
+        <div id="modal-root"></div>
         <Navbar />
         {children}
         <OpenHour />

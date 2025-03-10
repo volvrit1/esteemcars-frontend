@@ -1,4 +1,3 @@
-
 import { getBlogData } from "@/utils/server";
 import dayjs from "dayjs";
 import Image from "next/image";
@@ -15,10 +14,10 @@ const Blogs = () => {
       try {
         setLoading(true);
         const { data }: any = await getBlogData(); // ✅ Fetch latest blogs
-        console.log(data)
+        console.log(data);
         setBlogs(data);
       } catch (error) {
-        console.error("Error fetching blogs:", error);
+        console.log("Error fetching blogs:", error);
       } finally {
         setLoading(false);
       }
@@ -27,7 +26,6 @@ const Blogs = () => {
     fetchBlogs();
   }, []); // ✅ Runs only once
 
-  
   const datas = [
     {
       title: "The Higher the Camera, The Better Videos",

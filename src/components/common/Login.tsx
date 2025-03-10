@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 export default function LoginModal({ isOpen, onClose, setSignUpOpen }: any) {
   const router = useRouter();
@@ -33,23 +34,22 @@ export default function LoginModal({ isOpen, onClose, setSignUpOpen }: any) {
       if (validate()) {
         const res: any = await Post("api/user/login", data, 5000);
         if (res?.success) {
-          localStorage.setItem("token", res.data.token);
+          if (res.data.token) localStorage.setItem("token", res.data.token);
           localStorage.setItem("userData", JSON.stringify(res.data.userData));
           router.push("/account");
           setEmail("");
           setPassword("");
           onClose();
-          console.log("Login successful", res);
+          if (res?.message) toast.success(res?.message);
         } else {
-          console.error("Login failed", res);
+          console.log("Login failed", res);
         }
       }
-    } catch (error) {
-      console.error("Login failed", error);
-      onClose();
+    } catch (error: any) {
+      if (error?.message) toast.error(error?.message);
+      console.log("Login failed", error);
     } finally {
       setLoading(false);
-      onClose();
     }
   };
 

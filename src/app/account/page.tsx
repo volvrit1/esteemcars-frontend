@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useState, useEffect } from "react";
 import { Fetch } from "@/utils/api";
@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import LoanDetailsModal from "@/components/LoanDetailsModals";
+import { toast } from "react-toastify";
 
 const ProfilePage: React.FC = () => {
   const [user, setUser] = useState<any | null>(null);
@@ -39,8 +40,9 @@ const ProfilePage: React.FC = () => {
       );
       const data = await response.data.result;
       setApplications(data);
-    } catch (error) {
-      console.error("Error fetching applications:", error);
+    } catch (error: any) {
+      if (error?.message) toast.error(error?.message);
+      console.log("Error fetching applications:", error);
     } finally {
       setLoading(false);
     }

@@ -36,10 +36,10 @@ const ContactSection = () => {
         toast.success("Submission successful");
         console.log("Submission successful", res);
       } else {
-        console.error("Submission failed", res);
+        console.log("Submission failed", res);
       }
     } catch (error) {
-      console.error("Submission failed", error);
+      console.log("Submission failed", error);
     } finally {
       setLoading(false);
     }

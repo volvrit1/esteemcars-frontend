@@ -198,7 +198,7 @@ const CarLoanWizard = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     try {
@@ -294,8 +294,8 @@ const CarLoanWizard = () => {
         });
         setStep(12);
       }
-    } catch (error) {
-      toast.info("Failed to submit application.");
+    } catch (error: any) {
+      if (error.message) toast.info(error.message);
     } finally {
     }
   };
@@ -321,7 +321,7 @@ const CarLoanWizard = () => {
       formDataToSend.append("callbackRequested", "true");
       formDataToSend.append("userId", userData?.id);
 
-      const response: any = await Post("api/lead", formDataToSend);   
+      const response: any = await Post("api/lead", formDataToSend);
 
       if (response.success) {
         toast.success("Application submitted successfully!");

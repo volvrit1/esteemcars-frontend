@@ -12,7 +12,7 @@ export default function Step1({
 }: any) {
   const [errors, setErrors] = useState<any>({});
   const [isValidated, setIsValidated] = useState(false);
-console.log(formData)
+  console.log(formData);
   const validateForm = () => {
     let newErrors: any = {};
     const requiredFields = [
@@ -20,7 +20,7 @@ console.log(formData)
       "firstName",
       "lastName",
       "email",
-      "phone",
+      "mobileNo",
       "dob",
     ];
 
@@ -55,9 +55,15 @@ console.log(formData)
           { label: "Middle Name", name: "middleName", type: "text" },
           { label: "Last Name", name: "lastName", type: "text" },
           { label: "Email", name: "email", type: "email" },
-          { label: "Phone", name: "phone", type: "number" },
-          { label: "Date of Birth", name: "dob", type: "date" },
-        ].map(({ label, name, type, options }: any) => (
+          {
+            label: "Phone",
+            name: "mobileNo",
+            type: "number",
+            maxlength: 10,
+            editable: true,
+          },
+          { label: "Date of Birth", name: "dob", type: "date", editable: true },
+        ].map(({ label, name, type, options, editable, maxlength }: any) => (
           <div className="flex flex-col" key={name}>
             <label className="text-gray-100 font-medium">
               {label}
@@ -69,6 +75,7 @@ console.log(formData)
                 name={name}
                 value={formData[name]}
                 onChange={handleChange}
+                disabled={formData[name]}
                 className="border rounded p-3 bg-white text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none"
               >
                 <option value="">Select</option>
@@ -85,6 +92,8 @@ console.log(formData)
                 name={name}
                 value={formData[name]}
                 onChange={handleChange}
+                maxLength={maxlength ?? 255}
+                disabled={formData[name] && !editable}
                 className={`border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none ${
                   errors[name] ? "border-red-500" : ""
                 }`}

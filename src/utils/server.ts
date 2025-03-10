@@ -77,7 +77,7 @@ export const getData = async (url: string) => {
     const res = await response.json();
     return res.data.result;
   } catch (error) {
-    console.error("Error fetching section data:", error);
+    console.log("Error fetching section data:", error);
     return null;
   }
 };

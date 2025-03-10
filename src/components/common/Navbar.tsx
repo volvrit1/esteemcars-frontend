@@ -9,6 +9,7 @@ import { TbArrowRightToArc } from "react-icons/tb";
 import { inter } from "@/data/font";
 import LoginModal from "./Login";
 import SignUpModal from "./SignUp";
+import Modal from "./Modal";
 
 const Navbar = () => {
   const pathname = usePathname(); // Get current route
@@ -16,6 +17,9 @@ const Navbar = () => {
   const [signUpOpen, setSignUpOpen] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const [button, setButton] = useState("");
+  const [token, setToken] = useState<any>("");
+  const tokenExist =
+    typeof window !== "undefined" && localStorage.getItem("token");
   const [auth, setAuth] = useState<boolean>(false);
   const handelLogout = () => {
     setIsLogin(false);
@@ -24,14 +28,12 @@ const Navbar = () => {
     localStorage.removeItem("token");
   };
 
-  let token: any | null;
   useEffect(() => {
-    // This code runs only on the client side
     if (typeof window !== "undefined") {
-      token = localStorage.getItem("token");
-      // const token = localStorage.getItem("token");
+      const token = localStorage.getItem("token");
+      setToken(token);
     }
-  }, [auth]);
+  }, [tokenExist]);
 
   // Define the menuItems array
   const menuItems = [
@@ -82,7 +84,6 @@ const Navbar = () => {
           </Link>
         ))}
       </ul>
-
       <div className="text-right">
         <MobileMenu />
         <Link
@@ -108,23 +109,31 @@ const Navbar = () => {
       />
 
       {isLogin && (
-        <div className="absolute left-1/2 -translate-x-1/2 top-52  bg-white shadow-lg w-2/5 border rounded-xl h-44 text-gray-600 p-8">
-          <h2 className="text-2xl mb-4">Are you sure want to log out?</h2>
-          <div className="flex justify-between items-center gap-4  border-b border-gray-50 h-20">
-            <button
-              className="p-2 px-5 w-1/2 bg-gray-400 rounded btn text-gray-50 outline-none hover:bg-gray-300"
-              onClick={() => setIsLogin(false)}
-            >
-              No
-            </button>
-            <button
-              className="p-2 px-5 w-1/2 bg-blue-500 rounded btn text-gray-50 outline-none hover:bg-blue-400"
-              onClick={handelLogout}
-            >
-              Yes
-            </button>
+        <Modal
+          isVisible={isLogin}
+          width="w-[90%] md:w-1/2 lg:w-1/3"
+          onClose={() => setIsLogin(false)}
+        >
+          <div className="text-black">
+            <h2 className="text-2xl mb-4 text-center">
+              Are you sure want to log out?
+            </h2>
+            <div className="flex justify-between items-center gap-4  border-b border-gray-50 h-20">
+              <button
+                className="p-2 px-5 w-1/2 bg-gray-400 rounded btn text-gray-50 outline-none hover:bg-gray-300"
+                onClick={() => setIsLogin(false)}
+              >
+                No
+              </button>
+              <button
+                className="p-2 px-5 w-1/2 bg-blue-500 rounded btn text-gray-50 outline-none hover:bg-blue-400"
+                onClick={handelLogout}
+              >
+                Yes
+              </button>
+            </div>
           </div>
-        </div>
+        </Modal>
       )}
     </nav>
   );

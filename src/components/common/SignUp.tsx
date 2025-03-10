@@ -4,12 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [title, setTitle] = useState("");
   const [firstName, setFirstName] = useState("");
+  const [middleName, setMiddleName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,6 +34,7 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
       title,
       firstName,
       lastName,
+      middleName,
       email,
       password,
       confirmPassword,
@@ -46,13 +49,14 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
           setPassword("");
           setConfirmPassword("");
           onClose();
-          console.log("Login successful", res);
+          if (res?.message) toast.success(res.message);
         } else {
-          console.error("Login failed", res);
+          console.log("Login failed", res);
         }
       }
-    } catch (error) {
-      console.error("Login failed", error);
+    } catch (error: any) {
+      if (error?.message) toast.error(error?.message);
+      console.log("Login failed", error);
     } finally {
       setLoading(false);
     }
@@ -107,13 +111,20 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
                   <option value="Dr">Dr</option>
                 </select>
               </div>
-              <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="grid grid-cols-3 gap-4 mb-4">
                 {/* Name Fields */}
                 <input
                   type="text"
                   placeholder="First Name"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
+                  className="border rounded px-4 py-3 w-full text-gray-700   outline-none"
+                />
+                <input
+                  type="text"
+                  value={middleName}
+                  placeholder="middle Name"
+                  onChange={(e) => setMiddleName(e.target.value)}
                   className="border rounded px-4 py-3 w-full text-gray-700   outline-none"
                 />
                 <input

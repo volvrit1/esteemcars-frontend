@@ -29,9 +29,9 @@ export default function Step1({
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: any) => {
     if (validateForm()) {
-      handelSubmit();
+      handelSubmit(e);
     }
   };
 
@@ -60,8 +60,8 @@ export default function Step1({
             <input
               type="radio"
               name="otherIncome"
-              value="NO"
-              checked={selectedOption === "NO"}
+              value="Rent"
+              checked={selectedOption === "Rent"}
               onChange={handleRadioChange}
               className="peer "
             />
@@ -100,7 +100,7 @@ export default function Step1({
 
         <button
           className="bg-white text-[#1262A1] px-6 py-2 rounded-lg"
-          onClick={handelSubmit}
+          onClick={handleSubmit}
         >
           Submit
         </button>
