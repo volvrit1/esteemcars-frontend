@@ -20,7 +20,6 @@ const Navbar = () => {
   const [token, setToken] = useState<any>("");
   const tokenExist =
     typeof window !== "undefined" && localStorage.getItem("token");
-  const [auth, setAuth] = useState<boolean>(false);
   const handelLogout = () => {
     setIsLogin(false);
     setLoginOpen(false);
@@ -85,7 +84,7 @@ const Navbar = () => {
         ))}
       </ul>
       <div className="text-right">
-        <MobileMenu />
+        <MobileMenu token={token} />
         <Link
           href={""}
           onClick={() => {

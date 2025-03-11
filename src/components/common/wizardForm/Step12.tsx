@@ -1,8 +1,6 @@
-import React from "react";
-import { AiFillThunderbolt } from "react-icons/ai";
-import {
-  FaCarSide,
-} from "react-icons/fa";
+import React, { useState } from "react";
+import { AiFillThunderbolt } from "react-icons/ai"; // You can keep the icon or change it
+import { FaCarSide } from "react-icons/fa";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { TbMoneybag } from "react-icons/tb";
 
@@ -12,7 +10,52 @@ export default function Step1({
   handleChange,
   formData,
   setStep,
+  handelSubmit,
 }: any) {
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  // Validation function
+  const validateForm = () => {
+    let newErrors: any = {};
+
+    // Check if required fields are filled in
+    if (
+      !formData.utilities ||
+      isNaN(Number(formData.utilities)) ||
+      Number(formData.utilities) < 0
+    ) {
+      newErrors.utilities =
+        "Utilities payment is required and must be a valid number";
+    }
+
+    if (
+      !formData.livingExpenses ||
+      isNaN(Number(formData.livingExpenses)) ||
+      Number(formData.livingExpenses) < 0
+    ) {
+      newErrors.livingExpenses =
+        "Living expenses are required and must be a valid number";
+    }
+
+    if (
+      !formData.motorVehicle ||
+      isNaN(Number(formData.motorVehicle)) ||
+      Number(formData.motorVehicle) < 0
+    ) {
+      newErrors.motorVehicle =
+        "Motor vehicle payment is required and must be a valid number";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e: any) => {
+    if (validateForm()) {
+      handelSubmit(e);
+    }
+  };
+
   return (
     <div className="bg-[#1262A1] lg:p-6 rounded-lg min-w-[70vw] mx-auto text-white">
       <h2 className="text-2xl font-bold mb-10">
@@ -29,22 +72,31 @@ export default function Step1({
 
       {/* Financial Items Grid */}
       <div className="grid gap-4">
-        {/* Credit Cards */}
+        {/* Utilities */}
         <div className="grid grid-cols-4 gap-4 items-center border-b border-t border-gray-100 py-8">
           <div className="flex items-center space-x-3">
             <span className="text-2xl text-[#1262A1] bg-white rounded-full p-2">
-              <AiFillThunderbolt />
+              <AiFillThunderbolt />{" "}
+              {/* You can change this icon to something related to utilities */}
             </span>
-            <span className="font-medium">Credit Cards</span>
+            <span className="font-medium">Utilities</span>
           </div>
           <span></span>
           <span className="hidden lg:inline"></span>
 
           <input
-            type="text"
-            className="border rounded p-3 col-span-2 lg:col-span-1 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none w-full"
+            type="number"
+            name="utilities"
+            value={formData.utilities}
+            onChange={(e) => handleChange(e)}
+            className={`border rounded p-3 col-span-2 lg:col-span-1 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none w-full ${
+              errors.utilities ? "border-red-500" : ""
+            }`}
             placeholder="$ 0"
           />
+          {errors.utilities && (
+            <span className="text-red-500 text-xs">{errors.utilities}</span>
+          )}
         </div>
 
         {/* Living Expenses */}
@@ -59,10 +111,20 @@ export default function Step1({
           <span className="hidden lg:inline"></span>
 
           <input
-            type="text"
-            className="border rounded p-3 col-span-2 lg:col-span-1 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none w-full"
+            type="number"
+            name="livingExpenses"
+            value={formData.livingExpenses}
+            onChange={(e) => handleChange(e)}
+            className={`border rounded p-3 col-span-2 lg:col-span-1 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none w-full ${
+              errors.livingExpenses ? "border-red-500" : ""
+            }`}
             placeholder="$ 0"
           />
+          {errors.livingExpenses && (
+            <span className="text-red-500 text-xs">
+              {errors.livingExpenses}
+            </span>
+          )}
         </div>
 
         {/* Motor Vehicle */}
@@ -76,21 +138,19 @@ export default function Step1({
           <span></span>
           <span className="hidden lg:inline"></span>
           <input
-            type="text"
-            className="border rounded p-3 col-span-2 lg:col-span-1 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none w-full"
+            type="number"
+            name="motorVehicle"
+            value={formData.motorVehicle}
+            onChange={(e) => handleChange(e)}
+            className={`border rounded p-3 col-span-2 lg:col-span-1 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none w-full ${
+              errors.motorVehicle ? "border-red-500" : ""
+            }`}
             placeholder="$ 0"
           />
+          {errors.motorVehicle && (
+            <span className="text-red-500 text-xs">{errors.motorVehicle}</span>
+          )}
         </div>
-      </div>
-
-      {/* Add New Button */}
-      <div className="mt-4 text-right">
-        <button className="text-white font-medium flex items-center space-x-2 ml-auto">
-          <span>Add New</span>
-          <span className="text-lg">
-            <IoIosAddCircleOutline />
-          </span>
-        </button>
       </div>
 
       {/* Additional Expenses Info */}
@@ -103,16 +163,31 @@ export default function Step1({
       {/* Total Monthly Payments */}
       <div className="mt-6 bg-white text-[#1262A1] font-medium p-8 rounded-lg flex justify-between">
         <span>Total Monthly Payments</span>
-        <span>$ 0,000</span>
+        <span>
+          $
+          {(
+            (Number(formData?.loanMonthlyPayments) || 0) +
+            (Number(formData?.creditCardMonthlyPayments) || 0) +
+            (Number(formData?.motorVehicle) || 0) +
+            (Number(formData?.livingExpenses) || 0) +
+            (Number(formData?.utilities) || 0)
+          ).toLocaleString()}
+        </span>
       </div>
 
       {/* Navigation Buttons */}
-      <div className="mt-6 flex justify-end">
+      <div className="mt-6 flex justify-between">
         <button
           className="bg-white text-[#1262A1] px-8 py-2 rounded-lg"
-          onClick={() => prevStep()}
+          onClick={prevStep}
         >
-          prev
+          Prev
+        </button>
+        <button
+          className="bg-white text-[#1262A1] px-8 py-2 rounded-lg"
+          onClick={handelSubmit}
+        >
+          Submit
         </button>
       </div>
     </div>

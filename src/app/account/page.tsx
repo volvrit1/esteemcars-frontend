@@ -69,10 +69,10 @@ const ProfilePage: React.FC = () => {
   }
 
   return (
-    <div className="container mx-auto p-6 h-screen overscroll-y-auto mt-[7rem] max-w-7xl m-auto pt-28 lg:px-20 lg:py-10">
+    <div className="container mx-auto p-6 lg:h-screen overscroll-y-auto mt-[7rem] max-w-7xl m-auto pt-28 lg:px-20 lg:py-10">
       {user && (
         <div className="bg-white text-gray-900 p-6 rounded-lg shadow-md mb-8">
-          <div className="flex flex-col lg:flex-row items-center gap-14">
+          <div className="flex flex-col items-start lg:flex-row lg:items-center gap-4 lg:gap-14">
             <div className="flex flex-col">
               <h2 className="font-light text-gray-700">Name:</h2>
               <h3 className="text-lg font-semibold text-gray-900">
@@ -99,7 +99,7 @@ const ProfilePage: React.FC = () => {
             </div>
             <div>
               <Link
-                className="bg-[#1262A1] lg:px-12 p-5 text-white font-semibold rounded-lg hover:bg-gray-400 transition-colors ease-in-out"
+                className="bg-[#1262A1] lg:px-5 p-5 text-white font-semibold rounded-lg hover:bg-gray-400 transition-colors ease-in-out"
                 href={"/apply-for-car-loan"}
               >
                 Apply Car Loan

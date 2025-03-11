@@ -29,7 +29,7 @@ const Home = () => {
         image={data?.image}
         link={"/contact"}
         textShow={false}
-        slug="home"
+        slug="Home"
       />
       <OurPartners />
       <HowDifferent />

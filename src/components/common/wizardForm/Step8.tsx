@@ -8,7 +8,7 @@ export default function EmployerInfo({
   formData,
   setStep,
 }: any) {
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<any>({});
 
   const validateForm = () => {
     let newErrors: any = {};
@@ -37,7 +37,7 @@ export default function EmployerInfo({
 
   const handleNext = () => {
     if (validateForm()) {
-      nextStep();
+      setStep(11);
     }
   };
 
@@ -57,6 +57,7 @@ export default function EmployerInfo({
               className="border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none"
               placeholder="Employer Name"
             />
+             {errors?.employerName && <p className="text-red-500">{errors.employerName}</p>}
           </div>
 
           <div className="flex flex-col">
@@ -69,6 +70,8 @@ export default function EmployerInfo({
               className="border rounded p-3 text-gray-800"
               placeholder="Company Name"
             />
+             {errors?.companyName && <p className="text-red-500">{errors.companyName}</p>}
+
           </div>
 
           <div className="flex flex-col">
@@ -81,6 +84,8 @@ export default function EmployerInfo({
               className="border rounded p-3 text-gray-800"
               placeholder="Company Address"
             />
+             {errors?.companyAddress && <p className="text-red-500">{errors.companyAddress}</p>}
+
           </div>
         </div>
 
@@ -95,6 +100,8 @@ export default function EmployerInfo({
               className="border rounded p-3 text-gray-800"
               placeholder="Enter City"
             />
+             {errors?.companyCity && <p className="text-red-500">{errors.companyCity}</p>}
+
           </div>
           <div className="flex flex-col">
             <label className="font-medium">Company State *</label>
@@ -106,6 +113,8 @@ export default function EmployerInfo({
               className="border rounded p-3 text-gray-800"
               placeholder="Enter State"
             />
+             {errors?.companyState && <p className="text-red-500">{errors.companyState}</p>}
+
           </div>
           <div className="flex flex-col">
             <label className="font-medium">Company Country *</label>
@@ -117,6 +126,7 @@ export default function EmployerInfo({
               className="border rounded p-3 text-gray-800"
               placeholder="Enter Country"
             />
+            {errors?.companyCountry && <p className="text-red-500">{errors.companyCountry}</p>}
           </div>
         </div>
 
@@ -124,13 +134,14 @@ export default function EmployerInfo({
           <div className="flex flex-col">
             <label className="font-medium">Company Phone Number *</label>
             <input
-              type="tel"
+              type="number"
               name="companyPhoneNumber"
               value={formData.companyPhoneNumber}
               onChange={handleChange}
               className="border rounded p-3 text-gray-800"
               placeholder="Enter Phone Number"
             />
+            {errors?.companyPhoneNumber && <p className="text-red-500">{errors.companyPhoneNumber}</p>}
           </div>
           <div className="flex flex-col">
             <label className="font-medium">Company Email *</label>
@@ -142,6 +153,8 @@ export default function EmployerInfo({
               className="border rounded p-3 text-gray-800"
               placeholder="Enter Email Address"
             />
+             {errors?.companyEmail && <p className="text-red-500">{errors.companyEmail}</p>}
+
           </div>
           <div className="flex flex-col">
             <label className="font-medium">Company Website *</label>
@@ -153,6 +166,8 @@ export default function EmployerInfo({
               className="border rounded p-3 text-gray-800"
               placeholder="Enter Company URL"
             />
+             {errors?.companyWebsite && <p className="text-red-500">{errors.companyWebsite}</p>}
+
           </div>
         </div>
       </form>
@@ -160,14 +175,14 @@ export default function EmployerInfo({
       <div className="mt-6 flex justify-between">
         <button
           type="button"
-          className="bg-white text-[#1262A1] px-6 py-2 rounded-lg"
+          className="bg-white text-[#1262A1] px-6 py-2 rounded-lg hover:bg-gray-400 transition-colors ease-in-out hover:text-gray-700"
           onClick={prevStep}
         >
           Back
         </button>
         <button
           type="button"
-          className="bg-white text-[#1262A1] px-6 py-2 rounded-lg"
+          className="bg-white text-[#1262A1] px-6 py-2 rounded-lg hover:bg-gray-400 transition-colors ease-in-out hover:text-gray-700"
           onClick={handleNext}
         >
           Next

@@ -55,7 +55,7 @@ const WhyWeAreBest = ({ sectionData }: { sectionData?: ISection }) => {
               {/* Left Column - Image */}
               <div className="relative lg:w-1/2 lg:h-64 shadow-xl rounded-[3rem] overflow-hidden flex justify-center">
                 <Image
-                  src={data?.image} // Ensure this image exists in the public folder
+                  src={data?.image ??"/"} // Ensure this image exists in the public folder
                   alt="Explore Image"
                   width={800}
                   height={630}

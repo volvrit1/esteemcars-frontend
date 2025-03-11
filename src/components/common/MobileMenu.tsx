@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { IoClose, IoMenu } from "react-icons/io5";
 
-export default function MobileMenu() {
+export default function MobileMenu({token}:any) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname(); // Get current route
 
@@ -18,6 +18,9 @@ export default function MobileMenu() {
     { name: "Contact Us", path: "/contact-us" },
   ];
 
+  if (token) {
+    menuItems.push({ name: "Account", path: "/account" });
+  }
   return (
     <nav className="relative">
       {/* Hamburger Button */}
@@ -63,7 +66,7 @@ export default function MobileMenu() {
             </Link>
           ))}
           <Link href={""} onClick={() => setIsOpen(false)}>
-            <li className={`${"text-gray-300"}`}>SignUp/Login</li>
+            <li className={`${"text-gray-300"}`}>{token ? "Log Out" : "Signup/Log In"}</li>
           </Link>
         </ul>
       </motion.div>

@@ -28,3 +28,7 @@ input::-webkit-inner-spin-button {
 .some-container::-webkit-scrollbar {
   display: none; /* Hide scrollbar in Webkit-based browsers (Chrome, Safari) */
 }
+
+html {
+  scroll-behavior: smooth;
+}

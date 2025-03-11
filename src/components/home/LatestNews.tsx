@@ -28,7 +28,7 @@ const LatestNews = async () => {
               {/* Left Column - Image */}
               <div className="h-60 w-full flex justify-center rounded overflow-hidden ">
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${data?.coverImage}`} // Ensure this image exists in the public folder
+                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${data?.coverImage ?? "/"}`} // Ensure this image exists in the public folder
                   alt="Explore Image"
                   width={800}
                   height={630}

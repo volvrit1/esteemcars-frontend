@@ -18,7 +18,7 @@ const page = () => {
   const [loading, setLoading] = useState();
   const [blogsData, setBlogsData] = useState<any>();
   const [blog, setBlog] = useState<any>(null);
-
+console.log(slug)
   useEffect(() => {
     const fetchBlog = async () => {
       const { data }: any = await getBlogData();
@@ -60,8 +60,10 @@ const page = () => {
     link: "/",
   };
 
+
+
   return (
-    <div className="bg-gray-50 mt-[7rem]">
+    <div className="bg-transparent mt-[7rem]">
       <div className="max-w-7xl lg:max-w-6xl m-auto p-4 lg:py-4">
         <div className="text-gray-700 mb-4 ">
           <Link href={"/blogs"} className="text-blue-600">
@@ -74,7 +76,7 @@ const page = () => {
           <Image
             src={
               blog?.coverImage
-                ? `${process.env.NEXT_PUBLIC_BASE_URL}${blog?.coverImage}`
+                ? `${process.env.NEXT_PUBLIC_BASE_URL}${blog?.coverImage ?? "/"}`
                 : "/images/droneArmy.png" // Fallback image if no cover image
             }
             width={5000}
@@ -115,7 +117,7 @@ const page = () => {
                 >
                   <div className=" h-60 w-full flex justify-center rounded overflow-hidden ">
                     <Image
-                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${data?.coverImage}`}
+                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${data?.coverImage ?? "/"}`}
                       alt="Explore Image"
                       width={800}
                       height={630}
@@ -152,4 +154,4 @@ const page = () => {
 
 export default page;
 
-export const revalidate = 60;
+

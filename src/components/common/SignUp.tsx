@@ -1,8 +1,9 @@
 "use client";
 import { Post } from "@/utils/api";
+import { error } from "console";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { toast } from "react-toastify";
 
@@ -14,18 +15,28 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
   const [middleName, setMiddleName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [dob, setDob] = useState<any>();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState<any>({});
   const [loading, setLoading] = useState(false);
+  const [checkbox, setCheckbox] = useState<any>(false);
 
   const validate = () => {
     let tempErrors: any = {};
     if (!email) tempErrors.email = "Email is required";
     if (!password) tempErrors.password = "Password is required";
+    if (!firstName) tempErrors.firstName = "First Name is required";
+    if (!lastName) tempErrors.lastName = "Last Name is required";
+    if (!dob) tempErrors.dob = "Dob is required";
+
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
+
+  // useEffect(() => {
+  //   validate();
+  // }, [title, firstName, lastName, dob, email, password, confirmPassword]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,6 +46,7 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
       firstName,
       lastName,
       middleName,
+      dob,
       email,
       password,
       confirmPassword,
@@ -42,12 +54,16 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
     try {
       if (validate()) {
         const res: any = await Post("api/user", data, 5000);
+
         if (res?.success) {
           setFirstName("");
           setLastName("");
           setEmail("");
           setPassword("");
           setConfirmPassword("");
+          setDob("");
+          setMiddleName("");
+          setTitle("");
           onClose();
           if (res?.message) toast.success(res.message);
         } else {
@@ -100,8 +116,8 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
               <div className="flex flex-col mb-4">
                 <select
                   name="title"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
+                  value={title || ""}
+                  onChange={(e) =>{ setTitle(e.target.value)}}
                   className="border rounded p-3 bg-white text-gray-800   outline-none"
                 >
                   <option value="">Select</option>
@@ -110,53 +126,92 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
                   <option value="Mrs">Mrs</option>
                   <option value="Dr">Dr</option>
                 </select>
+                {errors.title && (
+                  <p className="text-red-400 mb-2 text-xs">{errors.title}</p>
+                )}
               </div>
               <div className="grid grid-cols-3 gap-4 mb-4">
                 {/* Name Fields */}
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  className="border rounded px-4 py-3 w-full text-gray-700   outline-none"
-                />
-                <input
-                  type="text"
-                  value={middleName}
-                  placeholder="middle Name"
-                  onChange={(e) => setMiddleName(e.target.value)}
-                  className="border rounded px-4 py-3 w-full text-gray-700   outline-none"
-                />
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  className="border rounded px-4 py-3 w-full text-gray-700   outline-none"
-                />
+                <div className="flex flex-col">
+                  <input
+                    type="text"
+                    placeholder="First Name"
+                    value={firstName || ""}
+                    onChange={(e) => {setFirstName(e.target.value)}}
+                    className="border rounded px-4 py-3 w-full text-gray-700   outline-none"
+                  />
+                  {errors.firstName && (
+                    <p className="text-red-400 mb-2 text-xs">
+                      {errors.firstName}
+                    </p>
+                  )}
+                </div>
+                <div className="flex flex-col">
+                  <input
+                    type="text"
+                    value={middleName || ""}
+                    placeholder="middle Name"
+                    onChange={(e) => {setMiddleName(e.target.value)}}
+                    className="border rounded px-4 py-3 w-full text-gray-700   outline-none"
+                  />
+                  {errors.middleName && (
+                    <p className="text-red-400 mb-2 text-xs">
+                      {errors.middleName}
+                    </p>
+                  )}
+                </div>
+                <div className="flex flex-col">
+                  <input
+                    type="text"
+                    placeholder="Last Name"
+                    value={lastName || ""}
+                    onChange={(e) => {setLastName(e.target.value)}}
+                    className="border rounded px-4 py-3 w-full text-gray-700   outline-none"
+                  />
+                  {errors.lastName && (
+                    <p className="text-red-400 mb-2 text-xs">
+                      {errors.lastName}
+                    </p>
+                  )}
+                </div>
               </div>
 
               {/* Email */}
               <input
-                type="email"
+                type="do"
                 placeholder="Enter Your Email Address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={email || ""}
+                onChange={(e) => {setEmail(e.target.value)}}
+                className="border rounded px-4 py-3 w-full mb-4 text-gray-700   outline-none"
+              />
+              {errors.email && (
+                <p className="text-xs text-red-400 mb-2">{errors.email}</p>
+              )}
+
+              {/* Email */}
+              <input
+                type="date"
+                placeholder="Enter Your date of birth"
+                value={dob || ""}
+                onChange={(e) => {setDob(e.target.value)}}
                 className="border rounded px-4 py-3 w-full mb-4 text-gray-700   outline-none"
               />
 
+              {errors.dob && (
+                <p className="text-xs text-red-400 mb-2 ">{errors.dob}</p>
+              )}
               {/* Password Fields */}
               <div className="relative mb-4">
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="Create Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={password ||""}
+                  onChange={(e) => {setPassword(e.target.value)}}
                   className="border rounded px-4 py-3 w-full text-gray-700   outline-none"
                 />
                 <span
                   className="absolute top-3 right-4 text-gray-500 cursor-pointer"
-                  onClick={() => setShowPassword(!showPassword)}
+                  onClick={() => {setShowPassword(!showPassword)}}
                 >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </span>
@@ -166,13 +221,13 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
                 <input
                   type={showConfirmPassword ? "text" : "password"}
                   placeholder="Confirm Password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  value={confirmPassword || ""}
+                  onChange={(e) => {setConfirmPassword(e.target.value)}}
                   className="border rounded px-4 py-3 w-full text-gray-700   outline-none"
                 />
                 <span
                   className="absolute top-1/3 right-4 text-gray-500 cursor-pointer"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  onClick={() => {setShowConfirmPassword(!showConfirmPassword)}}
                 >
                   {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
                 </span>
@@ -184,6 +239,10 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
                   type="checkbox"
                   id="terms"
                   className="h-5 w-5 text-[#1262A1] "
+                  value={checkbox || ""}
+                  onChange={(e) => {
+                    checkbox ? setCheckbox(false) : setCheckbox(true);
+                  }}
                 />
                 <label htmlFor="terms" className="text-gray-900 text-sm">
                   Agree to All Terms & Conditions

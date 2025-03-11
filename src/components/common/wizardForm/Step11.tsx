@@ -1,29 +1,31 @@
-
 import React, { useState } from "react";
-import {
-  FaCreditCard,
-  FaRegFileAlt,
-} from "react-icons/fa";
-import { IoIosAddCircleOutline } from "react-icons/io";
+import { FaCreditCard, FaRegFileAlt } from "react-icons/fa";
 
-export default function Step1({ nextStep, prevStep, handleChange, formData }: any) {
+export default function Step1({
+  nextStep,
+  prevStep,
+  handleChange,
+  formData,
+}: any) {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-  const validateInput = (name: string, value: string) => {
-    if (!/^[0-9]*\.?[0-9]*$/.test(value)) {
-      setErrors((prev) => ({ ...prev, [name]: "Only numeric values are allowed" }));
-    } else {
-      setErrors((prev) => {
-        const newErrors = { ...prev };
-        delete newErrors[name];
-        return newErrors;
-      });
-    }
+  const validateForm = () => {
+    let newErrors: any = {};
+    if (!formData.loanBalance)
+      newErrors.loanBalance = "Loan balance is required";
+    if (!formData.loanMonthlyPayments)
+      newErrors.loanMonthlyPayments = "Monthly payment is required";
+    if (!formData.creditCardLimit)
+      newErrors.creditCardLimit = "Credit card limit is required";
+    if (!formData.creditCardMonthlyPayments)
+      newErrors.creditCardMonthlyPayments =
+        "Credit card monthly payment is required";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    validateInput(name, value);
     handleChange(e);
   };
 
@@ -52,23 +54,31 @@ export default function Step1({ nextStep, prevStep, handleChange, formData }: an
           </div>
           <div>
             <input
-              type="text"
-              name="creditLimit"
+              type="number"
+              name="creditCardLimit"
               className="border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none w-full"
               placeholder="$ 0"
+              value={formData?.creditCardLimit ?? ""}
               onChange={handleInputChange}
             />
-            {errors.creditLimit && <p className="text-red-500 text-sm">{errors.creditLimit}</p>}
+            {errors.creditCardLimit && (
+              <p className="text-red-500 text-sm">{errors.creditCardLimit}</p>
+            )}
           </div>
           <div>
             <input
-              type="text"
-              name="creditMonthly"
+              type="number"
+              name="creditCardMonthlyPayments"
               className="border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none w-full"
               placeholder="$ 0"
+              value={formData?.creditCardMonthlyPayments ?? ""}
               onChange={handleInputChange}
             />
-            {errors.creditMonthly && <p className="text-red-500 text-sm">{errors.creditMonthly}</p>}
+            {errors.creditCardMonthlyPayments && (
+              <p className="text-red-500 text-sm">
+                {errors.creditCardMonthlyPayments}
+              </p>
+            )}
           </div>
         </div>
 
@@ -88,43 +98,60 @@ export default function Step1({ nextStep, prevStep, handleChange, formData }: an
           </div>
           <div>
             <input
-              type="text"
+              type="number"
               name="loanBalance"
               className="border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none w-full"
               placeholder="$ 0"
+              value={formData?.loanBalance ?? ""}
               onChange={handleInputChange}
             />
-            {errors.loanBalance && <p className="text-red-500 text-sm">{errors.loanBalance}</p>}
+            {errors.loanBalance && (
+              <p className="text-red-500 text-sm">{errors.loanBalance}</p>
+            )}
           </div>
           <div>
             <input
-              type="text"
-              name="loanMonthly"
+              type="number"
+              name="loanMonthlyPayments"
               className="border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none w-full"
               placeholder="$ 0"
+              value={formData?.loanMonthlyPayments ?? ""}
               onChange={handleInputChange}
             />
-            {errors.loanMonthly && <p className="text-red-500 text-sm">{errors.loanMonthly}</p>}
+            {errors.loanMonthlyPayments && (
+              <p className="text-red-500 text-sm">
+                {errors.loanMonthlyPayments}
+              </p>
+            )}
           </div>
         </div>
       </div>
 
-      {/* Add New Button */}
-      <div className="mt-4 text-right">
-        <button className="text-white font-medium flex items-center space-x-2 ml-auto">
-          <span>Add New</span>
-          <span className="text-lg">
-            <IoIosAddCircleOutline />
-          </span>
-        </button>
+      <div className="mt-6 bg-white text-[#1262A1] font-medium p-8 rounded-lg flex justify-between">
+        <span>Total Monthly Payments</span>
+        <span>
+          $
+          {(
+            (Number(formData?.loanMonthlyPayments) || 0) +
+            (Number(formData?.creditCardMonthlyPayments) || 0)
+          ).toLocaleString()}
+        </span>
       </div>
 
       {/* Navigation Buttons */}
       <div className="mt-6 flex justify-between">
-        <button className="bg-white text-[#1262A1] px-6 py-2 rounded-lg" onClick={prevStep}>
+        <button
+          className="bg-white text-[#1262A1] px-6 py-2 rounded-lg"
+          onClick={prevStep}
+        >
           Back
         </button>
-        <button className="bg-white text-[#1262A1] px-6 py-2 rounded-lg" onClick={nextStep}>
+        <button
+          className="bg-white text-[#1262A1] px-6 py-2 rounded-lg"
+          onClick={() => {
+            if (validateForm()) nextStep(); // Only proceed if the form is valid
+          }}
+        >
           Next
         </button>
       </div>

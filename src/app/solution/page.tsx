@@ -26,7 +26,7 @@ const page = async () => {
         link={data?.link}
         image={data?.image}
         textShow={true}
-        slug="solution"
+        slug="Solution"
       />x
       <LoanApproval />
       <LoanSolution />

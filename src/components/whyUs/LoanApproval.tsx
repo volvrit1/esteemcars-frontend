@@ -53,7 +53,7 @@ const LoanApproval = ({ sectionData }: { sectionData?: ISection }) => {
               {/* Left Column - Image */}
               <div className="relative h-44 w-full rounded-2xl overflow-hidden flex justify-center ">
                 <Image
-                  src={data?.image} // Ensure this image exists in the public folder
+                  src={data?.image ?? "/"} // Ensure this image exists in the public folder
                   alt="Explore Image"
                   width={800}
                   height={630}

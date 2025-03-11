@@ -1,26 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { AiFillThunderbolt } from "react-icons/ai";
-import {
-  FaCar,
-  FaCarSide,
-  FaCreditCard,
-  FaDollarSign,
-  FaFileInvoice,
-  FaRegAddressCard,
-  FaRegFileAlt,
-  FaRegHandshake,
-  FaShuttleVan,
-  FaTruckMonster,
-  FaUtensils,
-} from "react-icons/fa";
-import { FaCalendarDays, FaUserLarge } from "react-icons/fa6";
-import { ImArrowRight } from "react-icons/im";
-import { IoIosAddCircleOutline } from "react-icons/io";
-import { MdChair } from "react-icons/md";
-import { TbMoneybag } from "react-icons/tb";
-import { TiUser, TiUserOutline } from "react-icons/ti";
 import Step1 from "./wizardForm/Step1";
 import Step2 from "./wizardForm/Step2";
 import Step3 from "./wizardForm/Step3";
@@ -32,14 +12,15 @@ import Step11 from "./wizardForm/Step11";
 import Step12 from "./wizardForm/Step12";
 import Step7 from "./wizardForm/Step7";
 import Step9 from "./wizardForm/Step9";
-import { Post } from "@/utils/api";
+import { Fetch, Post } from "@/utils/api";
 import { toast } from "react-toastify";
 import Step13 from "./wizardForm/Step13";
 import Step8 from "./wizardForm/Step8";
 
 const CarLoanWizard = () => {
   const [step, setStep] = useState(1);
-  const [userData, setUserData] = useState<any>();
+  const [userLocalData, setUserLocalData] = useState<any>();
+  const [isSubmited, setIsSubmited] = useState(false);
   const [formData, setFormData] = useState<any>({
     userType: "",
     vehicleMake: "",
@@ -48,13 +29,13 @@ const CarLoanWizard = () => {
     vehicleVariant: "",
     kmDriven: "",
     tradeCar: "",
-    title: userData?.title ?? "",
-    firstName: userData?.firstName ?? "",
-    middleName: userData?.middleName ?? "",
-    lastName: userData?.lastName ?? "",
-    email: userData?.email ?? "",
-    mobileNo: userData?.mobileNo ?? "",
-    dob: userData?.dob ?? "",
+    title: userLocalData?.title ?? "",
+    firstName: userLocalData?.firstName ?? "",
+    middleName: userLocalData?.middleName ?? "",
+    lastName: userLocalData?.lastName ?? "",
+    email: userLocalData?.email ?? "",
+    mobileNo: userLocalData?.mobileNo ?? "",
+    dob: userLocalData?.dob ?? "",
     employerName: "",
     companyName: "",
     companyAddress: "",
@@ -79,7 +60,17 @@ const CarLoanWizard = () => {
     driverLicenseNumber: "",
     driverLicenseVersion: "",
     driverLicenseDocument: "",
-    nzCitizenOrResident: true,
+    partnerMaritalStatus: "",
+    partnerDependents: "",
+    partnerDriverLicenseType: "",
+    partnerDriverLicenseNumber: "",
+    partnerDriverLicenseVersion: "",
+    partnerDriverLicenseDocument: "",
+    previousAddress: "",
+    previousCity: "",
+    previousCountry: "",
+    nzResidentType: "",
+    nzWorkStatus: true,
     birthCountry: "",
     citizenshipDetails: [],
     address: "",
@@ -106,7 +97,8 @@ const CarLoanWizard = () => {
     loanBalance: "",
     loanMonthlyPayments: "",
     livingExpenses: "",
-    motorVehicleExpenses: "",
+    utilities: "",
+    motorVehicle: "",
   });
 
   useEffect(() => {
@@ -114,36 +106,69 @@ const CarLoanWizard = () => {
 
     if (storedUserData) {
       const parsedUserData = JSON.parse(storedUserData);
-      setUserData(parsedUserData);
+      setUserLocalData(parsedUserData);
     }
   }, []); // Run only on component mount
 
   // Update formData when userData changes
   useEffect(() => {
-    if (userData) {
-      setFormData((prevFormData: any) => ({
-        ...prevFormData,
-        title: userData.title ?? "",
-        firstName: userData.firstName ?? "",
-        middleName: userData.middleName ?? "",
-        lastName: userData.lastName ?? "",
-        email: userData.email ?? "",
-        mobileNo: userData.mobileNo ?? "",
-        dob: userData.dob ?? "",
-        role: userData.role ?? "user", // Default to "user"
-        nzCitizen: userData.nzCitizen ?? false, // Default to false
-        citizenshipDetails: userData.citizenshipDetails ?? [], // Default to empty array
-        birthCountry: userData.birthCountry ?? "",
-        address: userData.address ?? "",
-        city: userData.city ?? "",
-        postalCode: userData.postalCode ?? "",
-        timeAtCurrentAddressInYears: userData.timeAtCurrentAddressInYears ?? "",
-        timeAtCurrentAddressInMonths:
-          userData.timeAtCurrentAddressInMonths ?? "",
-        residentType: userData.residentType ?? "", // Default to empty string or set to a default
-      }));
+    const fetchUserData = async (id: any) => {
+      const response: any = await Fetch(`/api/user/${id}`);
+      console.log(response);
+      const userData = response?.data;
+      if (userData) {
+        setFormData((prevFormData: any) => ({
+          ...prevFormData,
+          title: userData.title ?? "",
+          firstName: userData.firstName ?? "",
+          middleName: userData.middleName ?? "",
+          lastName: userData.lastName ?? "",
+          email: userData.email ?? "",
+          mobileNo: userData.mobileNo ?? "",
+          dob: userData.dob ?? "",
+          role: userData.role ?? "user", // Default to "user"
+          nzCitizen: userData.nzCitizen ?? false, // Default to false
+          citizenshipDetails: userData.citizenshipDetails ?? [], // Default to empty array
+          birthCountry: userData.birthCountry ?? "",
+          address: userData.address ?? "",
+          city: userData.city ?? "",
+          postalCode: userData.postalCode ?? "",
+          timeAtCurrentAddressInYears:
+            userData.timeAtCurrentAddressInYears ?? "",
+          timeAtCurrentAddressInMonths:
+            userData.timeAtCurrentAddressInMonths ?? "",
+          residentType: userData.residentType ?? "", // Default to empty string or set to a default
+        }));
+      }
+    };
+    if (userLocalData?.id) {
+      fetchUserData(userLocalData?.id);
     }
-  }, [userData]); // This will run when userData is updated
+  }, [userLocalData, isSubmited]); // This will run when userData is updated
+
+  const [showButton, setShowButton] = useState(false);
+
+  // Show the button only when the user scrolls down
+  // const handleScroll = () => {
+  //   if (window.scrollY > 200) {
+  //     setShowButton(true);
+  //   } else {
+  //     setShowButton(false);
+  //   }
+  // };
+
+  // Scroll to the top
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Add event listener for scroll
+  // useState(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -216,27 +241,37 @@ const CarLoanWizard = () => {
         }
       });
 
-      formDataToSend.append("userId", userData?.id);
+      formDataToSend.append("userId", userLocalData?.id);
+      formDataToSend.append(
+        "totalMonthlyPayment",
+        (
+          (Number(formData?.loanMonthlyPayments) || 0) +
+          (Number(formData?.creditCardMonthlyPayments) || 0) +
+          (Number(formData?.motorVehicle) || 0) +
+          (Number(formData?.livingExpenses) || 0) +
+          (Number(formData?.utilities) || 0)
+        ).toFixed(2)
+      );
+
       const response: any = await Post("api/loan-query", formDataToSend);
 
       if (response?.success) {
         toast.success("Application submitted successfully!");
         setFormData({
-          userType: "Individual",
+          userType: "",
           vehicleMake: "",
           vehicleModel: "",
           vehicleYear: "",
           vehicleVariant: "",
           kmDriven: "",
           tradeCar: "",
-          title: "Mr",
-          firstName: "",
-          middleName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          dob: "",
-
+          title: userLocalData?.title ?? "",
+          firstName: userLocalData?.firstName ?? "",
+          middleName: userLocalData?.middleName ?? "",
+          lastName: userLocalData?.lastName ?? "",
+          email: userLocalData?.email ?? "",
+          mobileNo: userLocalData?.mobileNo ?? "",
+          dob: userLocalData?.dob ?? "",
           employerName: "",
           companyName: "",
           companyAddress: "",
@@ -246,8 +281,7 @@ const CarLoanWizard = () => {
           companyPhoneNumber: "",
           companyEmail: "",
           companyWebsite: "",
-
-          loanAppliedFor: "Car",
+          loanAppliedFor: "",
           purchasePrice: "",
           longTerm: "",
           paymentFrequency: "",
@@ -255,16 +289,26 @@ const CarLoanWizard = () => {
           make: "",
           model: "",
           modelYear: "",
-          applicationType: "Single",
+          applicationType: "",
           maritalStatus: "",
           dependents: "",
           driverLicenseType: "",
           driverLicenseNumber: "",
           driverLicenseVersion: "",
           driverLicenseDocument: "",
-          nzCitizenOrResident: true,
+          partnerMaritalStatus: "",
+          partnerDependents: "",
+          partnerDriverLicenseType: "",
+          partnerDriverLicenseNumber: "",
+          partnerDriverLicenseVersion: "",
+          partnerDriverLicenseDocument: "",
+          previousAddress: "",
+          previousCity: "",
+          previousCountry: "",
+          nzResidentType: "",
+          nzWorkStatus: true,
           birthCountry: "",
-          citizenshipCountry: "",
+          citizenshipDetails: [],
           address: "",
           city: "",
           postalCode: "",
@@ -273,7 +317,6 @@ const CarLoanWizard = () => {
           timeAtCurrentAddressMonths: "",
           sameAsPostalAddress: false,
           residentType: "",
-
           occupation: "",
           employmentType: "",
           timeInJob: "",
@@ -282,7 +325,7 @@ const CarLoanWizard = () => {
           partnerIncome: "",
           otherIncome: false,
           homeOwnership: "Rent",
-          rentAgreement: null,
+          rentAgreement: null, // File Upload
           vehiclesValue: "",
           furnitureValue: "",
           creditCardLimit: "",
@@ -290,13 +333,16 @@ const CarLoanWizard = () => {
           loanBalance: "",
           loanMonthlyPayments: "",
           livingExpenses: "",
-          motorVehicleExpenses: "",
+          utilities: "",
+          motorVehicle: "",
         });
-        setStep(12);
+        setStep(14);
       }
     } catch (error: any) {
-      if (error.message) toast.info(error.message);
+      console.log(error);
+      if (error?.message) toast.info(error?.message);
     } finally {
+      setIsSubmited(true);
     }
   };
 
@@ -319,27 +365,27 @@ const CarLoanWizard = () => {
       });
 
       formDataToSend.append("callbackRequested", "true");
-      formDataToSend.append("userId", userData?.id);
+      formDataToSend.append("userId", userLocalData?.id);
 
       const response: any = await Post("api/lead", formDataToSend);
 
       if (response.success) {
         toast.success("Application submitted successfully!");
         setFormData({
-          userType: "Individual",
+          userType: "",
           vehicleMake: "",
           vehicleModel: "",
           vehicleYear: "",
           vehicleVariant: "",
           kmDriven: "",
           tradeCar: "",
-          title: "Mr",
-          firstName: "",
-          middleName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          dob: "",
+          title: userLocalData?.title ?? "",
+          firstName: userLocalData?.firstName ?? "",
+          middleName: userLocalData?.middleName ?? "",
+          lastName: userLocalData?.lastName ?? "",
+          email: userLocalData?.email ?? "",
+          mobileNo: userLocalData?.mobileNo ?? "",
+          dob: userLocalData?.dob ?? "",
           employerName: "",
           companyName: "",
           companyAddress: "",
@@ -349,7 +395,7 @@ const CarLoanWizard = () => {
           companyPhoneNumber: "",
           companyEmail: "",
           companyWebsite: "",
-          loanAppliedFor: "Car",
+          loanAppliedFor: "",
           purchasePrice: "",
           longTerm: "",
           paymentFrequency: "",
@@ -357,16 +403,26 @@ const CarLoanWizard = () => {
           make: "",
           model: "",
           modelYear: "",
-          applicationType: "Single",
+          applicationType: "",
           maritalStatus: "",
           dependents: "",
           driverLicenseType: "",
           driverLicenseNumber: "",
           driverLicenseVersion: "",
           driverLicenseDocument: "",
-          nzCitizenOrResident: true,
+          partnerMaritalStatus: "",
+          partnerDependents: "",
+          partnerDriverLicenseType: "",
+          partnerDriverLicenseNumber: "",
+          partnerDriverLicenseVersion: "",
+          partnerDriverLicenseDocument: "",
+          previousAddress: "",
+          previousCity: "",
+          previousCountry: "",
+          nzResidentType: "",
+          nzWorkStatus: true,
           birthCountry: "",
-          citizenshipCountry: "",
+          citizenshipDetails: [],
           address: "",
           city: "",
           postalCode: "",
@@ -383,7 +439,7 @@ const CarLoanWizard = () => {
           partnerIncome: "",
           otherIncome: false,
           homeOwnership: "Rent",
-          rentAgreement: null,
+          rentAgreement: null, // File Upload
           vehiclesValue: "",
           furnitureValue: "",
           creditCardLimit: "",
@@ -391,18 +447,26 @@ const CarLoanWizard = () => {
           loanBalance: "",
           loanMonthlyPayments: "",
           livingExpenses: "",
-          motorVehicleExpenses: "",
+          utilities: "",
+          motorVehicle: "",
         });
-        setStep(12);
+        setStep(14);
       }
     } catch (error) {
       toast.info("Failed to submit application.");
     } finally {
+      setIsSubmited(true);
     }
   };
 
-  const nextStep = () => setStep((prev) => prev + 1);
-  const prevStep = () => setStep((prev) => prev - 1);
+  const nextStep = () => {
+    setStep((prev) => prev + 1);
+    scrollToTop();
+  };
+  const prevStep = () => {
+    setStep((prev) => prev - 1);
+    scrollToTop();
+  };
 
   return (
     <div className="flex justify-center items-center min-h-screen mt-[7rem] lg:mt-[5rem] p-4 lg:p-16 bg-gray-100">
@@ -454,6 +518,7 @@ const CarLoanWizard = () => {
           <Step5
             nextStep={nextStep}
             prevStep={prevStep}
+            setStep={setStep}
             handleChange={handleChange}
             formData={formData}
             handleFileChange={handleFileChange}
@@ -500,12 +565,30 @@ const CarLoanWizard = () => {
             prevStep={prevStep}
             handleChange={handleChange}
             formData={formData}
-            handelSubmit={handleSubmit}
             handelFileChange={handleFileChange}
+            setStep={setStep}
           />
         )}
-        {step == 12 && (
-          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        {step === 12 && (
+          <Step11
+            nextStep={nextStep}
+            prevStep={prevStep}
+            handleChange={handleChange}
+            formData={formData}
+          />
+        )}
+        {step === 13 && (
+          <Step12
+            nextStep={nextStep}
+            prevStep={prevStep}
+            handleChange={handleChange}
+            handelSubmit={handleSubmit}
+            formData={formData}
+          />
+        )}
+
+        {step == 14 && (
+          <div className="fixed inset-0 flex items-center justify-center z-[5000] bg-black bg-opacity-50">
             <div className="bg-white text-[#1262A1] p-6 rounded-lg text-center">
               <h2 className="text-xl font-bold">Submission Successful!</h2>
               <p>Your car loan details have been submitted successfully.</p>

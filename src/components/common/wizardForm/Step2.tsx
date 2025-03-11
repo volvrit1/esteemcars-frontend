@@ -21,7 +21,7 @@ export default function Step1({ nextStep, handleChange, formData }: any) {
           </div>
           <p className="h-20 text-sm text-left text-[#1262A1]   pt-2">
             {" "}
-            Your Current New Zealand full or restricted Driver License
+            Your Current License or Passport
           </p>{" "}
         </button>
         <button className="bg-white text-gray-700 h-56 lg:w-64 p-8 rounded-xl">
@@ -52,11 +52,10 @@ export default function Step1({ nextStep, handleChange, formData }: any) {
           </div>
           <p className="h-20 text-sm text-left text-[#1262A1]   pt-2">
             {" "}
-            You must be a New Zealand citizen or have a New Zealand resident
-            visa and you must be at least 18 years old
+            You must be 18 years old
           </p>{" "}
         </button>
-        <button className="bg-white text-gray-700 h-56 lg:w-64 p-8 rounded-xl">
+        <button className="bg-white text-gray-700 h-56 lg:w-64 p-8 rounded-xl hidden">
           <div className="bg-[#1262A1] w-10 h-10 overflow-hidden mr-auto rounded-full flex justify-center items-center">
             <FaDollarSign
               width={50}
@@ -89,15 +88,6 @@ export default function Step1({ nextStep, handleChange, formData }: any) {
         </label>
         <ul className="text-sm text-gray-300 ml-8 space-y-2 list-disc">
           <li>You meet each of the requirements set out above</li>
-          <li>
-            You have read UCD’s Privacy Statement and you understand that it
-            applies to you loan application
-          </li>
-          <li>
-            You have read UDC’s Financial Advice Statements and you understand
-            that any recommendations made by UDC in relation to your loan are
-            not regulated financial advice
-          </li>
         </ul>
       </div>
       <div className="w-full flex justify-end items-center">

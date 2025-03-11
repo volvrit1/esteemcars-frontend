@@ -20,7 +20,7 @@ export default function Page() {
         link={data?.link}
         image={data?.image}
         textShow={true}
-        slug="blog"
+        slug="Blog"
       />
       <LatestNews />
     </div>

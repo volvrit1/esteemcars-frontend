@@ -4,9 +4,9 @@ export default function Step1({
   nextStep,
   prevStep,
   handleChange,
-  handelSubmit,
   handelFileChange,
   formData,
+  setStep,
 }: any) {
   const [selectedOption, setSelectedOption] = useState(
     formData?.otherIncome || ""
@@ -28,10 +28,9 @@ export default function Step1({
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
-  const handleSubmit = (e: any) => {
+  const handleNext = () => {
     if (validateForm()) {
-      handelSubmit(e);
+      nextStep();
     }
   };
 
@@ -92,17 +91,19 @@ export default function Step1({
       {/* Navigation Buttons */}
       <div className="mt-6 flex justify-between">
         <button
-          className="bg-white text-[#1262A1] px-6 py-2 rounded-lg"
-          onClick={prevStep}
+          className="bg-white text-[#1262A1] px-6 py-2 rounded-lg hover:bg-gray-400 transition-colors ease-in-out hover:text-gray-700"
+          onClick={() => {
+            formData?.userType === "Business" ? setStep(9) : prevStep;
+          }}
         >
           Back
         </button>
 
         <button
-          className="bg-white text-[#1262A1] px-6 py-2 rounded-lg"
-          onClick={handleSubmit}
+          className="bg-white text-[#1262A1] px-6 py-2 rounded-lg hover:bg-gray-400 transition-colors ease-in-out hover:text-gray-700"
+          onClick={handleNext}
         >
-          Submit
+          Next
         </button>
       </div>
     </div>

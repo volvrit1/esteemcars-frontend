@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import React from "react";
 
 interface LoanDetailModalProps {
@@ -13,13 +14,13 @@ const LoanDetailsModal: React.FC<LoanDetailModalProps> = ({
 }) => {
   return (
     <div
-      className={`fixed inset-0 bg-black text-gray-600 bg-opacity-50 flex items-center justify-center z-[5000] transition-opacity ${
+      className={`fixed inset-0 p-4 bg-black text-gray-600 bg-opacity-50 flex items-center justify-center z-[5000] transition-opacity ${
         isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
       onClick={toggle}
     >
       <div
-        className="bg-white p-6 rounded-lg h-[80vh] overflow-y-auto some-container shadow-lg w-full sm:w-3/4 lg:w-1/2"
+        className="bg-white p-2 lg:p-6 rounded-lg h-[80vh] overflow-y-auto some-container shadow-lg w-full sm:w-3/4 lg:w-1/2"
         onClick={(e) => e.stopPropagation()} // Prevent modal close when clicking inside
       >
         <div className="flex justify-between items-center mb-4">
@@ -37,7 +38,7 @@ const LoanDetailsModal: React.FC<LoanDetailModalProps> = ({
           <tbody>
             {/* Loan Query Number */}
             <tr>
-              <td className="font-semibold py-2 pr-4 text-right border-b">
+              <td className="font-semibold py-2 pr-4  border-b">
                 Loan Query Number:
               </td>
               <td className="py-2 pl-4 border-b">
@@ -46,35 +47,35 @@ const LoanDetailsModal: React.FC<LoanDetailModalProps> = ({
             </tr>
             {/* User Type */}
             <tr>
-              <td className="font-semibold py-2 pr-4 text-right border-b">
+              <td className="font-semibold py-2 pr-4  border-b">
                 User Type:
               </td>
               <td className="py-2 pl-4 border-b">{loanData?.userType}</td>
             </tr>
             {/* Loan Applied For */}
             <tr>
-              <td className="font-semibold py-2 pr-4 text-right border-b">
+              <td className="font-semibold py-2 pr-4  border-b">
                 Loan Applied For:
               </td>
               <td className="py-2 pl-4 border-b">{loanData?.loanAppliedFor}</td>
             </tr>
             {/* Purchase Price */}
             <tr>
-              <td className="font-semibold py-2 pr-4 text-right border-b">
+              <td className="font-semibold py-2 pr-4  border-b">
                 Purchase Price:
               </td>
               <td className="py-2 pl-4 border-b">{loanData?.purchasePrice}</td>
             </tr>
             {/* Deposit Amount */}
             <tr>
-              <td className="font-semibold py-2 pr-4 text-right border-b">
+              <td className="font-semibold py-2 pr-4  border-b">
                 Deposit Amount:
               </td>
               <td className="py-2 pl-4 border-b">{loanData?.depositAmount}</td>
             </tr>
             {/* Payment Frequency */}
             <tr>
-              <td className="font-semibold py-2 pr-4 text-right border-b">
+              <td className="font-semibold py-2 pr-4  border-b">
                 Payment Frequency:
               </td>
               <td className="py-2 pl-4 border-b">
@@ -83,28 +84,28 @@ const LoanDetailsModal: React.FC<LoanDetailModalProps> = ({
             </tr>
             {/* Vehicle Make */}
             <tr>
-              <td className="font-semibold py-2 pr-4 text-right border-b">
+              <td className="font-semibold py-2 pr-4  border-b">
                 Vehicle Make:
               </td>
               <td className="py-2 pl-4 border-b">{loanData?.vehicleMake}</td>
             </tr>
             {/* Vehicle Model */}
             <tr>
-              <td className="font-semibold py-2 pr-4 text-right border-b">
+              <td className="font-semibold py-2 pr-4  border-b">
                 Vehicle Model:
               </td>
               <td className="py-2 pl-4 border-b">{loanData?.vehicleModel}</td>
             </tr>
             {/* Vehicle Year */}
             <tr>
-              <td className="font-semibold py-2 pr-4 text-right border-b">
+              <td className="font-semibold py-2 pr-4  border-b">
                 Vehicle Year:
               </td>
               <td className="py-2 pl-4 border-b">{loanData?.vehicleYear}</td>
             </tr>
             {/* Application Type */}
             <tr>
-              <td className="font-semibold py-2 pr-4 text-right border-b">
+              <td className="font-semibold py-2 pr-4  border-b">
                 Application Type:
               </td>
               <td className="py-2 pl-4 border-b">
@@ -113,7 +114,7 @@ const LoanDetailsModal: React.FC<LoanDetailModalProps> = ({
             </tr>
             {/* Driver License Type */}
             <tr>
-              <td className="font-semibold py-2 pr-4 text-right border-b">
+              <td className="font-semibold py-2 pr-4  border-b">
                 Driver License Type:
               </td>
               <td className="py-2 pl-4 border-b">
@@ -122,7 +123,7 @@ const LoanDetailsModal: React.FC<LoanDetailModalProps> = ({
             </tr>
             {/* Status */}
             <tr>
-              <td className="font-semibold py-2 pr-4 text-right border-b">
+              <td className="font-semibold py-2 pr-4  border-b">
                 Status:
               </td>
               <td className="py-2 pl-4 border-b">{loanData?.status}</td>
@@ -130,7 +131,7 @@ const LoanDetailsModal: React.FC<LoanDetailModalProps> = ({
 
             {/* Banks Info */}
             <tr>
-              <td className="font-semibold py-2 pr-4 text-right border-b">
+              <td className="font-semibold py-2 pr-4  border-b">
                 Banks:
               </td>
               <td className="py-2 pl-4 border-b">
@@ -151,25 +152,25 @@ const LoanDetailsModal: React.FC<LoanDetailModalProps> = ({
 
             {/* Created At */}
             <tr>
-              <td className="font-semibold py-2 pr-4 text-right border-b">
+              <td className="font-semibold py-2 pr-4  border-b">
                 Created At:
               </td>
               <td className="py-2 pl-4 border-b">
-                {new Date(loanData?.createdAt).toLocaleString()}
+                {dayjs(loanData?.createdAt).format("DD-MM-YYYY")}
               </td>
             </tr>
             {/* Updated At */}
             <tr>
-              <td className="font-semibold py-2 pr-4 text-right border-b">
+              <td className="font-semibold py-2 pr-4  border-b">
                 Updated At:
               </td>
               <td className="py-2 pl-4 border-b">
-                {new Date(loanData?.updatedAt).toLocaleString()}
+              {dayjs(loanData?.updatedAt).format("DD-MM-YYYY")}
               </td>
             </tr>
             {/* Deleted At */}
             <tr>
-              <td className="font-semibold py-2 pr-4 text-right border-b">
+              <td className="font-semibold py-2 pr-4  border-b">
                 Deleted At:
               </td>
               <td className="py-2 pl-4 border-b">

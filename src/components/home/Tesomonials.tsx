@@ -156,7 +156,7 @@ const Testimonials = () => {
               {/* Image container */}
               <div className="relative h-60 w-60 flex justify-center rounded-full border border-green-200">
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${data?.image}`} // Ensure this image exists in the public folder
+                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${data?.image ?? "/"}`} // Ensure this image exists in the public folder
                   alt="Explore Image"
                   width={800}
                   height={630}
