@@ -21,9 +21,11 @@ const HeroSection = async ({
   const { data } = await getBanners(slug);
   return (
     <div
-      className="relative w-full  h-[80vh] mt-[7rem] md:h-screen 2xl:h-[70vh] bg-cover  md:bg-cover"
+      className="relative w-full h-[80vh] mt-[7rem] md:h-screen 2xl:h-screen bg-cover  md:bg-cover"
       style={{
-        backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_URL}${data[0]?.image ?? "/"})`,
+        backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_URL}${
+          data[0]?.image ?? "/"
+        })`,
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
       }}
