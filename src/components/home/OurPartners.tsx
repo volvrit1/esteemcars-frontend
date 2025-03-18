@@ -15,16 +15,11 @@ const OurPartners = ({ sectionData }: { sectionData?: ISection }) => {
   ];
 
   return (
-    <section className="py-12 relative max-w-7xl m-auto p-4 lg:p-14 lg:py-8 bg-white text-gray-800">
-      <div className="relative flex flex-col lg:flex-row justify-center items-center overflow-hidden lg:py-4 lg:w-full  m-auto border border-gray-600">
-        <div className="p-4">
-          <h2 className="font-semibold">
-            Trusted by over 100+ <br /> businesses worldwide!
-          </h2>
-        </div>
-        <div className="relative flex overflow-hidden max-w-screen-xl ml-auto lg:w-3/5">
+    <section className="py-12 relative max-w-7xl m-auto p-4 lg:p-14 lg:py-0 bg-gray-50 text-gray-800">
+      <div className="relative flex flex-col lg:flex-row justify-center items-center overflow-hidden lg:py-4 lg:w-full  m-auto border-gray-600">
+        <div className="relative flex overflow-hidden max-w-screen-xl ml-auto">
           <motion.div
-            className="flex space-x-6"
+            className="flex space-x-6 gap-10"
             initial={{ x: "0%" }}
             animate={{ x: "-100%" }}
             transition={{
@@ -34,7 +29,7 @@ const OurPartners = ({ sectionData }: { sectionData?: ISection }) => {
             }}
           >
             {/* Map clients to show in pairs */}
-            {[...clients, ...clients, ...clients, ...clients].map(
+            {[...clients, ...clients, ...clients, ...clients, ...clients].map(
               (client, index) => (
                 <div key={index} className="flex-shrink-0 w-16 h-16 rounded-lg">
                   <Image

@@ -1,4 +1,5 @@
 import CarSearchBanner from "@/components/home/CarSearchBanner";
+import Challenges from "@/components/home/Challenges";
 import ContactSection from "@/components/home/ContactSection";
 import EmiCalculator from "@/components/home/EmiCalculator";
 import Follow from "@/components/home/Follow";
@@ -7,6 +8,7 @@ import HowDifferent from "@/components/home/HowDifferent";
 import LatestNews from "@/components/home/LatestNews";
 import LoanApplication from "@/components/home/LoanApplication";
 import OurPartners from "@/components/home/OurPartners";
+import OurSimple from "@/components/home/OurSimple";
 import OverComes from "@/components/home/OverComes";
 import Testimonials from "@/components/home/Tesomonials";
 import Why from "@/components/home/Why";
@@ -32,10 +34,12 @@ const Home = () => {
         slug="Home"
       />
       <OurPartners />
-      <HowDifferent />
+      <OurSimple />
+      <Challenges />
+
       <CarSearchBanner />
       <OverComes />
-      <Why />
+      {/* <Why /> */}
       <EmiCalculator />
       <Follow />
       <LoanApplication />
@@ -48,6 +52,5 @@ const Home = () => {
 };
 
 export default Home;
-
 
 export const revalidate = 60;
