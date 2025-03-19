@@ -4,6 +4,7 @@ import ContactSection from "@/components/home/ContactSection";
 import EmiCalculator from "@/components/home/EmiCalculator";
 import Follow from "@/components/home/Follow";
 import HeroSection from "@/components/home/HeroSection";
+import HeroSectionSlider from "@/components/home/HeroSectionSlider";
 import HowDifferent from "@/components/home/HowDifferent";
 import LatestNews from "@/components/home/LatestNews";
 import LoanApplication from "@/components/home/LoanApplication";
@@ -12,6 +13,7 @@ import OurSimple from "@/components/home/OurSimple";
 import OverComes from "@/components/home/OverComes";
 import Testimonials from "@/components/home/Tesomonials";
 import Why from "@/components/home/Why";
+import WhyChooseUs from "@/components/home/WhyChooseUS";
 import Faq from "@/components/support/Faq";
 
 const Home = () => {
@@ -25,21 +27,14 @@ const Home = () => {
 
   return (
     <div>
-      <HeroSection
-        title={data?.title}
-        description={data?.description}
-        image={data?.image}
-        link={"/contact"}
-        textShow={false}
-        slug="Home"
-      />
+     <HeroSectionSlider />
       <OurPartners />
       <OurSimple />
       <Challenges />
 
       <CarSearchBanner />
       <OverComes />
-      {/* <Why /> */}
+      <WhyChooseUs />
       <EmiCalculator />
       <Follow />
       <LoanApplication />
