@@ -6,8 +6,8 @@ import { IoIosArrowForward } from "react-icons/io";
 
 const CarSearchBanner = ({ sectionData }: { sectionData?: ISection }) => {
   return (
-    <div className="flex justify-center items-center relative w-full py-10 lg:py-0 min-h-[50vh] lg:min-h-[90vh] -z-10 ">
-      <div className="w-full absolute top-0 h-full lg:h-[70vh] text-center bg-[#FFF0E64D] p-4 lg:p-8">
+    <div className="flex justify-center items-center relative w-full py-10 lg:py-0 min-h-[65vh] lg:min-h-[90vh] -z-10 ">
+      <div className="w-full absolute top-0   lg:h-[70vh] text-center bg-[#FFF0E64D] p-4 lg:p-8">
         <h2 className="text-2xl sm:text-3xl md:text-2xl lg:text-2xl xl:text-2xl font-bold text-gray-800 leading-7">
           {"Start your car search today"}
         </h2>
@@ -18,9 +18,9 @@ const CarSearchBanner = ({ sectionData }: { sectionData?: ISection }) => {
         </p>
         
       </div>
-      <div className="absolute top-72 lg:top-44  h-fit inset-0 flex justify-center items-center">
+      <div className="absolute top-72 lg:top-12  h-fit inset-0 flex justify-center items-center">
         <Image
-          src={"/images/beingAcar.png"}
+          src={"/assets/applybanner.png"}
           width={1000}
           height={1000}
           alt=""
@@ -31,7 +31,7 @@ const CarSearchBanner = ({ sectionData }: { sectionData?: ISection }) => {
       <div className="flex justify-center items-center gap-4 absolute bottom-10 z-[5000]">
           <Link
             href={"#loanApplication"}
-            className="bg-[#1262A1] hover:bg-gray-400 transition-colors ease-in-out  lg:px-12 lg:py-4 p-0 h-14 font-light rounded-lg"
+            className="bg-[#1262A1] hover:bg-gray-400 transition-colors ease-in-out flex items-center px-4 lg:px-12 lg:py-4 p-0 h-14 font-light rounded-lg"
           >
             Get Your Finance Today
           </Link>

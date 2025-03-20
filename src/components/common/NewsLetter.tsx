@@ -30,7 +30,7 @@ export default function NewsLetter() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="example@gmail.com"
-        className="w-full p-2 text-gray-100 text-xs rounded-2xl bg-transparent border"
+        className="w-full p-3 text-gray-100 text-xs rounded-xl bg-transparent border"
       />
       <button
         type="submit"

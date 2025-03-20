@@ -162,7 +162,7 @@ const EmiCalculator = () => {
         </div>
       </div>
 
-      <div className="w-full lg:w-3/12 lg:h-[80vh]  bg-[#1262A1] text-white p-4 rounded-r-lg">
+      <div className="w-full lg:w-3/12 lg:h-[80vh]  bg-[#1262A1] text-white p-4 rounded-lg lg:rounded-r-lg">
         <h3 className="text-xs font-light text-gray-50 text-center">
           Indicative EMI
         </h3>

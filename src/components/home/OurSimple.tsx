@@ -24,7 +24,7 @@ const OurSimple = () => {
       </div>
       <section className="container relative text-gray-900 mx-auto lg:p-4 flex flex-col lg:flex-row items-center justify-center">
         {/* Left Column - Image */}
-        <div className="lg:w-2/5 h-[85vh] w-full flex justify-center">
+        <div className="lg:w-2/5 lg:h-[85vh] w-full flex justify-center">
           <Image
             src={image1}
             alt="Who We Are Image"
@@ -36,7 +36,7 @@ const OurSimple = () => {
 
         {/* Right Column - Content */}
         <div className="lg:w-3/5 w-full mt-8 lg:mt-0 text-left">
-          <ul className="grid grid-cols-2 place-items-center">
+          <ul className="grid grid-cols-1 lg:grid-cols-2 place-items-center">
             <li className="flex flex-col justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-gray-800 p-2 leading-8">
               <Image
                 src={image5}
@@ -104,7 +104,7 @@ const OurSimple = () => {
                 application, allowing you to secure your vehicle without delays.
               </p>
             </li>
-            <button className="col-span-2 w-1/3 mt-4 p-3 px-10 rounded text-gray-50 bg-[#1262A1]">Let's Start</button>
+            <button className="lg:col-span-2 lg:w-1/3 mt-4 p-3 px-10 rounded text-gray-50 bg-[#1262A1]">Let's Start</button>
           </ul>
         </div>
       </section>

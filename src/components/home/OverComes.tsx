@@ -8,7 +8,7 @@ const OverComes = ({ sectionData }: { sectionData?: ISection }) => {
     <div className="max-w-7xl  m-auto p-4 lg:px-14 bg-[#FFF0E64D]">
       <section className="container text-gray-900 mx-auto flex flex-col lg:flex-row items-center justify-center ">
         {/* Left Column - Image */}
-        <div className="lg:w-2/5 h-[98vh] w-full flex justify-center">
+        <div className="lg:w-2/5 lg:h-[98vh] w-full flex justify-center">
           <Image
             src={"/assets/overcome.png"}
             alt="Who We Are Image"

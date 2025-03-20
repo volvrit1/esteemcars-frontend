@@ -32,15 +32,15 @@ const Challenges = () => {
           { image: "", title: "Lacks transparent, unbiased, true business consulting." },
           { image: "", title: "Car finance lacks a comprehensive customer solution system" },
         ].map((data, index) => (
-          <div key={index} className="text-center w-4/5">
+          <div key={index} className="text-center w-full  lg:w-4/5">
             <Image
               src={image1}
               alt=""
               width={100}
               height={100}
-              className="w-36 h-36 lg:w-36 lg:h-36 lg:mx-auto lg:my-auto lg:rounded-full lg:bg-white lg:border lg:border-orange-500 lg:p-4 lg:text-center lg:mb-4"
+              className="w-full lg:w-36 lg:h-36 lg:mx-auto lg:my-auto lg:rounded-full lg:bg-white lg:border lg:border-orange-500 lg:p-4 lg:text-center lg:mb-4"
             />
-            <h2 className="m-auto font-semibold text-gray-700 text-sm text-center w-4/5">
+            <h2 className="m-auto my-4 lg:my-0 font-semibold text-gray-700 text-sm text-center w-4/5">
               {data?.title}
             </h2>
           </div>

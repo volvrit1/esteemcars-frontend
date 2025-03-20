@@ -10,7 +10,7 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="relative w-full h-screen ">
+    <section className="relative w-full lg:h-screen ">
       <Swiper
         spaceBetween={50}
         slidesPerView={1}
@@ -21,8 +21,14 @@ const HeroSection: React.FC = () => {
         navigation={false}
         pagination={{ clickable: true }}
         modules={[Autoplay, Navigation, Pagination]}
-        className="h-screen"
+        className="h-52 lg:h-screen"
       >
+        <SwiperSlide>
+          <div
+            className="w-full h-full bg-cover bg-center"
+            style={{ backgroundImage: "url('/assets/banner.svg')" }}
+          ></div>
+        </SwiperSlide>
         <SwiperSlide>
           <div
             className="w-full h-full bg-cover bg-center"

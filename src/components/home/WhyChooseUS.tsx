@@ -23,7 +23,7 @@ const WhyChooseUs = () => {
       </div>
       <section className="container relative text-gray-900 mx-auto lg:p-4 flex flex-col lg:flex-row items-center justify-center">
         {/* Right Column - Content */}
-        <div className="grid grid-flow-col grid-rows-1 gap-4 w-full ">
+        <div className="grid lg:grid-flow-col lg:grid-rows-1 gap-4 w-full ">
           <div className="flex flex-col gap-4">
             <div className="border relative rounded-3xl overflow-hidden w-full ">
               <Image
