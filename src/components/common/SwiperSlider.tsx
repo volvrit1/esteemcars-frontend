@@ -26,13 +26,19 @@ const HeroSection: React.FC = () => {
         <SwiperSlide>
           <div
             className="w-full h-full bg-cover bg-center"
-            style={{ backgroundImage: "url('/assets/banner.svg')" }}
+            style={{ backgroundImage: "url('/assets/banner01.svg')" }}
           ></div>
         </SwiperSlide>
         <SwiperSlide>
           <div
             className="w-full h-full bg-cover bg-center"
-            style={{ backgroundImage: "url('/assets/banner1.svg')" }}
+            style={{ backgroundImage: "url('/assets/banner02.svg')" }}
+          ></div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div
+            className="w-full h-full bg-cover bg-center"
+            style={{ backgroundImage: "url('/assets/banner03.svg')" }}
           ></div>
         </SwiperSlide>
       </Swiper>

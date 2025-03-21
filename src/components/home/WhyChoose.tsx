@@ -22,7 +22,7 @@ const WhyChoose = ({ sectionData }: { sectionData?: ISection }) => {
         {/* Left Column - Image */}
         <div className="lg:w-1/2 lg:h-[80vh] flex justify-center">
           <Image
-            src={"/assets/carimg.png"}
+            src={"/assets/carimg.svg"}
             alt="Who We Are Image"
             width={300}
             height={430}
