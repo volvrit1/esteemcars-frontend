@@ -80,7 +80,7 @@ export default function Step1({
             type="file"
             onChange={handelFileChange}
             name="rentAgreement"
-            className="mt-2 border p-2 rounded text-gray-800"
+            className="mt-2 border p-2 rounded text-[#252525]"
           />
           {errors.rentAgreement && (
             <span className="text-red-500">{errors.rentAgreement}</span>

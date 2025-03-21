@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 
 export default function EmployerInfo({
@@ -54,10 +53,12 @@ export default function EmployerInfo({
               name="employerName"
               value={formData.employerName}
               onChange={handleChange}
-              className="border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none"
+              className="border rounded p-3 text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none"
               placeholder="Employer Name"
             />
-             {errors?.employerName && <p className="text-red-500">{errors.employerName}</p>}
+            {errors?.employerName && (
+              <p className="text-red-500">{errors.employerName}</p>
+            )}
           </div>
 
           <div className="flex flex-col">
@@ -67,11 +68,12 @@ export default function EmployerInfo({
               name="companyName"
               value={formData.companyName}
               onChange={handleChange}
-              className="border rounded p-3 text-gray-800"
+              className="border rounded p-3 text-[#252525]"
               placeholder="Company Name"
             />
-             {errors?.companyName && <p className="text-red-500">{errors.companyName}</p>}
-
+            {errors?.companyName && (
+              <p className="text-red-500">{errors.companyName}</p>
+            )}
           </div>
 
           <div className="flex flex-col">
@@ -81,11 +83,12 @@ export default function EmployerInfo({
               name="companyAddress"
               value={formData.companyAddress}
               onChange={handleChange}
-              className="border rounded p-3 text-gray-800"
+              className="border rounded p-3 text-[#252525]"
               placeholder="Company Address"
             />
-             {errors?.companyAddress && <p className="text-red-500">{errors.companyAddress}</p>}
-
+            {errors?.companyAddress && (
+              <p className="text-red-500">{errors.companyAddress}</p>
+            )}
           </div>
         </div>
 
@@ -97,11 +100,12 @@ export default function EmployerInfo({
               name="companyCity"
               value={formData.companyCity}
               onChange={handleChange}
-              className="border rounded p-3 text-gray-800"
+              className="border rounded p-3 text-[#252525]"
               placeholder="Enter City"
             />
-             {errors?.companyCity && <p className="text-red-500">{errors.companyCity}</p>}
-
+            {errors?.companyCity && (
+              <p className="text-red-500">{errors.companyCity}</p>
+            )}
           </div>
           <div className="flex flex-col">
             <label className="font-medium">Company State *</label>
@@ -110,11 +114,12 @@ export default function EmployerInfo({
               name="companyState"
               value={formData.companyState}
               onChange={handleChange}
-              className="border rounded p-3 text-gray-800"
+              className="border rounded p-3 text-[#252525]"
               placeholder="Enter State"
             />
-             {errors?.companyState && <p className="text-red-500">{errors.companyState}</p>}
-
+            {errors?.companyState && (
+              <p className="text-red-500">{errors.companyState}</p>
+            )}
           </div>
           <div className="flex flex-col">
             <label className="font-medium">Company Country *</label>
@@ -123,10 +128,12 @@ export default function EmployerInfo({
               name="companyCountry"
               value={formData.companyCountry}
               onChange={handleChange}
-              className="border rounded p-3 text-gray-800"
+              className="border rounded p-3 text-[#252525]"
               placeholder="Enter Country"
             />
-            {errors?.companyCountry && <p className="text-red-500">{errors.companyCountry}</p>}
+            {errors?.companyCountry && (
+              <p className="text-red-500">{errors.companyCountry}</p>
+            )}
           </div>
         </div>
 
@@ -138,10 +145,12 @@ export default function EmployerInfo({
               name="companyPhoneNumber"
               value={formData.companyPhoneNumber}
               onChange={handleChange}
-              className="border rounded p-3 text-gray-800"
+              className="border rounded p-3 text-[#252525]"
               placeholder="Enter Phone Number"
             />
-            {errors?.companyPhoneNumber && <p className="text-red-500">{errors.companyPhoneNumber}</p>}
+            {errors?.companyPhoneNumber && (
+              <p className="text-red-500">{errors.companyPhoneNumber}</p>
+            )}
           </div>
           <div className="flex flex-col">
             <label className="font-medium">Company Email *</label>
@@ -150,11 +159,12 @@ export default function EmployerInfo({
               name="companyEmail"
               value={formData.companyEmail}
               onChange={handleChange}
-              className="border rounded p-3 text-gray-800"
+              className="border rounded p-3 text-[#252525]"
               placeholder="Enter Email Address"
             />
-             {errors?.companyEmail && <p className="text-red-500">{errors.companyEmail}</p>}
-
+            {errors?.companyEmail && (
+              <p className="text-red-500">{errors.companyEmail}</p>
+            )}
           </div>
           <div className="flex flex-col">
             <label className="font-medium">Company Website *</label>
@@ -163,11 +173,12 @@ export default function EmployerInfo({
               name="companyWebsite"
               value={formData.companyWebsite}
               onChange={handleChange}
-              className="border rounded p-3 text-gray-800"
+              className="border rounded p-3 text-[#252525]"
               placeholder="Enter Company URL"
             />
-             {errors?.companyWebsite && <p className="text-red-500">{errors.companyWebsite}</p>}
-
+            {errors?.companyWebsite && (
+              <p className="text-red-500">{errors.companyWebsite}</p>
+            )}
           </div>
         </div>
       </form>

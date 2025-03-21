@@ -71,7 +71,7 @@ export default function LoginModal({ isOpen, onClose, setSignUpOpen }: any) {
         <div className="w-full lg:w-1/2 h-[80vh] flex items-center justify-center p-8 bg-white relative">
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 text-gray-500 text-2xl hover:text-gray-800"
+            className="absolute top-6 right-6 text-[#7d7d7d] text-2xl hover:text-[#252525]"
           >
             &times;
           </button>
@@ -80,7 +80,7 @@ export default function LoginModal({ isOpen, onClose, setSignUpOpen }: any) {
             <h2 className="text-2xl font-semibold text-[#1262A1] mb-2">
               Welcome Back to Esteem Car Loans !
             </h2>
-            <p className="text-gray-500 mb-6 text-sm">
+            <p className="text-[#7d7d7d] mb-6 text-sm">
               At Esteem Car Loans, we understand that buying a car is more than
               just a purchase—it’s a milestone.
             </p>
@@ -104,7 +104,7 @@ export default function LoginModal({ isOpen, onClose, setSignUpOpen }: any) {
                   className="border rounded px-4 py-3 w-full text-gray-700 focus:ring-2 focus:ring-[#1262A1] outline-none"
                 />
                 <span
-                  className="absolute top-1/3 right-4 text-gray-500 cursor-pointer"
+                  className="absolute top-1/3 right-4 text-[#7d7d7d] cursor-pointer"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}

@@ -27,7 +27,7 @@ export default function OurPartners() {
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-gray-700 leading-7">
           Our Partners
         </h2>
-        <p className="text-base lg:w-4/6 sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px] line-clamp-4 md:line-clamp-none text-gray-600 mt-4 leading-8">
+        <p className="text-base lg:w-4/6 sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px] line-clamp-4 md:line-clamp-none text-[#7d7d7d] mt-4 leading-8">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -38,7 +38,7 @@ export default function OurPartners() {
         {datas &&
           datas?.map((data, index) => (
             <div
-              className="text-left col-span-1 text-gray-800 p-8  flex flex-col justify-center items-center"
+              className="text-left col-span-1 text-[#252525] p-8  flex flex-col justify-center items-center"
               key={index}
             >
               <Image
@@ -55,7 +55,10 @@ export default function OurPartners() {
           ))}
       </div>
       <div className="w-2/4 m-auto col-span-2 flex justify-start items-center mb-4">
-        <Link href={"/contact-us"} className="bg-black text-gray-50 w-full font-semibold border-gray-900 border-[1.3px] flex justify-center items-center text-sm p-4">
+        <Link
+          href={"/contact-us"}
+          className="bg-black text-gray-50 w-full font-semibold border-gray-900 border-[1.3px] flex justify-center items-center text-sm p-4"
+        >
           Become a Partner Now
         </Link>
       </div>

@@ -30,7 +30,7 @@ const Testimonials2 = () => {
       name: "John Smith",
       position: "Behavioral Science",
       review:
-        "Esteem Cars offers excellent customer service and a wide variety of vehicles. I got a great deal, and the entire experience was seamless. Highly recommend!",
+        "I couldn't be happier with my decision to buy from Esteem Cars. They helped me every step of the way, and their customer service was outstanding. Highly recommend!",
       image: "/images/image3.png",
       date: "Jan 02 2025",
     },
@@ -39,13 +39,13 @@ const Testimonials2 = () => {
       name: "Lina Cruz",
       position: "Behavioral Science",
       review:
-        "Esteem Cars offers excellent customer service and a wide variety of vehicles. I got a great deal, and the entire experience was seamless. Highly recommend!",
+        "A fantastic place to find a quality used car. I found the car I was looking for at a great price, and the financing was a breeze. Thank you Esteem Cars!",
       image: "/images/image3.png",
       date: "Jan 02 2025",
     },
     {
       star: 5,
-      name: "Catherine",
+      name: "Sophia Willams",
       position: "Behavioral Science",
       review:
         "Esteem Cars offers excellent customer service and a wide variety of vehicles. I got a great deal, and the entire experience was seamless. Highly recommend!",
@@ -54,16 +54,7 @@ const Testimonials2 = () => {
     },
     {
       star: 5,
-      name: "Catherine",
-      position: "Behavioral Science",
-      review:
-        "Esteem Cars offers excellent customer service and a wide variety of vehicles. I got a great deal, and the entire experience was seamless. Highly recommend!",
-      image: "/images/image3.png",
-      date: "Jan 02 2025",
-    },
-    {
-      star: 5,
-      name: "Catherine",
+      name: "Lina Cruz",
       position: "Behavioral Science",
       review:
         "Esteem Cars offers excellent customer service and a wide variety of vehicles. I got a great deal, and the entire experience was seamless. Highly recommend!",
@@ -78,8 +69,8 @@ const Testimonials2 = () => {
   return (
     <div className="max-w-7xl lg:max-w-6xl relative m-auto p-4">
       <div className="m-auto lg:w-full text-center lg:px-24 lg:mb-4">
-        <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-bold text-center font-[poppins] text-gray-800 leading-7">
-          {"See what our clients say"}
+        <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl 2xl:text-4xl font-semibold text-center font-[poppins] text-[#252525] leading-7">
+          {"See What Our Clients Say"}
         </h2>
       </div>
       <Swiper
@@ -111,14 +102,16 @@ const Testimonials2 = () => {
               <div className="text-gray-900 p-6 flex justify-between w-full ">
                 <div className="flex items-center justify-start">
                   {data?.star &&
-                   Array(data?.star).fill(null).map((data: any, index: any) => (
-                      <IoStar
-                        key={index}
-                        width={16}
-                        height={16}
-                        className="text-[#F69B00]"
-                      />
-                    ))}
+                    Array(data?.star)
+                      .fill(null)
+                      .map((data: any, index: any) => (
+                        <IoStar
+                          key={index}
+                          width={16}
+                          height={16}
+                          className="text-[#F69B00]"
+                        />
+                      ))}
                 </div>
                 <Image
                   src={"/assets/quote.png"}
@@ -128,8 +121,8 @@ const Testimonials2 = () => {
                   className=""
                 />
               </div>
-              <div className="px-6 py-2">
-                <p className="text-sm text-gray-600">
+              <div className="px-6 py-2 h-32">
+                <p className="text-sm text-[#7d7d7d] font-[poppins] line-clamp-5">
                   {data.review}
                 </p>
               </div>
@@ -143,12 +136,12 @@ const Testimonials2 = () => {
                   className=""
                 />
                 <div>
-                  <h2 className="text-lg sm:text-lg md:text-lg lg:text-lg xl:text-lg font-bold text-gray-50 leading-7 mb-1">
+                  <h2 className="text-lg sm:text-lg md:text-lg lg:text-lg xl:text-lg text-left font-bold font-[poppins] text-gray-50 leading-7 mb-1">
                     {data?.name}
                   </h2>
-                  <h2 className="text-xs sm:text-xs md:text-xs lg:text-xs xl:text-xs font-normal tracking-widest line-clamp-4 text-gray-50 leading-7 mb-3">
-                    {data?.posiotion}
-                  </h2>
+                  <p className="text-xs sm:text-xs md:text-xs lg:text-xs xl:text-xs font-normal text-left font-[cabin]  line-clamp-4 text-gray-50 leading-7 mb-3">
+                    {data?.position}
+                  </p>
                 </div>
               </div>
             </div>

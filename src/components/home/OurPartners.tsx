@@ -15,9 +15,9 @@ const OurPartners = ({ sectionData }: { sectionData?: ISection }) => {
   ];
 
   return (
-    <section className="lg:py-12 relative max-w-7xl m-auto p-4 lg:p-14 lg:py-0 bg-gray-50 text-gray-800">
-      <div className="relative flex flex-col lg:flex-row justify-center items-center overflow-hidden lg:py-4 lg:w-full  m-auto border-gray-600">
-        <div className="relative flex overflow-hidden max-w-screen-xl ml-auto">
+    <section className="relative  w-full m-auto  bg-gray-50 text-[#252525]">
+      <div className="relative flex flex-col lg:flex-row justify-center items-center overflow-hidden lg:py-4 w-full  m-auto border-gray-600">
+        <div className="relative flex overflow-hidden  ml-auto">
           <motion.div
             className="flex space-x-6 gap-10"
             initial={{ x: "0%" }}

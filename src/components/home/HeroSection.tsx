@@ -21,10 +21,10 @@ const HeroSection = async ({
   const { data } = await getBanners(slug);
   return (
     <div
-      className="relative w-full h-[80vh] mt-[7rem] md:h-screen 2xl:h-screen bg-cover  md:bg-cover"
+      className="relative w-full h-[80vh] mt-[7rem] lg:mt-[10rem] md:h-screen 2xl:h-screen bg-cover  md:bg-cover"
       style={{
         backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_URL}${
-          data[0]?.image ?? "/"
+          data[0]?.image ?? "/assets/carimg.png"
         })`,
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
@@ -44,7 +44,7 @@ const HeroSection = async ({
               href={"/contact-us"}
               className="rounded bg-[#1262A1] px-5 py-2 text-gray-50 flex justify-between items-center"
             >
-              Learn More{" "}
+              Know More{" "}
               <GoArrowUpRight width={16} height={16} className="ml-2" />
             </Link>
           </div>

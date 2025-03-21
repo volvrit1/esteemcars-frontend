@@ -37,10 +37,10 @@ export default function ContactDetails() {
               alt={`Client ${index + 1}`}
               className="w-20 h-20 object-contain p-2"
             />
-            <p className="mt-2 text-lg font-semibold text-center text-gray-800">
+            <p className="mt-2 text-lg font-semibold text-center text-[#252525]">
               {client.name}
             </p>
-            <p className="mt-2 text-sm font-semibold text-center text-gray-500">
+            <p className="mt-2 text-sm font-semibold text-center text-[#7d7d7d]">
               {client.desc}
             </p>
           </div>

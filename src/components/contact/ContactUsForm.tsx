@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import HeaderSection from "../common/HeaderSection";
 import ContactDetails from "./ContactDetails";
@@ -17,7 +17,9 @@ export default function ContactUsForm({ details }: { details?: boolean }) {
   const [success, setSuccess] = useState("");
 
   // Handle input changes
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -38,11 +40,18 @@ export default function ContactUsForm({ details }: { details?: boolean }) {
       });
 
       const result = await response.json();
-      if (!response.ok) throw new Error(result.message || "Something went wrong");
+      if (!response.ok)
+        throw new Error(result.message || "Something went wrong");
 
       setSuccess("Your message has been sent successfully!");
-      setFormData({ firstName: "", lastName: "", email: "", phone: "", description: "" }); // Reset form
-    } catch (err:any) {
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        description: "",
+      }); // Reset form
+    } catch (err: any) {
       setError(err.message);
     } finally {
       setLoading(false);
@@ -60,7 +69,7 @@ export default function ContactUsForm({ details }: { details?: boolean }) {
 
       <div className="w-full lg:p-16 lg:px-48 mx-auto">
         <div className="border-[1.5px] border-gray-900 p-10">
-          <h2 className="text sm:text-sm md:text-lg lg:text-xl xl:text-xl font-medium tracking-widest mb-4">
+          <h2 className="text sm:text-sm md:text-lg lg:text-xl xl:text-xl font-medium  mb-4">
             Send Us Query
           </h2>
 
@@ -68,7 +77,10 @@ export default function ContactUsForm({ details }: { details?: boolean }) {
           {success && <p className="text-green-600">{success}</p>}
           {error && <p className="text-red-600">{error}</p>}
 
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 md:gap-6">
+          <form
+            onSubmit={handleSubmit}
+            className="grid grid-cols-1 md:grid-cols-2 md:gap-6"
+          >
             <input
               type="text"
               name="firstName"

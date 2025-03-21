@@ -20,14 +20,17 @@ export default function LoanApplication() {
   };
 
   return (
-    <div id="loanApplication" className="max-w-7xl relative  m-auto p-4 lg:p-14 mb-8">
+    <div
+      id="loanApplication"
+      className="max-w-7xl relative  m-auto p-4 lg:p-14 mb-8"
+    >
       <div className="m-auto lg:w-full  text-center lg:px-24 lg:mb-4">
-        <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-23xl font-bold text-gray-800 leading-7 mb-4 ">
+        <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-23xl font-bold text-[#252525] leading-7 mb-4 ">
           {"Submit Your"}
           <span className="text-[#F75D34]"> {"Car Loan Application"}</span>
           {"Today"}
         </h2>
-        <h3 className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl line-clamp-4 lg:line-clamp-none font-light mb-10 text-gray-800 leading-7">
+        <h3 className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl line-clamp-4 lg:line-clamp-none font-light mb-10 text-[#252525] leading-7">
           There are many variations of passages of Lorem Ipsum available, but
           the majority have suffered alteration in some form, by injected
           humour, or randomised words which don't look even slightly believable.

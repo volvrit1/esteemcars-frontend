@@ -3,6 +3,10 @@ import HeroSection from "../../components/home/HeroSection";
 import ContactUsForm from "@/components/contact/ContactUsForm";
 import Faq from "@/components/support/Faq";
 import ContactSection from "@/components/home/ContactSection";
+import ContactHeroSection from "./components/ContactHeroSection";
+import Map from "./components/Map";
+import ContactSection2 from "./components/ContactSection2";
+import WeAreHere from "./components/WeAreHere";
 
 export default function page() {
   const data = {
@@ -14,20 +18,12 @@ export default function page() {
   };
   return (
     <div>
-      <HeroSection
-        title={data?.title}
-        description={data?.description}
-        link={data?.link}
-        image={data?.image}
-        textShow={true}
-        slug="Contact"
-      />
-     <ContactSection />
-     <Faq />
+      <ContactHeroSection />
+      <WeAreHere />
+      <ContactSection2 />
+      <Map />
     </div>
   );
 }
 
-
-
-export const revalidate = 60
+export const revalidate = 60;

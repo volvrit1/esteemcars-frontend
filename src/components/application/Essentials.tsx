@@ -9,7 +9,6 @@ const Essentials = () => {
       logo: "/images/flotingTyre.png",
     },
     {
-      
       id: 2,
       name: "Disaster Response",
       desc: "Resource management and coordination of operations in disaster situations.",
@@ -35,7 +34,7 @@ const Essentials = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center lg:w-3/5 mx-auto lg:mb-2 lg:p-12">
-        <h2 className="text-sm sm:text-3xl md:text-4xl lg:text-sm xl:text-sm font-normal tracking-widest text-gray-50 leading-7 mb-3">
+        <h2 className="text-sm sm:text-3xl md:text-4xl lg:text-sm xl:text-sm font-normal  text-gray-50 leading-7 mb-3">
           Our Commitments
         </h2>
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-gray-50 leading-7">
@@ -56,7 +55,7 @@ const Essentials = () => {
               className={`flex flex-col justify-center items-center h-64 rounded-lg p-6 bg-transparent`}
             >
               <Image
-                src={client.logo||"/images/wave.png"}
+                src={client.logo || "/images/wave.png"}
                 width={5000}
                 height={5000}
                 alt={`Client ${index + 1}`}

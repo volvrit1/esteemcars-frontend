@@ -14,7 +14,7 @@ const LoanDetailsModal: React.FC<LoanDetailModalProps> = ({
 }) => {
   return (
     <div
-      className={`fixed inset-0 p-4 bg-black text-gray-600 bg-opacity-50 flex items-center justify-center z-[5000] transition-opacity ${
+      className={`fixed inset-0 p-4 bg-black text-[#7d7d7d] bg-opacity-50 flex items-center justify-center z-[5000] transition-opacity ${
         isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
       onClick={toggle}
@@ -26,7 +26,7 @@ const LoanDetailsModal: React.FC<LoanDetailModalProps> = ({
         <div className="flex justify-between items-center mb-4">
           <h5 className="text-xl font-semibold">Loan Details</h5>
           <button
-            className="text-2xl font-semibold text-gray-500 hover:text-gray-700"
+            className="text-2xl font-semibold text-[#7d7d7d] hover:text-gray-700"
             onClick={toggle}
           >
             &times;
@@ -47,9 +47,7 @@ const LoanDetailsModal: React.FC<LoanDetailModalProps> = ({
             </tr>
             {/* User Type */}
             <tr>
-              <td className="font-semibold py-2 pr-4  border-b">
-                User Type:
-              </td>
+              <td className="font-semibold py-2 pr-4  border-b">User Type:</td>
               <td className="py-2 pl-4 border-b">{loanData?.userType}</td>
             </tr>
             {/* Loan Applied For */}
@@ -123,17 +121,13 @@ const LoanDetailsModal: React.FC<LoanDetailModalProps> = ({
             </tr>
             {/* Status */}
             <tr>
-              <td className="font-semibold py-2 pr-4  border-b">
-                Status:
-              </td>
+              <td className="font-semibold py-2 pr-4  border-b">Status:</td>
               <td className="py-2 pl-4 border-b">{loanData?.status}</td>
             </tr>
 
             {/* Banks Info */}
             <tr>
-              <td className="font-semibold py-2 pr-4  border-b">
-                Banks:
-              </td>
+              <td className="font-semibold py-2 pr-4  border-b">Banks:</td>
               <td className="py-2 pl-4 border-b">
                 {loanData?.approvedBankData?.banks &&
                   loanData?.approvedBankData.banks.map(
@@ -152,27 +146,21 @@ const LoanDetailsModal: React.FC<LoanDetailModalProps> = ({
 
             {/* Created At */}
             <tr>
-              <td className="font-semibold py-2 pr-4  border-b">
-                Created At:
-              </td>
+              <td className="font-semibold py-2 pr-4  border-b">Created At:</td>
               <td className="py-2 pl-4 border-b">
                 {dayjs(loanData?.createdAt).format("DD-MM-YYYY")}
               </td>
             </tr>
             {/* Updated At */}
             <tr>
-              <td className="font-semibold py-2 pr-4  border-b">
-                Updated At:
-              </td>
+              <td className="font-semibold py-2 pr-4  border-b">Updated At:</td>
               <td className="py-2 pl-4 border-b">
-              {dayjs(loanData?.updatedAt).format("DD-MM-YYYY")}
+                {dayjs(loanData?.updatedAt).format("DD-MM-YYYY")}
               </td>
             </tr>
             {/* Deleted At */}
             <tr>
-              <td className="font-semibold py-2 pr-4  border-b">
-                Deleted At:
-              </td>
+              <td className="font-semibold py-2 pr-4  border-b">Deleted At:</td>
               <td className="py-2 pl-4 border-b">
                 {loanData?.deletedAt
                   ? new Date(loanData?.deletedAt).toLocaleString()

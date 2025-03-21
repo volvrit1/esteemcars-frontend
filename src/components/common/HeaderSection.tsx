@@ -10,14 +10,12 @@ export default function HeaderSection({
   subTitle: string;
   description: string;
   textColor?: string;
-  slug?:string
+  slug?: string;
 }) {
-
-  
   return (
     <div className="lg:w-4/6 m-auto mb-8 text-center">
       <h2
-        className={`text sm:text-sm md:text-sm lg:text-sm xl:text-sm font-normal tracking-widest ${
+        className={`text sm:text-sm md:text-sm lg:text-sm xl:text-sm font-normal  ${
           textColor ? `text-${textColor}-600` : "text-gray-50"
         } leading-8 mb-3`}
       >

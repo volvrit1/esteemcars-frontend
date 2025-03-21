@@ -89,7 +89,7 @@ export default function Step1({
             name="utilities"
             value={formData.utilities}
             onChange={(e) => handleChange(e)}
-            className={`border rounded p-3 col-span-2 lg:col-span-1 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none w-full ${
+            className={`border rounded p-3 col-span-2 lg:col-span-1 text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none w-full ${
               errors.utilities ? "border-red-500" : ""
             }`}
             placeholder="$ 0"
@@ -115,7 +115,7 @@ export default function Step1({
             name="livingExpenses"
             value={formData.livingExpenses}
             onChange={(e) => handleChange(e)}
-            className={`border rounded p-3 col-span-2 lg:col-span-1 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none w-full ${
+            className={`border rounded p-3 col-span-2 lg:col-span-1 text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none w-full ${
               errors.livingExpenses ? "border-red-500" : ""
             }`}
             placeholder="$ 0"
@@ -142,7 +142,7 @@ export default function Step1({
             name="motorVehicle"
             value={formData.motorVehicle}
             onChange={(e) => handleChange(e)}
-            className={`border rounded p-3 col-span-2 lg:col-span-1 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none w-full ${
+            className={`border rounded p-3 col-span-2 lg:col-span-1 text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none w-full ${
               errors.motorVehicle ? "border-red-500" : ""
             }`}
             placeholder="$ 0"

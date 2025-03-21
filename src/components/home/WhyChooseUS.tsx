@@ -12,10 +12,10 @@ const WhyChooseUs = () => {
   return (
     <div className="max-w-7xl relative  m-auto p-4 lg:p-14">
       <div className="m-auto lg:w-full  text-left lg:mb-8">
-        <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-bold text-center font-[poppins] text-gray-800 leading-7">
+        <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-bold text-center font-[poppins] text-[#252525] leading-7">
           {"Our Simple Car Loan Process"}
         </h2>
-        <p className="text-base sm:text-base md:text-base lg:text-base xl:text-base line-clamp-4 text-center md:line-clamp-none text-gray-800 font-[cabin] leading-8">
+        <p className="text-base sm:text-base md:text-base lg:text-base xl:text-base line-clamp-4 text-center md:line-clamp-none text-[#252525] font-[cabin] leading-8">
           {
             "A hassle free and smooth process designed to help you get the car you want "
           }
@@ -33,7 +33,7 @@ const WhyChooseUs = () => {
                 alt="icon"
                 className="h-52 w-full object-fill"
               />
-              <div className="absolute bottom-0 bg-[#1262A1CC] ">
+              <div className="absolute bottom-0 bg-[#1262A1CC] backdrop-blur">
                 <h3
                   className="text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm
                p-4 text-center font-[poppins] text-gray-50 leading-7"
@@ -53,14 +53,12 @@ const WhyChooseUs = () => {
                 alt="icon"
                 className="h-52 w-full object-fill"
               />
-              <div className="absolute bottom-0 bg-[#1262A1CC] ">
+              <div className="absolute bottom-0 bg-[#1262A1CC] backdrop-blur ">
                 <h3
-                  className="text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm
+                  className="text-sm sm:text-sm md:text-sm lg backdrop-blur:text-sm xl:text-sm
                p-4 text-center font-[poppins] text-gray-50 leading-7"
                 >
-                  Leveraging technology, intellectual resources and
-                  partnerships, Esteem can bring most cost-effective car finance
-                  solutions to customers.
+                  Fastest turn around time for finance process.
                 </h3>
               </div>
             </div>
@@ -74,11 +72,11 @@ const WhyChooseUs = () => {
               alt="icon"
               className="w-full h-full object-cover"
             />
-            <div className="absolute bottom-0 w-full bg-[#1262A1CC] p-4">
+            <div className="absolute bottom-0 w-full bg-[#1262A1CC] backdrop-blur p-4">
               <h3 className="text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm text-center font-[poppins] text-gray-50 leading-7">
-                Leveraging technology, intellectual resources and partnerships,
-                Esteem can bring most cost-effective car finance solutions to
-                customers.
+                Esteem's subject matter experts analyze and recommend unbiased
+                finance solution pertinent to the needs and wants of customers
+                by providing bottom line statistics.
               </h3>
             </div>
           </div>
@@ -92,14 +90,12 @@ const WhyChooseUs = () => {
                 alt="icon"
                 className="h-52 w-full object-fill"
               />
-              <div className="absolute bottom-0 bg-[#1262A1CC] ">
+              <div className="absolute bottom-0 bg-[#1262A1CC] backdrop-blur">
                 <h3
                   className="text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm
              p-4 text-center font-[poppins] text-gray-50 leading-7"
                 >
-                  Leveraging technology, intellectual resources and
-                  partnerships, Esteem can bring most cost-effective car finance
-                  solutions to customers.
+                  Esteem can provide wider vendor options to choose from.
                 </h3>
               </div>
             </div>
@@ -112,14 +108,13 @@ const WhyChooseUs = () => {
                 alt="icon"
                 className="h-52 w-full object-fill"
               />
-              <div className="absolute bottom-0 bg-[#1262A1CC] ">
+              <div className="absolute bottom-0 bg-[#1262A1CC] backdrop-blur ">
                 <h3
                   className="text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm
              p-4 text-center font-[poppins] text-gray-50 leading-7"
                 >
-                  Leveraging technology, intellectual resources and
-                  partnerships, Esteem can bring most cost-effective car finance
-                  solutions to customers.
+                  Esteem's services are unconditionally, in the benefit of
+                  customers making a customer centric market.
                 </h3>
               </div>
             </div>

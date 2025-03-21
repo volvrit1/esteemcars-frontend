@@ -6,39 +6,38 @@ import { FaStar } from "react-icons/fa";
 import { GoArrowUpRight } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
 
-const   LoanSolution = ({ sectionData }: { sectionData?: ISection }) => {
+const LoanSolution = ({ sectionData }: { sectionData?: ISection }) => {
   const datas = [
     {
       title: "Identity Proof",
       description:
-        "We have streamlined the process to ensure quick approvals and easy access to funds so you can focus on driving home your dream car.",
+        "A identity proof verifies your personal information and assists in authenticating your identity, e.g., passport or driver's license.",
       image: "/images/solution1.png",
       date: "Jan 02 2025",
     },
     {
       title: "Address Proof",
       description:
-        "We have streamlined the process to ensure quick approvals and easy access to funds so you can focus on driving home your dream car.",
+        "Address proof confirms your address with documents such as utility bills, bank statements, or rental agreements.",
       image: "/images/solution2.png",
       date: "Jan 02 2025",
     },
     {
       title: "Income Proof",
-      description: "We have streamlined the process to ensure quick approvals and easy access to funds so you can focus on driving home your dream car.",
+      description:
+        "Income proof documents such as pay slips, tax returns, or bank statements authenticate your earning capacity for loan or financial purposes.",
       image: "/images/solution3.png",
       date: "Jan 02 2025",
     },
   ];
   return (
     <div className="max-w-7xl lg:max-w-6xl relative m-auto p-4 lg:pt-20">
-      <div className="m-auto lg:w-w-4/5  text-center lg:px-24 lg:mb-4">
-        <h2  className="lg:w-3/5 m-auto text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl font-bold text-gray-800 leading-7 font-[jost]">
-          
-          <span className="text-[#F75D34]"> {"Required Documents "}</span>
+      <div className="m-auto   text-center lg:px-24 lg:mb-4">
+        <h2 className="lg:w-4/5 m-auto text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl font-semibold text-[#252525] leading-7 font-[poppins]">
+          {"Required Documents "}
           {"for Loan Approval"}
         </h2>
-        <p className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl line-clamp-4 md:line-clamp-none text-gray-800 lg:px-24  mt-4 leading-8 mb-4">
-
+        <p className=" text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm line-clamp-4 md:line-clamp-none text-[#252525] py-4  mt-4 leading-8 mb-4">
           We have streamlined the process to ensure quick approvals and easy
           access to funds so you can focus on driving home your dream car.{" "}
         </p>
@@ -63,12 +62,12 @@ const   LoanSolution = ({ sectionData }: { sectionData?: ISection }) => {
 
               {/* Right Column - Content */}
               <div className={` w-full mt-8 lg:mt-4 lg:text-center  `}>
-                <h2 className="text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl font-bold text-gray-900 leading-7 mb-1">
+                <h2 className="text-xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-3xl font-semibold text-[#1262A1] font-[poppins] leading-7 mb-4">
                   {data?.title}
                 </h2>
-                <h2 className="text-lg sm:text-lg md:text-lg lg:text-lg xl:text-lg font-thin text-gray-900 leading-7 lg:px-2 mb-3">
+                <p className="text-base sm:text-base md:text-base lg:text-base xl:text-base font-thin text-gray-700 leading-7 mb-3">
                   {data?.description}
-                </h2>
+                </p>
               </div>
             </div>
           ))}

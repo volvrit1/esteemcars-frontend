@@ -8,22 +8,22 @@ const HowWeWork = ({ sectionData }: { sectionData?: ISection }) => {
     {
       title: "Quick & Easy Approval Process",
       description:
-        "At Esteem Car Loans, we understand that buying a car is more than just a purchase—it’s a milestone.",
+        "Our easy and quick approval process gives smooth and  easy access to your loan.",
       image: "/images/work1.png",
       date: "Jan 02 2025",
     },
     {
       title: "Minimum Documentation, Maximum Convenience",
       description:
-        "At Esteem Car Loans, we understand that buying a car is more than just a purchase—it’s a milestone.",
+        "Have a stress- free loan experience with fewer documents  and benefit from a smooth experience.",
 
       image: "/images/work2.png",
       date: "Jan 02 2025",
     },
     {
-      title: "Quick & Easy Approval Process",
+      title: "Get Your car loan in Minutes",
       description:
-        "At Esteem Car Loans, we understand that buying a car is more than just a purchase—it’s a milestone.",
+        "With our quick approval process, you can get your car loan within minutes, allowing you to drive off with your dream car without the long wait.",
 
       image: "/images/work3.png",
       date: "Jan 02 2025",
@@ -32,16 +32,12 @@ const HowWeWork = ({ sectionData }: { sectionData?: ISection }) => {
   return (
     <div className="max-w-7xl lg:max-w-6xl relative m-auto p-4">
       <div className="m-auto text-center lg:p-8 bg-opacity-80">
-        <h2 className="lg:w-3/5 m-auto text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl font-bold text-gray-800 leading-7">
-          {"How We "}
-          <span className="text-[#F75D34] inline-block mt-4">
-            {" "}
-            {"Works"}
-          </span>
+        <h2 className=" m-auto text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-3xl font-semibold text-[#252525] leading-7 font-[poppins] ">
+          {"How We "} {"Works"}
         </h2>
-        <p className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl line-clamp-4 md:line-clamp-none text-gray-800 lg:px-24  mt-4 leading-8 mb-4">
+        <p className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-base font-medium font-[cabin] line-clamp-4 md:line-clamp-none text-[#252525] lg:px-10 mt-4 leading-8 mb-4">
           {
-            "At Esteem Car Loans, we understand that buying a car is more than just a purchase—it’s a milestone. That’s why we are committed to providing the most hassle-free, transparent, and affordable car loan solutions tailored to your credit profile"
+            "We simplify car loans with an easy-to-use platform. Apply online, receive customized quotes, and get approved in minutes. We are with you at every step, and it is hassle-free."
           }
         </p>
       </div>
@@ -64,11 +60,13 @@ const HowWeWork = ({ sectionData }: { sectionData?: ISection }) => {
               </div>
 
               {/* Right Column - Content */}
-              <div className={` w-full mt-8 lg:mt-4 lg:text-center lg:px-2 `}>
-                <h2 className="text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl font-bold text-gray-900 leading-7 mb-1">
+              <div
+                className={` w-full  m-auto mt-8 lg:mt-4 lg:text-center lg:px-2 `}
+              >
+                <h2 className="lg:w-4/5 m-auto text-base sm:text-lg md:text-lg lg:text-lg xl:text-lg font-semibold text-[#252525] leading-7 mb-1">
                   {data?.title}
                 </h2>
-                <p className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl font-normal  text-gray-900 leading-7 mb-3">
+                <p className="text-xs sm:text-sm md:text-sm lg:text-lg xl:text-lg  font-[cabin] line-clamp-4 md:line-clamp-none text-gray-900 mt-4 leading-8 mb-4">
                   {data?.description}
                 </p>
               </div>

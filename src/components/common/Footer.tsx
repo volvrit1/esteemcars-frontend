@@ -12,24 +12,24 @@ import {
 import NewsLetter from "./NewsLetter";
 import Link from "next/link";
 import { FaX } from "react-icons/fa6";
-import { IoMailOutline } from "react-icons/io5";
+import { IoCallOutline, IoMailOutline } from "react-icons/io5";
 import { TiPhoneOutline } from "react-icons/ti";
 
 const Footer = () => {
   return (
-    <div className="bg-black text-white relative">
+    <div className="bg-black text-white relative font-[poppins]">
       <div className="container mx-auto p-4 lg:px-16  relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-8 gap-6 py-6">
           <div className="col-span-2">
             <div className="mb-4">
               <Image
-                src="/images/logo.png"
+                src="/assets/esteemf.svg"
                 width={170}
                 height={80}
                 alt="Sky Field"
               />
             </div>
-            <p className="text-gray-400 mt-2 mb-4">
+            <p className="text-gray-300 mt-2 mb-4 text-sm">
               Esteem Cars offers reliable, affordable vehicles with flexible
               financing options and nationwide delivery services.
             </p>
@@ -51,7 +51,7 @@ const Footer = () => {
           </div>
           <div className="col-span-1">
             <h3 className="text-lg font-semibold mb-4">Company</h3>
-            <ul className="mt-2 space-y-5 text-xs text-gray-300 font-thin">
+            <ul className="mt-2 space-y-5 text-xs text-gray-300 font-thin font-[cabin]">
               <Link href={"/"} className="mb-2 block">
                 <li>Home</li>
               </Link>
@@ -71,7 +71,7 @@ const Footer = () => {
           </div>
           <div className="col-span-1">
             <h3 className="text-lg font-semibold mb-4">Support</h3>
-            <ul className="mt-2 space-y-5 text-gray-300 text-xs font-thin">
+            <ul className="mt-2 space-y-5 text-gray-300 text-xs font-thin font-[cabin]">
               <li>Getting Started</li>
               <li>Help Center</li>
               <li>Track Update</li>
@@ -81,13 +81,13 @@ const Footer = () => {
           </div>
           <div className="col-span-2">
             <h3 className="text-lg font-semibold">Contact Us</h3>
-            <div className="mt-2 space-y-2 text-xs font-thin text-gray-300">
+            <div className="mt-2 space-y-2 text-xs font-thin font-[cabin] text-gray-300">
               <div className="flex items-center space-x-2">
                 <IoMailOutline className="text-xl" />
                 <span>Infor@esteemfinance.co.nz</span>
               </div>
               <div className="flex items-center space-x-2">
-                <TiPhoneOutline  className={'text-xl rotate-90'} />
+                <IoCallOutline  className={'text-xl'} />
                 <span>0210371229</span>
               </div>
             </div>
@@ -97,8 +97,8 @@ const Footer = () => {
             <NewsLetter />
           </div>
         </div>
-        <div className="border-t border-gray-700 py-4 text-center flex justify-between text-gray-400">
-          <span className="text-xs">Copyright 2025, ESTEEM Cars</span>
+        <div className="border-t border-gray-700 py-4 text-center flex justify-between text-gray-100">
+          <span className="text-xs ">Copyright 2025, ESTEEM Cars</span>
           <p className="text-xs">
             All Rights Reserved |{" "}
             <a href="#" className="text-orange-500">

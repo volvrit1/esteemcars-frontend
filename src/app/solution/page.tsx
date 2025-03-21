@@ -9,6 +9,11 @@ import React from "react";
 import LoanSolution from "../../components/whyUs/LoanSolution";
 import LoanApproval from "@/components/whyUs/LoanApproval";
 import WhyChoose from "@/components/home/WhyChoose";
+import WhyUsHeroSection from "@/components/whyUs/WhyUsHeroSection";
+import SolutionHeroSection from "./components/SolutionHeroSection";
+import LoanBanner from "@/components/home/LoanBanner";
+import Testimonials2 from "@/components/home/Testimonials2";
+import LatestBlogs from "@/components/home/LatestBlogs";
 
 const page = async () => {
   const data = {
@@ -20,20 +25,13 @@ const page = async () => {
   };
   return (
     <div className={`${lexendDeca?.className}`}>
-      <HeroSection
-        title={data?.title}
-        description={data?.description}
-        link={data?.link}
-        image={data?.image}
-        textShow={true}
-        slug="Solution"
-      />x
+      <SolutionHeroSection />
       <LoanApproval />
       <LoanSolution />
-      <LoanApplication />
+      <LoanBanner />
       <WhyChoose />
-      <Testimonials />
-      <LatestNews />
+      <Testimonials2 />
+      <LatestBlogs />
       <Faq />
       <ContactSection />
     </div>
@@ -41,6 +39,5 @@ const page = async () => {
 };
 
 export default page;
-
 
 export const revalidate = 60;

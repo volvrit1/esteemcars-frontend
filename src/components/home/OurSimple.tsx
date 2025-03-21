@@ -3,28 +3,28 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import image1 from "../../../public/assets/simple.png";
-import image2 from "../../../public/assets/eye.png";
-import image3 from "../../../public/assets/secure.png";
-import image4 from "../../../public/assets/time.png";
-import image5 from "../../../public/assets/icon1.png";
+import image2 from "../../../public/assets/icon3.svg";
+import image3 from "../../../public/assets/icon2.svg";
+import image4 from "../../../public/assets/icon4.svg";
+import image5 from "../../../public/assets/icon1.svg";
 import image6 from "../../../public/images/challengeIcon5.png";
 
 const OurSimple = () => {
   return (
     <div className="max-w-7xl relative  m-auto p-4 lg:p-14">
       <div className="m-auto lg:w-full  text-left lg:mb-8">
-        <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-bold text-center font-[poppins] text-gray-800 leading-7">
+        <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl font-semibold text-center font-[poppins] text-gray-900 leading-7 mb-3  ">
           {"Our Simple Car Loan Process"}
         </h2>
-        <p className="text-base sm:text-base md:text-base lg:text-base xl:text-base line-clamp-4 text-center md:line-clamp-none text-gray-800 font-[cabin] leading-8">
+        <p className="text-base sm:text-base md:text-base lg:text-base xl:text-base 2xl:text-2xl line-clamp-4 text-center md:line-clamp-none text-gray-900 font-[cabin] leading-8">
           {
             "A hassle free and smooth process designed to help you get the car you want "
           }
         </p>
       </div>
-      <section className="container relative text-gray-900 mx-auto lg:p-4 flex flex-col lg:flex-row items-center justify-center">
+      <section className="container relative text-gray-900 mx-auto flex flex-col lg:flex-row items-center justify-between gap-4">
         {/* Left Column - Image */}
-        <div className="lg:w-2/5 lg:h-[85vh] w-full flex justify-center">
+        <div className="lg:w-6/12 lg:h-[90vh] 2xl:h-auto px-6 w-full flex justify-center">
           <Image
             src={image1}
             alt="Who We Are Image"
@@ -35,9 +35,9 @@ const OurSimple = () => {
         </div>
 
         {/* Right Column - Content */}
-        <div className="lg:w-3/5 w-full mt-8 lg:mt-0 text-left">
-          <ul className="grid grid-cols-1 lg:grid-cols-2 place-items-center">
-            <li className="flex flex-col justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-gray-800 p-2 leading-8">
+        <div className="lg:w-6/12 w-full mt-8 lg:mt-0 text-left">
+          <ul className="grid grid-cols-1 lg:grid-cols-2 place-items-center gap-2">
+            <li className="flex flex-col justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-[#252525]  leading-8">
               <Image
                 src={image5}
                 width={35}
@@ -46,15 +46,15 @@ const OurSimple = () => {
                 className="m-1 mb-6"
               />
 
-              <h2 className="pl-2 lg:pl-0 text-lg font-bold">
+              <h2 className="pl-2 lg:pl-0 text-lg font-[poppins] font-semibold mb-4">
                 {"Check Your Eligibility Instantly"}
               </h2>
-              <p className="text-sm/6 w-4/5 text-center">
+              <p className="text-sm/6 lg:w-5/6 line-clamp-4 font-[cabin] text-center h-28">
                 A hassle-free and smooth process designed to help you get the
                 car you want, fast.
               </p>
             </li>
-            <li className="flex flex-col justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-gray-800 p-2 leading-8">
+            <li className="flex flex-col justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-[#252525]  leading-8">
               <Image
                 src={image2}
                 width={35}
@@ -63,15 +63,15 @@ const OurSimple = () => {
                 className="m-1 mb-6"
               />
 
-              <h2 className="pl-2 lg:pl-0 text-lg font-bold">
+              <h2 className="pl-2 lg:pl-0 text-lg font-[poppins] font-semibold mb-4">
                 {"Transparent  "}
               </h2>
-              <p className="text-sm/6 w-4/5 text-center">
+              <p className="text-sm/6  text-center font-[cabin] line-clamp-4 h-28">
                 Assess your eligibility for a car loan quickly with our advanced
                 automated system, making sure you know your options right away
               </p>
             </li>
-            <li className="flex flex-col justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-gray-800 p-2 leading-8">
+            <li className="flex flex-col justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-[#252525]  leading-8">
               <Image
                 src={image3}
                 width={35}
@@ -80,14 +80,16 @@ const OurSimple = () => {
                 className="m-1 mb-6"
               />
 
-              <h2 className="pl-2 lg:pl-0 text-lg font-bold">{"Trusted"}</h2>
-              <p className="text-sm/6 w-4/5 text-center">
+              <h2 className="pl-2 lg:pl-0 text-lg font-[poppins] font-semibold mb-4">
+                {"Trusted"}
+              </h2>
+              <p className="text-sm/6  text-center font-[cabin] line-clamp-4 h-28">
                 Esteem Finance is trusted by over 100+ businesses and customers
                 nationwide for providing reliable, fast, and efficient car
                 financing solutions.
               </p>
             </li>
-            <li className="flex flex-col justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-gray-800 p-2 leading-8">
+            <li className="flex flex-col justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-[#252525]  leading-8">
               <Image
                 src={image4}
                 width={35}
@@ -96,15 +98,20 @@ const OurSimple = () => {
                 className="m-1 mb-6"
               />
 
-              <h2 className="pl-2 lg:pl-0 text-lg font-bold">
+              <h2 className="pl-2 lg:pl-0 text-lg font-[poppins] font-semibold mb-4">
                 {"Get a Fast Decision"}
               </h2>
-              <p className="text-sm/6 w-4/5 text-center">
+              <p className="text-sm/6 lg:p-1 font-[cabin] text-center line-clamp-4 h-28">
                 Our smooth process ensures you get a quick decision on your loan
                 application, allowing you to secure your vehicle without delays.
               </p>
             </li>
-            <button className="lg:col-span-2 lg:w-1/3 mt-4 p-3 px-10 rounded text-gray-50 bg-[#1262A1]">Let's Start</button>
+            <Link
+              href={"/apply-for-car-loan"}
+              className="inline-block text-center lg:col-span-2 lg:w-2/5 mt-4 p-3 px-10 rounded text-sm text-gray-50 bg-[#1262A1]"
+            >
+              Apply Now
+            </Link>
           </ul>
         </div>
       </section>

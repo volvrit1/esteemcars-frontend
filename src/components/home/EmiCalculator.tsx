@@ -19,25 +19,28 @@ const EmiCalculator = () => {
   const totalAmount: any = (parseFloat(totalInterest) + loanAmount).toFixed(2);
 
   return (
-    <div className="max-w-7xl relative  m-auto p-4 lg:p-14 flex flex-col lg:flex-row justify-center items-center ">
+    <div className="max-w-7xl relative font-[poppins]  m-auto p-4 lg:p-14 flex flex-col lg:flex-row justify-center items-center ">
       <div className="m-auto  lg:w-2/5 text-left">
-        <h2 className="text-2xl sm:text-3xl md:text-2xl lg:text-3xl/10 xl:text-3xl/10 font-bold text-gray-800 leading-9 mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-2xl lg:text-3xl/10 xl:text-3xl/10 font-bold text-[#252525] leading-9 mb-4">
           {"EMI Simplified!"}
-          <span className="text-[#F75D34]"> {"Calculate"}</span>
+          {" Calculate "}
           <br />
           {"Your Monthly Payment"}
         </h2>
-        <Link href={"#loanApplication"} className="bg-[#1262A1] hover:bg-gray-400 transition-colors ease-in-out px-14 lg:py-3  h-11 text-sm rounded">
-          Get Started
-        </Link> 
+        <Link
+          href={"/apply-for-car-loan"}
+          className="bg-[#1262A1] hover:bg-gray-400 transition-colors ease-in-out px-14 lg:py-3 font-[poppins] h-11 text-xs rounded"
+        >
+          Apply Now
+        </Link>
       </div>
       <div className="w-full lg:w-2/5 p-4">
         <div className="mb-4">
           <div className="flex justify-between items-center">
-            <label className="block text-gray-700 font-semibold text-sm w-1/3  mb-2">
+            <label className="block text-gray-900 font-semibold text-sm w-1/3  mb-2">
               Loan amount
             </label>
-            <div className="w-2/4 flex items-center border-[1.5px] text-gray-500 border-gray-300 rounded-lg px-2">
+            <div className="w-2/4 flex items-center border-[1.5px] text-[#7d7d7d] border-gray-300 rounded-lg px-2">
               $
               <input
                 type="number"
@@ -66,10 +69,10 @@ const EmiCalculator = () => {
             className="w-full appearance-none h-[7px] rounded-lg [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:bg-gradient-to-r [&::-webkit-slider-thumb]:from-[#ED6A00] [&::-webkit-slider-thumb]:to-[#F69B00] [&::-webkit-slider-thumb]:rounded-full"
           />
           <div className="flex justify-between items-center p-2">
-            <span className="text-gray-500 font-semibold text-sm w-1/3  mb-2 ">
+            <span className="text-[#7d7d7d] font-semibold text-sm w-1/3  mb-2 ">
               $ {"70,000"}
             </span>
-            <span className="text-gray-500 font-semibold text-sm w-1/3  mb-2 text-right">
+            <span className="text-[#7d7d7d] font-semibold text-sm w-1/3  mb-2 text-right">
               $ {"20,00,000"}
             </span>
           </div>
@@ -77,10 +80,10 @@ const EmiCalculator = () => {
 
         <div className="mb-4">
           <div className="flex justify-between items-center">
-            <label className="block text-gray-700 font-medium mb-2">
-              Tenure (months)
+            <label className="block text-gray-900 font-semibold mb-2">
+              Tenure
             </label>
-            <div className="w-2/4 flex items-center border-[1.5px] text-gray-500 border-gray-300 rounded-lg px-2">
+            <div className="w-2/4 flex items-center border-[1.5px] text-[#7d7d7d] border-gray-300 rounded-lg px-2">
               <input
                 type="number"
                 min="12"
@@ -109,10 +112,10 @@ const EmiCalculator = () => {
             className="w-full appearance-none h-[7px] rounded-lg [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:bg-gradient-to-r [&::-webkit-slider-thumb]:from-[#ED6A00] [&::-webkit-slider-thumb]:to-[#F69B00] [&::-webkit-slider-thumb]:rounded-full"
           />
           <div className="flex justify-between items-center p-2">
-            <span className="text-gray-500 font-semibold text-sm w-1/3  mb-2 ">
+            <span className="text-[#7d7d7d] font-semibold text-sm w-1/3  mb-2 ">
               {"12 months"}
             </span>
-            <span className="text-gray-500 font-semibold text-sm w-1/3  mb-2 text-right">
+            <span className="text-[#7d7d7d] font-semibold text-sm w-1/3  mb-2 text-right">
               {"72 months"}
             </span>
           </div>
@@ -120,10 +123,10 @@ const EmiCalculator = () => {
 
         <div className="mb-4">
           <div className="flex justify-between items-center">
-            <label className="block text-gray-700 font-medium mb-2">
+            <label className="block text-gray-900 font-semibold mb-2">
               Interest rate
             </label>
-            <div className="w-2/4 flex items-center border-[1.5px] text-gray-500 border-gray-300 rounded-lg px-2">
+            <div className="w-2/4 flex items-center border-[1.5px] text-[#7d7d7d] border-gray-300 rounded-lg px-2">
               <input
                 type="number"
                 min="12"
@@ -152,22 +155,22 @@ const EmiCalculator = () => {
             className="w-full appearance-none h-[7px] rounded-lg [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:bg-gradient-to-r [&::-webkit-slider-thumb]:from-[#ED6A00] [&::-webkit-slider-thumb]:to-[#F69B00] [&::-webkit-slider-thumb]:rounded-full"
           />
           <div className="flex justify-between items-center p-2">
-            <span className="text-gray-500 font-semibold text-sm w-1/3  mb-2 ">
+            <span className="text-[#7d7d7d] font-semibold text-sm w-1/3  mb-2 ">
               {"12%"}
             </span>
-            <span className="text-gray-500 font-semibold text-sm w-1/3  mb-2 text-right">
+            <span className="text-[#7d7d7d] font-semibold text-sm w-1/3  mb-2 text-right">
               {"20%"}
             </span>
           </div>
         </div>
       </div>
 
-      <div className="w-full lg:w-3/12 lg:h-[80vh]  bg-[#1262A1] text-white p-4 rounded-lg lg:rounded-r-lg">
+      <div className="w-full lg:w-3/12 lg:h-[80vh] 2xl:h-auto bg-[#1262A1] text-white p-4 rounded-lg lg:rounded-r-lg">
         <h3 className="text-xs font-light text-gray-50 text-center">
           Indicative EMI
         </h3>
         <p className="text-2xl text-center font-bold mt-2">
-          ₹{calculateEMI()}/month
+          ${calculateEMI()}/month
         </p>
         <div className="relative flex items-center justify-center w-40 h-40 mx-auto mt-4">
           <svg

@@ -26,7 +26,7 @@ export default function OurSuccessStory() {
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-gray-700 leading-7">
           Our Success Story
         </h2>
-        <p className="text-base lg:w-4/6 sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px] line-clamp-4 md:line-clamp-none text-gray-600 mt-4 leading-8">
+        <p className="text-base lg:w-4/6 sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px] line-clamp-4 md:line-clamp-none text-[#7d7d7d] mt-4 leading-8">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -37,7 +37,7 @@ export default function OurSuccessStory() {
         {datas &&
           datas?.map((data, index) => (
             <div
-              className="text-left col-span-1 text-gray-800  flex flex-col justify-center items-start"
+              className="text-left col-span-1 text-[#252525]  flex flex-col justify-center items-start"
               key={index}
             >
               <div className="w-full mb-4">
@@ -49,9 +49,14 @@ export default function OurSuccessStory() {
                   alt=""
                 />
               </div>
-              <p className="text-md text-black pr-6 font-medium mb-6">{data?.description}</p>
+              <p className="text-md text-black pr-6 font-medium mb-6">
+                {data?.description}
+              </p>
               <div className="w-4/5 flex justify-start items-center mb-4">
-                <Link href={'/contact-us'} className="bg-gray-50 text-gray-800 w-full border-gray-900 border-[1.3px] flex justify-center items-center text-sm   h-10">
+                <Link
+                  href={"/contact-us"}
+                  className="bg-gray-50 text-[#252525] w-full border-gray-900 border-[1.3px] flex justify-center items-center text-sm   h-10"
+                >
                   View Story
                 </Link>
               </div>

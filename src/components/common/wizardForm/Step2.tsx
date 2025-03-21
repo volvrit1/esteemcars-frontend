@@ -97,7 +97,7 @@ export default function Step1({ nextStep, handleChange, formData }: any) {
     ${
       checked
         ? "bg-white text-blue-700 cursor-pointer"
-        : "bg-gray-300 text-gray-500 cursor-not-allowed opacity-50"
+        : "bg-gray-300 text-[#7d7d7d] cursor-not-allowed opacity-50"
     }`}
           onClick={nextStep}
           value="Next"

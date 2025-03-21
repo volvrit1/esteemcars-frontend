@@ -33,7 +33,7 @@ export default function Specialization({
   return (
     <div className="max-w-7xl lg:max-w-6xl  m-auto p-4 py-24">
       <div className="m-auto lg:w-3/5 text-center mb-16">
-        <h2 className="text-sm sm:text-3xl md:text-4xl lg:text-sm xl:text-sm font-normal tracking-widest text-gray-50 leading-7 mb-3">
+        <h2 className="text-sm sm:text-3xl md:text-4xl lg:text-sm xl:text-sm font-normal  text-gray-50 leading-7 mb-3">
           {sectionData?.subtitle || "Key Applications"}
         </h2>
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-gray-50 leading-7">
@@ -56,7 +56,7 @@ export default function Specialization({
               <div className="w-full flex justify-end items-center">
                 <Link
                   href={"/contact-us"}
-                  className="bg-gray-50 text-gray-800 rounded-full text-2xl p-1.5 w-10 h-10"
+                  className="bg-gray-50 text-[#252525] rounded-full text-2xl p-1.5 w-10 h-10"
                 >
                   <GoArrowUpRight width={30} height={30} />
                 </Link>

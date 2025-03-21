@@ -46,7 +46,7 @@ export default function OpenPosition({
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-gray-700 leading-7">
           {sectionData?.title || "Open Positions At Sky Field"}
         </h2>
-        <p className="text-base lg:w-4/6 sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px] line-clamp-4 md:line-clamp-none text-gray-600 mt-4 leading-8">
+        <p className="text-base lg:w-4/6 sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px] line-clamp-4 md:line-clamp-none text-[#7d7d7d] mt-4 leading-8">
           {sectionData?.description ||
             "We are always looking for talented individuals to join our team."}
         </p>
@@ -55,13 +55,13 @@ export default function OpenPosition({
         {sectionData?.subContents &&
           sectionData?.subContents?.map((data: SubContent, index: number) => (
             <div
-              className="border border-gray-900 text-left col-span-1 text-gray-800 p-6  flex flex-col justify-center items-start"
+              className="border border-gray-900 text-left col-span-1 text-[#252525] p-6  flex flex-col justify-center items-start"
               key={index}
             >
               <div className="w-full flex justify-start items-center mb-4">
                 <Link
                   href={"/contact-us"}
-                  className="bg-gray-50 text-gray-800 rounded-full border-gray-900 border-[1.3px] flex justify-center items-center text-sm w-10 h-10"
+                  className="bg-gray-50 text-[#252525] rounded-full border-gray-900 border-[1.3px] flex justify-center items-center text-sm w-10 h-10"
                 >
                   <FaUser width={16} height={16} />
                 </Link>

@@ -26,7 +26,7 @@ export default function ClientSay() {
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-gray-700 leading-7">
           What Are Clients Say
         </h2>
-        <p className="text-base lg:w-4/6 sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px] line-clamp-4 md:line-clamp-none text-gray-600 mt-4 leading-8">
+        <p className="text-base lg:w-4/6 sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px] line-clamp-4 md:line-clamp-none text-[#7d7d7d] mt-4 leading-8">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -37,7 +37,7 @@ export default function ClientSay() {
         {datas &&
           datas?.map((data, index) => (
             <div
-              className="border border-gray-900 text-left col-span-1 text-gray-800 p-8  flex flex-col justify-center items-center"
+              className="border border-gray-900 text-left col-span-1 text-[#252525] p-8  flex flex-col justify-center items-center"
               key={index}
             >
               <Image
@@ -49,12 +49,19 @@ export default function ClientSay() {
               />
 
               <h2 className="text-sm font-normal mb-2">{data?.title}</h2>
-              <p className="text-sm text-gray-600 flex mb-4">
+              <p className="text-sm text-[#7d7d7d] flex mb-4">
                 {[1, 2, 3, 4, 5].map((i) => (
-                  <IoStar key={i} width={16} height={16} className="text-yellow-500" />
+                  <IoStar
+                    key={i}
+                    width={16}
+                    height={16}
+                    className="text-yellow-500"
+                  />
                 ))}
               </p>
-              <p className="text-sm text-center font-medium mb-6">{data?.description}</p>           
+              <p className="text-sm text-center font-medium mb-6">
+                {data?.description}
+              </p>
             </div>
           ))}
       </div>

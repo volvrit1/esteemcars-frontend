@@ -1,6 +1,5 @@
 "use client";
 
-
 const WeDone: React.FC = () => {
   const datas = [
     { id: 1, value: "98", unit: "Projects", logo: "/images/bulb.png" },
@@ -12,7 +11,7 @@ const WeDone: React.FC = () => {
   return (
     <section className="bg-whitem max-w-7xl m-auto p-4 lg:p-0 py-20">
       <div className="m-auto lg:w-3/5 text-center mb-8">
-        <h2 className="text-sm sm:text-3xl md:text-4xl lg:text-sm xl:text-sm font-normal tracking-widest text-gray-50 leading-7 mb-3">
+        <h2 className="text-sm sm:text-3xl md:text-4xl lg:text-sm xl:text-sm font-normal  text-gray-50 leading-7 mb-3">
           Our Achievements{" "}
         </h2>
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-gray-50 leading-7">

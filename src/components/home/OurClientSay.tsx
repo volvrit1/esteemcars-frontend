@@ -4,7 +4,7 @@ import { IoStar } from "react-icons/io5";
 export default function OurClientSay() {
   return (
     <div className="max-w-7xl relative  m-auto p-4 lg:p-14">
-      <h2 className="text-center text-2xl text-gray-800">
+      <h2 className="text-center text-2xl text-[#252525]">
         See what our clients say
       </h2>
       <div className="flex flex-col lg:flex-row lg:justify-center lg:items-center mt-10">

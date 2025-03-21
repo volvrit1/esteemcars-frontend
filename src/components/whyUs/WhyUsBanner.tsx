@@ -14,11 +14,11 @@ export default function WhyUsBanner() {
         <div
           className={`lg:w-1/2 w-full mt-8 lg:mt-0  text-center lg:text-left relative `}
         >
-          <h2 className="text-3xl sm:text-3xl md:text-2xl lg:text-4xl xl:text-4xl text-gray-800 leading-7 font-[jost] font-semibold lg:w-3/4">
+          <h2 className="text-3xl sm:text-3xl md:text-2xl lg:text-4xl xl:text-4xl text-[#252525] leading-7 font-[jost] font-semibold lg:w-3/4">
             {"Why Choose Esteem"}
             <span className="text-[#F75D34]"> {"Car Loans?"}</span>
           </h2>
-          <p className="text-lg sm:text-lg md:text-lg lg:text-lg xl:text-lg line-clamp-4 md:line-clamp-none text-gray-800 mt-4 leading-8 mb-8 lg:w-3/4">
+          <p className="text-lg sm:text-lg md:text-lg lg:text-lg xl:text-lg line-clamp-4 md:line-clamp-none text-[#252525] mt-4 leading-8 mb-8 lg:w-3/4">
             {
               "At Esteem Car Loans, we understand that buying a car is more than just a purchase—it’s a milestone. That’s why we are committed to providing the most hassle-free, transparent, and affordable car loan solutions tailored to your credit profile"
             }

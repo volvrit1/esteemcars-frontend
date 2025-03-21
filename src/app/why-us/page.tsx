@@ -15,6 +15,10 @@ import LatestNews from "@/components/home/LatestNews";
 import LoanApplication from "@/components/home/LoanApplication";
 import Testimonials from "@/components/home/Tesomonials";
 import Faq from "@/components/support/Faq";
+import WhyUsHeroSection from "@/components/whyUs/WhyUsHeroSection";
+import OurPartners from "@/components/home/OurPartners";
+import LoanBanner from "@/components/home/LoanBanner";
+import Testimonials2 from "@/components/home/Testimonials2";
 
 const page = async () => {
   const data = {
@@ -27,13 +31,13 @@ const page = async () => {
 
   return (
     <div className={`${lexendDeca.className}`}>
-      <WhyUsBanner />
+      <WhyUsHeroSection />
+      <OurPartners />
       <CreditScore />
       <HowWeWork />
       <WhyWeAreBest />
-      <LoanApplication />
-      <LatestNews />
-      <Testimonials />
+      <LoanBanner />
+      <Testimonials2 />
       <Faq />
       <ContactSection />
     </div>

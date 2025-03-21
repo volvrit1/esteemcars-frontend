@@ -84,7 +84,7 @@ const DroneSystem = ({
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                className={`absolute w-60 text-gray-600 text-center p-2 z-40 ${
+                className={`absolute w-60 text-[#7d7d7d] text-center p-2 z-40 ${
                   feature.position === "top-left"
                     ? "top-0 left-0"
                     : feature.position === "top-right"
@@ -110,7 +110,9 @@ const DroneSystem = ({
                   }`}
                 >
                   <h3 className="font-bold text-sm">{feature.title}</h3>
-                  <p className="text-xs text-gray-600">{feature.description}</p>
+                  <p className="text-xs text-[#7d7d7d]">
+                    {feature.description}
+                  </p>
                 </div>
               </motion.div>
             ))}

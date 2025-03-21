@@ -19,7 +19,7 @@ const HeroSection: React.FC = () => {
           delay: 3000,
         }}
         navigation={false}
-        pagination={{ clickable: true }}
+        pagination={false}
         modules={[Autoplay, Navigation, Pagination]}
         className="h-52 lg:h-screen"
       >
@@ -32,16 +32,9 @@ const HeroSection: React.FC = () => {
         <SwiperSlide>
           <div
             className="w-full h-full bg-cover bg-center"
-            style={{ backgroundImage: "url('/assets/banner1.png')" }}
+            style={{ backgroundImage: "url('/assets/banner1.svg')" }}
           ></div>
         </SwiperSlide>
-        <SwiperSlide>
-          <div
-            className="w-full h-full bg-cover bg-center"
-            style={{ backgroundImage: "url('/assets/banner2.png')" }}
-          ></div>
-        </SwiperSlide>
-
       </Swiper>
     </section>
   );

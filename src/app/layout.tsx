@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cabin, Poppins } from "next/font/google";
+import { Cabin, Plus_Jakarta_Sans, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
@@ -20,6 +20,11 @@ export const cabin = Cabin({
   variable: "--font-cabin", // Custom CSS variable
 });
 
+export const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"], // Choose desired weights
+  variable: "--font-plus-jakarta-sans", // Custom CSS variable
+});
 
 export const metadata: Metadata = {
   title: "ESTEEM CARS",
@@ -34,9 +39,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${cabin.variable} antialiased`}
+        className={`${poppins.variable} ${cabin.variable} ${plusJakartaSans.variable} antialiased`}
       >
         <div id="modal-root"></div>
+        
         <Navbar />
         {children}
         <OpenHour />

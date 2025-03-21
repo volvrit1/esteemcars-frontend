@@ -25,9 +25,11 @@ export default function Step9({
     // if (formData.otherIncome === undefined) newErrors.otherIncome = "Please select if you receive other income";
 
     // Validate employment and income related fields
-    if (!formData.employmentType) newErrors.employmentType = "Employment Type is required";
+    if (!formData.employmentType)
+      newErrors.employmentType = "Employment Type is required";
     if (!formData.incomeType) newErrors.incomeType = "Income Type is required";
-    if (!formData.incomeAfterTax) newErrors.incomeAfterTax = "Income After Tax is required";
+    if (!formData.incomeAfterTax)
+      newErrors.incomeAfterTax = "Income After Tax is required";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0; // Return true if no errors
@@ -52,7 +54,7 @@ export default function Step9({
               name="employmentType"
               value={formData.employmentType}
               onChange={handleChange}
-              className="border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none"
+              className="border rounded p-3 text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none"
             >
               <option value="">Select Employment Type</option>
               <option value="Full-Time">Full Time</option>
@@ -60,7 +62,9 @@ export default function Step9({
               <option value="Casual">Casual</option>
               <option value="Beneficiary">Beneficiary</option>
             </select>
-            {errors.employmentType && <p className="text-red-500">{errors.employmentType}</p>}
+            {errors.employmentType && (
+              <p className="text-red-500">{errors.employmentType}</p>
+            )}
           </div>
 
           {/* Income Type */}
@@ -70,14 +74,16 @@ export default function Step9({
               name="incomeType"
               value={formData.incomeType}
               onChange={handleChange}
-              className="border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none"
+              className="border rounded p-3 text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none"
             >
               <option value="">Select Income Type</option>
               <option value="Weekly">Weekly</option>
               <option value="Fourth Night">Fourth Night</option>
               <option value="Monthly">Monthly</option>
             </select>
-            {errors.incomeType && <p className="text-red-500">{errors.incomeType}</p>}
+            {errors.incomeType && (
+              <p className="text-red-500">{errors.incomeType}</p>
+            )}
           </div>
 
           {/* Income After Tax */}
@@ -88,13 +94,14 @@ export default function Step9({
               name="incomeAfterTax"
               value={formData.incomeAfterTax ?? ""}
               onChange={handleChange}
-              className="border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none"
+              className="border rounded p-3 text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none"
               placeholder="Income After Tax"
             />
-            {errors.incomeAfterTax && <p className="text-red-500">{errors.incomeAfterTax}</p>}
+            {errors.incomeAfterTax && (
+              <p className="text-red-500">{errors.incomeAfterTax}</p>
+            )}
           </div>
         </div>
-
 
         <div className="mt-6 flex justify-between">
           <button
@@ -117,31 +124,15 @@ export default function Step9({
   );
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  {/* <div className="flex flex-col">
+{
+  /* <div className="flex flex-col">
             <label className="font-medium">Employee Name *</label>
             <input
               type="text"
               name="employeeName"
               value={formData.employeeName}
               onChange={handleChange}
-              className="border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none"
+              className="border rounded p-3 text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none"
               placeholder="Employee Name"
             />
             {errors.employeeName && (
@@ -156,7 +147,7 @@ export default function Step9({
               name="companyName"
               value={formData.companyName}
               onChange={handleChange}
-              className="border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none"
+              className="border rounded p-3 text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none"
               placeholder="Company Name"
             />
             {errors.companyName && (
@@ -171,7 +162,7 @@ export default function Step9({
               name="companyAddress"
               value={formData.companyAddress}
               onChange={handleChange}
-              className="border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none"
+              className="border rounded p-3 text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none"
               placeholder="Company Address"
             />
             {errors.companyAddress && (
@@ -219,7 +210,7 @@ export default function Step9({
               name="dateOfJoining"
               value={formData.dateOfJoining}
               onChange={handleChange}
-              className="border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none"
+              className="border rounded p-3 text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none"
             />
             {errors.dateOfJoining && (
               <span className="text-red-500">{errors.dateOfJoining}</span>
@@ -235,7 +226,7 @@ export default function Step9({
               name="workExperience"
               value={formData.workExperience}
               onChange={handleChange}
-              className="border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none"
+              className="border rounded p-3 text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none"
               placeholder="Years"
             />
             {errors.workExperience && (
@@ -250,7 +241,7 @@ export default function Step9({
               name="salary"
               value={formData.salary}
               onChange={handleChange}
-              className="border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none"
+              className="border rounded p-3 text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none"
               placeholder="Salary"
             />
             {errors.salary && (
@@ -307,4 +298,5 @@ export default function Step9({
           {errors.otherIncome && (
             <span className="text-red-500">{errors.otherIncome}</span>
           )}
-        </div> */}
+        </div> */
+}

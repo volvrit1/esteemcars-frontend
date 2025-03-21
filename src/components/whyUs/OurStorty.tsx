@@ -7,7 +7,7 @@ const OurStory = ({ sectionData }: { sectionData: ISection | undefined }) => {
   return (
     <section className="container mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32 py-12 text-center">
       <div className=" lg:w-4/6 m-auto mb-8">
-        <h2 className="text-sm sm:text-3xl md:text-4xl lg:text-sm xl:text-sm font-normal tracking-widest text-gray-50 leading-7 mb-3">
+        <h2 className="text-sm sm:text-3xl md:text-4xl lg:text-sm xl:text-sm font-normal  text-gray-50 leading-7 mb-3">
           {sectionData?.subtitle || "Our Story"}
         </h2>
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-gray-50 leading-7">
@@ -33,7 +33,7 @@ const OurStory = ({ sectionData }: { sectionData: ISection | undefined }) => {
         <div
           className={`lg:w-1/2 w-full mt-8 lg:mt-0 lg:pl-12 text-center lg:text-left  `}
         >
-          {/* <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-sm xl:text-sm font-normal tracking-widest text-gray-50 leading-7 mb-3">
+          {/* <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-sm xl:text-sm font-normal  text-gray-50 leading-7 mb-3">
             Who We Are{" "}
           </h2>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-gray-50 leading-7">

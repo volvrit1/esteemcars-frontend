@@ -34,7 +34,6 @@ const Home = () => {
       <OurPartners />
       <OurSimple />
       <Challenges />
-
       <CarSearchBanner />
       <OverComes />
       <WhyChooseUs />

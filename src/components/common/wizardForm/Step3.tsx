@@ -91,7 +91,7 @@ export default function Step1({
                   value={formData[name]}
                   onChange={handleChange}
                   disabled={formData[name]}
-                  className="border rounded p-3 bg-white text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none"
+                  className="border rounded p-3 bg-white text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none"
                 >
                   <option value="">Select</option>
                   {options.map((option: any) => (
@@ -113,7 +113,7 @@ export default function Step1({
                   onChange={handleChange}
                   maxLength={maxlength ?? 255}
                   disabled={formData[name] && !editable}
-                  className={`border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none ${
+                  className={`border rounded p-3 text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none ${
                     errors[name] ? "border-red-500" : ""
                   }`}
                   placeholder={`Enter ${label.toLowerCase()}`}

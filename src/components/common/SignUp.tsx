@@ -99,7 +99,7 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
         <div className="w-full lg:w-1/2 h-[80vh] flex items-center justify-center p-8 bg-white relative">
           <button
             onClick={onClose}
-            className="absolute top-0 right-2 text-gray-500 text-2xl hover:text-gray-800"
+            className="absolute top-0 right-2 text-[#7d7d7d] text-2xl hover:text-[#252525]"
           >
             &times;
           </button>
@@ -108,7 +108,7 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
             <h2 className="text-2xl font-semibold text-[#1262A1] mb-2">
               Welcome Back to Esteem Car Loans !
             </h2>
-            <p className="text-gray-500 mb-6 text-sm">
+            <p className="text-[#7d7d7d] mb-6 text-sm">
               At Esteem Car Loans, we understand that buying a car is more than
               just a purchase—it’s a milestone.
             </p>
@@ -117,8 +117,10 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
                 <select
                   name="title"
                   value={title || ""}
-                  onChange={(e) =>{ setTitle(e.target.value)}}
-                  className="border rounded p-3 bg-white text-gray-800   outline-none"
+                  onChange={(e) => {
+                    setTitle(e.target.value);
+                  }}
+                  className="border rounded p-3 bg-white text-[#252525]   outline-none"
                 >
                   <option value="">Select</option>
                   <option value="Mr">Mr</option>
@@ -137,7 +139,9 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
                     type="text"
                     placeholder="First Name"
                     value={firstName || ""}
-                    onChange={(e) => {setFirstName(e.target.value)}}
+                    onChange={(e) => {
+                      setFirstName(e.target.value);
+                    }}
                     className="border rounded px-4 py-3 w-full text-gray-700   outline-none"
                   />
                   {errors.firstName && (
@@ -151,7 +155,9 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
                     type="text"
                     value={middleName || ""}
                     placeholder="middle Name"
-                    onChange={(e) => {setMiddleName(e.target.value)}}
+                    onChange={(e) => {
+                      setMiddleName(e.target.value);
+                    }}
                     className="border rounded px-4 py-3 w-full text-gray-700   outline-none"
                   />
                   {errors.middleName && (
@@ -165,7 +171,9 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
                     type="text"
                     placeholder="Last Name"
                     value={lastName || ""}
-                    onChange={(e) => {setLastName(e.target.value)}}
+                    onChange={(e) => {
+                      setLastName(e.target.value);
+                    }}
                     className="border rounded px-4 py-3 w-full text-gray-700   outline-none"
                   />
                   {errors.lastName && (
@@ -181,7 +189,9 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
                 type="do"
                 placeholder="Enter Your Email Address"
                 value={email || ""}
-                onChange={(e) => {setEmail(e.target.value)}}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
                 className="border rounded px-4 py-3 w-full mb-4 text-gray-700   outline-none"
               />
               {errors.email && (
@@ -193,7 +203,9 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
                 type="date"
                 placeholder="Enter Your date of birth"
                 value={dob || ""}
-                onChange={(e) => {setDob(e.target.value)}}
+                onChange={(e) => {
+                  setDob(e.target.value);
+                }}
                 className="border rounded px-4 py-3 w-full mb-4 text-gray-700   outline-none"
               />
 
@@ -205,13 +217,17 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="Create Password"
-                  value={password ||""}
-                  onChange={(e) => {setPassword(e.target.value)}}
+                  value={password || ""}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                   className="border rounded px-4 py-3 w-full text-gray-700   outline-none"
                 />
                 <span
-                  className="absolute top-3 right-4 text-gray-500 cursor-pointer"
-                  onClick={() => {setShowPassword(!showPassword)}}
+                  className="absolute top-3 right-4 text-[#7d7d7d] cursor-pointer"
+                  onClick={() => {
+                    setShowPassword(!showPassword);
+                  }}
                 >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </span>
@@ -222,12 +238,16 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
                   type={showConfirmPassword ? "text" : "password"}
                   placeholder="Confirm Password"
                   value={confirmPassword || ""}
-                  onChange={(e) => {setConfirmPassword(e.target.value)}}
+                  onChange={(e) => {
+                    setConfirmPassword(e.target.value);
+                  }}
                   className="border rounded px-4 py-3 w-full text-gray-700   outline-none"
                 />
                 <span
-                  className="absolute top-1/3 right-4 text-gray-500 cursor-pointer"
-                  onClick={() => {setShowConfirmPassword(!showConfirmPassword)}}
+                  className="absolute top-1/3 right-4 text-[#7d7d7d] cursor-pointer"
+                  onClick={() => {
+                    setShowConfirmPassword(!showConfirmPassword);
+                  }}
                 >
                   {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
                 </span>

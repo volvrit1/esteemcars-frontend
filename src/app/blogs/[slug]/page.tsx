@@ -18,7 +18,7 @@ const page = () => {
   const [loading, setLoading] = useState();
   const [blogsData, setBlogsData] = useState<any>();
   const [blog, setBlog] = useState<any>(null);
-console.log(slug)
+  console.log(slug);
   useEffect(() => {
     const fetchBlog = async () => {
       const { data }: any = await getBlogData();
@@ -60,10 +60,8 @@ console.log(slug)
     link: "/",
   };
 
-
-
   return (
-    <div className="bg-transparent mt-[7rem]">
+    <div className="bg-transparent mt-[7rem] lg:mt-[10rem]">
       <div className="max-w-7xl lg:max-w-6xl m-auto p-4 lg:py-4">
         <div className="text-gray-700 mb-4 ">
           <Link href={"/blogs"} className="text-blue-600">
@@ -76,7 +74,9 @@ console.log(slug)
           <Image
             src={
               blog?.coverImage
-                ? `${process.env.NEXT_PUBLIC_BASE_URL}${blog?.coverImage ?? "/"}`
+                ? `${process.env.NEXT_PUBLIC_BASE_URL}${
+                    blog?.coverImage ?? "/"
+                  }`
                 : "/images/droneArmy.png" // Fallback image if no cover image
             }
             width={5000}
@@ -84,10 +84,10 @@ console.log(slug)
             alt="Blog Banner"
             className="w-full h-80 object-cover rounded-lg"
           />
-          <h1 className="text-4xl font-bold text-gray-800 mt-6">
+          <h1 className="text-4xl font-bold text-[#252525] mt-6">
             {blog?.title || "Blog Title"}
           </h1>
-          <p className="text-gray-500 text-sm mt-2">
+          <p className="text-[#7d7d7d] text-sm mt-2">
             By{" "}
             <span className="font-semibold">
               {blog?.author || "Author Name"}
@@ -107,7 +107,9 @@ console.log(slug)
         </div>
 
         <div className="mt-8">
-          <h3 className="text-2xl font-semibold text-gray-800">Latest Blogs</h3>
+          <h3 className="text-2xl font-semibold text-[#252525]">
+            Latest Blogs
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
             {blogsData &&
               blogsData?.map((data: any, index: number) => (
@@ -117,7 +119,9 @@ console.log(slug)
                 >
                   <div className=" h-60 w-full flex justify-center rounded overflow-hidden ">
                     <Image
-                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${data?.coverImage ?? "/"}`}
+                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${
+                        data?.coverImage ?? "/"
+                      }`}
                       alt="Explore Image"
                       width={800}
                       height={630}
@@ -126,7 +130,7 @@ console.log(slug)
                   </div>
 
                   <div className={` w-full mt-8 lg:mt-4 lg:text-left  `}>
-                    <h2 className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl font-normal tracking-widest text-gray-900 leading-7 mb-3">
+                    <h2 className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl font-normal  text-gray-900 leading-7 mb-3">
                       {"Loan"}
                     </h2>
                     <h2 className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl font-bold text-gray-900 leading-7 mb-1">
@@ -153,5 +157,3 @@ console.log(slug)
 };
 
 export default page;
-
-

@@ -40,7 +40,7 @@ export default function SupportCard() {
         {datas &&
           datas?.map((data, index) => (
             <div
-              className="text-left col-span-1 text-gray-800  flex flex-col justify-center items-start"
+              className="text-left col-span-1 text-[#252525]  flex flex-col justify-center items-start"
               key={index}
             >
               <div className="w-full mb-4">

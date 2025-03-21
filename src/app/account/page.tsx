@@ -69,7 +69,7 @@ const ProfilePage: React.FC = () => {
   }
 
   return (
-    <div className="container mx-auto p-6 lg:h-screen overscroll-y-auto mt-[7rem] max-w-7xl m-auto pt-28 lg:px-20 lg:py-10">
+    <div className="container mx-auto p-6 lg:h-screen overscroll-y-auto mt-[7rem] lg:mt-[10rem] max-w-7xl m-auto pt-28 lg:px-20 lg:py-10">
       {user && (
         <div className="bg-white text-gray-900 p-6 rounded-lg shadow-md mb-8">
           <div className="flex flex-col items-start lg:flex-row lg:items-center gap-4 lg:gap-14">
@@ -81,19 +81,19 @@ const ProfilePage: React.FC = () => {
             </div>
             <div className="flex flex-col">
               <h2 className="font-light text-gray-700">Email Id:</h2>
-              <p className="text-gray-600">{user.email}</p>
+              <p className="text-[#7d7d7d]">{user.email}</p>
             </div>
             <div className="flex flex-col">
               <h2 className="font-light text-gray-700">Mobile No:</h2>
-              <p className="text-gray-500">{user.mobileNo || ""}</p>
+              <p className="text-[#7d7d7d]">{user.mobileNo || ""}</p>
             </div>
             <div className="flex flex-col">
               <h2 className="font-light text-gray-700">Birth Country:</h2>
-              <p className="text-gray-500">{user.birthCountry || ""}</p>
+              <p className="text-[#7d7d7d]">{user.birthCountry || ""}</p>
             </div>
             <div className="flex flex-col">
               <h2 className="font-light text-gray-700">Date Of Birth:</h2>
-              <p className="text-gray-500">
+              <p className="text-[#7d7d7d]">
                 {dayjs(user.dob).format("DD-MM-YYYY") || ""}
               </p>
             </div>
@@ -118,13 +118,13 @@ const ProfilePage: React.FC = () => {
             className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out cursor-pointer"
             onClick={() => openModal(application)} // Open modal when a card is clicked
           >
-            <h2 className="text-xl font-semibold text-gray-800">
+            <h2 className="text-xl font-semibold text-[#252525]">
               {application.formName}
             </h2>
-            <p className="text-gray-600">
+            <p className="text-[#7d7d7d]">
               Loan No: {application.loanQueryNumber}
             </p>
-            <p className="text-gray-500 text-sm">
+            <p className="text-[#7d7d7d] text-sm">
               Date: {dayjs(application.createdAt).format("DD-MM-YYYY")}
             </p>
             <div

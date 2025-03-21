@@ -36,28 +36,32 @@ export default function Step1({
     if (!formData.driverLicenseDocument) {
       newErrors.driverLicenseDocument = "Driver license document is required.";
     }
-    
-    
-   if(formData.applicationType === 'joint') {
-    if (!formData.partnerMaritalStatus) {
-      newErrors.partnerMaritalStatus = "Partner marital status is required.";
+
+    if (formData.applicationType === "joint") {
+      if (!formData.partnerMaritalStatus) {
+        newErrors.partnerMaritalStatus = "Partner marital status is required.";
+      }
+      if (!formData.partnerDependents) {
+        newErrors.partnerDependents = "Partner dependents field is required.";
+      }
+      if (!formData.partnerDriverLicenseType) {
+        newErrors.partnerDriverLicenseType =
+          "Partner driver license type is required.";
+      }
+      if (!formData.partnerDriverLicenseNumber) {
+        newErrors.partnerDriverLicenseNumber =
+          "Partner driver license number is required.";
+      }
+      if (!formData.partnerDriverLicenseVersion) {
+        newErrors.partnerDriverLicenseVersion =
+          "Partner driver license version is required.";
+      }
+      if (!formData.partnerDriverLicenseDocument) {
+        newErrors.partnerDriverLicenseDocument =
+          "Partner driver license document is required.";
+      }
     }
-    if (!formData.partnerDependents) {
-      newErrors.partnerDependents = "Partner dependents field is required.";
-    }
-    if (!formData.partnerDriverLicenseType) {
-      newErrors.partnerDriverLicenseType = "Partner driver license type is required.";
-    }
-    if (!formData.partnerDriverLicenseNumber) {
-      newErrors.partnerDriverLicenseNumber = "Partner driver license number is required.";
-    }
-    if (!formData.partnerDriverLicenseVersion) {
-      newErrors.partnerDriverLicenseVersion = "Partner driver license version is required.";
-    }
-    if (!formData.partnerDriverLicenseDocument) {
-      newErrors.partnerDriverLicenseDocument = "Partner driver license document is required.";
-    }}
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -94,9 +98,9 @@ export default function Step1({
               </div>
             </label>
           ))}
-        {errors.applicationType && (
-          <p className="text-red-500">{errors.applicationType}</p>
-        )}
+          {errors.applicationType && (
+            <p className="text-red-500">{errors.applicationType}</p>
+          )}
         </div>
 
         {/* Marital Status */}
@@ -231,7 +235,7 @@ export default function Step1({
             type="file"
             onChange={handleFileChange}
             name="driverLicenseDocument"
-            className="mt-0.5 w-full border p-2 rounded text-gray-800"
+            className="mt-0.5 w-full border p-2 rounded text-[#252525]"
           />
           {errors.driverLicenseDocument && (
             <p className="text-red-500">{errors.driverLicenseDocument}</p>
@@ -239,7 +243,9 @@ export default function Step1({
         </div>
 
         {formData?.applicationType === "joint" && (
-          <div className="col-span-3 text-2xl font-bold ">Your Partner Details</div>
+          <div className="col-span-3 text-2xl font-bold ">
+            Your Partner Details
+          </div>
         )}
         {formData?.applicationType === "joint" && (
           <div className="flex flex-col mb-4">
@@ -346,7 +352,9 @@ export default function Step1({
               placeholder="Driver License Number"
             />
             {errors.partnerDriverLicenseNumber && (
-              <p className="text-red-500">{errors.partnerDriverLicenseNumber}</p>
+              <p className="text-red-500">
+                {errors.partnerDriverLicenseNumber}
+              </p>
             )}
           </div>
         )}
@@ -366,7 +374,9 @@ export default function Step1({
               placeholder="Driver License Version"
             />
             {errors.partnerDriverLicenseVersion && (
-              <p className="text-red-500">{errors.partnerDriverLicenseVersion}</p>
+              <p className="text-red-500">
+                {errors.partnerDriverLicenseVersion}
+              </p>
             )}
           </div>
         )}
@@ -377,10 +387,12 @@ export default function Step1({
               type="file"
               onChange={handleFileChange}
               name="partnerDriverLicenseDocument"
-              className="mt-0.5 w-full border p-2 rounded text-gray-800"
+              className="mt-0.5 w-full border p-2 rounded text-[#252525]"
             />
             {errors.partnerDriverLicenseDocument && (
-              <p className="text-red-500">{errors.partnerDriverLicenseDocument}</p>
+              <p className="text-red-500">
+                {errors.partnerDriverLicenseDocument}
+              </p>
             )}
           </div>
         )}

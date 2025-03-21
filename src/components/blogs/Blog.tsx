@@ -90,18 +90,18 @@ const Blogs = () => {
               </div>
 
               <div className={` w-full mt-8 lg:mt-4 lg:text-left  `}>
-                <h2 className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm font-normal tracking-widest text-gray-800 leading-7 mb-3">
+                <h2 className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm font-normal  text-[#252525] leading-7 mb-3">
                   {"Popular"}
                 </h2>
-                <h2 className="text-lg sm:text-lg md:text-lg lg:text-lg xl:text-lg font-normal text-gray-800 leading-7 mb-2">
+                <h2 className="text-lg sm:text-lg md:text-lg lg:text-lg xl:text-lg font-normal text-[#252525] leading-7 mb-2">
                   {data?.title}
                 </h2>
-                <p className="text-gray-800 text-xs mb-4">
+                <p className="text-[#252525] text-xs mb-4">
                   {dayjs(data?.date).format("DD/MM/YYYY")}
                 </p>
                 <Link
                   href={`/blogs/${data?.slug}`}
-                  className="mt-6 px-6 py-3 sm:px-8 sm:py-2 text-sm sm:text-base md:text-lg bg-transparent text-gray-800 border-gray-900 rounded-none shadow-md border transition flex justify-center items-center hover:text-blue-700"
+                  className="mt-6 px-6 py-3 sm:px-8 sm:py-2 text-sm sm:text-base md:text-lg bg-transparent text-[#252525] border-gray-900 rounded-none shadow-md border transition flex justify-center items-center hover:text-blue-700"
                 >
                   Read More{" "}
                   <GoArrowUpRight width={20} height={20} className="ml-2" />

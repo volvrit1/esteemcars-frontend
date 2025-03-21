@@ -8,22 +8,22 @@ const WhyWeAreBest = ({ sectionData }: { sectionData?: ISection }) => {
     {
       title: "Law - Interest Rates & No Hidden Charges",
       description:
-        "At Esteem Car Loans, we understand that buying a car is more than just a purchase—it’s a milestone. That’s why we are committed to providing the most hassle-free, transparent, and affordable car loan solutions tailored to your credit profile.",
+        "We provide you with competitive low-interest rates and open terms. No surprise fees mean you receive the best value in your car loan with no additional surprise fees.",
       image: "/images/why1.png",
       date: "Jan 02 2025",
     },
     {
       title: "Secure & reliable Transaction",
       description:
-        "At Esteem Car Loans, we understand that buying a car is more than just a purchase—it’s a milestone. That’s why we are committed to providing the most hassle-free, transparent, and affordable car loan solutions tailored to your credit profile.",
+        "Safety is paramount at Esteem Car Loans for us. Leading levels of encryptions cover your personal as well as monetary details, thereby enabling secure as well as sound transactions whenever you borrow a loan.",
 
       image: "/images/why2.png",
       date: "Jan 02 2025",
     },
     {
-      title: "Trusted by Thounsand",
+      title: "Trusted by Thousand",
       description:
-        "At Esteem Car Loans, we understand that buying a car is more than just a purchase—it’s a milestone. That’s why we are committed to providing the most hassle-free, transparent, and affordable car loan solutions tailored to your credit profile.",
+        "With thousands of happy customers, Esteem Car Loans has established itself as a reliable and trustworthy source for car loans. Become one of the many individuals who have enjoyed our great service and easy loan process.",
 
       image: "/images/why3.png",
       date: "Jan 02 2025",
@@ -32,16 +32,14 @@ const WhyWeAreBest = ({ sectionData }: { sectionData?: ISection }) => {
   return (
     <div className="max-w-7xl lg:max-w-6xl relative m-auto p-4">
       <div className="m-auto text-center lg:p-8 bg-opacity-80">
-        <h2 className="lg:w-3/5 m-auto text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl font-bold text-gray-800 leading-7 font-[jost]">
+        <h2 className=" m-auto text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-3xl font-semibold text-[#252525] leading-7 font-[poppins] ">
           {"Why We Are Best "}
-          <span className="text-[#F75D34] inline-block mt-4">
-            {" "}
-            {"Car Loan provider"}
-          </span>
+
+          {"Car Loan Provider"}
         </h2>
-            <p className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl line-clamp-4 md:line-clamp-none text-gray-800 lg:px-24  mt-4 leading-8 mb-4">
+        <p className="lg:w-5/6 m-auto text-xs sm:text-sm md:text-sm lg:text-sm xl:text-base font-medium font-[cabin] line-clamp-4 md:line-clamp-none text-[#252525] lg:px-10 mt-4 leading-8 mb-4">
           {
-            "At Esteem Car Loans, we understand that buying a car is more than just a purchase—it’s a milestone. That’s why we are committed to providing the most hassle-free, transparent, and affordable car loan solutions tailored to your credit profile"
+            "Esteem Car Loans is unique in that we offer world-class customer service, easy loan terms, quick approval times, and a solid reputation for offering solid, transparent financing solutions that serve all your purposes."
           }
         </p>
       </div>
@@ -53,9 +51,9 @@ const WhyWeAreBest = ({ sectionData }: { sectionData?: ISection }) => {
               className="container mx-auto p-4 lg:p-2 flex flex-col lg:flex-row items-center justify-between"
             >
               {/* Left Column - Image */}
-              <div className="relative lg:w-1/2 lg:h-64 shadow-xl rounded-[3rem] overflow-hidden flex justify-center">
+              <div className="relative lg:w-1/2 lg:h-64 shadow-[0_5px_5px_rgba(0,0,0,0.25)] indent-0 rounded-[3rem] overflow-hidden flex justify-center">
                 <Image
-                  src={data?.image ??"/"} // Ensure this image exists in the public folder
+                  src={data?.image ?? "/"} // Ensure this image exists in the public folder
                   alt="Explore Image"
                   width={800}
                   height={630}
@@ -65,12 +63,12 @@ const WhyWeAreBest = ({ sectionData }: { sectionData?: ISection }) => {
 
               {/* Right Column - Content */}
               <div
-                className={` w-full lg:w-1/2 mt-8 lg:mt-4 lg:text-left lg:px-14 `}
+                className={` w-full lg:w-1/2 mt-8 lg:mt-4 lg:text-left lg:px-14  `}
               >
-                <h2 className="text-2xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl font-semibold font-[jost] text-gray-900 leading-7 mb-2">
+                <h2 className="text-2xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl font-semibold font-[poppins] text-gray-900 leading-7 mb-2">
                   {data?.title}
                 </h2>
-                <p className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl font-normal  text-gray-900 leading-7 mb-3">
+                <p className="text-xs sm:text-sm md:text-sm lg:text-base xl:text-base font-medium  font-[cabin] line-clamp-4 md:line-clamp-none text-gray-900 mt-4 leading-8 mb-4">
                   {data?.description}
                 </p>
               </div>

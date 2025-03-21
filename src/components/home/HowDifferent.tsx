@@ -2,12 +2,12 @@ import { ISection } from "@/utils/server";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import image1 from "../../../public/images/section1Image.png"; 
-import image2 from "../../../public/images/challengeIcon1.png"; 
-import image3 from "../../../public/images/challengeIcon2.png"; 
-import image4 from "../../../public/images/challengeIcon2.png"; 
-import image5 from "../../../public/images/challengeIcon4.png"; 
-import image6 from "../../../public/images/challengeIcon5.png"; 
+import image1 from "../../../public/images/section1Image.png";
+import image2 from "../../../public/images/challengeIcon1.png";
+import image3 from "../../../public/images/challengeIcon2.png";
+import image4 from "../../../public/images/challengeIcon2.png";
+import image5 from "../../../public/images/challengeIcon4.png";
+import image6 from "../../../public/images/challengeIcon5.png";
 
 // import image2 from "/images/challengeIcon2.png";
 // import image3 from "/images/challengeIcon3.png";
@@ -19,12 +19,12 @@ const HowDifferent = ({ sectionData }: { sectionData?: ISection }) => {
   return (
     <div className="max-w-7xl relative  m-auto p-4 lg:p-14">
       <div className="m-auto lg:w-full  text-left lg:mb-8">
-        <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-2xl xl:text-3xl font-bold text-gray-800 leading-7">
+        <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-2xl xl:text-3xl font-bold text-[#252525] leading-7">
           {sectionData?.title ||
             "How Differently Esteem, Can Help You Overcome"}
           <span className="text-[#F75D34]"> {"Your Challenges"}</span>
         </h2>
-        <p className="text-lg sm:text-lg md:text-lg lg:text-lg xl:text-lg line-clamp-4 md:line-clamp-none text-gray-800 mt-4 leading-8">
+        <p className="text-lg sm:text-lg md:text-lg lg:text-lg xl:text-lg line-clamp-4 md:line-clamp-none text-[#252525] mt-4 leading-8">
           {sectionData?.description ||
             "Here's How Esteem Makes Car Financing Simple, Transparent, and Accessible"}
         </p>
@@ -44,7 +44,7 @@ const HowDifferent = ({ sectionData }: { sectionData?: ISection }) => {
         {/* Right Column - Content */}
         <div className="lg:w-1/2 w-full mt-8 lg:mt-0 lg:pl-12 text-left">
           <ul>
-            <li className="flex justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-gray-800 mt-4 p-2 leading-8">
+            <li className="flex justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-[#252525] mt-4 p-2 leading-8">
               <Image
                 src={image2}
                 width={35}
@@ -58,7 +58,7 @@ const HowDifferent = ({ sectionData }: { sectionData?: ISection }) => {
                   "Car finance is very expensive in New Zealand."}
               </p>
             </li>{" "}
-            <li className="flex justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-gray-800 mt-4 p-2 leading-8">
+            <li className="flex justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-[#252525] mt-4 p-2 leading-8">
               <Image
                 src={image3}
                 width={35}
@@ -71,7 +71,7 @@ const HowDifferent = ({ sectionData }: { sectionData?: ISection }) => {
                 {sectionData?.description || "Not many options are provided."}
               </p>
             </li>{" "}
-            <li className="flex justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-gray-800 mt-4 p-2 leading-8">
+            <li className="flex justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-[#252525] mt-4 p-2 leading-8">
               <Image
                 src={image4}
                 width={35}
@@ -85,7 +85,7 @@ const HowDifferent = ({ sectionData }: { sectionData?: ISection }) => {
                   "New Zealand  car finance is still not a buyers market."}
               </p>
             </li>{" "}
-            <li className="flex justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-gray-800 mt-4 p-2 leading-8">
+            <li className="flex justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-[#252525] mt-4 p-2 leading-8">
               <Image
                 src={image5}
                 width={35}
@@ -99,7 +99,7 @@ const HowDifferent = ({ sectionData }: { sectionData?: ISection }) => {
                   "Lacks transparent, unbiased, true business consulting."}
               </p>
             </li>
-            <li className="flex justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-gray-800 mt-4 p-2 leading-8">
+            <li className="flex justify-start items-center text-sm sm:text-lg md:text-xl lg:text-[16px] xl:text-[16px]  text-[#252525] mt-4 p-2 leading-8">
               <Image
                 src={image6}
                 width={35}

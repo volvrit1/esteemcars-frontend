@@ -26,7 +26,7 @@ const Vision = ({ sectionData }: { sectionData: ISection | undefined }) => {
         className={`lg:w-1/2 w-full mt-8 lg:mt-0 lg:pl-12 text-center lg:text-left relative `}
       >
         <h2
-          className={`text-5xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-7xl font-extrabold tracking-widest text-gray-500 leading-7 mb-3 absolute top-[-1rem] lg:top-[-4rem] lg:left-5 left-1/2 transform -translate-x-1/2 lg:translate-x-0 -z-10 ${lexendDeca.className}`}
+          className={`text-5xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-7xl font-extrabold  text-[#7d7d7d] leading-7 mb-3 absolute top-[-1rem] lg:top-[-4rem] lg:left-5 left-1/2 transform -translate-x-1/2 lg:translate-x-0 -z-10 ${lexendDeca.className}`}
         >
           {sectionData?.title || "VISION"}
         </h2>

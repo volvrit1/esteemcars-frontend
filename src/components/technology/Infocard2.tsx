@@ -29,7 +29,7 @@ export default function InfoCard2({ datas }: InfoCardProps) {
               className="col-span-2 md:col-span-1 mb-4 md:mb-0 border p-1 md:min-h-[60vh] 2xl:min-h-[20vh]"
               key={index}
             >
-              <h2 className="text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-2xl  font-bold text-center text-gray-800 leading-7 mb-2 p-2 bg-[#FFA7A7]">
+              <h2 className="text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-2xl  font-bold text-center text-[#252525] leading-7 mb-2 p-2 bg-[#FFA7A7]">
                 {data.title}
               </h2>
               <ul className="list-inside list-disc p-2 md:p-4 md:px-10  ">

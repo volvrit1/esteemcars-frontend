@@ -5,11 +5,11 @@ export default function Follow() {
   return (
     <div className="max-w-7xl relative  m-auto p-4 lg:p-14">
       <div className="m-auto lg:w-full  text-left lg:mb-4">
-        <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-23xl font-bold text-gray-800 leading-7 mb-4 ">
+        <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-23xl font-bold text-[#252525] leading-7 mb-4 ">
           {"3 Steps"}
           <span className="text-[#F75D34]"> {"To Follow"}</span>
         </h2>
-        <h3 className="text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl font-light mb-8 text-gray-800 leading-7">
+        <h3 className="text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl font-light mb-8 text-[#252525] leading-7">
           There are many variations of passages of Lorem Ipsum available, but
           the majority have suffered alteration in some form, by injected
           humour, or randomised words which don't look even slightly believable.

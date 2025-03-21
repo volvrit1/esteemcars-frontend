@@ -53,11 +53,11 @@ const Testimonials = () => {
   return (
     <div className="max-w-7xl lg:max-w-6xl relative m-auto p-4">
       <div className="m-auto lg:w-full text-center lg:px-24 lg:mb-4">
-        <h2 className="text-3xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-23xl font-bold text-gray-800 leading-7 mb-4 ">
+        <h2 className="text-3xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-23xl font-bold text-[#252525] leading-7 mb-4 ">
           {"Our Happy"}
           <span className="text-[#F75D34]"> {"Clients"}</span>
         </h2>
-        <h3 className="text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl font-light mb-8 text-gray-800 leading-7">
+        <h3 className="text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl font-light mb-8 text-[#252525] leading-7">
           Experience our service through the eyes of our clients
         </h3>
       </div>
@@ -90,7 +90,9 @@ const Testimonials = () => {
               {/* Image container */}
               <div className="relative h-60 w-60 flex justify-center rounded-full border border-green-200">
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${data?.image ?? "/"}`} // Ensure this image exists in the public folder
+                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${
+                    data?.image ?? "/"
+                  }`} // Ensure this image exists in the public folder
                   alt="Explore Image"
                   width={800}
                   height={630}
@@ -102,10 +104,10 @@ const Testimonials = () => {
                     height={24}
                     className="bg-yellow-400 text-xl rounded p-1"
                   />
-                  <span className="text-gray-600 text-xs">
+                  <span className="text-[#7d7d7d] text-xs">
                     {`${(parseFloat(data?.rating) || 0).toFixed(1)}/5`}
                   </span>
-                  <span className="text-gray-600 text-xs">
+                  <span className="text-[#7d7d7d] text-xs">
                     {"Good Service"}
                   </span>
                 </span>
@@ -116,7 +118,7 @@ const Testimonials = () => {
                 <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-bold text-gray-900 leading-7 mb-1">
                   {data?.name}
                 </h2>
-                <h2 className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl font-normal tracking-widest line-clamp-4 text-gray-900 leading-7 mb-3">
+                <h2 className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl font-normal  line-clamp-4 text-gray-900 leading-7 mb-3">
                   {data?.review}
                 </h2>
               </div>

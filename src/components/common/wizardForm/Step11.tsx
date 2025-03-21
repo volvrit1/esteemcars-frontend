@@ -56,7 +56,7 @@ export default function Step1({
             <input
               type="number"
               name="creditCardLimit"
-              className="border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none w-full"
+              className="border rounded p-3 text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none w-full"
               placeholder="$ 0"
               value={formData?.creditCardLimit ?? ""}
               onChange={handleInputChange}
@@ -69,7 +69,7 @@ export default function Step1({
             <input
               type="number"
               name="creditCardMonthlyPayments"
-              className="border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none w-full"
+              className="border rounded p-3 text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none w-full"
               placeholder="$ 0"
               value={formData?.creditCardMonthlyPayments ?? ""}
               onChange={handleInputChange}
@@ -100,7 +100,7 @@ export default function Step1({
             <input
               type="number"
               name="loanBalance"
-              className="border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none w-full"
+              className="border rounded p-3 text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none w-full"
               placeholder="$ 0"
               value={formData?.loanBalance ?? ""}
               onChange={handleInputChange}
@@ -113,7 +113,7 @@ export default function Step1({
             <input
               type="number"
               name="loanMonthlyPayments"
-              className="border rounded p-3 text-gray-800 focus:ring-2 focus:ring-[#1262A1] outline-none w-full"
+              className="border rounded p-3 text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none w-full"
               placeholder="$ 0"
               value={formData?.loanMonthlyPayments ?? ""}
               onChange={handleInputChange}
