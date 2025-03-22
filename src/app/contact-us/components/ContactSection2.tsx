@@ -12,11 +12,13 @@ import { toast } from "react-toastify";
 
 const ContactSection2 = () => {
   const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
+  const [formData, setFormData] = useState<any>({
+    firstName: "",
+    lastName: "",
     email: "",
     phone: "",
-    source: "",
+    subject: "",
+    message: "",
   });
 
   const [selectedLoan, setSelectedLoan] = useState(null);
@@ -44,12 +46,15 @@ const ContactSection2 = () => {
       const res: any = await Post("api/contact", formData, 5000);
       if (res?.success) {
         setFormData({
-          name: "",
+          firstName: "",
+          lastName: "",
           email: "",
           phone: "",
-          source: "",
+          subject: selectedLoan,
+          message: "",
         });
         toast.success("Submission successful");
+        setSelectedLoan(null)
         console.log("Submission successful", res);
       } else {
         console.log("Submission failed", res);
@@ -96,9 +101,9 @@ const ContactSection2 = () => {
                   </label>
                   <input
                     type="text"
-                    name="name"
+                    name="firstName"
                     onChange={handleChange}
-                    value={formData.name}
+                    value={formData.firstName}
                     className="w-full border-b-[1.5px] border-gray-400  outline-none text-[#7d7d7d]"
                     required
                   />
@@ -111,10 +116,10 @@ const ContactSection2 = () => {
                     Last Name
                   </label>
                   <input
-                    type="email"
-                    name="email"
+                    type="text"
+                    name="lastName"
                     onChange={handleChange}
-                    value={formData.email}
+                    value={formData.lastName}
                     className="w-full border-b-[1.5px] border-gray-400  outline-none text-[#7d7d7d]"
                     required
                   />

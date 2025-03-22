@@ -17,6 +17,7 @@ const Testimonials2 = () => {
   useEffect(() => {
     const fetchData = async () => {
       const { loading, data } = await getTestimonials();
+      console.log(data)
       setData(data);
     };
     fetchData();
@@ -101,9 +102,9 @@ const Testimonials2 = () => {
               <div className="container border border-gray-100 shadow-lg rounded-lg overflow-hidden">
                 <div className="text-gray-900 p-6 flex justify-between w-full ">
                   <div className="flex items-center justify-start">
-                    {data?.star &&
-                      Array(Number(data?.star).toFixed(0))
-                        .fill("")
+                    {data?.rating &&
+                      Array(data?.rating)
+                        .fill(null)
                         .map((data: any, index: any) => (
                           <IoStar
                             key={index}

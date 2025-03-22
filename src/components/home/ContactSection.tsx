@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 
 const ContactSection = () => {
   const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<any>({
     firstName: "",
     lastName: "",
     email: "",
@@ -50,9 +50,10 @@ const ContactSection = () => {
           lastName: "",
           email: "",
           phone: "",
-          subject: "",
+          subject: selectedLoan,
           message: "",
         });
+        setSelectedLoan(null);
         toast.success("Submission successful");
         console.log("Submission successful", res);
       } else {
@@ -164,7 +165,7 @@ const ContactSection = () => {
                     Last Name
                   </label>
                   <input
-                    type="email"
+                    type="text"
                     name="lastName"
                     onChange={handleChange}
                     value={formData.lastName}
@@ -296,7 +297,7 @@ const ContactSection = () => {
             width={230}
             height={400}
             alt=""
-            className="absolute bottom-[-3.5rem] object-contain right-20"
+            className="absolute bottom-[-3.5rem] object-contain -z-10 right-20"
           />
         </div>
       </div>

@@ -111,40 +111,40 @@ const CarLoanWizard = () => {
   }, []); // Run only on component mount
 
   // Update formData when userData changes
-  useEffect(() => {
-    const fetchUserData = async (id: any) => {
-      const response: any = await Fetch(`/api/user/${id}`);
-      console.log(response);
-      const userData = response?.data;
-      if (userData) {
-        setFormData((prevFormData: any) => ({
-          ...prevFormData,
-          title: userData.title ?? "",
-          firstName: userData.firstName ?? "",
-          middleName: userData.middleName ?? "",
-          lastName: userData.lastName ?? "",
-          email: userData.email ?? "",
-          mobileNo: userData.mobileNo ?? "",
-          dob: userData.dob ?? "",
-          role: userData.role ?? "user", // Default to "user"
-          nzCitizen: userData.nzCitizen ?? false, // Default to false
-          citizenshipDetails: userData.citizenshipDetails ?? [], // Default to empty array
-          birthCountry: userData.birthCountry ?? "",
-          address: userData.address ?? "",
-          city: userData.city ?? "",
-          postalCode: userData.postalCode ?? "",
-          timeAtCurrentAddressInYears:
-            userData.timeAtCurrentAddressInYears ?? "",
-          timeAtCurrentAddressInMonths:
-            userData.timeAtCurrentAddressInMonths ?? "",
-          residentType: userData.residentType ?? "", // Default to empty string or set to a default
-        }));
-      }
-    };
-    if (userLocalData?.id) {
-      fetchUserData(userLocalData?.id);
-    }
-  }, [userLocalData, isSubmited]); // This will run when userData is updated
+  // useEffect(() => {
+  //   const fetchUserData = async (id: any) => {
+  //     const response: any = await Fetch(`/api/user/${id}`);
+  //     console.log(response);
+  //     const userData = response?.data;
+  //     if (userData) {
+  //       setFormData((prevFormData: any) => ({
+  //         ...prevFormData,
+  //         title: userData.title ?? "",
+  //         firstName: userData.firstName ?? "",
+  //         middleName: userData.middleName ?? "",
+  //         lastName: userData.lastName ?? "",
+  //         email: userData.email ?? "",
+  //         mobileNo: userData.mobileNo ?? "",
+  //         dob: userData.dob ?? "",
+  //         role: userData.role ?? "user", // Default to "user"
+  //         nzCitizen: userData.nzCitizen ?? false, // Default to false
+  //         citizenshipDetails: userData.citizenshipDetails ?? [], // Default to empty array
+  //         birthCountry: userData.birthCountry ?? "",
+  //         address: userData.address ?? "",
+  //         city: userData.city ?? "",
+  //         postalCode: userData.postalCode ?? "",
+  //         timeAtCurrentAddressInYears:
+  //           userData.timeAtCurrentAddressInYears ?? "",
+  //         timeAtCurrentAddressInMonths:
+  //           userData.timeAtCurrentAddressInMonths ?? "",
+  //         residentType: userData.residentType ?? "", // Default to empty string or set to a default
+  //       }));
+  //     }
+  //   };
+  //   if (userLocalData?.id) {
+  //     fetchUserData(userLocalData?.id);
+  //   }
+  // }, [userLocalData, isSubmited]); // This will run when userData is updated
 
   const [showButton, setShowButton] = useState(false);
 
@@ -265,13 +265,13 @@ const CarLoanWizard = () => {
           vehicleVariant: "",
           kmDriven: "",
           tradeCar: "",
-          title: userLocalData?.title ?? "",
-          firstName: userLocalData?.firstName ?? "",
-          middleName: userLocalData?.middleName ?? "",
-          lastName: userLocalData?.lastName ?? "",
-          email: userLocalData?.email ?? "",
-          mobileNo: userLocalData?.mobileNo ?? "",
-          dob: userLocalData?.dob ?? "",
+          title: "",
+          firstName: "",
+          middleName: "",
+          lastName:  "",
+          email:  "",
+          mobileNo: "",
+          dob:  "",
           employerName: "",
           companyName: "",
           companyAddress: "",
@@ -379,13 +379,13 @@ const CarLoanWizard = () => {
           vehicleVariant: "",
           kmDriven: "",
           tradeCar: "",
-          title: userLocalData?.title ?? "",
-          firstName: userLocalData?.firstName ?? "",
-          middleName: userLocalData?.middleName ?? "",
-          lastName: userLocalData?.lastName ?? "",
-          email: userLocalData?.email ?? "",
-          mobileNo: userLocalData?.mobileNo ?? "",
-          dob: userLocalData?.dob ?? "",
+          title:  "",
+          firstName:  "",
+          middleName:  "",
+          lastName:  "",
+          email:  "",
+          mobileNo:  "",
+          dob:  "",
           employerName: "",
           companyName: "",
           companyAddress: "",
