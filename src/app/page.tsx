@@ -30,7 +30,7 @@ const Home = () => {
 
   return (
     <div>
-      <HeroSectionSlider />
+      <HeroSectionSlider slug="home" />
       <OurPartners />
       <OurSimple />
       <Challenges />

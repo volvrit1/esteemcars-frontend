@@ -1,4 +1,5 @@
 import { getBlogData } from "@/utils/server";
+import dayjs from "dayjs";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -6,7 +7,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 const LatestBlogs = async () => {
   const { data } = await getBlogData();
-
+  console.log(data);
   const fallbackData = [
     {
       name: "BY JOHN DOE",
@@ -47,41 +48,50 @@ const LatestBlogs = async () => {
         </h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {fallbackData?.map((data: any, index: number) => (
-          <div key={index} className="container overflow-hidden">
-            <div className="text-gray-900  py-4 flex justify-start w-full ">
-              <div className="flex items-center justify-start text-gray-400 text-xs font-[poppins]">
-                {data?.date || "02 MARCH 2025"}
-              </div>
-            </div>
-            <div className="">
-              <h2 className="text-lg sm:text-lg md:text-lg lg:text-base xl:text-base font-[poppins] font-bold text-[#252525] leading-7 mb-4">
-                {data?.title ||
-                  "Car Loans for Bad Credit: Options and Strategies?"}
-              </h2>
-              <p className="text-sm font-[cabin] text-[#7d7d7d]">
-                {data?.description ||
-                  "Addresses the challenges of bad credit and explores available loan options..."}
-              </p>
-            </div>
-            {/* Text Section */}
+        {data &&
+          data?.map((data: any, index: number) => (
+            <Link key={index} href={`/blogs/${data?.slug}`}>
+              <div key={index} className="container overflow-hidden">
+                <div className="text-gray-900  py-4 flex justify-start w-full ">
+                  <div className="flex items-center justify-start text-gray-400 text-xs font-[poppins]">
+                    {data?.date
+                      ? dayjs(data?.date).format("DD MMMM YYYY")
+                      : "02 MARCH 2025"}
+                  </div>
+                </div>
+                <div className="">
+                  <h2 className="text-lg sm:text-lg md:text-lg lg:text-base xl:text-base font-[poppins] font-bold text-[#252525] leading-7 mb-4">
+                    {data?.title ||
+                      "Car Loans for Bad Credit: Options and Strategies?"}
+                  </h2>
+                  <p className="text-sm font-[cabin] text-[#7d7d7d]">
+                    {data?.description ||
+                      "Addresses the challenges of bad credit and explores available loan options..."}
+                  </p>
+                </div>
+                {/* Text Section */}
 
-            <div className="w-full mt-8 lg:mt-4 lg:text-center border-t-2 flex items-center gap-4 py-4">
-              <Image
-                src={data?.image || "/assets/profile.png"}
-                alt={"image"}
-                width={30}
-                height={30}
-                className=""
-              />
-              <div>
-                <h2 className="text-xs sm:text-xs md:text-xs lg:text-xs xl:text-xs font-[poppins] font-normal  line-clamp-4 text-[#252525]  leading-7">
-                  {data?.name || "BY JOHN WICK"}
-                </h2>
+                <div className="w-full mt-8 lg:mt-4 lg:text-center border-t-2 flex items-center gap-4 py-4">
+                  <Image
+                    src={`${
+                      data?.coverImage
+                        ? process.env.NEXT_PUBLIC_BASE_URL + data?.coverImage
+                        : "/assets/profile.png"
+                    }`}
+                    alt={"image"}
+                    width={30}
+                    height={30}
+                    className="rounded-full"
+                  />
+                  <div>
+                    <h2 className="text-xs sm:text-xs md:text-xs lg:text-xs xl:text-xs font-[poppins] font-normal  line-clamp-4 text-[#252525]  leading-7 uppercase">
+                      {data?.author || "BY JOHN WICK"}
+                    </h2>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
+            </Link>
+          ))}
       </div>
     </div>
   );

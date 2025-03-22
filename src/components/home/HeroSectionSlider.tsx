@@ -22,7 +22,7 @@ const HeroSectionSlider = async ({
   const { data } = await getBanners(slug);
   return (
     <div className="mt-[7rem] lg:mt-[10rem]">
-      <SwiperSlider />
+      <SwiperSlider data={data} />
     </div>
   );
 };

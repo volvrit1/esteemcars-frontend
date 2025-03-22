@@ -40,7 +40,7 @@ export default function Step1({ nextStep, prevStep, handleChange, formData }: an
 
   return (
     <div className="min-w-[70vw]">
-      <h2 className="text-xl font-bold">Apply Loan For</h2>
+      <h2 className="text-3xl mb-6">Apply Loan For</h2>
 
       <form className="grid grid-cols-1 md:grid-cols-3 gap-4 text-gray-200 mx-auto">
         {/* Loan Type Selection */}
@@ -57,7 +57,7 @@ export default function Step1({ nextStep, prevStep, handleChange, formData }: an
                 className="peer hidden"
               />
               <div
-                className={`w-full h-14 border text-[#1262A1] font-semibold border-gray-300 rounded bg-gray-300 peer-checked:bg-gray-50 peer-checked:border-gray-800 peer-checked:border-2 flex items-center justify-center ${
+                className={`w-full h-14 border text-[#1262A1] font-semibold border-gray-300 rounded-lg bg-gray-300 peer-checked:bg-gray-50 peer-checked:border-gray-800 peer-checked:border-2 flex items-center justify-center ${
                   errors.loanAppliedFor ? "border-red-500" : ""
                 }`}
               >

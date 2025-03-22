@@ -30,7 +30,7 @@ const page = async () => {
   };
 
   return (
-    <div className={`${lexendDeca.className}`}>
+    <div >
       <WhyUsHeroSection />
       <OurPartners />
       <CreditScore />

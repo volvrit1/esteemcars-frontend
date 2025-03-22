@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
-const HeroSection: React.FC = () => {
+const HeroSection = ({ data }: any) => {
   return (
     <section className="relative w-full lg:h-screen ">
       <Swiper
@@ -23,13 +23,22 @@ const HeroSection: React.FC = () => {
         modules={[Autoplay, Navigation, Pagination]}
         className="h-52 lg:h-screen"
       >
-        <SwiperSlide>
-          <div
-            className="w-full h-full bg-cover bg-center"
-            style={{ backgroundImage: "url('/assets/banner01.svg')" }}
-          ></div>
-        </SwiperSlide>
-        <SwiperSlide>
+        {data &&
+          data?.map((data: any, index: any) => (
+            <SwiperSlide key={index}>
+              <div
+                className="w-full h-full bg-cover bg-center"
+                style={{
+                  backgroundImage: `url(${
+                    data?.length !== 0
+                      ? process.env.NEXT_PUBLIC_BASE_URL + data.image
+                      : "/assets/banner01.svg"
+                  })`,
+                }}
+              ></div>
+            </SwiperSlide>
+          ))}
+        {/* <SwiperSlide>
           <div
             className="w-full h-full bg-cover bg-center"
             style={{ backgroundImage: "url('/assets/banner02.svg')" }}
@@ -40,7 +49,7 @@ const HeroSection: React.FC = () => {
             className="w-full h-full bg-cover bg-center"
             style={{ backgroundImage: "url('/assets/banner03.svg')" }}
           ></div>
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
     </section>
   );

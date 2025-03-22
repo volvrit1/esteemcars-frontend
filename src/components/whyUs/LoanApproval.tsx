@@ -38,7 +38,7 @@ const LoanApproval = ({ sectionData }: { sectionData?: ISection }) => {
           {"Loan Solution "}
           {"Works"}
         </h2>
-        <p className=" text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm line-clamp-4 md:line-clamp-none text-[#252525] py-4  mt-4 leading-8 mb-4">
+        <p className=" text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm line-clamp-4 md:line-clamp-none text-[#252525] py-4 font-[cabin]  mt-4 leading-8 mb-4">
           We have streamlined the process to ensure quick approvals and easy
           access to funds so you can focus on driving home your dream car.
         </p>

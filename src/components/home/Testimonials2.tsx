@@ -17,7 +17,6 @@ const Testimonials2 = () => {
   useEffect(() => {
     const fetchData = async () => {
       const { loading, data } = await getTestimonials();
-      console.log(data);
       setData(data);
     };
     fetchData();
@@ -96,57 +95,62 @@ const Testimonials2 = () => {
         pagination={false}
         className="w-full mx-auto rounded-xl h-full"
       >
-        {fallbackData.map((data: any, index: number) => (
-          <SwiperSlide key={index} className="h-full px-2">
-            <div className="container border border-gray-100 shadow-lg rounded-lg overflow-hidden">
-              <div className="text-gray-900 p-6 flex justify-between w-full ">
-                <div className="flex items-center justify-start">
-                  {data?.star &&
-                    Array(data?.star)
-                      .fill(null)
-                      .map((data: any, index: any) => (
-                        <IoStar
-                          key={index}
-                          width={16}
-                          height={16}
-                          className="text-[#F69B00]"
-                        />
-                      ))}
+        {testimonialsData &&
+          testimonialsData.map((data: any, index: number) => (
+            <SwiperSlide key={index} className="h-full px-2">
+              <div className="container border border-gray-100 shadow-lg rounded-lg overflow-hidden">
+                <div className="text-gray-900 p-6 flex justify-between w-full ">
+                  <div className="flex items-center justify-start">
+                    {data?.star &&
+                      Array(Number(data?.star).toFixed(0))
+                        .fill("")
+                        .map((data: any, index: any) => (
+                          <IoStar
+                            key={index}
+                            width={16}
+                            height={16}
+                            className="text-[#F69B00]"
+                          />
+                        ))}
+                  </div>
+                  <Image
+                    src={"/assets/quote.png"}
+                    alt={"image"}
+                    width={50}
+                    height={50}
+                    className=""
+                  />
                 </div>
-                <Image
-                  src={"/assets/quote.png"}
-                  alt={"image"}
-                  width={50}
-                  height={50}
-                  className=""
-                />
-              </div>
-              <div className="px-6 py-2 h-32">
-                <p className="text-sm text-[#7d7d7d] font-[poppins] line-clamp-5">
-                  {data.review}
-                </p>
-              </div>
-              {/* Text Section */}
-              <div className="w-full mt-8 lg:mt-4 lg:text-center bg-[#1262A1] flex items-center gap-4 p-6">
-                <Image
-                  src={"/assets/profile.png"}
-                  alt={"image"}
-                  width={50}
-                  height={50}
-                  className=""
-                />
-                <div>
-                  <h2 className="text-lg sm:text-lg md:text-lg lg:text-lg xl:text-lg text-left font-bold font-[poppins] text-gray-50 leading-7 mb-1">
-                    {data?.name}
-                  </h2>
-                  <p className="text-xs sm:text-xs md:text-xs lg:text-xs xl:text-xs font-normal text-left font-[cabin]  line-clamp-4 text-gray-50 leading-7 mb-3">
-                    {data?.position}
+                <div className="px-6 py-2 h-32">
+                  <p className="text-sm text-[#7d7d7d] font-[poppins] line-clamp-5">
+                    {data.review}
                   </p>
                 </div>
+                {/* Text Section */}
+                <div className="w-full mt-8 lg:mt-4 lg:text-center bg-[#1262A1] flex items-center gap-4 p-6">
+                  <Image
+                    src={`${
+                      data?.image
+                        ? process.env.NEXT_PUBLIC_BASE_URL + data?.image
+                        : "/assets/profile.png"
+                    }`}
+                    alt={"image"}
+                    width={50}
+                    height={50}
+                    className="rounded-full"
+                  />
+                  <div>
+                    <h2 className="text-lg sm:text-lg md:text-lg lg:text-lg xl:text-lg text-left font-bold font-[poppins] text-gray-50 leading-7 mb-1">
+                      {data?.name}
+                    </h2>
+                    <p className="text-xs sm:text-xs md:text-xs lg:text-xs xl:text-xs font-normal text-left font-[cabin]  line-clamp-4 text-gray-50 leading-7 mb-3">
+                      {data?.position}
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   );

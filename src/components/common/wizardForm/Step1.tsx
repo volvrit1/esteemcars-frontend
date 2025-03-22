@@ -20,7 +20,7 @@ export default function Step1({
       <div className="bg-[#1262A1] w-24 h-24 overflow-hidden m-auto rounded-full flex justify-center items-center hover:bg-gray-400 transition-colors ease-in-out">
         <Icon className="text-7xl text-gray-50" />
       </div>
-      <p className="mt-2 w-full text-center">{label}</p>
+      <p className="mt-2 w-full text-center text-lg font-semibold">{label}</p>
       <input
         type="radio"
         name="userType"
@@ -36,17 +36,22 @@ export default function Step1({
   );
 
   return (
-    <div className="mt-4 flex flex-col lg:flex-row justify-center gap-4">
-      <UserTypeOption
-        label="As an Individual"
-        value="Individual"
-        Icon={TiUser}
-      />
-      <UserTypeOption
-        label="As a Business"
-        value="Business"
-        Icon={FaRegHandshake}
-      />
+    <div className="">
+      <div>
+        <h2 className="text-2xl m-auto text-center mb-10">How would you like to apply ?</h2>
+      </div>
+      <div className="mt-4 flex flex-col lg:flex-row justify-center gap-4">
+        <UserTypeOption
+          label="As an Individual"
+          value="Individual"
+          Icon={TiUser}
+        />
+        <UserTypeOption
+          label="As a Business"
+          value="Business"
+          Icon={FaRegHandshake}
+        />
+      </div>
     </div>
   );
 }

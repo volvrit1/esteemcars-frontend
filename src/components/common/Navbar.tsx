@@ -45,12 +45,12 @@ const Navbar = () => {
   ];
 
   // Conditionally add "Account" as an object to the menuItems array if the token exists
-  if (token) {
-    menuItems.push({ name: "Account", path: "/account" });
-  }
+  // if (token) {
+  //   menuItems.push({ name: "Account", path: "/account" });
+  // }
 
   return (
-    <div className=" w-full h-auto absolute top-0 z-[1000]">
+    <div className=" w-full h-auto absolute top-0 z-[1000] font-[poppins]">
       <HeaderInfo />
       <nav
         className={`bg-[#252525] flex justify-between px-4 lg:px-0 lg:justify-evenly items-center h-28 w-full ${inter.variable}`}
@@ -69,7 +69,7 @@ const Navbar = () => {
 
 
         {/* Desktop Menu */}
-        <ul className="hidden lg:flex justify-center items-center gap-6 w-3/5 text-gray-50">
+        <ul className="hidden lg:flex justify-evenly items-center  w-3/5 text-gray-50">
           {menuItems.map((item) => (
             <Link
               key={item.path}
@@ -77,7 +77,7 @@ const Navbar = () => {
               className="border-none outline-none"
             >
               <li
-                className={`mr-10 text-sm font-['inter'] ${
+                className={`text-sm font-['inter'] flex-justify-center items-center ${
                   pathname === item.path
                     ? "border-b-2 border-gray-50 text-gray-100 font-bold"
                     : "text-gray-300 hover:text-gray-100 transition duration-200"

@@ -12,7 +12,7 @@ const WhyChoose = ({ sectionData }: { sectionData?: ISection }) => {
           {"Why Choose "}
           {" Esteem Car Loans"}
         </h2>
-        <p className=" text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm line-clamp-4 md:line-clamp-none text-[#252525] py-4  mt-4 leading-8 mb-4">
+        <p className=" text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm line-clamp-4 md:line-clamp-none font-[cabin] text-[#252525] py-4  mt-4 leading-8 mb-4">
           {
             "Choose  Esteem Car Loans to secure competitive rates, favorable terms, and an easy application process, guaranteeing the finest financing deals."
           }
@@ -20,7 +20,7 @@ const WhyChoose = ({ sectionData }: { sectionData?: ISection }) => {
       </div>
       <section className="container relative text-gray-900 mx-auto flex flex-col lg:flex-row items-center justify-start ">
         {/* Left Column - Image */}
-        <div className="lg:w-1/2 lg:h-[80vh] flex justify-center">
+        <div className="lg:w-1/2 lg:h-[80vh] 2xl:h-auto flex justify-center">
           <Image
             src={"/assets/carimg.svg"}
             alt="Who We Are Image"
@@ -31,7 +31,7 @@ const WhyChoose = ({ sectionData }: { sectionData?: ISection }) => {
         </div>
 
         {/* Right Column - Content */}
-        <div className="lg:w-1/2 lg:h-[80vh] w-full mt-8 lg:mt-0 space-y-4 lg:p-8  text-center lg:text-left">
+        <div className="lg:w-1/2 lg:h-[80vh] 2xl:h-auto w-full mt-8 lg:mt-0 space-y-4 lg:p-8  text-center lg:text-left">
           {[
             {
               title: "Instant Loan Offers",

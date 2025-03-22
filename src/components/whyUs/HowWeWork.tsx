@@ -63,7 +63,7 @@ const HowWeWork = ({ sectionData }: { sectionData?: ISection }) => {
               <div
                 className={` w-full  m-auto mt-8 lg:mt-4 lg:text-center lg:px-2 `}
               >
-                <h2 className="lg:w-4/5 m-auto text-base sm:text-lg md:text-lg lg:text-lg xl:text-lg font-semibold text-[#252525] leading-7 mb-1">
+                <h2 className="lg:w-4/5 m-auto text-base sm:text-lg md:text-lg lg:text-lg xl:text-lg font-[poppins] font-semibold text-[#252525] leading-7 mb-1">
                   {data?.title}
                 </h2>
                 <p className="text-xs sm:text-sm md:text-sm lg:text-lg xl:text-lg  font-[cabin] line-clamp-4 md:line-clamp-none text-gray-900 mt-4 leading-8 mb-4">

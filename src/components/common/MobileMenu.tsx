@@ -18,9 +18,9 @@ export default function MobileMenu({token}:any) {
     { name: "Contact Us", path: "/contact-us" },
   ];
 
-  if (token) {
-    menuItems.push({ name: "Account", path: "/account" });
-  }
+  // if (token) {
+  //   menuItems.push({ name: "Account", path: "/account" });
+  // }
   return (
     <nav className="relative">
       {/* Hamburger Button */}
@@ -65,9 +65,9 @@ export default function MobileMenu({token}:any) {
               </li>
             </Link>
           ))}
-          <Link href={""} onClick={() => setIsOpen(false)}>
+          {/* <Link href={""} onClick={() => setIsOpen(false)}>
             <li className={`${"text-gray-300"}`}>{token ? "Log Out" : "Signup/Log In"}</li>
-          </Link>
+          </Link> */}
         </ul>
       </motion.div>
     </nav>

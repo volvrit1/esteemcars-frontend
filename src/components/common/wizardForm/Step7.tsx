@@ -58,7 +58,7 @@ export default function Step1({
 
   return (
     <div className="min-w-[70vw]">
-      <h2 className="text-xl font-bold">Your Address Details</h2>
+      <h2 className="text-3xl mb-4">Your Address Details</h2>
 
       <form className="grid grid-cols-1 md:grid-cols-4 gap-4 p-6 px-0 text-gray-200 mx-auto">
         {/* Address */}

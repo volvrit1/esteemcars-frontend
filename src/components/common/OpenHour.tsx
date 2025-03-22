@@ -6,7 +6,7 @@ export default function OpenHour() {
     <div className="bg-gray-950">
       <div className="border-b-2 bg-gray-950 border-r-gray-50 m-auto">
         <div className="max-w-7xl m-auto flex flex-col lg:flex-row justify-between items-center py-6 px-16">
-          <div className="text-center text-lg font-semibold ">
+          <div className="text-center text-lg font-semibold font-[poppins]">
             Opening Hours
           </div>
           <div className="text-center text-xs font-thin text-gray-50 font-[poppins]  ">

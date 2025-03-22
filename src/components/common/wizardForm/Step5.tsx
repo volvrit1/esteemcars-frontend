@@ -74,7 +74,7 @@ export default function Step1({
 
   return (
     <div className="min-w-[70vw]">
-      <h2 className="text-xl font-bold">
+      <h2 className="text-3xl mb-6">
         Is this a single or joint application? *
       </h2>
       <form className="grid grid-cols-1 md:grid-cols-3 gap-4 text-gray-200 mx-auto">
@@ -93,7 +93,7 @@ export default function Step1({
                 onChange={handleChange}
                 className="peer "
               />
-              <div className="text-white font-semibold p-4 uppercase rounded-lg">
+              <div className="text-white font-semibold p-4 uppercase rounded-xl">
                 {type}
               </div>
             </label>
@@ -143,7 +143,7 @@ export default function Step1({
           )}
         </div>
 
-        {/* Dependents */}
+        {/* Dependents
         <div className="flex flex-col mb-4 lg:col-span-2">
           <label className="text-gray-100 font-medium">
             How Many Dependents Do You Have?
@@ -165,7 +165,7 @@ export default function Step1({
           {errors.dependents && (
             <p className="text-red-500">{errors.dependents}</p>
           )}
-        </div>
+        </div> */}
 
         {/* Driver License Type */}
         <div className="flex flex-col mb-4">

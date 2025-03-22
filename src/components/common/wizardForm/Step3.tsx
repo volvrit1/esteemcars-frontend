@@ -42,7 +42,7 @@ export default function Step1({
 
   return (
     <div className="min-w-[70vw]">
-      <h2 className="text-xl font-bold">Your Personal Information</h2>
+      <h2 className="text-3xl mb-6">Your Personal Information</h2>
       <form className="grid grid-cols-1 md:grid-cols-3 gap-4 text-gray-200 mx-auto">
         {[
           {
@@ -90,7 +90,7 @@ export default function Step1({
                   name={name}
                   value={formData[name]}
                   onChange={handleChange}
-                  disabled={formData[name]}
+                  // disabled={formData[name]}
                   className="border rounded p-3 bg-white text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none"
                 >
                   <option value="">Select</option>
@@ -112,7 +112,7 @@ export default function Step1({
                   }
                   onChange={handleChange}
                   maxLength={maxlength ?? 255}
-                  disabled={formData[name] && !editable}
+                  // disabled={formData[name] && !editable}
                   className={`border rounded p-3 text-[#252525] focus:ring-2 focus:ring-[#1262A1] outline-none ${
                     errors[name] ? "border-red-500" : ""
                   }`}

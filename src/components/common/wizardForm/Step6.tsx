@@ -67,7 +67,7 @@ export default function Step1({
               checked={formData.nzWorkStatus === "Yes"}
               onChange={handleChange}
             />
-            <div className="text-white font-semibold p-8 uppercase">Yes</div>
+            <div className="text-white text-xl font-semibold p-4 uppercase">Yes</div>
           </label>
 
           <label className="flex items-center space-x-2 cursor-pointer">
@@ -79,7 +79,7 @@ export default function Step1({
               checked={formData.nzWorkStatus === "No"}
               onChange={handleChange}
             />
-            <div className="text-white font-semibold p-8 uppercase">No</div>
+            <div className="text-white text-xl font-semibold p-4 uppercase">No</div>
           </label>
         </div>
         {formData?.nzWorkStatus === "Yes" && (

@@ -61,7 +61,7 @@ const page = () => {
   };
 
   return (
-    <div className="bg-transparent mt-[7rem] lg:mt-[10rem]">
+    <div className="bg-transparent mt-[7rem] lg:mt-[10rem] font-[poppins]">
       <div className="max-w-7xl lg:max-w-6xl m-auto p-4 lg:py-4">
         <div className="text-gray-700 mb-4 ">
           <Link href={"/blogs"} className="text-blue-600">
@@ -72,13 +72,11 @@ const page = () => {
         </div>
         <div className="mb-4">
           <Image
-            src={
-              blog?.coverImage
-                ? `${process.env.NEXT_PUBLIC_BASE_URL}${
-                    blog?.coverImage ?? "/"
-                  }`
-                : "/images/droneArmy.png" // Fallback image if no cover image
-            }
+            src={`${
+              blog?.coverImage !== 0
+                ? (process.env.NEXT_PUBLIC_BASE_URL + blog?.coverImage)
+                : "/assets/contact.svg"
+            }`}
             width={5000}
             height={3000}
             alt="Blog Banner"
@@ -102,7 +100,7 @@ const page = () => {
         <div className="text-gray-700 leading-8">
           <p
             dangerouslySetInnerHTML={{ __html: cleanHTML }}
-            className="prose max-w-none"
+            className="prose max-w-none font-[cabin]"
           ></p>
         </div>
 
@@ -112,7 +110,7 @@ const page = () => {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
             {blogsData &&
-              blogsData?.map((data: any, index: number) => (
+              blogsData?.map((blog: any, index: number) => (
                 <div
                   key={index}
                   className="container mx-auto mb-4 lg:mb-0 lg:p-2 flex flex-col lg:flex-col items-center justify-between"
@@ -120,7 +118,7 @@ const page = () => {
                   <div className=" h-60 w-full flex justify-center rounded overflow-hidden ">
                     <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${
-                        data?.coverImage ?? "/"
+                        blog?.coverImage ?? "/"
                       }`}
                       alt="Explore Image"
                       width={800}
@@ -134,10 +132,10 @@ const page = () => {
                       {"Loan"}
                     </h2>
                     <h2 className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl font-bold text-gray-900 leading-7 mb-1">
-                      {data?.title}
+                      {blog?.title}
                     </h2>
                     <Link
-                      href={`/blogs/${data?.slug}`}
+                      href={`/blogs/${blog?.slug}`}
                       className="mt-6 w-12 h-12 text-sm sm:text-base md:text-lg bg-transparent text-black rounded  border border-[#F75D34] transition flex justify-center items-center"
                     >
                       <IoIosArrowForward

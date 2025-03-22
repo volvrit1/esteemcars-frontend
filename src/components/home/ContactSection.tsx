@@ -13,10 +13,12 @@ import { toast } from "react-toastify";
 const ContactSection = () => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     phone: "",
-    source: "",
+    subject: "",
+    message: "",
   });
 
   const [selectedLoan, setSelectedLoan] = useState(null);
@@ -44,10 +46,12 @@ const ContactSection = () => {
       const res: any = await Post("api/contact", formData, 5000);
       if (res?.success) {
         setFormData({
-          name: "",
+          firstName: "",
+          lastName: "",
           email: "",
           phone: "",
-          source: "",
+          subject: "",
+          message: "",
         });
         toast.success("Submission successful");
         console.log("Submission successful", res);
@@ -145,9 +149,9 @@ const ContactSection = () => {
                   </label>
                   <input
                     type="text"
-                    name="name"
+                    name="firstName"
                     onChange={handleChange}
-                    value={formData.name}
+                    value={formData.firstName}
                     className="w-full border-b-[1.5px] border-gray-400  outline-none text-[#7d7d7d]"
                     required
                   />
@@ -161,9 +165,9 @@ const ContactSection = () => {
                   </label>
                   <input
                     type="email"
-                    name="email"
+                    name="lastName"
                     onChange={handleChange}
-                    value={formData.email}
+                    value={formData.lastName}
                     className="w-full border-b-[1.5px] border-gray-400  outline-none text-[#7d7d7d]"
                     required
                   />
@@ -213,6 +217,7 @@ const ContactSection = () => {
                       type="checkbox"
                       id="carLoan"
                       value="carLoan"
+                      name="subject"
                       checked={selectedLoan === "carLoan"}
                       onChange={handleCheckboxChange}
                       className="mr-1 rounded-full border-2 border-gray-300 p-2 focus:ring-2 focus:ring-blue-500"
@@ -227,6 +232,7 @@ const ContactSection = () => {
                       type="checkbox"
                       id="bikeLoan"
                       value="bikeLoan"
+                      name="subject"
                       checked={selectedLoan === "bikeLoan"}
                       onChange={handleCheckboxChange}
                       className="mr-1 rounded-full border-2 border-gray-300 p-2 focus:ring-2 focus:ring-blue-500"
@@ -244,6 +250,7 @@ const ContactSection = () => {
                       type="checkbox"
                       id="otherLoan"
                       value="otherLoan"
+                      name="subject"
                       checked={selectedLoan === "otherLoan"}
                       onChange={handleCheckboxChange}
                       className="mr-1 rounded-full border-2 border-gray-300 p-2 focus:ring-2 focus:ring-blue-500"
@@ -269,7 +276,7 @@ const ContactSection = () => {
                   type="text"
                   name="message"
                   onChange={handleChange}
-                  value={formData.phone}
+                  value={formData.message}
                   className="w-full border-b-[1.5px] border-gray-400  outline-none text-[#7d7d7d]"
                   required
                 />

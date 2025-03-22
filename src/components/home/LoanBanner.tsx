@@ -5,7 +5,7 @@ export default function LoanBanner() {
   return (
     <div className="max-w-7xl relative m-auto p-4 lg:p-14">
       <div
-        className="rounded-2xl w-full h-80 bg-cover bg-right  lg:bg-center"
+        className="rounded-2xl w-full h-80 bg-cover bg-center"
         style={{
           backgroundImage: "url('/assets/loanbanner.svg')", // Replace with your image path
         }}

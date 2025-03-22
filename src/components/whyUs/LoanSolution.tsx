@@ -37,7 +37,7 @@ const LoanSolution = ({ sectionData }: { sectionData?: ISection }) => {
           {"Required Documents "}
           {"for Loan Approval"}
         </h2>
-        <p className=" text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm line-clamp-4 md:line-clamp-none text-[#252525] py-4  mt-4 leading-8 mb-4">
+        <p className=" text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm line-clamp-4 md:line-clamp-none font-[cabin] text-[#252525] py-4  mt-4 leading-8 mb-4">
           We have streamlined the process to ensure quick approvals and easy
           access to funds so you can focus on driving home your dream car.{" "}
         </p>
@@ -65,7 +65,7 @@ const LoanSolution = ({ sectionData }: { sectionData?: ISection }) => {
                 <h2 className="text-xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-3xl font-semibold text-[#1262A1] font-[poppins] leading-7 mb-4">
                   {data?.title}
                 </h2>
-                <p className="text-base sm:text-base md:text-base lg:text-base xl:text-base font-thin text-gray-700 leading-7 mb-3">
+                <p className="text-base sm:text-base md:text-base lg:text-base xl:text-base font-[cabin] font-thin text-gray-700 leading-7 mb-3">
                   {data?.description}
                 </p>
               </div>

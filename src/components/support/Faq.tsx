@@ -61,7 +61,7 @@ const Faq = () => {
       </div>
       <div className=" space-y-4 p-4">
         {data &&
-          faqs.map((faq: any, index: any) => (
+          data.map((faq: any, index: any) => (
             <div
               key={index}
               className={`rounded-2xl ${openIndex === index && "bg-[#F9F9FB]"}`}

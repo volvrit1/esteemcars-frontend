@@ -21,7 +21,7 @@ const HeroSection = async ({
   const { data } = await getBanners(slug);
   return (
     <div
-      className="relative w-full h-[80vh] mt-[7rem] lg:mt-[10rem] md:h-screen 2xl:h-screen bg-cover  md:bg-cover"
+      className="relative w-full h-[80vh] mt-[7rem] lg:mt-[10rem] md:h-screen 2xl:h-screen bg-cover  md:bg-cover font-[poppins]"
       style={{
         backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_URL}${
           data[0]?.image ?? "/assets/carimg.png"
@@ -32,7 +32,7 @@ const HeroSection = async ({
     >
       {textShow && <div className="absolute inset-0 bg-black/60"></div>}
       {textShow && (
-        <div className="absolute top-10 inset-0 p-4 flex flex-col items-center justify-center 2xl:justify-center text-center text-white lg:w-3/5 m-auto mb-10 font-[jost]">
+        <div className="absolute top-10 inset-0 p-4 flex flex-col items-center justify-center 2xl:justify-center text-center text-white lg:w-3/5 m-auto mb-10 font-[poppins]">
           <h1 className="text-xl md:text-4xl lg:4xl xl:5xl font-bold">
             {title}
           </h1>

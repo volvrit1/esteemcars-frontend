@@ -13,10 +13,12 @@ export default function Step1({ nextStep, handleChange, formData }: any) {
   const [checked, setChecked] = useState(false);
   return (
     <div className="min-w-[70vw]">
-      <h2 className="text-xl font-bold">Before you apply, you will need:</h2>
+      <h2 className="text-3xl">
+        Before you Apply the car loan, you will need :
+      </h2>
       <div className="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
-        <button className="bg-white text-gray-700 h-56 lg:w-64 p-8 rounded-xl">
-          <div className="text-[#1262A1] w-24 h-24 overflow-hidden mr-auto rounded-full flex justify-center items-center">
+        <button className="bg-white text-gray-700 h-52 lg:w-64 p-8 rounded-xl">
+          <div className="text-[#1262A1] w-24 h-20 overflow-hidden mr-auto rounded-full flex justify-center items-center">
             <FaRegAddressCard width={50} height={50} className="text-6xl" />
           </div>
           <p className="h-20 text-sm text-left text-[#1262A1]   pt-2">
@@ -24,16 +26,16 @@ export default function Step1({ nextStep, handleChange, formData }: any) {
             Your Current License or Passport
           </p>{" "}
         </button>
-        <button className="bg-white text-gray-700 h-56 lg:w-64 p-8 rounded-xl">
-          <div className="text-[#1262A1] w-24 h-24 overflow-hidden mr-auto rounded-full flex justify-center items-center">
+        <button className="bg-white text-gray-700 h-52 lg:w-64 p-8 rounded-xl">
+          <div className="text-[#1262A1] w-24 h-20 overflow-hidden mr-auto rounded-full flex justify-center items-center">
             <FaFileInvoice width={50} height={50} className="text-6xl" />
           </div>
           <p className="h-20 text-sm text-left text-[#1262A1]   pt-2">
             Your Employment Details{" "}
           </p>{" "}
         </button>
-        <button className="bg-white text-gray-700 h-56 lg:w-64 p-8 rounded-xl">
-          <div className="text-[#1262A1] w-24 h-24 overflow-hidden mr-auto rounded-full flex justify-center items-center">
+        <button className="bg-white text-gray-700 h-52 lg:w-64 p-8 rounded-xl">
+          <div className="text-[#1262A1] w-24 h-20 overflow-hidden mr-auto rounded-full flex justify-center items-center">
             <FaCalendarDays width={50} height={50} className="text-6xl" />
           </div>
           <p className="h-20 text-sm text-left text-[#1262A1]   pt-2">
@@ -42,12 +44,12 @@ export default function Step1({ nextStep, handleChange, formData }: any) {
         </button>
       </div>
 
-      <h2 className="text-xl font-bold mt-8">
-        In order to procced with this application :
+      <h2 className="text-3xl mt-8">
+        In order to proceed with this application :
       </h2>
       <div className="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
-        <button className="bg-white text-gray-700 h-56 lg:w-64  p-8 rounded-xl">
-          <div className="bg-[#1262A1] w-10 h-10 overflow-hidden mr-auto rounded-full flex justify-center items-center">
+        <button className="bg-white text-gray-700 h-52 lg:w-64  p-8 rounded-xl">
+          <div className="bg-[#1262A1] w-10 h-10 overflow-hidden mr-auto rounded-full flex justify-center items-center mb-4">
             <TiUser width={80} height={80} className="text-3xl text-gray-50" />
           </div>
           <p className="h-20 text-sm text-left text-[#1262A1]   pt-2">
@@ -55,7 +57,7 @@ export default function Step1({ nextStep, handleChange, formData }: any) {
             You must be 18 years old
           </p>{" "}
         </button>
-        <button className="bg-white text-gray-700 h-56 lg:w-64 p-8 rounded-xl hidden">
+        <button className="bg-white text-gray-700 h-52 lg:w-64 p-8 rounded-xl hidden">
           <div className="bg-[#1262A1] w-10 h-10 overflow-hidden mr-auto rounded-full flex justify-center items-center">
             <FaDollarSign
               width={50}
