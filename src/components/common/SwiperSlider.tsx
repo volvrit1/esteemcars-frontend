@@ -32,7 +32,7 @@ const HeroSection = ({ data }: any) => {
                   backgroundImage: `url(${
                     data?.length !== 0
                       ? process.env.NEXT_PUBLIC_BASE_URL + data.image
-                      : "/assets/banner01.svg"
+                      : "/assets/banner001.png"
                   })`,
                 }}
               ></div>

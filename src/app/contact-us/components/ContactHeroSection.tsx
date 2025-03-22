@@ -15,7 +15,7 @@ const ContactHeroSection = async () => {
             backgroundImage: `url(${
               data?.length !== 0
                 ? process.env.NEXT_PUBLIC_BASE_URL + data[0].image
-                : "/assets/contact.svg"
+                : "/assets/contact.png"
             })`,
           }}
         ></div>

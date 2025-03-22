@@ -75,7 +75,7 @@ const page = () => {
             src={`${
               blog?.coverImage !== 0
                 ? (process.env.NEXT_PUBLIC_BASE_URL + blog?.coverImage)
-                : "/assets/contact.svg"
+                : "/assets/contact.png"
             }`}
             width={5000}
             height={3000}

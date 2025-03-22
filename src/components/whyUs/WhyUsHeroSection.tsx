@@ -12,7 +12,7 @@ const WhyUsHeroSection = async () => {
             backgroundImage: `url(${
               data?.length !== 0
                 ? process.env.NEXT_PUBLIC_BASE_URL + data[0].image
-                : "/assets/why.svg"
+                : "/assets/why.png"
             })`,
           }}
         ></div>
