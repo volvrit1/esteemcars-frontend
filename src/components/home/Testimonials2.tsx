@@ -13,7 +13,7 @@ const Testimonials2 = () => {
   // Fetch data from the server
   useEffect(() => {
     const fetchData = async () => {
-      const {  data } = await getTestimonials();
+      const { data } = await getTestimonials();
       setData(data);
     };
     fetchData();
@@ -94,7 +94,7 @@ const Testimonials2 = () => {
                     alt={"image"}
                     width={50}
                     height={50}
-                    className="rounded-full"
+                    className="rounded-full min-h-16 max-h-16 max-w-16 min-w-16 object-contain overflow-hidden border bg-white"
                   />
                   <div>
                     <h2 className="text-lg sm:text-lg md:text-lg lg:text-lg xl:text-lg text-left font-bold font-[poppins] text-gray-50 leading-7 mb-1">

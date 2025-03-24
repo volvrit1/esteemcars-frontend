@@ -46,7 +46,7 @@ const Blogs = () => {
               </div>
 
               <div className={` w-full mt-8 lg:mt-4 lg:text-left  `}>
-                <h2 className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm font-normal  text-[#252525] leading-7 mb-3">
+                <h2 className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm font-normal  text-[#252525] line-clamp-2 leading-7 mb-3">
                   {"Popular"}
                 </h2>
                 <h2 className="text-lg sm:text-lg md:text-lg lg:text-lg xl:text-lg font-normal text-[#252525] leading-7 mb-2">

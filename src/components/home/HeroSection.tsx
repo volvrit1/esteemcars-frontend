@@ -1,3 +1,4 @@
+import { getBanners } from "@/utils/server";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -7,6 +8,8 @@ const HeroSection = async ({
   title,
   description,
   textShow,
+  image,
+  slug,
 }: {
   title: string;
   description: string;
@@ -15,7 +18,7 @@ const HeroSection = async ({
   textShow?: boolean;
   slug?: string;
 }) => {
-  // const { data } = await getBanners(slug);
+  const { data } = await getBanners(slug);
   return (
     <div className="relative w-full h-[80vh] mt-[7rem] lg:mt-[10rem] md:h-screen 2xl:h-screen bg-cover  md:bg-cover font-[poppins]">
       <Image
@@ -24,33 +27,16 @@ const HeroSection = async ({
         height={100}
         unoptimized
         alt={"banner"}
-        src={``}
-        className="object-contain h-[50vh] md:h-auto w-full hidden sm:block"
+        src={`${
+          data?.image ? process.env.NEXT_PUBLIC_BASE_URL + data?.image : image
+        }`}
+        className="object-cover max-h-[100vh] md:h-auto w-full hidden sm:block"
         // style={{
         //   clipPath: "polygon(0 0, 100% 0, 100% 95%, 0 100%)",
         //   overflow: "hidden",
         // }}
       />
       {textShow && <div className="absolute inset-0 bg-black/60"></div>}
-      {textShow && (
-        <div className="absolute top-10 inset-0 p-4 flex flex-col items-center justify-center 2xl:justify-center text-center text-white lg:w-3/5 m-auto mb-10 font-[poppins]">
-          <h1 className="text-xl md:text-4xl lg:4xl xl:5xl font-bold">
-            {title}
-          </h1>
-          <p className="text-sm line-clamp-4 md:line-clamp-none md:text-sm 2xl:text-fxl mt-4 max-w-2xl left-6 mb-10">
-            {description}
-          </p>
-          <div className="flex justify-between items-center">
-            <Link
-              href={"/contact-us"}
-              className="rounded bg-[#1262A1] px-5 py-2 text-gray-50 flex justify-between items-center"
-            >
-              Know More{" "}
-              <GoArrowUpRight width={16} height={16} className="ml-2" />
-            </Link>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

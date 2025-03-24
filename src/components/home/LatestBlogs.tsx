@@ -27,7 +27,7 @@ const LatestBlogs = async () => {
                   </div>
                 </div>
                 <div className="">
-                  <h2 className="text-lg sm:text-lg md:text-lg lg:text-base xl:text-base font-[poppins] font-bold text-[#252525] leading-7 mb-4">
+                  <h2 className="text-lg sm:text-lg md:text-lg lg:text-base xl:text-base font-[poppins] font-bold text-[#252525] min-h-12 max-h-12 overflow-hidden line-clamp-2 leading-7 mb-4">
                     {data?.title ||
                       "Car Loans for Bad Credit: Options and Strategies?"}
                   </h2>
@@ -48,7 +48,7 @@ const LatestBlogs = async () => {
                     alt={"image"}
                     width={30}
                     height={30}
-                    className="rounded-full h-10 w-10 "
+                    className="rounded-full min-h-12 max-h-12 max-w-12 min-w-12 object-cover border border-gray-100   "
                   />
                   <div>
                     <h2 className="text-xs sm:text-xs md:text-xs lg:text-xs xl:text-xs font-[poppins] font-normal  line-clamp-4 text-[#252525]  leading-7 uppercase">
