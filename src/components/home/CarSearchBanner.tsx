@@ -6,7 +6,7 @@ import { IoIosArrowForward } from "react-icons/io";
 const CarSearchBanner = () => {
   return (
     <div className=" bg-[#FFF0E64D] ">
-      <div className="flex justify-center items-center relative w-full py-10 lg:py-0 min-h-[65vh] lg:h-[90vh] max-w-7xl m-auto">
+      <div className="flex justify-center items-center relative w-full py-10 lg:py-0 min-h-[65vh] lg:h-[90vh] 2xl:h-[70vh] max-w-7xl m-auto">
         <div className="w-full absolute top-0 h-[60vh]  lg:h-[70vh] text-center   p-4 lg:p-8">
           <h2 className="text-2xl sm:text-3xl md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-4xl font-semibold font-[poppins] text-[#252525] leading-7">
             {"Start your car search today"}
@@ -27,7 +27,7 @@ const CarSearchBanner = () => {
             objectPosition="center"
           />
         </div>
-        <div className="flex justify-center items-center gap-4 absolute bottom-10 2xl:bottom-0 z-[5000]">
+        <div className="flex justify-center items-center gap-4 absolute bottom-5 2xl:bottom-0 z-[5000]">
           <Link
             href={"/apply-for-car-loan"}
             className="bg-[#1262A1] hover:bg-gray-400 transition-colors ease-in-out flex items-center font-[poppins] px-4 lg:px-12 lg:py-4 p-0 h-14 font-light rounded-lg"
