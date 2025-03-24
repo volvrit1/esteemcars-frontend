@@ -79,7 +79,7 @@ const Footer = () => {
             <div className="mt-2 space-y-2 text-xs font-thin font-[cabin] text-gray-300">
               <div className="flex items-center space-x-2">
                 <IoMailOutline className="text-xl" />
-                <span>Infor@esteemfinance.co.nz</span>
+                <span>infor@esteemfinance.co.nz</span>
               </div>
               <div className="flex items-center space-x-2">
                 <IoCallOutline  className={'text-xl'} />

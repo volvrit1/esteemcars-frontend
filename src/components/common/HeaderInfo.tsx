@@ -11,7 +11,7 @@ export default function HeaderInfo() {
         <Link href={"mailto:infor@esteemfinance.co.nz"}>
           <div className="flex items-center space-x-2 lg:border-r-[1.5px] border-[#D8D8D8] pr-7">
             <IoMailOutline className="text-xl" />
-            <span>Info@esteemfinance.co.nz</span>
+            <span>info@esteemfinance.co.nz</span>
           </div>
         </Link>
         <Link href={"tel:0210371229"}>
