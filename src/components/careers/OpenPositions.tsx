@@ -8,38 +8,6 @@ export default function OpenPosition({
 }: {
   sectionData: ISection | undefined;
 }) {
-  const datas = [
-    {
-      title: "Aerial Robotics Engineer",
-      description:
-        "Our team of experts will help you to extend your drone operations to new heights.",
-    },
-    {
-      title: "UAV Systems Developer",
-      description:
-        "Our team of experts will help you to extend your drone operations to new heights.",
-    },
-    {
-      title: "Flight Operations",
-      description:
-        "Our team of experts will help you to extend your drone operations to new heights.",
-    },
-    {
-      title: "Drone Pilot",
-      description:
-        "Our team of experts will help you to extend your drone operations to new heights.",
-    },
-    {
-      title: "Aerial Robotics Engineer",
-      description:
-        "Our team of experts will help you to extend your drone operations to new heights.",
-    },
-    {
-      title: "UAV Systems Developer",
-      description:
-        "Our team of experts will help you to extend your drone operations to new heights.",
-    },
-  ];
   return (
     <div className="max-w-7xl lg:max-w-6xl  m-auto p-4 py-24">
       <div className="mr-auto text-left mb-16">

@@ -2,7 +2,6 @@
 
 
 
-import Image from "next/image";
 import React, { useState } from "react";
 import { FaCarSide, FaShuttleVan, FaTruckMonster } from "react-icons/fa";
 
@@ -10,7 +9,7 @@ export default function Step1({ nextStep, prevStep, handleChange, formData }: an
   const [errors, setErrors] = useState<any>({});
 
   const validateForm = () => {
-    let newErrors: any = {};
+    const newErrors: any = {};
     const requiredFields = [
       "loanAppliedFor",
       "purchasePrice",

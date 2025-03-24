@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import React, { useState } from "react";
@@ -33,7 +32,7 @@ export default function LoanApplication() {
         <h3 className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl line-clamp-4 lg:line-clamp-none font-light mb-10 text-[#252525] leading-7">
           There are many variations of passages of Lorem Ipsum available, but
           the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don't look even slightly believable.
+          humour, or randomised words which don&apos;t look even slightly believable.
           If you are going to use a passage of Lorem Ipsum.
         </h3>
         <button

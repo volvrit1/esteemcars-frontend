@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 
 export default function Step13({
   nextStep,
@@ -10,7 +10,7 @@ export default function Step13({
   const [chekTrade, setChekTrade] = useState<any>("");
 
   const validateForm = () => {
-    let newErrors: any = {};
+    const newErrors: any = {};
     if (formData.tradeCar  !== "false") {
       const requiredFields = [
         "vehicleVariant",

@@ -1,6 +1,4 @@
-import { ISection } from "@/utils/server";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import image1 from "../../../public/assets/Section-1.png";
 import image2 from "../../../public/assets/Section-2.png";
@@ -74,7 +72,7 @@ const WhyChooseUs = () => {
             />
             <div className="absolute bottom-0 w-full bg-[#1262A1CC] backdrop-blur p-4">
               <h3 className="text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm text-center font-[poppins] text-gray-50 leading-7">
-                Esteem's subject matter experts analyze and recommend unbiased
+                Esteem&apos;s subject matter experts analyze and recommend unbiased
                 finance solution pertinent to the needs and wants of customers
                 by providing bottom line statistics.
               </h3>
@@ -113,7 +111,7 @@ const WhyChooseUs = () => {
                   className="text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm
              p-4 text-center font-[poppins] text-gray-50 leading-7"
                 >
-                  Esteem's services are unconditionally, in the benefit of
+                  Esteem&apos;s services are unconditionally, in the benefit of
                   customers making a customer centric market.
                 </h3>
               </div>

@@ -1,38 +1,9 @@
 "use client";
 import { getFaqs } from "@/utils/server";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BsDash } from "react-icons/bs";
-import { FaAngleDown, FaAngleUp } from "react-icons/fa";
-import { IoIosAdd, IoIosArrowForward } from "react-icons/io";
+import { IoIosAdd } from "react-icons/io";
 
-const faqs = [
-  {
-    question: "What types of cars available at Esteem Cars?",
-    answer:
-      "Yes, we have flexible and competitive finance arrangements. Our easy application process ensures a quick response, so you can drive away in your new car without delay. View our finance page for details or apply for finance online.",
-  },
-  {
-    question: "Do you have financing plans for purchasing cars?",
-    answer:
-      "Yes, we have flexible and competitive finance arrangements. Our easy application process ensures a quick response, so you can drive away in your new car without delay. View our finance page for details or apply for finance online.",
-  },
-  {
-    question: "Do you have trade-ins on used cars?",
-    answer:
-      "Yes, we have flexible and competitive finance arrangements. Our easy application process ensures a quick response, so you can drive away in your new car without delay. View our finance page for details or apply for finance online.",
-  },
-  {
-    question: "Do you ship cars nationally?",
-    answer:
-      "Yes, we have flexible and competitive finance arrangements. Our easy application process ensures a quick response, so you can drive away in your new car without delay. View our finance page for details or apply for finance online.",
-  },
-  {
-    question: "How do I contact Esteem Cars for more information?",
-    answer:
-      "Yes, we have flexible and competitive finance arrangements. Our easy application process ensures a quick response, so you can drive away in your new car without delay. View our finance page for details or apply for finance online.",
-  },
-];
 
 const Faq = () => {
   const [openIndex, setOpenIndex] = useState<number>(0); // First FAQ open by default

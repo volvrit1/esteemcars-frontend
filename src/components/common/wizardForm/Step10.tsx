@@ -20,7 +20,7 @@ export default function Step1({
   };
 
   const validateForm = () => {
-    let newErrors: any = {};
+    const newErrors: any = {};
     if (!selectedOption) newErrors.otherIncome = "This field is required";
     if (selectedOption === "Owned" && !formData.rentAgreement) {
       newErrors.rentAgreement = "Rent Agreement is required";

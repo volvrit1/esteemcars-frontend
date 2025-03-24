@@ -1,15 +1,8 @@
 import { getBanners } from "@/utils/server";
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
-import { GoArrowUpRight } from "react-icons/go";
 import SwiperSlider from "../common/SwiperSlider";
 
 const HeroSectionSlider = async ({
-  title,
-  description,
-  image,
-  textShow,
   slug,
 }: {
   title?: string;

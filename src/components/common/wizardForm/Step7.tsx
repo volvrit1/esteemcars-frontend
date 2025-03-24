@@ -2,7 +2,6 @@ import { countries } from "@/data/data";
 import React, { useState } from "react";
 
 export default function Step1({
-  nextStep,
   prevStep,
   handleChange,
   formData,
@@ -12,7 +11,7 @@ export default function Step1({
 
   // Validation function to check if required fields are filled
   const validateForm = () => {
-    let newErrors: any = {};
+    const newErrors: any = {};
 
     // Address related validations
     if (!formData.address) newErrors.address = "Address is required";

@@ -3,13 +3,12 @@ import {
   FaDollarSign,
   FaFileInvoice,
   FaRegAddressCard,
-  FaRegHandshake,
 } from "react-icons/fa";
 import { FaCalendarDays } from "react-icons/fa6";
 import { IoCheckmark } from "react-icons/io5";
 import { TiUser } from "react-icons/ti";
 
-export default function Step1({ nextStep, handleChange, formData }: any) {
+export default function Step1({ nextStep }: any) {
   const [checked, setChecked] = useState(false);
   return (
     <div className="min-w-[70vw]">

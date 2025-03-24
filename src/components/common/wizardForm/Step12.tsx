@@ -1,60 +1,17 @@
 import React, { useState } from "react";
 import { AiFillThunderbolt } from "react-icons/ai"; // You can keep the icon or change it
 import { FaCarSide } from "react-icons/fa";
-import { IoIosAddCircleOutline } from "react-icons/io";
 import { TbMoneybag } from "react-icons/tb";
 
 export default function Step1({
-  nextStep,
   prevStep,
   handleChange,
   formData,
-  setStep,
   handelSubmit,
 }: any) {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-  // Validation function
-  const validateForm = () => {
-    let newErrors: any = {};
 
-    // Check if required fields are filled in
-    if (
-      !formData.utilities ||
-      isNaN(Number(formData.utilities)) ||
-      Number(formData.utilities) < 0
-    ) {
-      newErrors.utilities =
-        "Utilities payment is required and must be a valid number";
-    }
-
-    if (
-      !formData.livingExpenses ||
-      isNaN(Number(formData.livingExpenses)) ||
-      Number(formData.livingExpenses) < 0
-    ) {
-      newErrors.livingExpenses =
-        "Living expenses are required and must be a valid number";
-    }
-
-    if (
-      !formData.motorVehicle ||
-      isNaN(Number(formData.motorVehicle)) ||
-      Number(formData.motorVehicle) < 0
-    ) {
-      newErrors.motorVehicle =
-        "Motor vehicle payment is required and must be a valid number";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = (e: any) => {
-    if (validateForm()) {
-      handelSubmit(e);
-    }
-  };
 
   return (
     <div className="bg-[#1262A1] lg:p-6 rounded-lg min-w-[70vw] mx-auto text-white">

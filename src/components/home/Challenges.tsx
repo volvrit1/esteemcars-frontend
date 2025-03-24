@@ -1,13 +1,10 @@
-import { ISection } from "@/utils/server";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import image1 from "../../../public/assets/h1.png";
 import image2 from "../../../public/assets/h2.png";
 import image3 from "../../../public/assets/h3.png";
 import image4 from "../../../public/assets/h4.png";
 import image5 from "../../../public/assets/h5.png";
-import image6 from "../../../public/images/challengeIcon5.png";
 
 const Challenges = () => {
   return (

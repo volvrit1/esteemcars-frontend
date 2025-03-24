@@ -1,10 +1,9 @@
-import { ISection } from "@/utils/server";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 
-const CarSearchBanner = ({ sectionData }: { sectionData?: ISection }) => {
+const CarSearchBanner = () => {
   return (
     <div className=" bg-[#FFF0E64D] ">
       <div className="flex justify-center items-center relative w-full py-10 lg:py-0 min-h-[65vh] lg:h-[90vh] max-w-7xl m-auto">

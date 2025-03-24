@@ -5,26 +5,7 @@ import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
 
 const WeBestSection = ({ sectionData }: { sectionData?: ISection }) => {
-  const datas = [
-    {
-      title: "Drone Systems",
-      description:
-        "Our team of experts will help you to extend your drone operations to new heights.",
-      image: "/images/product1.png",
-    },
-    {
-      title: "Control Software",
-      description:
-        "Our team of experts will help you to extend your drone operations to new heights.",
-      image: "/images/product2.png",
-    },
-    {
-      title: "Tactical Trailers",
-      description:
-        "Our team of experts will help you to extend your drone operations to new heights.",
-      image: "/images/product3.png",
-    },
-  ];
+
   return (
     <div className="max-w-7xl relative lg:max-w-6xl  m-auto p-4">
       <div className="absolute top-44 right-0 inset-0 flex justify-center items-center">

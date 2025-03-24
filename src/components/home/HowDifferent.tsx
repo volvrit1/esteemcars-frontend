@@ -1,6 +1,5 @@
 import { ISection } from "@/utils/server";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import image1 from "../../../public/images/section1Image.png";
 import image2 from "../../../public/images/challengeIcon1.png";

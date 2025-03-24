@@ -1,10 +1,7 @@
 "use client";
-import { getTestimonials, ISection, SubContent } from "@/utils/server";
+import { getTestimonials } from "@/utils/server";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { FaStar } from "react-icons/fa";
-import { GoArrowUpRight } from "react-icons/go";
-import { IoIosArrowForward } from "react-icons/io";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay, Pagination } from "swiper/modules";
@@ -16,55 +13,14 @@ const Testimonials2 = () => {
   // Fetch data from the server
   useEffect(() => {
     const fetchData = async () => {
-      const { loading, data } = await getTestimonials();
-      console.log(data)
+      const {  data } = await getTestimonials();
       setData(data);
     };
     fetchData();
   }, []);
 
-  // Static data fallback for development or in case API fails
-  const fallbackData = [
-    {
-      star: 5,
-      name: "John Smith",
-      position: "Behavioral Science",
-      review:
-        "I couldn't be happier with my decision to buy from Esteem Cars. They helped me every step of the way, and their customer service was outstanding. Highly recommend!",
-      image: "/images/image3.png",
-      date: "Jan 02 2025",
-    },
-    {
-      star: 5,
-      name: "Lina Cruz",
-      position: "Behavioral Science",
-      review:
-        "A fantastic place to find a quality used car. I found the car I was looking for at a great price, and the financing was a breeze. Thank you Esteem Cars!",
-      image: "/images/image3.png",
-      date: "Jan 02 2025",
-    },
-    {
-      star: 5,
-      name: "Sophia Willams",
-      position: "Behavioral Science",
-      review:
-        "Esteem Cars offers excellent customer service and a wide variety of vehicles. I got a great deal, and the entire experience was seamless. Highly recommend!",
-      image: "/images/image3.png",
-      date: "Jan 02 2025",
-    },
-    {
-      star: 5,
-      name: "Lina Cruz",
-      position: "Behavioral Science",
-      review:
-        "Esteem Cars offers excellent customer service and a wide variety of vehicles. I got a great deal, and the entire experience was seamless. Highly recommend!",
-      image: "/images/image3.png",
-      date: "Jan 02 2025",
-    },
-  ];
-
   // If data is still loading or API fails, fallback to static data
-  const testimonialsData = data || fallbackData;
+  const testimonialsData: any = data;
 
   return (
     <div className="max-w-7xl lg:max-w-6xl relative m-auto p-4">
@@ -97,7 +53,7 @@ const Testimonials2 = () => {
         className="w-full mx-auto rounded-xl h-full"
       >
         {testimonialsData &&
-          testimonialsData.map((data: any, index: number) => (
+          testimonialsData?.map((data: any, index: number) => (
             <SwiperSlide key={index} className="h-full px-2">
               <div className="container border border-gray-100 shadow-lg rounded-lg overflow-hidden">
                 <div className="text-gray-900 p-6 flex justify-between w-full ">

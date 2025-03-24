@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function EmployerInfo({
-  nextStep,
+  
   prevStep,
   handleChange,
   formData,
@@ -10,7 +10,7 @@ export default function EmployerInfo({
   const [errors, setErrors] = useState<any>({});
 
   const validateForm = () => {
-    let newErrors: any = {};
+    const newErrors: any = {};
     if (!formData.employerName)
       newErrors.employerName = "Employer Name is required";
     if (!formData.companyName)

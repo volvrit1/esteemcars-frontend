@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
 export default function Step9({
-  nextStep,
-  prevStep,
   handleChange,
   formData,
   setStep,
@@ -11,7 +9,7 @@ export default function Step9({
 
   // Form validation
   const validateForm = () => {
-    let newErrors: any = {};
+    const newErrors: any = {};
 
     // Validate employee details
     // if (!formData.employeeName) newErrors.employeeName = "Employee Name is required";

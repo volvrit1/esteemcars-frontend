@@ -5,16 +5,13 @@ import { ImArrowRight } from "react-icons/im";
 
 export default function Step1({
   nextStep,
-  prevStep,
   handleChange,
   formData,
-  setStep,
   handleCallRequest = () => {},
 }: any) {
   const [errors, setErrors] = useState<any>({});
-  const [isValidated, setIsValidated] = useState(false);
   const validateForm = () => {
-    let newErrors: any = {};
+    const newErrors: any = {};
     const requiredFields = [
       "title",
       "firstName",
@@ -75,7 +72,6 @@ export default function Step1({
             name,
             type,
             options,
-            editable,
             maxlength,
             isDate,
           }: any) => (

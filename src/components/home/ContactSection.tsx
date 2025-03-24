@@ -4,8 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { BsDiscord, BsInstagram, BsTwitter } from "react-icons/bs";
-import { DiDocker } from "react-icons/di";
-import { FaFax } from "react-icons/fa";
 import { FiMail, FiPhoneCall } from "react-icons/fi";
 import { IoLocationOutline } from "react-icons/io5";
 import { toast } from "react-toastify";

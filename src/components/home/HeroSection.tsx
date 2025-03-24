@@ -1,4 +1,3 @@
-import { getBanners } from "@/utils/server";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -7,9 +6,7 @@ import { GoArrowUpRight } from "react-icons/go";
 const HeroSection = async ({
   title,
   description,
-  image,
   textShow,
-  slug,
 }: {
   title: string;
   description: string;
@@ -18,18 +15,22 @@ const HeroSection = async ({
   textShow?: boolean;
   slug?: string;
 }) => {
-  const { data } = await getBanners(slug);
+  // const { data } = await getBanners(slug);
   return (
-    <div
-      className="relative w-full h-[80vh] mt-[7rem] lg:mt-[10rem] md:h-screen 2xl:h-screen bg-cover  md:bg-cover font-[poppins]"
-      style={{
-        backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_URL}${
-          data[0]?.image ?? "/assets/carimg.png"
-        })`,
-        backgroundPosition: "center center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
+    <div className="relative w-full h-[80vh] mt-[7rem] lg:mt-[10rem] md:h-screen 2xl:h-screen bg-cover  md:bg-cover font-[poppins]">
+      <Image
+        priority
+        width={100}
+        height={100}
+        unoptimized
+        alt={"banner"}
+        src={``}
+        className="object-contain h-[50vh] md:h-auto w-full hidden sm:block"
+        // style={{
+        //   clipPath: "polygon(0 0, 100% 0, 100% 95%, 0 100%)",
+        //   overflow: "hidden",
+        // }}
+      />
       {textShow && <div className="absolute inset-0 bg-black/60"></div>}
       {textShow && (
         <div className="absolute top-10 inset-0 p-4 flex flex-col items-center justify-center 2xl:justify-center text-center text-white lg:w-3/5 m-auto mb-10 font-[poppins]">

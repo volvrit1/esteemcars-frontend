@@ -10,7 +10,7 @@ export default function Step1({
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const validateForm = () => {
-    let newErrors: any = {};
+    const newErrors: any = {};
     if (!formData.loanBalance)
       newErrors.loanBalance = "Loan balance is required";
     if (!formData.loanMonthlyPayments)

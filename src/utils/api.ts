@@ -1,4 +1,3 @@
-import { toast } from "react-toastify";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;

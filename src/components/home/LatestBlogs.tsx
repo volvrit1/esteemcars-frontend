@@ -3,43 +3,10 @@ import dayjs from "dayjs";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { IoIosArrowForward } from "react-icons/io";
 
 const LatestBlogs = async () => {
   const { data } = await getBlogData();
-  console.log(data);
-  const fallbackData = [
-    {
-      name: "BY JOHN DOE",
-      title: "Secured vs. Unsecured Car Loans: Which is Right for You?",
-      description: "Explains the difference between these types of loan...",
-      image: "/assets/profile1.png",
-      date: "01 MARCH 2025",
-    },
-    {
-      name: "BY JOHN WICK",
-      title: "Car Loans for Bad Credit: Options and Strategies?",
-      description:
-        "Lists required documents and provides tips for organizing them...",
-      image: "/assets/profile2.png",
-      date: "02 MARCH 2025",
-    },
-    {
-      name: "BY MARISSA CHOU",
-      title: "What Documents Do I Need for a Car Loan Application?",
-      description:
-        "Lists required documents and provides tips for organizing them...",
-      image: "/assets/profile3.png",
-      date: "02 MARCH 2025",
-    },
-    {
-      name: "BY ROBERT WILLIAM",
-      title: "Car Loan Pre-Approval: What It Is and Why You Need It?",
-      description: "Explain the benefits of pre-approval...",
-      image: "/assets/profile4.png",
-      date: "10 MARCH 2025",
-    },
-  ];
+
   return (
     <div className="max-w-7xl lg:max-w-6xl relative m-auto p-4 lg:pt-16">
       <div className="m-auto lg:w-full text-center lg:px-24 py-10 lg:mb-4 ">
@@ -81,7 +48,7 @@ const LatestBlogs = async () => {
                     alt={"image"}
                     width={30}
                     height={30}
-                    className="rounded-full"
+                    className="rounded-full h-10 w-10 "
                   />
                   <div>
                     <h2 className="text-xs sm:text-xs md:text-xs lg:text-xs xl:text-xs font-[poppins] font-normal  line-clamp-4 text-[#252525]  leading-7 uppercase">

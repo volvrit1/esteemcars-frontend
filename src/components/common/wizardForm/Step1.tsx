@@ -3,12 +3,11 @@ import { FaRegHandshake } from "react-icons/fa";
 import { TiUser } from "react-icons/ti";
 
 export default function Step1({
-  nextStep,
   handleChange,
   formData,
   setStep,
 }: any) {
-  const [error, setError] = useState("");
+  const [, setError] = useState("");
 
   const handleNextStep = (e: any) => {
     handleChange(e);

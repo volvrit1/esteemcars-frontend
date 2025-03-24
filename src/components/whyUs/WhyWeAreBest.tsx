@@ -1,9 +1,7 @@
-import { ISection } from "@/utils/server";
 import Image from "next/image";
 import React from "react";
-import { FaStar } from "react-icons/fa";
 
-const WhyWeAreBest = ({ sectionData }: { sectionData?: ISection }) => {
+const WhyWeAreBest = () => {
   const datas = [
     {
       title: "Law - Interest Rates & No Hidden Charges",

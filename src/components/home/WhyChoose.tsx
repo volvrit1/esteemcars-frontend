@@ -1,10 +1,8 @@
-import { ISection } from "@/utils/server";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
-import { BiCheckCircle } from "react-icons/bi";
 
-const WhyChoose = ({ sectionData }: { sectionData?: ISection }) => {
+
+const WhyChoose = () => {
   return (
     <div className="max-w-7xl relative  m-auto p-4 lg:p-14">
       <div className="lg:w-4/5 m-auto text-center  lg:p-8 bg-opacity-80">

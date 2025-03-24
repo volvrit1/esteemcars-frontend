@@ -17,7 +17,6 @@ const Navbar = () => {
   const [loginOpen, setLoginOpen] = useState(false);
   const [signUpOpen, setSignUpOpen] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
-  const [button, setButton] = useState("");
   const [token, setToken] = useState<any>("");
   const tokenExist =
     typeof window !== "undefined" && localStorage.getItem("token");
@@ -67,7 +66,6 @@ const Navbar = () => {
         </div>
         <span className="h-3/5 w-[1px] bg-gray-500 hidden lg:block "></span>
 
-
         {/* Desktop Menu */}
         <ul className="hidden lg:flex justify-evenly items-center  w-3/5 text-gray-50">
           {menuItems.map((item) => (
@@ -90,7 +88,7 @@ const Navbar = () => {
         </ul>
         <span className="h-3/5 w-[1px] bg-gray-500 hidden lg:block "></span>
         <div className="text-right">
-          <MobileMenu token={token} />
+          <MobileMenu />
 
           <Link
             href={"/apply-for-car-loan"}

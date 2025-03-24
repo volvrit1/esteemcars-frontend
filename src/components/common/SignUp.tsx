@@ -1,9 +1,8 @@
 "use client";
 import { Post } from "@/utils/api";
-import { error } from "console";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { toast } from "react-toastify";
 
@@ -19,11 +18,11 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState<any>({});
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
   const [checkbox, setCheckbox] = useState<any>(false);
 
   const validate = () => {
-    let tempErrors: any = {};
+    const tempErrors: any = {};
     if (!email) tempErrors.email = "Email is required";
     if (!password) tempErrors.password = "Password is required";
     if (!firstName) tempErrors.firstName = "First Name is required";
@@ -260,7 +259,7 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
                   id="terms"
                   className="h-5 w-5 text-[#1262A1] "
                   value={checkbox || ""}
-                  onChange={(e) => {
+                  onChange={() => {
                     checkbox ? setCheckbox(false) : setCheckbox(true);
                   }}
                 />

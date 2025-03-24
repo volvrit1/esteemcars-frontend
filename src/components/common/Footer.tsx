@@ -1,10 +1,6 @@
-import { Post } from "@/utils/api";
 import Image from "next/image";
 import React from "react";
 import {
-  FaPhone,
-  FaFax,
-  FaEnvelope,
   FaFacebookF,
   FaGoogle,
   FaLinkedinIn,
@@ -13,7 +9,6 @@ import NewsLetter from "./NewsLetter";
 import Link from "next/link";
 import { FaX } from "react-icons/fa6";
 import { IoCallOutline, IoMailOutline } from "react-icons/io5";
-import { TiPhoneOutline } from "react-icons/ti";
 
 const Footer = () => {
   return (

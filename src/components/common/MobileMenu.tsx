@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { IoClose, IoMenu } from "react-icons/io5";
 
-export default function MobileMenu({token}:any) {
+export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname(); // Get current route
 

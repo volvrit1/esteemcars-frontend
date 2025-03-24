@@ -1,12 +1,7 @@
-import { ISection, SubContent } from "@/utils/server";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
-import { FaStar } from "react-icons/fa";
-import { GoArrowUpRight } from "react-icons/go";
-import { IoIosArrowForward } from "react-icons/io";
 
-const LoanSolution = ({ sectionData }: { sectionData?: ISection }) => {
+const LoanSolution = () => {
   const datas = [
     {
       title: "Identity Proof",

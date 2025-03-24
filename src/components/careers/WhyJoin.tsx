@@ -4,7 +4,6 @@ import React from "react";
 
 export default function WhyJoin({
   sectionData,
-  section2Data,
 }: {
   sectionData: ISection | undefined;
   section2Data: ISection | undefined;

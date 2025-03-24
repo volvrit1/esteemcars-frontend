@@ -1,15 +1,13 @@
 "use client";
 
-import HeroSection from "@/components/home/HeroSection";
-import { getBlogData, getBlogSlugData, SectionData } from "@/utils/server";
+
+import { getBlogData, getBlogSlugData } from "@/utils/server";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import dayjs from "dayjs";
 import DOMPurify from "dompurify";
-import Blogs from "@/components/blogs/Blog";
 import Link from "next/link";
-import LatestNews from "@/components/home/LatestNews";
 import { IoIosArrowForward } from "react-icons/io";
 
 const page = () => {
@@ -47,18 +45,31 @@ const page = () => {
     fetchBlog();
   }, [slug]);
 
-  if (loadingBlogList) return <p>Loading...</p>;
+  if (loadingBlogList)
+    return (
+      <div className="mt-[10rem] p-4 lg:p-16">
+        <div className="m-auto max-w-6xl rounded-md border w-full border-blue-300 p-4">
+          <div className="flex animate-pulse space-x-4">
+            <div className="size-10 rounded-full bg-gray-200"></div>
+            <div className="flex-1 space-y-6 py-1">
+              <div className="h-2 rounded bg-gray-200"></div>
+              <div className="space-y-3">
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="col-span-2 h-2 rounded bg-gray-200"></div>
+                  <div className="col-span-1 h-2 rounded bg-gray-200"></div>
+                </div>
+                <div className="h-2 rounded bg-gray-200"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   if (!blog) return <p>No blog found.</p>;
 
   const cleanHTML = DOMPurify.sanitize(blog?.content); // Sanitize HTML
 
-  const data = {
-    title: "Blog",
-    description:
-      "SkyField, powered by Vanguard Systems Ltd., is your one-stop solution for Unmanned Systems Forces. We offer a comprehensive range of products and services designed to enhance the capabilities and effectiveness of your unmanned systems operations. SkyField is committed to fulfilling the evolving needs of Unmanned Systems Forces. We specialize in developing and manufacturing a comprehensive range of solutions, from extending the operator's reach beyond the frontlines to providing real-time situational awareness and advanced counter-UAS capabilities.",
-    video: "/videos/heroSection.mp4",
-    link: "/",
-  };
+
 
   return (
     <div className="bg-transparent mt-[7rem] lg:mt-[10rem] font-[poppins]">
@@ -74,7 +85,7 @@ const page = () => {
           <Image
             src={`${
               blog?.coverImage !== 0
-                ? (process.env.NEXT_PUBLIC_BASE_URL + blog?.coverImage)
+                ? process.env.NEXT_PUBLIC_BASE_URL + blog?.coverImage
                 : "/assets/contact.png"
             }`}
             width={5000}

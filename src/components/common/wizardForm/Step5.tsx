@@ -1,7 +1,5 @@
-import { div } from "framer-motion/client";
-import Image from "next/image";
 import React, { useState } from "react";
-import { FaCarSide, FaShuttleVan, FaTruckMonster } from "react-icons/fa";
+
 
 export default function Step1({
   nextStep,
@@ -13,7 +11,7 @@ export default function Step1({
   const [errors, setErrors] = useState<any>({});
 
   const validate = () => {
-    let newErrors: any = {};
+    const newErrors: any = {};
 
     if (!formData.applicationType) {
       newErrors.applicationType = "Application type is required.";

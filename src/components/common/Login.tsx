@@ -12,11 +12,11 @@ export default function LoginModal({ isOpen, onClose, setSignUpOpen }: any) {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState<any>({});
+  const [, setErrors] = useState<any>({});
   const [loading, setLoading] = useState(false);
 
   const validate = () => {
-    let tempErrors: any = {};
+    const tempErrors: any = {};
     if (!email) tempErrors.email = "Email is required";
     if (!password) tempErrors.password = "Password is required";
     setErrors(tempErrors);

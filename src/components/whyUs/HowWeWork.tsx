@@ -1,9 +1,8 @@
-import { ISection } from "@/utils/server";
 import Image from "next/image";
 import React from "react";
-import { FaStar } from "react-icons/fa";
 
-const HowWeWork = ({ sectionData }: { sectionData?: ISection }) => {
+
+const HowWeWork = () => {
   const datas = [
     {
       title: "Quick & Easy Approval Process",

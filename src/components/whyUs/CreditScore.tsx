@@ -1,8 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
-import { FaCheckCircle, FaRegCheckCircle } from "react-icons/fa";
-import { IoIosArrowForward } from "react-icons/io";
+import { FaCheckCircle } from "react-icons/fa";
 
 export default function CreditScore() {
   return (

@@ -1,4 +1,3 @@
-import { ISection } from "@/utils/server";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -7,7 +6,7 @@ import image2 from "../../../public/assets/icon3.svg";
 import image3 from "../../../public/assets/icon2.svg";
 import image4 from "../../../public/assets/icon4.svg";
 import image5 from "../../../public/assets/icon1.svg";
-import image6 from "../../../public/images/challengeIcon5.png";
+
 
 const OurSimple = () => {
   return (

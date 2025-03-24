@@ -3,7 +3,6 @@ import React from "react";
 import { FaFacebookF, FaGoogle, FaLinkedinIn } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
 import { IoCallOutline, IoMailOutline } from "react-icons/io5";
-import { TiPhoneOutline } from "react-icons/ti";
 
 export default function HeaderInfo() {
   return (

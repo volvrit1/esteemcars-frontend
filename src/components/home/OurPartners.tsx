@@ -4,10 +4,9 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ISection } from "@/utils/server";
 
-const OurPartners = ({ sectionData }: { sectionData?: ISection }) => {
-  let clients = [
+const OurPartners = () => {
+  const clients = [
     { id: 1, name: "Android", coverImage: "", logo: "/images/client1.png" },
     { id: 2, name: "Kotlin", coverImage: "", logo: "/images/client2.png" },
     { id: 3, name: "FireStore", coverImage: "", logo: "/images/client3.png" },

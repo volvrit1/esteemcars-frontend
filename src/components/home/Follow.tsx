@@ -12,7 +12,7 @@ export default function Follow() {
         <h3 className="text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl font-light mb-8 text-[#252525] leading-7">
           There are many variations of passages of Lorem Ipsum available, but
           the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don't look even slightly believable.
+          humour, or randomised words which don&apos;t look even slightly believable.
           If you are going to use a passage of Lorem Ipsum.
         </h3>
       </div>
