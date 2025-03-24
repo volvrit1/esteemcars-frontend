@@ -102,7 +102,6 @@ export const getBanners = async (slug: any) => {
 
 export const getBlogData = async () => {
   const blogPageData: any[] = await getData("/api/blog");
-  console.log(blogPageData);
   return {
     data: blogPageData,
   };

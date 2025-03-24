@@ -1,5 +1,9 @@
 import Image from "next/image";
 import React from "react";
+import carimage from '../../../public/assets/carimg.png';
+import icon from '../../../public/images/checkIcon.png';
+
+
 
 
 const WhyChoose = () => {
@@ -20,7 +24,7 @@ const WhyChoose = () => {
         {/* Left Column - Image */}
         <div className="lg:w-1/2 lg:h-[80vh] 2xl:h-auto flex justify-center">
           <Image
-            src={"/assets/carimg.svg"}
+            src={carimage}
             alt="Who We Are Image"
             width={300}
             height={430}
@@ -54,7 +58,7 @@ const WhyChoose = () => {
           ].map((item, index) => (
             <div key={index} className="flex items-start gap-3">
               <Image
-                src={"/images/checkicon.png"}
+                src={icon}
                 width={35}
                 height={25}
                 alt=""
