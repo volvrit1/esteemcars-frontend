@@ -16,7 +16,7 @@ const page = () => {
   const [loading, setLoading] = useState();
   const [blogsData, setBlogsData] = useState<any>();
   const [blog, setBlog] = useState<any>(null);
-  console.log(slug);
+
   useEffect(() => {
     const fetchBlog = async () => {
       const { data }: any = await getBlogData();
@@ -41,7 +41,6 @@ const page = () => {
         setLoadingBlogList(false);
       }
     };
-
     fetchBlog();
   }, [slug]);
 
@@ -83,11 +82,10 @@ const page = () => {
         </div>
         <div className="mb-4">
           <Image
-            src={`${
-              blog?.coverImage !== 0
-                ? process.env.NEXT_PUBLIC_BASE_URL + blog?.coverImage
-                : "/assets/contact.png"
-            }`}
+            src={`${blog?.coverImage
+              ? process.env.NEXT_PUBLIC_BASE_URL + blog?.coverImage
+              : "/assets/contact.png"
+              }`}
             width={5000}
             height={3000}
             alt="Blog Banner"
@@ -128,9 +126,8 @@ const page = () => {
                 >
                   <div className=" h-60 w-full flex justify-center rounded overflow-hidden ">
                     <Image
-                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${
-                        blog?.coverImage ?? "/"
-                      }`}
+                      src={`${blog?.coverImage ? process.env.NEXT_PUBLIC_BASE_URL + blog?.coverImage : "/assets/carimg.png"
+                        }`}
                       alt="Explore Image"
                       width={800}
                       height={630}

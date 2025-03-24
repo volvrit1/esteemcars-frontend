@@ -57,7 +57,7 @@ const HeroSection = ({ data }: any) => {
                 src={`${process.env.NEXT_PUBLIC_BASE_URL}${
                   data?.image || "/assets/banner002.png"
                 }`}
-                className="object-contain h-[50vh] md:h-auto w-full hidden sm:block"
+                className="object-contain h-[50vh]h-auto w-full sm:block"
                 onLoad={handleImageLoad}  // Set the image load handler
               />
             </SwiperSlide>

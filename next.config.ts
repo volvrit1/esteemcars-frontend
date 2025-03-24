@@ -16,6 +16,14 @@ const nextConfig: NextConfig = {
         hostname: "69.62.66.51",
       },
       {
+        protocol: "https",
+        hostname: "api.esteemfinance.co.nz",
+      },
+      {
+        protocol: "https",
+        hostname: "api.esteemfinance.co.nz",
+      },
+      {
         protocol: "http",
         hostname: `${process.env.ROW_URL}`,
       },

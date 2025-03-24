@@ -3,7 +3,6 @@ import React from "react";
 
 const ContactHeroSection = async () => {
   const { data } = await getBanners("contact");
-  console.log(data);
   return (
     <div className="mt-[7rem] lg:mt-[10rem]">
       <section className="relative w-full h-[20vh] md:h-[60vh] lg:h-screen ">

@@ -20,7 +20,7 @@ const HeroSection = async ({
 }) => {
   const { data } = await getBanners(slug);
   return (
-    <div className="relative w-full h-[80vh] mt-[7rem] lg:mt-[10rem] md:h-screen 2xl:h-screen bg-cover  md:bg-cover font-[poppins]">
+    <div className="relative w-full lg:h-[80vh] 2xl:h-screen mt-[7rem] lg:mt-[10rem] bg-cover  md:bg-cover font-[poppins]">
       <Image
         priority
         width={100}
@@ -28,15 +28,15 @@ const HeroSection = async ({
         unoptimized
         alt={"banner"}
         src={`${
-          data?.image ? process.env.NEXT_PUBLIC_BASE_URL + data?.image : image
+          data ? process.env.NEXT_PUBLIC_BASE_URL + data[0]?.image : image
         }`}
-        className="object-cover max-h-[100vh] md:h-auto w-full hidden sm:block"
+        className="object-cover max-h-[100vh] md:h-auto w-full sm:block"
         // style={{
         //   clipPath: "polygon(0 0, 100% 0, 100% 95%, 0 100%)",
         //   overflow: "hidden",
         // }}
       />
-      {textShow && <div className="absolute inset-0 bg-black/60"></div>}
+  
     </div>
   );
 };
