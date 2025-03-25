@@ -9,11 +9,11 @@ const LatestNews = async () => {
   return (
     <div className="max-w-7xl lg:max-w-6xl relative m-auto p-4">
       <div className="m-auto lg:w-full text-center lg:px-24 lg:mb-4">
-        <h2 className="lg:w-3/5 m-auto text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl font-semibold text-center text-[#252525] leading-7 font-[poppins]">
+        <h2 className="lg:w-3/5 m-auto text-2xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl font-semibold text-center text-[#252525] font-[poppins]">
           {"Our Latest Updates For"}
           {" You Here! "}
         </h2>
-        <p className=" text-base sm:text-base md:text-base lg:text-base xl:text-base line-clamp-4 md:line-clamp-none text-[#252525] py-4 font-[cabin] text-center  leading-8 mb-4">
+        <p className=" text-base sm:text-base md:text-base lg:text-base xl:text-base line-clamp-4 md:line-clamp-none text-[#252525] py-4 font-[cabin] text-center mb-4">
           Whats happening around the World.
         </p>
       </div>

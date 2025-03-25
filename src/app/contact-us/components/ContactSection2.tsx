@@ -48,7 +48,7 @@ const ContactSection2 = () => {
           message: "",
         });
         toast.success("Submission successful");
-        setSelectedLoan(null)
+        setSelectedLoan(null);
         console.log("Submission successful", res);
       } else {
         console.log("Submission failed", res);
@@ -63,10 +63,10 @@ const ContactSection2 = () => {
   return (
     <div className="max-w-7xl mx-auto  relative overflow-hidden p-4 lg:p-16">
       <div className="m-auto lg:w-full  text-left lg:mb-8">
-        <h2 className="lg:w-3/5 m-auto text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl font-semibold text-center text-[#252525] leading-7 font-[poppins]">
+        <h2 className="lg:w-3/5 m-auto text-2xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl font-semibold text-center text-[#252525] font-[poppins]">
           {"Get a Free Consultation"}
         </h2>
-        <p className=" text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm line-clamp-4 md:line-clamp-none text-[#7d7d7d] py-4  text-center  leading-8 mb-4">
+        <p className="text-base sm:text-base md:text-base lg:text-base xl:text-base line-clamp-4 md:line-clamp-none text-[#7d7d7d] py-4  text-center  mb-4">
           {
             "We’d love to hear from you! Whether you have a question, need more information about our services, or want to discuss how we can work together,"
           }
@@ -157,7 +157,7 @@ const ContactSection2 = () => {
                 <h3 className="text-sm text-[#252525] font-semibold mb-4">
                   Select Subject?
                 </h3>
-                <div className="flex flex-col lg:flex-row justify-between items-center gap-1">
+                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-1">
                   <div>
                     <input
                       type="checkbox"

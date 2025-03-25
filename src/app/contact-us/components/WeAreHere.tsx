@@ -40,10 +40,10 @@ export default function WeAreHere() {
   return (
     <div className="max-w-7xl mx-auto  relative overflow-hidden p-4 lg:p-16 lg:pb-0">
       <div className="m-auto lg:w-full  text-left lg:mb-8">
-        <h2 className="lg:w-3/5 m-auto text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl font-semibold text-center text-[#252525] leading-7 font-[poppins]">
+        <h2 className="lg:w-3/5 m-auto text-2xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl font-semibold text-center text-[#252525] leading-7 font-[poppins]">
           {"We Are Here For You"}
         </h2>
-        <p className=" text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm line-clamp-4 md:line-clamp-none text-[#7d7d7d] py-4  text-center  leading-8 mb-4">
+        <p className=" text-base sm:text-base md:text-base lg:text-base xl:text-base line-clamp-4 md:line-clamp-none text-gray-500 py-4  text-center  mb-4">
           {
             "We are here for you! If you have any questions or need assistance, don’t hesitate to reach out to us. We’re always ready to help!"
           }

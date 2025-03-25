@@ -41,7 +41,7 @@ const WhyWeAreBest = () => {
           }
         </p>
       </div>
-      <div className="grid grid-cols-1 gap-6 ">
+      <div className="grid grid-cols-1 gap-8 ">
         {datas &&
           datas?.map((data: any, index: number) => (
             <div
@@ -55,7 +55,7 @@ const WhyWeAreBest = () => {
                   alt="Explore Image"
                   width={800}
                   height={630}
-                  className="w-full  max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl object-fill"
+                  className="w-full  max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl object-contain"
                 />
               </div>
 
@@ -63,10 +63,10 @@ const WhyWeAreBest = () => {
               <div
                 className={` w-full lg:w-1/2 mt-8 lg:mt-4 lg:text-left lg:px-14  `}
               >
-                <h2 className="text-2xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl font-semibold font-[poppins] text-gray-900 leading-7 mb-2">
+                <h2 className="text-2xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl font-semibold font-[poppins] text-gray-900  mb-2">
                   {data?.title}
                 </h2>
-                <p className="text-xs sm:text-sm md:text-sm lg:text-base xl:text-base font-medium  font-[cabin] line-clamp-4 md:line-clamp-none text-gray-900 mt-4 leading-8 mb-4">
+                <p className="text-base sm:text-base md:text-base lg:text-base xl:text-base font-medium  font-[cabin] line-clamp-4 md:line-clamp-none text-gray-500 mt-4 mb-4">
                   {data?.description}
                 </p>
               </div>

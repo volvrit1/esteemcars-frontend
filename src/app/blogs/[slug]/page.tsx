@@ -106,7 +106,7 @@ const page = () => {
           </p>
         </div>
 
-        <div className="text-gray-700 leading-8">
+        <div className="text-gray-700 leading-7">
           <p
             dangerouslySetInnerHTML={{ __html: cleanHTML }}
             className="prose max-w-none font-[cabin]"

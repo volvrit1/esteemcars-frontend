@@ -19,24 +19,61 @@ const HeroSection = async ({
   slug?: string;
 }) => {
   const { data } = await getBanners(slug);
+  const mobileData = data.filter((item: any) => item.mobile);
+  const bannerData = data.filter((item: any) => !item?.mobile);
   return (
-    <div className="relative w-full lg:h-[85vh] 2xl:h-screen mt-[5.7rem] lg:mt-[8.5rem] bg-cover  md:bg-cover font-[poppins]">
-      <Image
-        priority
-        width={100}
-        height={100}
-        unoptimized
-        alt={"banner"}
-        src={`${
-          data ? process.env.NEXT_PUBLIC_BASE_URL + data[0]?.image : image
-        }`}
-        className="object-cover max-h-[100vh] md:h-auto w-full sm:block"
-        // style={{
-        //   clipPath: "polygon(0 0, 100% 0, 100% 95%, 0 100%)",
-        //   overflow: "hidden",
-        // }}
-      />
-  
+    <div className="mt-[5.7rem] lg:mt-[8.5rem]">
+      <section className="relative w-full h-auto ">
+        {bannerData && (
+          <Image
+            priority
+            width={100}
+            height={100}
+            unoptimized
+            alt={bannerData[0]?.title || "blog"}
+            src={`${
+              bannerData?.length !== 0
+                ? process.env.NEXT_PUBLIC_BASE_URL + bannerData[0].image
+                : "/assets/blog.png"
+            }`}
+            className="object-cover w-full hidden lg:block" // hidden on mobile, shown on larger screens
+          />
+        )}
+
+        {mobileData && (
+          <picture className="lg:hidden">
+            <source
+              media="(max-width: 639px)"
+              srcSet={`${
+                mobileData?.length !== 0
+                  ? process.env.NEXT_PUBLIC_BASE_URL + mobileData[0].image
+                  : "/assets/blog.png"
+              }`}
+            />
+            <source
+              media="(min-width: 640px)"
+              srcSet={`${
+                mobileData?.length !== 0
+                  ? process.env.NEXT_PUBLIC_BASE_URL + mobileData[0].image
+                  : "/assets/blog.png"
+              }`}
+            />
+            <Image
+              priority
+              width={100}
+              height={100}
+              unoptimized
+              alt={mobileData[0]?.title || "blog "}
+              src={`${
+                mobileData?.length !== 0
+                  ? process.env.NEXT_PUBLIC_BASE_URL + mobileData[0].image
+                  : "/assets/blog.png"
+              }`}
+              className="object-cover w-full "
+            />
+          </picture>
+        )}
+      </section>
     </div>
   );
 };

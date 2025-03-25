@@ -12,7 +12,7 @@ import LatestBlogs from "@/components/home/LatestBlogs";
 
 const page = async () => {
   return (
-    <div className={`${lexendDeca?.className}`}>
+    <div >
       <SolutionHeroSection />
       <LoanApproval />
       <LoanSolution />

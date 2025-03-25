@@ -10,11 +10,11 @@ const WhyChoose = () => {
   return (
     <div className="max-w-7xl relative  m-auto p-4 lg:p-14">
       <div className="lg:w-4/5 m-auto text-center  lg:p-8 bg-opacity-80">
-        <h2 className="lg:w-3/5 m-auto text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl font-semibold text-[#252525] leading-7 font-[poppins]">
+        <h2 className="lg:w-3/5 m-auto text-2xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl font-semibold text-[#252525] font-[poppins]">
           {"Why Choose "}
           {" Esteem Car Loans"}
         </h2>
-        <p className=" text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm line-clamp-4 md:line-clamp-none font-[cabin] text-[#252525] py-4  mt-4 leading-8 mb-4">
+        <p className=" text-base sm:text-base md:text-base lg:text-base xl:text-base line-clamp-4 md:line-clamp-none font-[cabin] text-[#252525] py-4  mt-4 mb-4">
           {
             "Choose  Esteem Car Loans to secure competitive rates, favorable terms, and an easy application process, guaranteeing the finest financing deals."
           }
@@ -22,7 +22,7 @@ const WhyChoose = () => {
       </div>
       <section className="container relative text-gray-900 mx-auto flex flex-col lg:flex-row items-center justify-start ">
         {/* Left Column - Image */}
-        <div className="lg:w-1/2 lg:h-[80vh] 2xl:h-auto flex justify-center">
+        <div className="w-full lg:w-1/2 lg:h-[80vh] 2xl:h-auto flex justify-center">
           <Image
             src={carimage}
             alt="Who We Are Image"
@@ -56,7 +56,7 @@ const WhyChoose = () => {
               desc: " No Hidden Charges, 100% Safe Transactions.",
             },
           ].map((item, index) => (
-            <div key={index} className="flex items-start gap-3">
+            <div key={index} className="flex  items-start gap-3">
               <Image
                 src={icon}
                 width={35}
@@ -64,8 +64,9 @@ const WhyChoose = () => {
                 alt=""
                 className="text-green-500 w-8 h-7 flex-shrink-0"
               />
-              <p className="text-[#252525] text-xl font-[poppins]">
+              <p className="text-[#252525] text-xl font-[poppins] text-left">
                 <span className="font-semibold">{item.title}—</span>
+                <br className="lg:hidden" />
                 {item.desc}
               </p>
             </div>
