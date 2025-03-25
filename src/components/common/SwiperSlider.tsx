@@ -48,7 +48,7 @@ const HeroSection = ({ data }: any) => {
         <div className="hidden lg:block">
           {data &&
             data
-              .filter((item: any) => item?.mobile === false) // Filter for mobile items
+              .filter((item: any) => item?.mobile !== true) // Filter for mobile items
               .map((data: any) => (
                 <SwiperSlide key={data?.image}>
                   <Image
