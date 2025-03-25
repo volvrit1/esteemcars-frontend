@@ -67,29 +67,29 @@ const ContactSection = () => {
   return (
     <div className="max-w-7xl mx-auto  relative overflow-hidden p-4 lg:p-16 font-[poppins]">
       <div className="grid grid-cols-1 md:grid-cols-5 lg:gap-10 relative p-3 z-10 rounded-xl border overflow-hidden   ">
-        <div className="p-4 lg:p-10 md:col-span-2 bg-[#1262A1] lg:h-screen 2xl:h-auto rounded-xl relative">
+        <div className="p-4 lg:p-10 md:col-span-2 py-6 bg-[#1262A1] lg:h-screen 2xl:h-auto rounded-xl relative">
           <h2 className="text-2xl font-bold font-[poppins] text-gray-50 mb-4">
             Let’s Connect
           </h2>
-          <p className="text-gray-50 text-[11px] tracking-[1.5px] font-thin font-[cabin] mb-6">
+          <p className="text-gray-50 text-base tracking-wide font-thin font-[cabin] mb-6">
             We’d love to hear from you! Whether you have a question, need more
             information about our services, or want to discuss how we can work
             together,
           </p>
-          <div className="text-gray-50 flex flex-col lg:gap-4 mb-6 font-[poppins]">
-            <Link href={"tel:123-456-7890"}>
+          <div className="text-gray-50 flex flex-col lg:gap-4 mb-24 font-[poppins]">
+            <Link href={"tel:0210371229"}>
               <div className="flex items-center gap-2">
                 <FiPhoneCall size={25} className="text-xl m-2" />
                 <div className="text-xs">
-                  <p className="text-gray-50">123-456-7890</p>
+                  <p className="text-gray-50 text-sm">0210371229</p>
                 </div>
               </div>
             </Link>
-            <Link href={"tel:123-456-7890"}>
+            <Link href={"mailto:info@esteemfinance.co.nz"}>
               <div className="flex items-center gap-2">
                 <FiMail size={25} className="text-xl m-2" />
                 <div className="text-xs">
-                  <p className="text-gray-50">info@esteemfinance.co.nz</p>
+                  <p className="text-gray-50 text-sm">info@esteemfinance.co.nz</p>
                 </div>
               </div>
             </Link>
@@ -97,7 +97,7 @@ const ContactSection = () => {
               <div className="flex items-center gap-2">
                 <IoLocationOutline size={25} className="text-xl m-2" />
                 <div className="text-xs">
-                  <p className="text-gray-50">
+                  <p className="text-gray-50 text-sm">
                     42 Rosebank Road, Avondale, Auckland, 1026
                   </p>
                 </div>
@@ -108,14 +108,14 @@ const ContactSection = () => {
                 <IoLocationOutline size={25} className="text-xl m-2" />
 
                 <div className="text-xs">
-                  <p className="text-gray-50">
+                  <p className="text-gray-50 text-sm">
                     31 Tironui Road, Takanini, Takanini, 2112
                   </p>
                 </div>
               </div>
             </Link>
           </div>
-          <div className="text-gray-50 flex items-center justify-start lg:gap-4 mt-36 mb-6 ">
+          <div className="text-gray-50 flex items-center justify-start gap-4  mb-6 ">
             <Link href={"tel:123-456-7890"}>
               <div className="flex items-center gap-2 rounded-full bg-white">
                 <BsTwitter size={13} className="text-lg m-2 text-[#1262A1]" />
@@ -135,7 +135,7 @@ const ContactSection = () => {
           <span className="inline-block w-28 h-28 rounded-full bg-[#FFF9F921] absolute right-20 bottom-20"></span>
           <span className="inline-block w-56 h-56 rounded-full bg-[#FFF9F921] absolute right-[-3.5rem] bottom-[-3.5rem]"></span>
         </div>
-        <div className="p-4 pt-10 lg:px-0 lg:py-12 md:col-span-3 h-[70vh] lg:h-auto relative">
+        <div className=" pt-10 lg:px-0 lg:py-12 md:col-span-3 h-[70vh] lg:h-auto relative">
           <div className="w-full h-full overflow-hidden">
             <form className="space-y-4 grid " onSubmit={handleSubmit}>
               <div className="flex gap-4 px-4">
@@ -210,7 +210,7 @@ const ContactSection = () => {
                 <h3 className="text-sm text-[#252525] font-semibold mb-4">
                   Select Subject?
                 </h3>
-                <div className="flex justify-start items-center gap-1">
+                <div className="flex flex-col lg:flex-row justify-start lg:justify-start items-start lg:items-center gap-1">
                   <div>
                     <input
                       type="checkbox"

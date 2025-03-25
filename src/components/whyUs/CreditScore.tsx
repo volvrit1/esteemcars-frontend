@@ -5,11 +5,11 @@ export default function CreditScore() {
   return (
     <div className="max-w-7xl m-auto w-full py-10 lg:py-0 lg:min-h-[85vh] 2xl:min-h-0">
       <div className="lg:w-4/5 m-auto text-center  p-4 lg:p-8 bg-opacity-80">
-        <h2 className=" m-auto text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-3xl font-bold text-[#252525] leading-7 font-[poppins] ">
+        <h2 className=" m-auto text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-3xl font-bold text-[#252525] leading-7 font-[poppins] ">
           {"Best Car Loans Offers On Your"}
           {" Credit Score"}
         </h2>
-        <p className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-base font-medium font-[cabin] line-clamp-4 md:line-clamp-none text-[#252525] lg:px-10 mt-4 leading-8 mb-4">
+        <p className="text-base sm:text-base md:text-sm lg:text-sm xl:text-base font-medium font-[cabin] line-clamp-4 md:line-clamp-none text-gray-500 lg:px-10 mt-4 ">
           {
             "With  Esteem Car Loans, you can obtain the most suitable loan quotes that are customized to your credit score. We have a couple of lenders that we utilize in a bid to give you the best deal."
           }

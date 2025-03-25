@@ -4,7 +4,7 @@ import React from "react";
 const SolutionHeroSection = async () => {
   const { data } = await getBanners("solution");
   return (
-    <div className="mt-[7rem] lg:mt-[10rem]">
+    <div className="mt-[5.7rem] lg:mt-[8.5rem]">
       <section className="relative w-full h-[20vh] md:h-[60vh] lg:h-screen ">
         <div
           className="w-full h-full bg-cover bg-center"

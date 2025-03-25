@@ -15,7 +15,7 @@ const Challenges = () => {
             "How Esteem Can Help You Overcome with Your Car Financing Challenges"
           }
         </h2>
-        <p className="text-base sm:text-base md:text-base lg:text-base xl:text-base 2xl:text-2xl line-clamp-4 text-center md:line-clamp-none text-[#7d7d7d] font-[cabin] leading-8">
+        <p className="text-base sm:text-base md:text-base lg:text-base xl:text-base 2xl:text-2xl line-clamp-4 text-center md:line-clamp-none text-[#7d7d7d] font-[cabin]  mb-4">
           {
             "Unlike other providers, Esteem offers personalized service to help you navigate the complexities of car financing. Our team of experts provides clear advice, ensuring you feel confident in your loan decisions. We focus on quick, hassle-free solutions, offering a smooth path to secure your car loan with ease and efficiency."
           }
@@ -42,7 +42,7 @@ const Challenges = () => {
           },
         ].map((data, index) => (
           <div key={index} className="text-center w-full  lg:w-4/5">
-            <div className="w-full lg:w-36 lg:h-36 lg:mx-auto lg:my-auto lg:rounded-full lg:bg-white lg:border lg:border-orange-500 lg:p-4 lg:text-center lg:mb-4 flex justify-center items-center">
+            <div className="w-36 h-36 mx-auto my-auto rounded-full lg:bg-white border border-orange-500 lg:p-4 lg:text-center lg:mb-4 flex justify-center items-center">
               <Image
                 src={data?.image}
                 alt=""
@@ -51,7 +51,7 @@ const Challenges = () => {
                 className="w-16 h-16 m-auto"
               />
             </div>
-            <h2 className="m-auto my-4 lg:my-0 font-[poppins] font-medium text-gray-700 text-sm text-center w-4/5">
+            <h2 className="m-auto my-4 lg:my-0 font-[poppins] font-medium text-base lg:text-sm text-gray-500 text-center lg:w-4/5">
               {data?.title}
             </h2>
           </div>

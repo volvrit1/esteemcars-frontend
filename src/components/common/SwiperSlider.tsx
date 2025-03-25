@@ -25,7 +25,7 @@ const HeroSection = ({ data }: any) => {
   }, [data]);
 
   return (
-    <section className="relative w-full lg:h-screen">
+    <section className="relative w-full">
       {/* Show loader (blue background screen) while loading */}
       {loading && (
         <div className="absolute inset-0 bg-blue-500 flex justify-center items-center">
@@ -43,25 +43,65 @@ const HeroSection = ({ data }: any) => {
         navigation={false}
         pagination={false}
         modules={[Autoplay, Navigation, Pagination]}
-        className="h-52 lg:h-screen"
+        className=""
       >
-        {data &&
-          data?.map((data: any, index: any) => (
-            <SwiperSlide key={index}>
-              <Image
-                priority
-                width={100}
-                height={100}
-                unoptimized
-                alt={data?.title}
-                src={`${process.env.NEXT_PUBLIC_BASE_URL}${
-                  data?.image || "/assets/banner002.png"
-                }`}
-                className="object-contain h-[50vh]h-auto w-full sm:block"
-                onLoad={handleImageLoad}  // Set the image load handler
-              />
-            </SwiperSlide>
-          ))}
+        <div className="hidden lg:block">
+          {data &&
+            data
+              .filter((item: any) => item?.mobile === false) // Filter for mobile items
+              .map((data: any) => (
+                <SwiperSlide key={data?.image}>
+                  <Image
+                    priority
+                    width={100}
+                    height={100}
+                    unoptimized
+                    alt={data?.title}
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${
+                      data?.image || "/assets/banner002.png"
+                    }`}
+                    className="object-contain w-full" // hidden on mobile, shown on larger screens
+                    onLoad={handleImageLoad} // Set the image load handler
+                  />
+                </SwiperSlide>
+              ))}
+        </div>
+
+        <div className="lg:hidden">
+          {data &&
+            data
+              .filter((item: any) => item?.mobile === true) // Filter for mobile items
+              .map((data: any) => (
+                <SwiperSlide key={data?.image}>
+                  <picture>
+                    <source
+                      media="(max-width: 639px)"
+                      srcSet={`${process.env.NEXT_PUBLIC_BASE_URL}${
+                        data?.image || "/assets/banner002.png"
+                      }`}
+                    />
+                    <source
+                      media="(min-width: 640px)"
+                      srcSet={`${process.env.NEXT_PUBLIC_BASE_URL}${
+                        data?.image || "/assets/banner002.png"
+                      }`}
+                    />
+                    <Image
+                      priority
+                      width={100}
+                      height={100}
+                      unoptimized
+                      alt={data?.title}
+                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${
+                        data?.image || "/assets/banner002.png"
+                      }`}
+                      className="object-contain w-full "
+                      onLoad={handleImageLoad} // Set the image load handler
+                    />
+                  </picture>
+                </SwiperSlide>
+              ))}
+        </div>
       </Swiper>
     </section>
   );

@@ -30,12 +30,12 @@ const WhyWeAreBest = () => {
   return (
     <div className="max-w-7xl lg:max-w-6xl relative m-auto p-4">
       <div className="m-auto text-center lg:p-8 bg-opacity-80">
-        <h2 className=" m-auto text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-3xl font-semibold text-[#252525] leading-7 font-[poppins] ">
+        <h2 className=" m-auto text-x2l sm:text-2xl md:text-3xl lg:text-3xl xl:text-3xl font-semibold text-[#252525] leading-7 font-[poppins] ">
           {"Why We Are Best "}
 
           {"Car Loan Provider"}
         </h2>
-        <p className="lg:w-5/6 m-auto text-xs sm:text-sm md:text-sm lg:text-sm xl:text-base font-medium font-[cabin] line-clamp-4 md:line-clamp-none text-[#252525] lg:px-10 mt-4 leading-8 mb-4">
+        <p className="lg:w-5/6 m-auto text-base sm:text-base md:text-base lg:text-sm xl:text-base font-medium font-[cabin] line-clamp-4 md:line-clamp-none text-gray-500 lg:px-10 mt-4 mb-4">
           {
             "Esteem Car Loans is unique in that we offer world-class customer service, easy loan terms, quick approval times, and a solid reputation for offering solid, transparent financing solutions that serve all your purposes."
           }

@@ -14,7 +14,7 @@ const OverComes = ({ sectionData }: { sectionData?: ISection }) => {
               alt="Who We Are Image"
               width={800}
               height={630}
-              className="rounded-xl relative z-[6000] top-[-1rem] w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl object-cover"
+              className="rounded-xl   w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl object-cover"
             />
           </div>
 

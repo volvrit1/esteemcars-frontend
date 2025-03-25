@@ -21,11 +21,12 @@ const Testimonials2 = () => {
 
   // If data is still loading or API fails, fallback to static data
   const testimonialsData: any = data;
+  console.log(testimonialsData);
 
   return (
     <div className="max-w-7xl lg:max-w-6xl relative m-auto p-4">
       <div className="m-auto lg:w-full text-center lg:px-24 lg:mb-4">
-        <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl 2xl:text-4xl font-semibold text-center font-[poppins] text-[#252525] leading-7">
+        <h2 className="text-2xl sm:text-2xl md:text-2xl lg:text-3xl 2xl:text-4xl font-semibold text-center font-[poppins] text-[#252525] leading-7 mb-8">
           {"See What Our Clients Say"}
         </h2>
       </div>
@@ -54,7 +55,7 @@ const Testimonials2 = () => {
       >
         {testimonialsData &&
           testimonialsData?.map((data: any, index: number) => (
-            <SwiperSlide key={index} className="h-full px-2">
+            <SwiperSlide key={index} className="h-full">
               <div className="container border border-gray-100 shadow-lg rounded-lg overflow-hidden">
                 <div className="text-gray-900 p-6 flex justify-between w-full ">
                   <div className="flex items-center justify-start">
@@ -64,9 +65,9 @@ const Testimonials2 = () => {
                         .map((data: any, index: any) => (
                           <IoStar
                             key={index}
-                            width={16}
-                            height={16}
-                            className="text-[#F69B00]"
+                            width={20}
+                            height={20}
+                            className="text-[#F69B00] text-xl"
                           />
                         ))}
                   </div>
@@ -79,7 +80,7 @@ const Testimonials2 = () => {
                   />
                 </div>
                 <div className="px-6 py-2 h-32">
-                  <p className="text-sm text-[#7d7d7d] font-[poppins] line-clamp-5">
+                  <p className="text-base lg:text-sm text-[#7d7d7d] font-[poppins] line-clamp-5">
                     {data.review}
                   </p>
                 </div>

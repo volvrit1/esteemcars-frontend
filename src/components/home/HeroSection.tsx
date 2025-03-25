@@ -20,7 +20,7 @@ const HeroSection = async ({
 }) => {
   const { data } = await getBanners(slug);
   return (
-    <div className="relative w-full lg:h-[80vh] 2xl:h-screen mt-[7rem] lg:mt-[10rem] bg-cover  md:bg-cover font-[poppins]">
+    <div className="relative w-full lg:h-[85vh] 2xl:h-screen mt-[5.7rem] lg:mt-[8.5rem] bg-cover  md:bg-cover font-[poppins]">
       <Image
         priority
         width={100}

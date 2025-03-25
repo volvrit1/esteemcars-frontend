@@ -5,19 +5,19 @@ import { IoIosArrowForward } from "react-icons/io";
 
 const CarSearchBanner = () => {
   return (
-    <div className=" bg-[#FFF0E64D] ">
-      <div className="flex justify-center items-center relative w-full py-10 lg:py-0 min-h-[65vh] lg:h-[90vh] 2xl:h-[70vh] max-w-7xl m-auto">
-        <div className="w-full absolute top-0 h-[60vh]  lg:h-[70vh] text-center   p-4 lg:p-8">
-          <h2 className="text-2xl sm:text-3xl md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-4xl font-semibold font-[poppins] text-[#252525] leading-7">
+    <div className=" bg-[#FFF0E64D] py-4">
+      <div className="flex flex-col justify-center items-center  w-full py-10 lg:py-0 max-w-7xl m-auto">
+        <div className="w-full text-center   p-4 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-4xl font-semibold font-[poppins] text-[#252525] w-2/3 lg:w-full m-auto">
             {"Start your car search today"}
           </h2>
-          <p className="text-base sm:text-base md:text-base lg:text-base xl:text-base 2xl:text-2xl line-clamp-4 md:line-clamp-none text-[#252525] mt-4 font-[cabin] leading-8 mb-4">
+          <p className="text-lg sm:text-base md:text-base lg:text-base xl:text-base 2xl:text-2xl line-clamp-4 md:line-clamp-none text-gray-500 mt-4 font-[cabin] mb-4">
             {
               "Browse through a wide range of cars that suit both your budget and specific needs. Our easy-to-use platform allows you to easily and conveniently browse through different options, making it easy for you to find the ideal car that meets your lifestyle and needs."
             }
           </p>
         </div>
-        <div className="absolute top-52 lg:top-12   h-fit inset-0 flex justify-center items-center">
+        <div className="h-fit inset-0 flex flex-col justify-center items-center">
           <Image
             src={"/assets/applybanner.png"}
             width={1000}
@@ -25,9 +25,10 @@ const CarSearchBanner = () => {
             alt=""
             objectFit="cover"
             objectPosition="center"
+            className=""
           />
         </div>
-        <div className="flex justify-center items-center gap-4 absolute bottom-5 2xl:bottom-0 z-[5000]">
+        <div className="flex justify-center items-center gap-4 ">
           <Link
             href={"/apply-for-car-loan"}
             className="bg-[#1262A1] hover:bg-gray-400 transition-colors ease-in-out flex items-center font-[poppins] px-4 lg:px-12 lg:py-4 p-0 h-14 font-light rounded-lg"

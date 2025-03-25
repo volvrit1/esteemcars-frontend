@@ -157,7 +157,7 @@ const ContactSection2 = () => {
                 <h3 className="text-sm text-[#252525] font-semibold mb-4">
                   Select Subject?
                 </h3>
-                <div className="flex justify-between items-center gap-1">
+                <div className="flex flex-col lg:flex-row justify-between items-center gap-1">
                   <div>
                     <input
                       type="checkbox"

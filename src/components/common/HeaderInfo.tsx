@@ -6,9 +6,9 @@ import { IoCallOutline, IoMailOutline } from "react-icons/io5";
 
 export default function HeaderInfo() {
   return (
-    <div className="w-full hidden lg:flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-y-2 lg:gap-y-0 p-3 lg:px-10 border-b-2 text-[#252525] bg-[#EDEDED] font-[poppins] ">
+    <div className="w-full hidden lg:flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-y-2 lg:gap-y-0 p-2 lg:px-10 border-b-2 text-[#252525] bg-[#EDEDED] font-[poppins] ">
       <div className="flex flex-col lg:flex-row items-center justify-start w-1/3">
-        <Link href={"mailto:infor@esteemfinance.co.nz"}>
+        <Link href={"mailto:info@esteemfinance.co.nz"}>
           <div className="flex items-center space-x-2 lg:border-r-[1.5px] border-[#D8D8D8] pr-7">
             <IoMailOutline className="text-xl" />
             <span>info@esteemfinance.co.nz</span>

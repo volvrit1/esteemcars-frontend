@@ -13,7 +13,7 @@ const WhyChooseUs = () => {
         <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-bold text-center font-[poppins] text-[#252525] leading-7">
           {"Our Simple Car Loan Process"}
         </h2>
-        <p className="text-base sm:text-base md:text-base lg:text-base xl:text-base line-clamp-4 text-center md:line-clamp-none text-[#252525] font-[cabin] leading-8">
+        <p className="text-base sm:text-base md:text-base lg:text-base xl:text-base line-clamp-4 text-center lg:p-6 md:line-clamp-none text-[#252525] font-[cabin] leading-8">
           {
             "A hassle free and smooth process designed to help you get the car you want "
           }
@@ -31,10 +31,10 @@ const WhyChooseUs = () => {
                 alt="icon"
                 className="h-52 w-full object-fill"
               />
-              <div className="absolute bottom-0 bg-[#1262A1CC] backdrop-blur">
+              <div className="absolute bottom-0 bg-[#1262A1CC] backdrop-blur w-full h-auto">
                 <h3
                   className="text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm
-               p-4 text-center font-[poppins] text-gray-50 leading-7"
+               p-4 text-center lg:p-6 font-[poppins] text-gray-50 leading-7"
                 >
                   Leveraging technology, intellectual resources and
                   partnerships, Esteem can bring most cost-effective car finance
@@ -51,10 +51,10 @@ const WhyChooseUs = () => {
                 alt="icon"
                 className="h-52 w-full object-fill"
               />
-              <div className="absolute bottom-0 bg-[#1262A1CC] backdrop-blur ">
+              <div className="absolute bottom-0 bg-[#1262A1CC] backdrop-blur w-full  h-auto">
                 <h3
                   className="text-sm sm:text-sm md:text-sm lg backdrop-blur:text-sm xl:text-sm
-               p-4 text-center font-[poppins] text-gray-50 leading-7"
+               p-4 text-center lg:p-6 font-[poppins] text-gray-50 leading-7"
                 >
                   Fastest turn around time for finance process.
                 </h3>
@@ -70,7 +70,7 @@ const WhyChooseUs = () => {
               alt="icon"
               className="w-full h-full object-cover"
             />
-            <div className="absolute bottom-0 w-full bg-[#1262A1CC] backdrop-blur p-4">
+            <div className="absolute bottom-0 w-full bg-[#1262A1CC] backdrop-blur p-4 h-auto">
               <h3 className="text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm text-center font-[poppins] text-gray-50 leading-7">
                 Esteem&apos;s subject matter experts analyze and recommend unbiased
                 finance solution pertinent to the needs and wants of customers
@@ -88,10 +88,10 @@ const WhyChooseUs = () => {
                 alt="icon"
                 className="h-52 w-full object-fill"
               />
-              <div className="absolute bottom-0 bg-[#1262A1CC] backdrop-blur">
+              <div className="absolute bottom-0 bg-[#1262A1CC] backdrop-blur w-full h-auto">
                 <h3
                   className="text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm
-             p-4 text-center font-[poppins] text-gray-50 leading-7"
+             p-4 text-center lg:p-6 font-[poppins] text-gray-50 leading-7"
                 >
                   Esteem can provide wider vendor options to choose from.
                 </h3>
@@ -106,10 +106,10 @@ const WhyChooseUs = () => {
                 alt="icon"
                 className="h-52 w-full object-fill"
               />
-              <div className="absolute bottom-0 bg-[#1262A1CC] backdrop-blur ">
+              <div className="absolute bottom-0 bg-[#1262A1CC] backdrop-blur w-full">
                 <h3
                   className="text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm
-             p-4 text-center font-[poppins] text-gray-50 leading-7"
+             p-4 text-center lg:p-6 font-[poppins] text-gray-50 leading-7"
                 >
                   Esteem&apos;s services are unconditionally, in the benefit of
                   customers making a customer centric market.

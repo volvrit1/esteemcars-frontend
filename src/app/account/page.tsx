@@ -69,7 +69,7 @@ const ProfilePage: React.FC = () => {
   }
 
   return (
-    <div className="container mx-auto p-6 lg:h-screen overscroll-y-auto mt-[7rem] lg:mt-[10rem] max-w-7xl m-auto pt-28 lg:px-20 lg:py-10">
+    <div className="container mx-auto p-6 lg:h-screen overscroll-y-auto mt-[5.7rem] lg:mt-[8.5rem] max-w-7xl m-auto pt-28 lg:px-20 lg:py-10">
       {user && (
         <div className="bg-white text-gray-900 p-6 rounded-lg shadow-md mb-8">
           <div className="flex flex-col items-start lg:flex-row lg:items-center gap-4 lg:gap-14">

@@ -20,8 +20,8 @@ const EmiCalculator = () => {
 
   return (
     <div className="max-w-7xl relative font-[poppins]  m-auto p-4 lg:p-14 flex flex-col lg:flex-row justify-center items-center ">
-      <div className="m-auto  lg:w-2/5 text-left">
-        <h2 className="text-2xl sm:text-3xl md:text-2xl lg:text-3xl/10 xl:text-3xl/10 font-bold text-[#252525] leading-9 mb-4">
+      <div className="m-auto  lg:w-2/5 text-left flex flex-col justify-center items-center lg:item-start pt-6 lg:pt-0 mb-8 lg:mb-auto">
+        <h2 className="text-2xl sm:text-3xl md:text-2xl lg:text-3xl/10 xl:text-3xl/10 font-bold text-[#252525] leading-9 mb-8 lg:mb-4">
           {"EMI Simplified!"}
           {" Calculate "}
           <br />
@@ -29,7 +29,7 @@ const EmiCalculator = () => {
         </h2>
         <Link
           href={"/apply-for-car-loan"}
-          className="bg-[#1262A1] hover:bg-gray-400 transition-colors ease-in-out px-14 lg:py-3 font-[poppins] h-11 text-xs rounded"
+          className="bg-[#1262A1] hover:bg-gray-400 transition-colors ease-in-out px-6 lg:px-14 py-3 flex justify-center items-center font-[poppins] h-11 text-base lg:text-sm m-auto rounded"
         >
           Apply Now
         </Link>
@@ -206,14 +206,14 @@ const EmiCalculator = () => {
             </defs>
           </svg>
         </div>
-        <div className="mt-4 text-sm font-thin border-t border-white/50 pt-4">
-          <p className="flex justify-start mb-2">
+        <div className="mt-4 text-base lg:text-sm font-thin border-t border-white/50 pt-4">
+          <p className="flex justify-start mb-4">
             <span className="h-4 w-4 bg-gray-50 rounded-sm mr-2"></span>{" "}
             <span>Loan amount</span>{" "}
             <span className="ml-auto">${loanAmount}</span>
           </p>
-          <p className="flex justify-start mb-2">
-            <span className="h-4 w-4 bg-[#ED6A00] rounded-sm mr-2"></span>{" "}
+          <p className="flex justify-start mb-4">
+            <span className="h-4 w-4 bg-[#ED6A00] rounded-sm mr-2 "></span>{" "}
             <span>Interest @{interestRate}% p.a.</span>{" "}
             <span className="ml-auto">+ ${totalInterest}</span>
           </p>
@@ -223,7 +223,7 @@ const EmiCalculator = () => {
           </p>
         </div>
 
-        <button className="mt-6 bg-gray-100 hover:bg-orange-600 text-[#1262A1] text-xs font-semibold py-4 px-4 w-full rounded">
+        <button className="mt-6 bg-gray-100 hover:bg-orange-600 text-[#1262A1] text-base lg:text-xs font-semibold py-4 px-4 w-full rounded">
           Check Eligibility In 2 Min
         </button>
       </div>

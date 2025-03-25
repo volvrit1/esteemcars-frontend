@@ -43,8 +43,8 @@ const LatestNews = async () => {
                 <div className="w-full mt-8 lg:mt-4 lg:text-center border-t-2 flex items-center gap-4 py-4">
                   <Image
                     src={`${
-                      data?.image
-                        ? process.env.NEXT_PUBLIC_BASE_URL + data?.image
+                      data?.coverImage
+                        ? process.env.NEXT_PUBLIC_BASE_URL + data?.coverImage
                         : "/assets/profile.png"
                     }`}
                     alt={"image"}
