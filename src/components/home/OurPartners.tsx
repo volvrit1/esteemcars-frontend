@@ -7,10 +7,12 @@ import { motion } from "framer-motion";
 
 const OurPartners = () => {
   const clients = [
-    { id: 1, name: "Android", coverImage: "", logo: "/images/client1.png" },
-    { id: 2, name: "Kotlin", coverImage: "", logo: "/images/client2.png" },
-    { id: 3, name: "FireStore", coverImage: "", logo: "/images/client3.png" },
-    { id: 4, name: "Java", coverImage: "", logo: "/images/client4.png" },
+    { id: 1, name: "anz", coverImage: "", logo: "/assets/client/client1.png" },
+    { id: 2, name: "kiwi", coverImage: "", logo: "/assets/client/client2.png" },
+    { id: 3, name: "tsb", coverImage: "", logo: "/assets/client/client3.png" },
+    { id: 4, name: "westpac", coverImage: "", logo: "/assets/client/client4.png" },
+    { id: 4, name: "", coverImage: "", logo: "/assets/client/client5.png" },
+
   ];
 
   return (
@@ -30,13 +32,13 @@ const OurPartners = () => {
             {/* Map clients to show in pairs */}
             {[...clients, ...clients, ...clients, ...clients, ...clients].map(
               (client, index) => (
-                <div key={index} className="flex-shrink-0 w-16 h-16 rounded-lg">
+                <div key={index} className="flex-shrink-0 w-auto h-14 rounded-lg">
                   <Image
                     src={client?.logo}
                     width={300}
                     height={100}
                     alt={`Client ${index + 1}`}
-                    className="w-full h-full object-contain p-2"
+                    className="w-full h-full object-fill p-2"
                   />
                 </div>
               )

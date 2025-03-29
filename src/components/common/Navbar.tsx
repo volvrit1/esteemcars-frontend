@@ -52,7 +52,7 @@ const Navbar = () => {
     <div className=" w-full h-auto absolute top-0 z-[1000] font-[poppins]">
       <HeaderInfo />
       <nav
-        className={`bg-[#252525] flex justify-between px-4 lg:px-0 lg:justify-evenly items-center h-24 lg:h-[137px] w-full ${inter.variable} fixed top-0 z-[10000]`}
+        className={`bg-[#252525] flex justify-between px-4 lg:px-0 lg:justify-evenly items-center h-24 lg:h-[110px] w-full ${inter.variable} fixed top-0 z-[10000]`}
       >
         <div>
           <Link href={"/"}>
