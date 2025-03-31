@@ -20,7 +20,7 @@ const OurPartners = () => {
       <div className="relative flex flex-col lg:flex-row justify-center items-center overflow-hidden lg:py-4 w-full  m-auto border-gray-600">
         <div className="relative flex overflow-hidden  m-auto">
           <motion.div
-            className="flex space-x-0 lg:space-x-6 gap-6 lg:gap-10"
+            className="flex space-x-0 lg:space-x-6 gap-0"
             initial={{ x: "0%" }}
             animate={{ x: "-100%" }}
             transition={{
@@ -32,13 +32,13 @@ const OurPartners = () => {
             {/* Map clients to show in pairs */}
             {[...clients, ...clients, ...clients, ...clients, ...clients].map(
               (client, index) => (
-                <div key={index} className="flex-shrink-0 w-auto h-14 rounded-lg">
+                <div key={index} className="flex-shrink-0 h-28 w-28 rounded-lg overflow-hidden">
                   <Image
                     src={client?.logo}
                     width={300}
                     height={100}
                     alt={`Client ${index + 1}`}
-                    className="w-full h-full object-fill p-2"
+                    className="object-cover h-28 w-28 scale-125 p-2"
                   />
                 </div>
               )

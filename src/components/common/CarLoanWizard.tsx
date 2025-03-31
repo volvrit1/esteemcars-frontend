@@ -108,14 +108,11 @@ const CarLoanWizard = () => {
       const parsedUserData = JSON.parse(storedUserData);
       setUserLocalData(parsedUserData);
     }
-  }, []); 
-
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
-
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -215,10 +212,10 @@ const CarLoanWizard = () => {
           title: "",
           firstName: "",
           middleName: "",
-          lastName:  "",
-          email:  "",
+          lastName: "",
+          email: "",
           mobileNo: "",
-          dob:  "",
+          dob: "",
           employerName: "",
           companyName: "",
           companyAddress: "",
@@ -326,13 +323,13 @@ const CarLoanWizard = () => {
           vehicleVariant: "",
           kmDriven: "",
           tradeCar: "",
-          title:  "",
-          firstName:  "",
-          middleName:  "",
-          lastName:  "",
-          email:  "",
-          mobileNo:  "",
-          dob:  "",
+          title: "",
+          firstName: "",
+          middleName: "",
+          lastName: "",
+          email: "",
+          mobileNo: "",
+          dob: "",
           employerName: "",
           companyName: "",
           companyAddress: "",
@@ -400,7 +397,7 @@ const CarLoanWizard = () => {
         setStep(14);
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
       toast.info("Failed to submit application.");
     } finally {
       setIsSubmited(true);
@@ -417,7 +414,7 @@ const CarLoanWizard = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen mt-[5.7rem] lg:mt-[8.5rem] p-4 lg:p-16 bg-gray-100 font-[poppins]">
+    <div className="flex justify-center items-center min-h-screen mt-[5.7rem] lg:mt-[7rem] p-4 lg:p-16 bg-gray-100 font-[poppins]">
       <div className="bg-[#1262A1] text-white rounded-2xl shadow-lg  w-full lg:w-auto p-4 lg:p-16">
         {step === 1 && (
           <Step1
