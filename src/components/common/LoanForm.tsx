@@ -1,4 +1,5 @@
 "use client";
+import { Post } from "@/utils/api";
 import Image from "next/image";
 import React, { useState } from "react";
 import { FaDollarSign, FaRegAddressCard } from "react-icons/fa";
@@ -7,15 +8,21 @@ import { IoCallOutline, IoMailOutline, IoManOutline } from "react-icons/io5";
 import { PiLineVerticalThin } from "react-icons/pi";
 import { RiContactsBook3Line } from "react-icons/ri";
 import { SlCalender } from "react-icons/sl";
+import { toast } from "react-toastify";
+import OtpVerification from "./OtpVerification";
+import Link from "next/link";
 
 interface FormData {
+  loanAmount: string;
+  weeklyPayment: string;
+  termYears: string;
   title: string;
   firstName: string;
   lastName: string;
-  dob: string;
+  dateOfBirth: string;
   maritalStatus: string;
-  dependents: string;
-  dlType: string;
+  noOfDependents: string;
+  drivingLicenceType: string;
   mobile: string;
   email: string;
   preferredContact: string;
@@ -24,27 +31,36 @@ interface FormData {
   city: string;
   postalCode: string;
   propertyStatus: string;
-  timeAtPropertyMonth: string;
-  timeAtPropertyYear: string;
+  timeAtPropertyMonths: string;
+  timeAtPropertyYears: string;
   timeAtProperty?: string;
   monthlyCost: string;
   region: string;
   residentialStatus: string;
   employmentStatus: string;
   jobTitle: string;
+  timeAtEmployerMonths: string;
+  timeAtEmployerYears: string;
   timeAtEmployer: string;
 }
 
 const MyForm = () => {
   const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState<FormData>({
+  const [agreed, setAgreed] = useState(false);
+  const [id, setId] = useState("");
+  const [otpMail, setOtpMail] = useState("");
+  const [setOtpLocal, setSetOtpLocal] = useState("");
+  const [formData, setFormData] = useState<any>({
+    loanAmount: 5000,
+    weeklyPayment: 1000,
+    termYears: 1,
     title: "",
     firstName: "",
     lastName: "",
-    dob: "",
+    dateOfBirth: "",
     maritalStatus: "",
-    dependents: "",
-    dlType: "",
+    noOfDependents: "",
+    drivingLicenceType: "",
     mobile: "",
     email: "",
     preferredContact: "",
@@ -53,30 +69,19 @@ const MyForm = () => {
     city: "",
     postalCode: "",
     propertyStatus: "",
-    timeAtPropertyMonth: "",
-    timeAtPropertyYear: "",
+    timeAtPropertyMonths: "",
+    timeAtPropertyYears: "",
+    timeAtProperty: "",
     monthlyCost: "",
     region: "",
     residentialStatus: "",
     employmentStatus: "",
     jobTitle: "",
+    timeAtEmployerMonths: "",
+    timeAtEmployerYears: "",
     timeAtEmployer: "",
   });
-  const [borrowAmount, setBorrowAmount] = useState(5000);
-  const [payAmount, setPayAmount] = useState(5000);
-  const [term, setTerm] = useState(5);
 
-  const handleBorrowChange = (e: any) => {
-    setBorrowAmount(e.target.value);
-  };
-
-  const handlePayChange = (e: any) => {
-    setPayAmount(e.target.value);
-  };
-
-  const handleTermChange = (e: any) => {
-    setTerm(e.target.value);
-  };
   const [errors, setErrors] = useState<{ [key in keyof FormData]?: string }>(
     {}
   );
@@ -84,7 +89,7 @@ const MyForm = () => {
   // Handle input changes
   const handleChange = (e: any) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
+    setFormData((prev: any) => ({
       ...prev,
       [name]: value,
     }));
@@ -123,7 +128,7 @@ const MyForm = () => {
     if (!formData.postalCode) newErrors.postalCode = "Postal Code is required";
     if (!formData.propertyStatus)
       newErrors.propertyStatus = "Property Status is required";
-    if (!formData.timeAtPropertyMonth || !formData.timeAtPropertyYear)
+    if (!formData.timeAtPropertyMonths || !formData.timeAtPropertyYears)
       newErrors.timeAtProperty = "Time at Property is required";
 
     if (!formData.monthlyCost)
@@ -134,47 +139,58 @@ const MyForm = () => {
     if (!formData.employmentStatus)
       newErrors.employmentStatus = "Employment Status is required";
     if (!formData.jobTitle) newErrors.jobTitle = "Job Title is required";
-    if (!formData.timeAtEmployer)
+    if (!formData.timeAtEmployerYears || !formData.timeAtEmployerMonths)
       newErrors.timeAtEmployer = "Time at Employer is required";
 
     setErrors(newErrors);
 
     // If there are errors, return false and log errors
     if (Object.keys(newErrors).length > 0) {
-      console.log(newErrors); // Log the errors to the console or display them to the user
+      console.log(newErrors, formData); // Log the errors to the console or display them to the user
       return false;
     }
     return true;
   };
-  // Handle form submission (for demonstration)
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const resetFormData = (formData: any) => {
+    const data: any = { loanAmount: 5000, weeklyPayment: 1000, termYears: 1 };
+    setFormData(
+      Object.fromEntries(
+        Object.keys(formData).map((key) =>
+          ["loanAmount", "weeklyPayment", "termYears"].includes(key)
+            ? [key, data[key]]
+            : [key, ""]
+        )
+      )
+    );
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStep(3);
-    setFormData({
-      title: "",
-      firstName: "",
-      lastName: "",
-      dob: "",
-      maritalStatus: "",
-      dependents: "",
-      dlType: "",
-      mobile: "",
-      email: "",
-      preferredContact: "",
-      streetAddress: "",
-      addressLine2: "",
-      city: "",
-      postalCode: "",
-      propertyStatus: "",
-      timeAtPropertyMonth: "",
-      timeAtPropertyYear: "",
-      monthlyCost: "",
-      region: "",
-      residentialStatus: "",
-      employmentStatus: "",
-      jobTitle: "",
-      timeAtEmployer: "",
-    });
+
+    try {
+      const isValid = validate1(formData);
+      const isValid2 = validate2(formData);
+      console.log(formData);
+      if (isValid && isValid2) {
+        const res: any = await Post("/api/loan-application", formData, 5000);
+        if (res.success) {
+          setId(res?.data?.id);
+          setOtpMail(res?.data?.email);
+          setAgreed(false);
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth", // Smooth scrolling effect
+          });
+          setStep(3);
+          toast.success(res?.message);
+          resetFormData(formData);
+        }
+      }
+    } catch (error: any) {
+      console.error("Error submitting form:", error);
+      toast.error(error?.message);
+    }
   };
 
   const handelForm = (e: React.FormEvent<Element>) => {
@@ -220,7 +236,7 @@ const MyForm = () => {
           2{" "}
         </span>{" "}
       </div>
-      <form onSubmit={handleSubmit} className=" mb-16">
+      <div className=" mb-16">
         {step === 1 && (
           <div className="">
             <label
@@ -237,49 +253,74 @@ const MyForm = () => {
                     I want to borrow
                   </label>
                   <span className="rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30 p-[1.3px] px-3">
-                    ${borrowAmount}
+                    ${formData?.loanAmount}
                   </span>
                 </div>
                 <input
                   type="range"
-                  min="1000" // Min value
-                  max="10000" // Max value
-                  step="500" // Step increments
-                  value={borrowAmount}
-                  onChange={handleBorrowChange}
-                  className="w-full rounded-full h-2 text-[#1262A1] bg-[#1262A1] appearance-none [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:bg-gradient-to-r [&::-webkit-slider-thumb]:from-[#1262A1] [&::-webkit-slider-thumb]:to-[#1262A1] [&::-webkit-slider-thumb]:rounded-full"
+                  name="loanAmount"
+                  min="1000"
+                  max="10000"
+                  step="500"
+                  value={formData?.loanAmount}
+                  onChange={handleChange}
+                  className="w-full rounded-full h-2 bg-[#DDE5EB] appearance-none [&::-webkit-slider-thumb]:appearance-none 
+             [&::-webkit-slider-thumb]:w-4 
+             [&::-webkit-slider-thumb]:h-4 
+             [&::-webkit-slider-thumb]:bg-[#1262A1] 
+             [&::-webkit-slider-thumb]:rounded-full 
+             [&::-webkit-slider-thumb]:cursor-pointer 
+             [&::-moz-range-thumb]:w-4 
+             [&::-moz-range-thumb]:h-4 
+             [&::-moz-range-thumb]:bg-[#1262A1] 
+             [&::-moz-range-thumb]:rounded-full 
+             [&::-moz-range-thumb]:cursor-pointer"
                   style={{
                     background: `linear-gradient(to right, #1262A1 ${
-                      ((borrowAmount - 1000) / 9000) * 100
-                    }%, #DDE5EB 10%)`,
-                    WebkitAppearance: "none",
+                      ((formData?.loanAmount - 1000) / (10000 - 1000)) * 100
+                    }%, #DDE5EB 0%)`,
                   }}
                 />
               </div>
 
               {/* Pay Slider */}
-              <div className="w-full mt-0">
+              <div className="w-full">
                 <div className="flex items-center justify-between mb-4">
                   <label className="text-gray-800 font-medium">
                     I want to pay
                   </label>
-                  <span className="rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30 p-[1.3px] px-2">
-                    ${payAmount} / week
+                  <span className="rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30 p-[1.3px] px-3">
+                    ${formData?.weeklyPayment} / week
                   </span>
                 </div>
                 <input
                   type="range"
-                  min="500" // Min value
-                  max="5000" // Max value
-                  step="100" // Step increments
-                  value={payAmount}
-                  onChange={handlePayChange}
-                  className="w-full rounded-full h-2 text-[#1262A1] bg-[#1262A1] appearance-none [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:bg-gradient-to-r [&::-webkit-slider-thumb]:from-[#1262A1] [&::-webkit-slider-thumb]:to-[#1262A1] [&::-webkit-slider-thumb]:rounded-full"
+                  name="weeklyPayment"
+                  min="500"
+                  max={Math.min(formData?.loanAmount, 5000)} // Max is either loanAmount or 5000
+                  step="100"
+                  value={Math.min(
+                    formData?.weeklyPayment,
+                    formData?.loanAmount
+                  )} // Ensure it doesn't exceed loanAmount
+                  onChange={handleChange}
+                  className="w-full rounded-full h-2 bg-[#DDE5EB] appearance-none  [&::-webkit-slider-thumb]:appearance-none 
+             [&::-webkit-slider-thumb]:w-4 
+             [&::-webkit-slider-thumb]:h-4 
+             [&::-webkit-slider-thumb]:bg-[#1262A1] 
+             [&::-webkit-slider-thumb]:rounded-full 
+             [&::-webkit-slider-thumb]:cursor-pointer 
+             [&::-moz-range-thumb]:w-4 
+             [&::-moz-range-thumb]:h-4 
+             [&::-moz-range-thumb]:bg-[#1262A1] 
+             [&::-moz-range-thumb]:rounded-full 
+             [&::-moz-range-thumb]:cursor-pointer"
                   style={{
                     background: `linear-gradient(to right, #1262A1 ${
-                      ((payAmount - 500) / 4500) * 100
-                    }%, #DDE5EB 10%)`,
-                    WebkitAppearance: "none",
+                      ((formData?.weeklyPayment - 500) /
+                        (Math.min(formData?.loanAmount, 5000) - 500)) *
+                      100
+                    }%, #DDE5EB 0%)`,
                   }}
                 />
               </div>
@@ -289,22 +330,32 @@ const MyForm = () => {
                 <div className="flex items-center justify-between mb-4">
                   <label className="text-gray-800 font-medium">Term</label>
                   <span className="rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30 p-[1.3px] px-3">
-                    {term} years
+                    {formData?.termYears} years
                   </span>
                 </div>
                 <input
                   type="range"
-                  min="1" // Min value
-                  max="10" // Max value
-                  step="1" // Step increments
-                  value={term}
-                  onChange={handleTermChange}
-                  className="w-full rounded-full h-2 text-[#1262A1] bg-[#1262A1] appearance-none [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:bg-gradient-to-r [&::-webkit-slider-thumb]:from-[#1262A1] [&::-webkit-slider-thumb]:to-[#1262A1] [&::-webkit-slider-thumb]:rounded-full"
+                  name="termYears"
+                  min="1"
+                  max="10"
+                  step="1"
+                  value={formData?.termYears}
+                  onChange={handleChange}
+                  className="w-full rounded-full h-2 bg-[#DDE5EB] appearance-none  [&::-webkit-slider-thumb]:appearance-none 
+             [&::-webkit-slider-thumb]:w-4 
+             [&::-webkit-slider-thumb]:h-4 
+             [&::-webkit-slider-thumb]:bg-[#1262A1] 
+             [&::-webkit-slider-thumb]:rounded-full 
+             [&::-webkit-slider-thumb]:cursor-pointer 
+             [&::-moz-range-thumb]:w-4 
+             [&::-moz-range-thumb]:h-4 
+             [&::-moz-range-thumb]:bg-[#1262A1] 
+             [&::-moz-range-thumb]:rounded-full 
+             [&::-moz-range-thumb]:cursor-pointer"
                   style={{
                     background: `linear-gradient(to right, #1262A1 ${
-                      ((term - 1) / 9) * 100
-                    }%, #DDE5EB 10%)`,
-                    WebkitAppearance: "none",
+                      ((formData?.termYears - 1) / (10 - 1)) * 100
+                    }%, #DDE5EB 0%)`,
                   }}
                 />
               </div>
@@ -327,8 +378,9 @@ const MyForm = () => {
                 >
                   <option value="">Select Title</option>
                   <option value="Mr">Mr</option>
-                  <option value="Ms">Ms</option>
                   <option value="Mrs">Mrs</option>
+                  <option value="Miss">Miss</option>
+                  <option value="Ms">Ms</option>
                 </select>
                 {errors.title && (
                   <p className="text-red-500 text-sm">{errors.title}</p>
@@ -371,8 +423,8 @@ const MyForm = () => {
                 <div className="relative">
                   <input
                     type="date"
-                    name="dob"
-                    value={formData.dob}
+                    name="dateOfBirth"
+                    value={formData.dateOfBirth}
                     onChange={handleChange}
                     className="p-3 w-full rounded-full outline-0 pl-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                   />
@@ -422,8 +474,8 @@ const MyForm = () => {
                 <div className="relative">
                   <input
                     type="number"
-                    name="dependents"
-                    value={formData.dependents}
+                    name="noOfDependents"
+                    value={formData.noOfDependents}
                     onChange={handleChange}
                     className=" p-3  w-full rounded-full outline-0 px-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                   />
@@ -447,14 +499,18 @@ const MyForm = () => {
                 </label>
                 <div className="relative">
                   <select
-                    name="dlType"
-                    value={formData.dlType}
+                    name="drivingLicenceType"
+                    value={formData.drivingLicenceType}
                     onChange={handleChange}
                     className="p-3 w-full rounded-full outline-0 px-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                   >
                     <option value="">Select DL Type</option>
-                    <option value="Car">Car</option>
-                    <option value="Motorbike">Motorbike</option>
+                    <option value="Restricted">Restricted</option>
+                    <option value="Full Licence">Full Licence</option>
+                    <option value="Learner">Learner</option>
+                    <option value="No Licence">No Licence</option>
+                    <option value="International">International</option>
+                    <option value="Other">Other</option>
                   </select>
                   <Image
                     src={"/assets/dl.png"}
@@ -530,7 +586,13 @@ const MyForm = () => {
                   >
                     <option value="">Select Preferred Contact</option>
                     <option value="Phone">Phone</option>
+                    <option value="SMS">SMS</option>
                     <option value="Email">Email</option>
+                    <option value="Facebook Messenger">
+                      Facebook Messenger
+                    </option>
+                    <option value="WhatsApp">WhatsApp</option>
+                    <option value="Signal">Signal</option>
                   </select>
                   <Image
                     src={"/assets/contacti.png"}
@@ -604,7 +666,7 @@ const MyForm = () => {
               <div className="space-y-2">
                 <label className="text-gray-800 font-medium">Postal Code</label>
                 <input
-                  type="text"
+                  type="number"
                   name="postalCode"
                   value={formData.postalCode}
                   onChange={handleChange}
@@ -643,8 +705,8 @@ const MyForm = () => {
                 </label>
                 <div className="flex">
                   <select
-                    name="timeAtPropertyMonth"
-                    value={formData.timeAtPropertyMonth}
+                    name="timeAtPropertyMonths"
+                    value={formData.timeAtPropertyMonths}
                     onChange={handleChange}
                     className="w-1/2 rounded-l-full outline-0 p-3 bg-[#1262A11A] text-[#1262A1] border border-r-0 border-[#1262A1]/30"
                   >
@@ -659,8 +721,8 @@ const MyForm = () => {
                     ))}
                   </select>
                   <select
-                    name="timeAtPropertyYear"
-                    value={formData.timeAtPropertyYear}
+                    name="timeAtPropertyYears"
+                    value={formData.timeAtPropertyYears}
                     onChange={handleChange}
                     className="w-1/2 rounded-r-full outline-0 p-3 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                   >
@@ -686,7 +748,7 @@ const MyForm = () => {
                 </label>
                 <div className="relative">
                   <input
-                    type="text"
+                    type="number"
                     name="monthlyCost"
                     value={formData.monthlyCost}
                     onChange={handleChange}
@@ -706,18 +768,13 @@ const MyForm = () => {
 
               <div className="space-y-2">
                 <label className="text-gray-800 font-medium">Region</label>
-                <select
+                <input
+                  type="text"
                   name="region"
                   value={formData.region}
                   onChange={handleChange}
                   className="p-3 w-full rounded-full outline-0 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
-                >
-                  <option value="">Select Region</option>
-                  <option value="North">North</option>
-                  <option value="South">South</option>
-                  <option value="East">East</option>
-                  <option value="West">West</option>
-                </select>
+                />
                 {errors.region && (
                   <p className="text-red-500 text-sm">{errors.region}</p>
                 )}
@@ -734,9 +791,10 @@ const MyForm = () => {
                   className="p-3 w-full rounded-full outline-0 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                 >
                   <option value="">Select Residential Status</option>
-                  <option value="Owner">Owner</option>
-                  <option value="Renter">Renter</option>
-                  <option value="Other">Other</option>
+                  <option value="NZ Citizen">NZ Citizen</option>
+                  <option value="NZ Resident">NZ Resident</option>
+                  <option value="Non NZ Resident">Non NZ Resident</option>
+                  <option value="Work Visa">Work Visa</option>
                 </select>
                 {errors.residentialStatus && (
                   <p className="text-red-500 text-sm">
@@ -764,9 +822,22 @@ const MyForm = () => {
                     className="p-3 w-full rounded-full outline-0 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                   >
                     <option value="">Select Employment Status</option>
-                    <option value="Employed">Employed</option>
+                    <option value="Employed Full-Time">
+                      Employed Full-Time
+                    </option>
+                    <option value="Employed Part-Time">
+                      Employed Part-Time
+                    </option>
+                    <option value="Contractor">Contractor</option>
+                    <option value="Self Employed">Self Employed</option>
                     <option value="Unemployed">Unemployed</option>
-                    <option value="Self-Employed">Self-Employed</option>
+                    <option value="Disabled">Disabled</option>
+                    <option value="Temporary">Temporary</option>
+                    <option value="Retired">Retired</option>
+                    <option value="WINZ">WINZ</option>
+                    <option value="ACC">ACC</option>
+                    <option value="WINZ & ACC">WINZ & ACC</option>
+                    <option value="Studylink">Studylink</option>
                   </select>
                   {errors.employmentStatus && (
                     <p className="text-red-500 text-sm">
@@ -791,18 +862,43 @@ const MyForm = () => {
 
                 <div className="space-y-2">
                   <label className="text-gray-800 font-medium">
-                    Time at Employer
+                    Time at Employment
                   </label>
-                  <input
-                    type="text"
-                    name="timeAtEmployer"
-                    value={formData.timeAtEmployer}
-                    onChange={handleChange}
-                    className="w-full rounded-full outline-0 p-3 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
-                  />
-                  {errors.timeAtEmployer && (
+                  <div className="flex">
+                    <select
+                      name="timeAtEmployerMonths"
+                      value={formData.timeAtEmployerMonths}
+                      onChange={handleChange}
+                      className="w-1/2 rounded-l-full outline-0 p-3 bg-[#1262A11A] text-[#1262A1] border border-r-0 border-[#1262A1]/30"
+                    >
+                      <option value="">Month</option>
+                      {/* Add month options */}
+                      {[...Array(12).keys()].map((i) => (
+                        <option key={i} value={i + 1}>
+                          {new Date(0, i).toLocaleString("default", {
+                            month: "long",
+                          })}
+                        </option>
+                      ))}
+                    </select>
+                    <select
+                      name="timeAtEmployerYears"
+                      value={formData.timeAtEmployerYears}
+                      onChange={handleChange}
+                      className="w-1/2 rounded-r-full outline-0 p-3 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                    >
+                      <option value="">Year</option>
+                      {/* Add year options */}
+                      {[...Array(20).keys()].map((i) => (
+                        <option key={i} value={2020 + i}>
+                          {2020 + i}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  {errors.timeAtProperty && (
                     <p className="text-red-500 text-sm">
-                      {errors.timeAtEmployer}
+                      {errors.timeAtProperty}
                     </p>
                   )}
                 </div>
@@ -813,8 +909,21 @@ const MyForm = () => {
         {step == 3 && (
           <div className="fixed inset-0 flex items-center justify-center z-[5000] bg-black bg-opacity-50">
             <div className="bg-white text-[#1262A1] p-6 rounded-lg text-center">
+              <OtpVerification
+                id={id}
+                email={otpMail}
+                setOtpLocal={setOtpLocal}
+                setIsModalVisible={setStep}
+                handleGoBack={() => setStep(1)}
+              />
+            </div>
+          </div>
+        )}
+        {step == 4 && (
+          <div className="fixed inset-0 flex items-center justify-center z-[5000] bg-black bg-opacity-50">
+            <div className="bg-white text-[#1262A1] p-6 rounded-lg text-center">
               <h2 className="text-xl font-bold">Submission Successful!</h2>
-              <p>Your car loan details have been submitted successfully.</p>
+              <p>Our team will contact you shortly.</p>
               <button
                 className="mt-4 bg-[#1262A1] text-white p-2 rounded-lg w-24 hover:bg-[#0f4a7a] transition"
                 onClick={() => setStep(1)}
@@ -824,7 +933,36 @@ const MyForm = () => {
             </div>
           </div>
         )}
-      </form>
+        {step === 2 && (
+          <div className="mt-6 flex items-center">
+            <input
+              type="checkbox"
+              id="agree"
+              className="mr-2"
+              checked={agreed}
+              onChange={() => setAgreed(!agreed)}
+            />
+            <label htmlFor="agree" className="text-sm text-gray-800">
+              I agree to the{" "}
+              <Link
+                target="blank"
+                href="/terms-and-conditions"
+                className="text-blue-600 underline"
+              >
+                Terms and Conditions
+              </Link>{" "}
+              and{" "}
+              <Link
+                target="blank"
+                href="/privacy-policy"
+                className="text-blue-600 underline"
+              >
+                Privacy Policy
+              </Link>
+            </label>
+          </div>
+        )}
+      </div>
       <div className="w-full text-center space-x-10 lg:space-x-4  ">
         <button
           type="button"
@@ -840,7 +978,10 @@ const MyForm = () => {
         <button
           type="button"
           onClick={handelForm}
-          className="bg-[#1262A1] w-1/3 lg:w-1/5 m-auto text-white p-3 rounded-full hover:bg-[#1262A1]/90"
+          disabled={step === 2 && !agreed}
+          className={`bg-[#1262A1] w-1/3 lg:w-1/5 m-auto text-white p-3 rounded-full hover:bg-[#1262A1]/90 ${
+            step === 2 && !agreed ? "opacity-50 cursor-not-allowed" : ""
+          }`}
         >
           {step === 1 ? "Next" : "Submit"}
         </button>

@@ -30,7 +30,7 @@ const CarSearchBanner = () => {
         </div>
         <div className="flex justify-center items-center gap-4 ">
           <Link
-            href={"/apply-for-car-loan"}
+            href={"/apply-loan"}
             className="bg-[#1262A1] hover:bg-gray-400 transition-colors ease-in-out flex items-center font-[poppins] px-4 lg:px-12 lg:py-4 p-0 h-14 font-light rounded-lg"
           >
             Get Your Finance Today

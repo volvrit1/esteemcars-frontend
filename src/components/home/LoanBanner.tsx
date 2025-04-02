@@ -20,7 +20,7 @@ export default function LoanBanner() {
             a quick and convenient experience.
           </p>
           <Link
-            href={"/apply-for-car-loan"}
+            href={"/apply-loan"}
             className="text-gray-50 bg-[#1262A1] rounded-lg text-center text-sm p-3 px-16"
           >
             Apply Now

@@ -91,7 +91,7 @@ const Navbar = () => {
           <MobileMenu />
 
           <Link
-            href={"/apply-for-car-loan"}
+            href={"/apply-loan"}
             className="hidden lg:flex justify-center items-center rounded-lg text-sm  bg-[#1262A1] px-16 py-3 text-gray-50"
           >
             {"Apply Now"}

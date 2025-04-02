@@ -100,7 +100,7 @@ const ProfilePage: React.FC = () => {
             <div>
               <Link
                 className="bg-[#1262A1] lg:px-5 p-5 text-white font-semibold rounded-lg hover:bg-gray-400 transition-colors ease-in-out"
-                href={"/apply-for-car-loan"}
+                href={"/apply-loan"}
               >
                 Apply Car Loan
               </Link>

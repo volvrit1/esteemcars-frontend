@@ -86,7 +86,7 @@ const EmiCalculator = () => {
           EMI Simplified! <br /> Calculate Your Monthly Payment
         </h2>
         <Link
-          href={"/apply-for-car-loan"}
+          href={"/apply-loan"}
           className="bg-[#1262A1] hover:bg-gray-400 transition-colors ease-in-out px-6 lg:px-14 py-3 flex justify-center items-center font-[poppins] h-11 text-base lg:text-sm m-auto rounded"
         >
           Apply Now

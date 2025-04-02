@@ -102,7 +102,7 @@ const OurSimple = () => {
               </p>
             </li>
             <Link
-              href={"/apply-for-car-loan"}
+              href={"/apply-loan"}
               className="inline-block text-center lg:col-span-2 lg:w-2/5 mt-4 p-3 px-10 rounded text-lg text-gray-50 bg-[#1262A1]"
             >
               Apply Now
