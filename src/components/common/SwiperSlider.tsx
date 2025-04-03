@@ -15,8 +15,8 @@ const HeroSection = ({ data }: any) => {
     if (data.length > 0) setIsLoaded(true);
   }, [data]);
 
-  const mobileData = data.filter((item: any) => item.mobile);
-  const bannerData = data.filter((item: any) => !item?.mobile);
+  const mobileData = data?.filter((item: any) => item.mobile);
+  const bannerData = data?.filter((item: any) => !item?.mobile);
 
   return (
     <section className="relative w-full lg:h-screen">

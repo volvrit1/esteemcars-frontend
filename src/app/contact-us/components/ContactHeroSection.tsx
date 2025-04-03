@@ -4,8 +4,8 @@ import React from "react";
 
 const ContactHeroSection = async () => {
   const { data } = await getBanners("contact");
-  const mobileData = data.filter((item: any) => item.mobile);
-  const bannerData = data.filter((item: any) => !item?.mobile);
+  const mobileData = data?.filter((item: any) => item.mobile);
+  const bannerData = data?.filter((item: any) => !item?.mobile);
   return (
     <div className="mt-[5.7rem] lg:mt-[7rem]">
       <section className="relative w-full h-auto ">

@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { FaDollarSign, FaRegAddressCard } from "react-icons/fa";
 import { HiOutlineUsers } from "react-icons/hi";
 import { IoCallOutline, IoMailOutline, IoManOutline } from "react-icons/io5";
-import { PiLineVerticalThin } from "react-icons/pi";
+import { PiCaretDownThin, PiLineVerticalThin } from "react-icons/pi";
 import { RiContactsBook3Line } from "react-icons/ri";
 import { SlCalender } from "react-icons/sl";
 import { toast } from "react-toastify";
@@ -101,6 +101,11 @@ const MyForm = () => {
     // Basic validation for demonstration
     if (!formData.firstName) newErrors.firstName = "First name is required";
     if (!formData.lastName) newErrors.lastName = "Last name is required";
+    if (!formData.mobile) {
+      newErrors.mobile = "Mobile is required";
+    } else if (!/^\d{10}$/.test(formData.mobile)) {
+      newErrors.mobile = "Mobile number must be exactly 10 digits";
+    }
     if (!formData.email) {
       newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
@@ -374,7 +379,10 @@ const MyForm = () => {
                   name="title"
                   value={formData.title}
                   onChange={handleChange}
-                  className="p-3 w-full rounded-full outline-0 px-2 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  style={{
+                    height: "3.1rem",
+                  }}
+                  className="p-3 w-full rounded-full outline-0 px-4 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                 >
                   <option value="">Select Title</option>
                   <option value="Mr">Mr</option>
@@ -382,6 +390,7 @@ const MyForm = () => {
                   <option value="Miss">Miss</option>
                   <option value="Ms">Ms</option>
                 </select>
+
                 {errors.title && (
                   <p className="text-red-500 text-sm">{errors.title}</p>
                 )}
@@ -426,6 +435,9 @@ const MyForm = () => {
                     name="dateOfBirth"
                     value={formData.dateOfBirth}
                     onChange={handleChange}
+                    style={{
+                      height: "3.1rem",
+                    }}
                     className="p-3 w-full rounded-full outline-0 pl-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                   />
 
@@ -445,12 +457,15 @@ const MyForm = () => {
                 <label className="text-gray-800 font-medium">
                   Marital Status:
                 </label>
-                <div className="relative overfh">
+                <div className="relative rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
                   <select
                     name="maritalStatus"
                     value={formData.maritalStatus}
                     onChange={handleChange}
-                    className="p-3 w-full rounded-full outline-0 px-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                    style={{
+                      height: "3rem",
+                    }}
+                    className="p-3 w-full bg-[#1263a100] rounded-full  outline-0 px-16 "
                   >
                     <option value="">Select Marital Status</option>
                     <option value="Single">Single</option>
@@ -497,12 +512,15 @@ const MyForm = () => {
                 <label className="text-gray-800 font-medium">
                   Driving License Type:
                 </label>
-                <div className="relative">
+                <div className="relative rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
                   <select
                     name="drivingLicenceType"
                     value={formData.drivingLicenceType}
                     onChange={handleChange}
-                    className="p-3 w-full rounded-full outline-0 px-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                    style={{
+                      height: "3rem",
+                    }}
+                    className="p-3 w-full rounded-full outline-0 px-16 bg-[#1263a100]"
                   >
                     <option value="">Select DL Type</option>
                     <option value="Restricted">Restricted</option>
@@ -546,6 +564,9 @@ const MyForm = () => {
 
                   <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin border-0 left-5 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
                 </div>
+                {errors.mobile && (
+                  <p className="text-red-500 text-sm">{errors.mobile}</p>
+                )}
               </div>
 
               <div className="space-y-2">
@@ -577,12 +598,15 @@ const MyForm = () => {
                 <label className="text-gray-800 font-medium">
                   Preferred Contact Method:
                 </label>
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
                   <select
                     name="preferredContact"
                     value={formData.preferredContact}
                     onChange={handleChange}
-                    className="p-3 w-full rounded-full outline-0 px-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                    style={{
+                      height: "3rem",
+                    }}
+                    className="p-3 w-full rounded-full outline-0 px-16 bg-[#1263a100]"
                   >
                     <option value="">Select Preferred Contact</option>
                     <option value="Phone">Phone</option>
@@ -681,17 +705,19 @@ const MyForm = () => {
                 <label className="text-gray-800 font-medium">
                   Property Status
                 </label>
-                <select
-                  name="propertyStatus"
-                  value={formData.propertyStatus}
-                  onChange={handleChange}
-                  className="p-3 w-full rounded-full outline-0 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
-                >
-                  <option value="">Select Property Status</option>
-                  <option value="Owned">Owned</option>
-                  <option value="Rented">Rented</option>
-                  <option value="Leased">Leased</option>
-                </select>
+                <div className="relative rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
+                  <select
+                    name="propertyStatus"
+                    value={formData.propertyStatus}
+                    onChange={handleChange}
+                    className="p-3 w-full rounded-full outline-0 bg-[#1263a100] text-[#1262A1] border border-[#1262A1]/30"
+                  >
+                    <option value="">Select Property Status</option>
+                    <option value="Owned">Owned</option>
+                    <option value="Rented">Rented</option>
+                    <option value="Leased">Leased</option>
+                  </select>
+                </div>
                 {errors.propertyStatus && (
                   <p className="text-red-500 text-sm">
                     {errors.propertyStatus}
@@ -703,12 +729,12 @@ const MyForm = () => {
                 <label className="text-gray-800 font-medium">
                   Time at Property
                 </label>
-                <div className="flex">
+                <div className="relative rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
                   <select
                     name="timeAtPropertyMonths"
                     value={formData.timeAtPropertyMonths}
                     onChange={handleChange}
-                    className="w-1/2 rounded-l-full outline-0 p-3 bg-[#1262A11A] text-[#1262A1] border border-r-0 border-[#1262A1]/30"
+                    className="w-1/2 rounded-l-full outline-0 p-3 bg-[#1263a100] text-[#1262A1] border border-r-0 border-[#1262A1]/30"
                   >
                     <option value="">Month</option>
                     {/* Add month options */}
@@ -724,7 +750,7 @@ const MyForm = () => {
                     name="timeAtPropertyYears"
                     value={formData.timeAtPropertyYears}
                     onChange={handleChange}
-                    className="w-1/2 rounded-r-full outline-0 p-3 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                    className="w-1/2 rounded-r-full outline-0 p-3 bg-[#1263a100] text-[#1262A1] border border-[#1262A1]/30"
                   >
                     <option value="">Year</option>
                     {/* Add year options */}
@@ -752,6 +778,9 @@ const MyForm = () => {
                     name="monthlyCost"
                     value={formData.monthlyCost}
                     onChange={handleChange}
+                    style={{
+                      height: "3rem",
+                    }}
                     className="w-full rounded-full outline-0 p-3 pl-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                   />
                   <FaDollarSign
@@ -784,18 +813,20 @@ const MyForm = () => {
                 <label className="text-gray-800 font-medium">
                   Residential Status
                 </label>
-                <select
-                  name="residentialStatus"
-                  value={formData.residentialStatus}
-                  onChange={handleChange}
-                  className="p-3 w-full rounded-full outline-0 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
-                >
-                  <option value="">Select Residential Status</option>
-                  <option value="NZ Citizen">NZ Citizen</option>
-                  <option value="NZ Resident">NZ Resident</option>
-                  <option value="Non NZ Resident">Non NZ Resident</option>
-                  <option value="Work Visa">Work Visa</option>
-                </select>
+                <div className="relative rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
+                  <select
+                    name="residentialStatus"
+                    value={formData.residentialStatus}
+                    onChange={handleChange}
+                    className="p-3 w-full rounded-full outline-0 bg-[#1263a100] text-[#1262A1] border border-[#1262A1]/30"
+                  >
+                    <option value="">Select Residential Status</option>
+                    <option value="NZ Citizen">NZ Citizen</option>
+                    <option value="NZ Resident">NZ Resident</option>
+                    <option value="Non NZ Resident">Non NZ Resident</option>
+                    <option value="Work Visa">Work Visa</option>
+                  </select>
+                </div>
                 {errors.residentialStatus && (
                   <p className="text-red-500 text-sm">
                     {errors.residentialStatus}
@@ -815,30 +846,32 @@ const MyForm = () => {
                   <label className="text-gray-800 font-medium">
                     Employment Status
                   </label>
-                  <select
-                    name="employmentStatus"
-                    value={formData.employmentStatus}
-                    onChange={handleChange}
-                    className="p-3 w-full rounded-full outline-0 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
-                  >
-                    <option value="">Select Employment Status</option>
-                    <option value="Employed Full-Time">
-                      Employed Full-Time
-                    </option>
-                    <option value="Employed Part-Time">
-                      Employed Part-Time
-                    </option>
-                    <option value="Contractor">Contractor</option>
-                    <option value="Self Employed">Self Employed</option>
-                    <option value="Unemployed">Unemployed</option>
-                    <option value="Disabled">Disabled</option>
-                    <option value="Temporary">Temporary</option>
-                    <option value="Retired">Retired</option>
-                    <option value="WINZ">WINZ</option>
-                    <option value="ACC">ACC</option>
-                    <option value="WINZ & ACC">WINZ & ACC</option>
-                    <option value="Studylink">Studylink</option>
-                  </select>
+                  <div className="relative rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
+                    <select
+                      name="employmentStatus"
+                      value={formData.employmentStatus}
+                      onChange={handleChange}
+                      className="p-3 w-full rounded-full outline-0 bg-[#1263a100] text-[#1262A1] border border-[#1262A1]/30"
+                    >
+                      <option value="">Select Employment Status</option>
+                      <option value="Employed Full-Time">
+                        Employed Full-Time
+                      </option>
+                      <option value="Employed Part-Time">
+                        Employed Part-Time
+                      </option>
+                      <option value="Contractor">Contractor</option>
+                      <option value="Self Employed">Self Employed</option>
+                      <option value="Unemployed">Unemployed</option>
+                      <option value="Disabled">Disabled</option>
+                      <option value="Temporary">Temporary</option>
+                      <option value="Retired">Retired</option>
+                      <option value="WINZ">WINZ</option>
+                      <option value="ACC">ACC</option>
+                      <option value="WINZ & ACC">WINZ & ACC</option>
+                      <option value="Studylink">Studylink</option>
+                    </select>
+                  </div>
                   {errors.employmentStatus && (
                     <p className="text-red-500 text-sm">
                       {errors.employmentStatus}
@@ -864,12 +897,12 @@ const MyForm = () => {
                   <label className="text-gray-800 font-medium">
                     Time at Employment
                   </label>
-                  <div className="flex">
+                  <div className="flex rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
                     <select
                       name="timeAtEmployerMonths"
                       value={formData.timeAtEmployerMonths}
                       onChange={handleChange}
-                      className="w-1/2 rounded-l-full outline-0 p-3 bg-[#1262A11A] text-[#1262A1] border border-r-0 border-[#1262A1]/30"
+                      className="w-1/2 rounded-l-full outline-0 p-3 bg-[#1263a100] text-[#1262A1] border border-r-0 border-[#1262A1]/30"
                     >
                       <option value="">Month</option>
                       {/* Add month options */}
@@ -885,7 +918,7 @@ const MyForm = () => {
                       name="timeAtEmployerYears"
                       value={formData.timeAtEmployerYears}
                       onChange={handleChange}
-                      className="w-1/2 rounded-r-full outline-0 p-3 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                      className="w-1/2 rounded-r-full outline-0 p-3 bg-[#1263a100] text-[#1263a1f7] border border-[#1262A1]/30"
                     >
                       <option value="">Year</option>
                       {/* Add year options */}
