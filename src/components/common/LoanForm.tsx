@@ -376,6 +376,7 @@ const MyForm = () => {
               My Details
             </label>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full mb-10">
+              {/* Title */}
               <div className="space-y-2">
                 <label className="text-gray-800 font-medium">Title:</label>
                 <select
@@ -384,6 +385,9 @@ const MyForm = () => {
                   onChange={handleChange}
                   style={{
                     height: "3.1rem",
+                    WebkitAppearance: "none",
+                    MozAppearance: "none",
+                    appearance: "none",
                   }}
                   className="p-3 w-full rounded-full outline-0 px-4 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                 >
@@ -399,6 +403,7 @@ const MyForm = () => {
                 )}
               </div>
 
+              {/* First Name */}
               <div className="space-y-2">
                 <label className="text-gray-800 font-medium">First Name:</label>
                 <input
@@ -406,13 +411,20 @@ const MyForm = () => {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
-                  className=" p-3 w-full rounded-full outline-0 px-2 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  autoComplete="off"
+                  placeholder="Enter your first name"
+                  className="p-3 w-full rounded-full placeholder:text-[#1262A1] outline-0 px-4 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  style={{
+                    WebkitAppearance: "none",
+                    appearance: "none",
+                  }}
                 />
                 {errors.firstName && (
                   <p className="text-red-500 text-sm">{errors.firstName}</p>
                 )}
               </div>
 
+              {/* Last Name */}
               <div className="space-y-2">
                 <label className="text-gray-800 font-medium">Last Name:</label>
                 <input
@@ -420,7 +432,13 @@ const MyForm = () => {
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className=" p-3  w-full rounded-full outline-0 px-2 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  autoComplete="off"
+                  placeholder="Enter your last name"
+                  className="p-3 w-full rounded-full outline-0 placeholder:text-[#1262A1] px-4 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  style={{
+                    WebkitAppearance: "none",
+                    appearance: "none",
+                  }}
                 />
                 {errors.lastName && (
                   <p className="text-red-500 text-sm">{errors.lastName}</p>
@@ -456,7 +474,7 @@ const MyForm = () => {
                 </div>
               </div>
 
-              <div className="space-y-2 ">
+              <div className="space-y-2">
                 <label className="text-gray-800 font-medium">
                   Marital Status:
                 </label>
@@ -465,25 +483,29 @@ const MyForm = () => {
                     name="maritalStatus"
                     value={formData.maritalStatus}
                     onChange={handleChange}
+                    className="p-3 w-full rounded-full outline-none px-16 text-[#1262A1] bg-transparent appearance-none"
                     style={{
                       height: "3rem",
+                      WebkitAppearance: "none", // Safari fix
+                      MozAppearance: "none", // Firefox fix
+                      appearance: "none", // General fix
                     }}
-                    className="p-3 w-full bg-[#1263a100] rounded-full  outline-0 px-16 "
                   >
                     <option value="">Select Marital Status</option>
                     <option value="Single">Single</option>
                     <option value="Married">Married</option>
                     <option value="Divorced">Divorced</option>
                   </select>
+
                   <Image
-                    src={"/assets/users.png"}
-                    alt=""
-                    className="absolute left-4 text-2xl top-1/2 transform -translate-y-1/2 border text-[#1262A1]"
-                    width="24"
-                    height="24"
+                    src="/assets/users.png"
+                    alt="user icon"
+                    width={24}
+                    height={24}
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#1262A1]"
                   />
 
-                  <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin border-0 left-5 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
+                  <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin left-5 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
                 </div>
               </div>
 
@@ -495,17 +517,24 @@ const MyForm = () => {
                     name="noOfDependents"
                     value={formData.noOfDependents}
                     onChange={handleChange}
-                    className=" p-3  w-full rounded-full outline-0 px-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
-                  />
-                  <Image
-                    src={"/assets/human.png"}
-                    alt=""
-                    className="absolute font-semibold text-2xl left-4 top-1/2 transform -translate-y-1/2 border text-[#1262A1]"
-                    width="16"
-                    height="16"
+                    placeholder="Enter dependencies"
+                    className="p-3 w-full rounded-full placeholder:text-[#1262A1] outline-0 px-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30 appearance-none"
+                    style={{
+                      MozAppearance: "textfield", // Firefox: removes spinner
+                    }}
+                    // For Safari & Chrome: removes spinner arrows
+                    onWheel={(e) => e.currentTarget.blur()}
                   />
 
-                  <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin border-0 left-5 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
+                  <Image
+                    src="/assets/human.png"
+                    alt="dependents icon"
+                    width={16}
+                    height={16}
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#1262A1]"
+                  />
+
+                  <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin left-5 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
                 </div>
               </div>
             </div>
@@ -522,8 +551,11 @@ const MyForm = () => {
                     onChange={handleChange}
                     style={{
                       height: "3rem",
+                      WebkitAppearance: "none", // for Safari
+                      MozAppearance: "none", // for Firefox
+                      appearance: "none", // general
                     }}
-                    className="p-3 w-full rounded-full outline-0 px-16 bg-[#1263a100]"
+                    className="p-3 w-full rounded-full outline-0 px-16 bg-transparent text-[#1262A1] cursor-pointer"
                   >
                     <option value="">Select DL Type</option>
                     <option value="Restricted">Restricted</option>
@@ -536,45 +568,30 @@ const MyForm = () => {
                   <Image
                     src={"/assets/dl.png"}
                     alt=""
-                    className="absolute text-2xl left-4 top-1/2 transform -translate-y-1/2 border text-[#1262A1]"
+                    className="absolute text-2xl left-4 top-1/2 transform -translate-y-1/2 text-[#1262A1]"
                     width="20"
                     height="20"
                   />
-
                   <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin border-0 left-5 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
                 </div>
               </div>
-
               <div className="space-y-2">
                 <label className="text-gray-800 font-medium">
                   Mobile Number:
                 </label>
-                {/* <div className="relative">
-                  <input
-                    type="number"
-                    name="mobile"
-                    value={formData.mobile}
-                    onChange={handleChange}
-                    className=" p-3  w-full rounded-full outline-0 px-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
-                  />
-                  <Image
-                    src={"/assets/call.png"}
-                    alt=""
-                    className="absolute text-2xl left-4 top-1/2 transform -translate-y-1/2 border text-[#1262A1]"
-                    width="20"
-                    height="20"
-                  />
 
-                  <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin border-0 left-5 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
-                </div> */}
-
-                <div className="relative flex items-center bg-[#1262A11A] border border-[#1262A1]/30 rounded-full overflow-hidden px-3">
-                  {/* Country code dropdown - auto width */}
+                <div className="relative flex items-center bg-[#1262A11A] border border-[#1262A1]/30 rounded-full overflow-hidden px-4">
+                  {/* Country code select */}
                   <select
                     name="countryCode"
                     value={formData.countryCode}
                     onChange={handleChange}
-                    className="bg-transparent w-1/5 text-[#1262A1] border-r-[2px] border-[#1262A1]/30 outline-none appearance-none py-3"
+                    className="bg-transparent w-12 text-[#1262A1] border-r border-[#1262A1]/30 outline-none py-3 pr-3 appearance-none"
+                    style={{
+                      WebkitAppearance: "none",
+                      MozAppearance: "none",
+                      appearance: "none",
+                    }}
                   >
                     <option value="+64">+64</option>
                     {countries.map((country, index) => (
@@ -583,15 +600,19 @@ const MyForm = () => {
                       </option>
                     ))}
                   </select>
-                  {/* Mobile number input - takes the rest of the width */}
+
+                  {/* Mobile input */}
                   <input
-                    type="number"
+                    type="tel"
                     name="mobile"
                     value={formData.mobile}
                     onChange={handleChange}
-                    className="flex-1 w-full py-3 pl-2 bg-transparent text-[#1262A1] outline-none"
+                    placeholder="Enter mobile number"
+                    className="flex-1 py-3 pl-4 pr-2 placeholder:text-[#1262A1] bg-transparent text-[#1262A1] outline-none"
                   />
                 </div>
+
+                {/* Validation Errors */}
                 {errors.countryCode && (
                   <p className="text-red-500 text-sm">{errors.countryCode}</p>
                 )}
@@ -599,7 +620,6 @@ const MyForm = () => {
                   <p className="text-red-500 text-sm">{errors.mobile}</p>
                 )}
               </div>
-
               <div className="space-y-2">
                 <label className="text-gray-800 font-medium">Email:</label>
                 <div className="relative">
@@ -608,7 +628,8 @@ const MyForm = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className=" p-3  w-full rounded-full outline-0 px-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                    placeholder="Enter your email"
+                    className="py-3 w-full placeholder:text-[#1262A1] rounded-full outline-0 pl-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                   />
                   <Image
                     src={"/assets/email.png"}
@@ -624,20 +645,35 @@ const MyForm = () => {
                   <p className="text-red-500 text-sm">{errors.email}</p>
                 )}
               </div>
-
               <div className="space-y-2">
                 <label className="text-gray-800 font-medium">
                   Preferred Contact Method:
                 </label>
-                <div className="relative overflow-hidden rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
+
+                <div className="relative overflow-hidden rounded-full bg-[#1262A11A] border border-[#1262A1]/30 text-[#1262A1]">
+                  {/* Icon */}
+                  <Image
+                    src="/assets/contacti.png"
+                    alt="contact"
+                    width={20}
+                    height={20}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 z-10"
+                  />
+
+                  {/* Vertical line */}
+                  <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin border-0 left-5 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
+
+                  {/* Select field */}
                   <select
                     name="preferredContact"
                     value={formData.preferredContact}
                     onChange={handleChange}
+                    className="appearance-none w-full py-3 pl-16 pr-8 bg-transparent text-[#1262A1] outline-none rounded-full cursor-pointer"
                     style={{
-                      height: "3rem",
+                      WebkitAppearance: "none",
+                      MozAppearance: "none",
+                      appearance: "none",
                     }}
-                    className="p-3 w-full rounded-full outline-0 px-16 bg-[#1263a100]"
                   >
                     <option value="">Select Preferred Contact</option>
                     <option value="Phone">Phone</option>
@@ -649,15 +685,23 @@ const MyForm = () => {
                     <option value="WhatsApp">WhatsApp</option>
                     <option value="Signal">Signal</option>
                   </select>
-                  <Image
-                    src={"/assets/contacti.png"}
-                    alt=""
-                    className="absolute text-2xl left-4 top-1/2 transform -translate-y-1/2 border text-[#1262A1]"
-                    width="20"
-                    height="20"
-                  />
 
-                  <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin border-0 left-5 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
+                  {/* Optional custom dropdown arrow */}
+                  <svg
+                    className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[#1262A1]"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M1.5 5.5l6 6 6-6"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      fill="none"
+                    />
+                  </svg>
                 </div>
               </div>
             </div>
