@@ -13,7 +13,7 @@ const WhyWeAreBest = () => {
     {
       title: "Secure & reliable Transaction",
       description:
-        "Safety is paramount at Esteem Car Loans for us. Leading levels of encryptions cover your personal as well as monetary details, thereby enabling secure as well as sound transactions whenever you borrow a loan.",
+        "Safety is paramount at Esteem Finance Car Loans for us. Leading levels of encryptions cover your personal as well as monetary details, thereby enabling secure as well as sound transactions whenever you borrow a loan.",
 
       image: "/images/why2.png",
       date: "Jan 02 2025",

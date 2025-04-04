@@ -78,7 +78,7 @@ export default function LoginModal({ isOpen, onClose, setSignUpOpen }: any) {
 
           <div className="w-full max-w-md">
             <h2 className="text-2xl font-semibold text-[#1262A1] mb-2">
-              Welcome Back to Esteem Car Loans !
+              Welcome Back to Esteem Finance Car Loans !
             </h2>
             <p className="text-[#7d7d7d] mb-6 text-sm">
               At Esteem Finance Car Loans, we understand that buying a car is more than

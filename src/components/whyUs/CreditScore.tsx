@@ -11,7 +11,7 @@ export default function CreditScore() {
         </h2>
         <p className="text-base sm:text-base md:text-sm lg:text-sm xl:text-base font-medium font-[cabin] line-clamp-4 md:line-clamp-none text-gray-500 lg:px-10 mt-4 ">
           {
-            "With  Esteem Car Loans, you can obtain the most suitable loan quotes that are customized to your credit score. We have a couple of lenders that we utilize in a bid to give you the best deal."
+            "With  Esteem Finance Car Loans, you can obtain the most suitable loan quotes that are customized to your credit score. We have a couple of lenders that we utilize in a bid to give you the best deal."
           }
         </p>
       </div>
