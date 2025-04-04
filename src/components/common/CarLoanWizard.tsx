@@ -17,11 +17,12 @@ import { toast } from "react-toastify";
 import Step13 from "./wizardForm/Step13";
 import Step8 from "./wizardForm/Step8";
 
-const CarLoanWizard = () => {
+const CarLoanWizard = ({ id }: any) => {
   const [step, setStep] = useState(1);
   const [userLocalData, setUserLocalData] = useState<any>();
   const [, setIsSubmited] = useState(false);
   const [formData, setFormData] = useState<any>({
+    loanApplicationId: id ?? "",
     userType: "",
     vehicleMake: "",
     vehicleModel: "",
