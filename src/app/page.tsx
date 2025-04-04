@@ -1,34 +1,35 @@
 import CarSearchBanner from "@/components/home/CarSearchBanner";
 import Challenges from "@/components/home/Challenges";
 import ContactSection from "@/components/home/ContactSection";
+import ContactSectionLanding from "@/components/home/ContactSectionLanding";
 import EmiCalculator from "@/components/home/EmiCalculator";
-import HeroSectionSlider from "@/components/home/HeroSectionSlider";
+import FAQLanding from "@/components/home/FAQsLanding";
 import LatestBlogs from "@/components/home/LatestBlogs";
+import LatestBlogsLanding from "@/components/home/LatestBlogsLanding";
 import LoanBanner from "@/components/home/LoanBanner";
 import OurPartners from "@/components/home/OurPartners";
-import OurSimple from "@/components/home/OurSimple";
-import OverComes from "@/components/home/OverComes";;
+import SearchCars from "@/components/home/SearchCars";
 import Testimonials2 from "@/components/home/Testimonials2";
-import WhyChooseUs from "@/components/home/WhyChooseUS";
+import LandingHeroSection from "@/components/landingpage/LandingHeroSection";
+import OurSimpleProcess from "@/components/landingpage/OurSimpleProcess";
+import OverComesLanding from "@/components/landingpage/OverComesLanding";
+import WhyEsteeemLanding from "@/components/landingpage/WhyEsteeemLanding";
 import Faq from "@/components/support/Faq";
 
 const Home = () => {
-
   return (
     <div>
-      <HeroSectionSlider slug="home" />
+      <LandingHeroSection />
       <OurPartners />
-      <OurSimple />
-      <Challenges />
-      <CarSearchBanner />
-      <OverComes />
-      <WhyChooseUs />
+      <OurSimpleProcess />
+      <OverComesLanding />
       <EmiCalculator />
-      <LoanBanner />
+      <WhyEsteeemLanding />
+      <SearchCars />
+      <FAQLanding />
       <Testimonials2 />
-      <LatestBlogs />
-      <Faq />
-      <ContactSection />
+      <LatestBlogsLanding />
+      <ContactSectionLanding />
     </div>
   );
 };
