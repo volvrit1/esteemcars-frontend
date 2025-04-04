@@ -105,10 +105,10 @@ export default function SignUpModal({ isOpen, onClose, setLoginOpen }: any) {
 
           <div className="w-full max-w-md overflow-auto h-[80vh] some-container">
             <h2 className="text-2xl font-semibold text-[#1262A1] mb-2">
-              Welcome Back to Esteem Car Loans !
+              Welcome Back to Esteem Finance Car Loans !
             </h2>
             <p className="text-[#7d7d7d] mb-6 text-sm">
-              At Esteem Car Loans, we understand that buying a car is more than
+              At Esteem Finance Car Loans, we understand that buying a car is more than
               just a purchase—it’s a milestone.
             </p>
             <form onSubmit={handleSubmit}>

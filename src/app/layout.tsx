@@ -44,8 +44,8 @@ export const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "ESTEEM CARS",
-  description: "ESTEEM CARS",
+  title: "ESTEEM FINANCE",
+  description: "ESTEEM FINANCE",
 };
 
 export default function RootLayout({

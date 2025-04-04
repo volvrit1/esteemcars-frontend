@@ -20,7 +20,7 @@ export default function WhyUsBanner() {
           </h2>
           <p className="text-lg sm:text-lg md:text-lg lg:text-lg xl:text-lg line-clamp-4 md:line-clamp-none text-[#252525] mt-4 leading-8 mb-8 lg:w-3/4">
             {
-              "At Esteem Car Loans, we understand that buying a car is more than just a purchase—it’s a milestone. That’s why we are committed to providing the most hassle-free, transparent, and affordable car loan solutions tailored to your credit profile"
+              "At Esteem Finance Car Loans, we understand that buying a car is more than just a purchase—it’s a milestone. That’s why we are committed to providing the most hassle-free, transparent, and affordable car loan solutions tailored to your credit profile"
             }
           </p>
           <Link

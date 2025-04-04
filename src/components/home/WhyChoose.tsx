@@ -12,11 +12,11 @@ const WhyChoose = () => {
       <div className="lg:w-4/5 m-auto text-center  lg:p-8 bg-opacity-80">
         <h2 className="lg:w-3/5 m-auto text-2xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl font-semibold text-[#252525] font-[poppins]">
           {"Why Choose "}
-          {" Esteem Car Loans"}
+          {" Esteem Finance Car Loans"}
         </h2>
         <p className=" text-base sm:text-base md:text-base lg:text-base xl:text-base line-clamp-4 md:line-clamp-none font-[cabin] text-[#252525] py-4  mt-4 mb-4">
           {
-            "Choose  Esteem Car Loans to secure competitive rates, favorable terms, and an easy application process, guaranteeing the finest financing deals."
+            "Choose Esteem Finance Car Loans to secure competitive rates, favorable terms, and an easy application process, guaranteeing the finest financing deals."
           }
         </p>
       </div>

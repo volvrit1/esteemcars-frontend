@@ -7,7 +7,7 @@ export default function Page() {
   const data = {
     title: "Our Latest Blogs",
     description:
-      "At Esteem Car Loans, we understand that buying a car is more than just a purchase—it’s a milestone. That’s why we are committed to providing the most hassle-free, transparent, and affordable car loan solutions tailored to your credit profile.",
+      "At Esteem Finace Car Loans, we understand that buying a car is more than just a purchase—it’s a milestone. That’s why we are committed to providing the most hassle-free, transparent, and affordable car loan solutions tailored to your credit profile.",
     image: "/images/heroCar.png",
     link: "/",
   };

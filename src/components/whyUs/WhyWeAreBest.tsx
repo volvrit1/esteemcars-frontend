@@ -21,7 +21,7 @@ const WhyWeAreBest = () => {
     {
       title: "Trusted by Thousand",
       description:
-        "With thousands of happy customers, Esteem Car Loans has established itself as a reliable and trustworthy source for car loans. Become one of the many individuals who have enjoyed our great service and easy loan process.",
+        "With thousands of happy customers, Esteem Finance Car Loans has established itself as a reliable and trustworthy source for car loans. Become one of the many individuals who have enjoyed our great service and easy loan process.",
 
       image: "/images/why3.png",
       date: "Jan 02 2025",
@@ -37,7 +37,7 @@ const WhyWeAreBest = () => {
         </h2>
         <p className="lg:w-5/6 m-auto text-base sm:text-base md:text-base lg:text-sm xl:text-base font-medium font-[cabin] line-clamp-4 md:line-clamp-none text-gray-500 lg:px-10 mt-4 mb-4">
           {
-            "Esteem Car Loans is unique in that we offer world-class customer service, easy loan terms, quick approval times, and a solid reputation for offering solid, transparent financing solutions that serve all your purposes."
+            "Esteem Finance Car Loans is unique in that we offer world-class customer service, easy loan terms, quick approval times, and a solid reputation for offering solid, transparent financing solutions that serve all your purposes."
           }
         </p>
       </div>

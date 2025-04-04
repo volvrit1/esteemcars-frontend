@@ -81,7 +81,7 @@ export default function LoginModal({ isOpen, onClose, setSignUpOpen }: any) {
               Welcome Back to Esteem Car Loans !
             </h2>
             <p className="text-[#7d7d7d] mb-6 text-sm">
-              At Esteem Car Loans, we understand that buying a car is more than
+              At Esteem Finance Car Loans, we understand that buying a car is more than
               just a purchase—it’s a milestone.
             </p>
 

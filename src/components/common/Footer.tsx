@@ -21,7 +21,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-gray-300 mt-2 mb-4 text-base lg:text-sm">
-              Esteem Cars offers reliable, affordable vehicles with flexible
+              Esteem Finance offers reliable, affordable vehicles with flexible
               financing options and nationwide delivery services.
             </p>
             <h2>Follow Us</h2>
@@ -94,7 +94,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-gray-700 py-4 text-center flex flex-col lg:flex-row justify-between text-gray-100">
           <span className="text-sm mb-2 lg:mb-0">
-            Copyright 2025, ESTEEM Cars
+            Copyright 2025, ESTEEM FINANCE
           </span>
           <p className="text-sm">
             All Rights Reserved |{" "}
