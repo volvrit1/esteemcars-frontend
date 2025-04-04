@@ -389,7 +389,7 @@ const MyForm = () => {
                     MozAppearance: "none",
                     appearance: "none",
                   }}
-                  className="p-3 w-full rounded-full outline-0 px-4 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  className="p-3 w-full rounded-full outline-none px-4 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                 >
                   <option value="">Select Title</option>
                   <option value="Mr">Mr</option>
@@ -413,7 +413,7 @@ const MyForm = () => {
                   onChange={handleChange}
                   autoComplete="off"
                   placeholder="Enter your first name"
-                  className="p-3 w-full rounded-full placeholder:text-[#1262A1] outline-0 px-4 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  className="p-3 w-full rounded-full placeholder:text-[#1262A1] outline-none px-4 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                   style={{
                     WebkitAppearance: "none",
                     appearance: "none",
@@ -434,7 +434,7 @@ const MyForm = () => {
                   onChange={handleChange}
                   autoComplete="off"
                   placeholder="Enter your last name"
-                  className="p-3 w-full rounded-full outline-0 placeholder:text-[#1262A1] px-4 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  className="p-3 w-full rounded-full outline-none placeholder:text-[#1262A1] px-4 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                   style={{
                     WebkitAppearance: "none",
                     appearance: "none",
@@ -459,7 +459,7 @@ const MyForm = () => {
                     style={{
                       height: "3.1rem",
                     }}
-                    className="p-3 w-full rounded-full outline-0 pl-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                    className="p-3 w-full rounded-full outline-none pl-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                   />
 
                   <Image
@@ -518,7 +518,7 @@ const MyForm = () => {
                     value={formData.noOfDependents}
                     onChange={handleChange}
                     placeholder="Enter dependencies"
-                    className="p-3 w-full rounded-full placeholder:text-[#1262A1] outline-0 px-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30 appearance-none"
+                    className="p-3 w-full rounded-full placeholder:text-[#1262A1] outline-none px-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30 appearance-none"
                     style={{
                       MozAppearance: "textfield", // Firefox: removes spinner
                     }}
@@ -538,7 +538,6 @@ const MyForm = () => {
                 </div>
               </div>
             </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full mb-10">
               <div className="space-y-2">
                 <label className="text-gray-800 font-medium">
@@ -555,7 +554,7 @@ const MyForm = () => {
                       MozAppearance: "none", // for Firefox
                       appearance: "none", // general
                     }}
-                    className="p-3 w-full rounded-full outline-0 px-16 bg-transparent text-[#1262A1] cursor-pointer"
+                    className="p-3 w-full rounded-full outline-none px-16 bg-transparent text-[#1262A1] cursor-pointer"
                   >
                     <option value="">Select DL Type</option>
                     <option value="Restricted">Restricted</option>
@@ -629,7 +628,7 @@ const MyForm = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Enter your email"
-                    className="py-3 w-full placeholder:text-[#1262A1] rounded-full outline-0 pl-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                    className="py-3 w-full placeholder:text-[#1262A1] rounded-full outline-none pl-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                   />
                   <Image
                     src={"/assets/email.png"}
@@ -723,9 +722,10 @@ const MyForm = () => {
                 <input
                   type="text"
                   name="streetAddress"
+                  placeholder="Enter street address"
                   value={formData.streetAddress}
                   onChange={handleChange}
-                  className="p-3 w-full rounded-full outline-0 px-2 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  className="p-3 w-full rounded-full placeholder:text-[#1262A1] outline-none px-2 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                 />
                 {errors.streetAddress && (
                   <p className="text-red-500 text-sm">{errors.streetAddress}</p>
@@ -739,9 +739,10 @@ const MyForm = () => {
                 <input
                   type="text"
                   name="addressLine2"
+                  placeholder="Apartment, suite, etc."
                   value={formData.addressLine2}
                   onChange={handleChange}
-                  className="p-3 w-full rounded-full outline-0 px-2 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  className="p-3 w-full rounded-full placeholder:text-[#1262A1] outline-none px-2 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                 />
                 {errors.addressLine2 && (
                   <p className="text-red-500 text-sm">{errors.addressLine2}</p>
@@ -753,9 +754,10 @@ const MyForm = () => {
                 <input
                   type="text"
                   name="city"
+                  placeholder="Enter city"
                   value={formData.city}
                   onChange={handleChange}
-                  className="w-full rounded-full outline-0 p-3 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  className="w-full rounded-full placeholder:text-[#1262A1] outline-none p-3 px-2 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                 />
                 {errors.city && (
                   <p className="text-red-500 text-sm">{errors.city}</p>
@@ -765,11 +767,14 @@ const MyForm = () => {
               <div className="space-y-2">
                 <label className="text-gray-800 font-medium">Postal Code</label>
                 <input
-                  type="number"
+                  type="text"
                   name="postalCode"
+                  placeholder="Enter postal code"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
                   value={formData.postalCode}
                   onChange={handleChange}
-                  className="p-3 w-full rounded-full outline-0 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  className="p-3 w-full rounded-full placeholder:text-[#1262A1] outline-none px-2 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                 />
                 {errors.postalCode && (
                   <p className="text-red-500 text-sm">{errors.postalCode}</p>
@@ -785,7 +790,12 @@ const MyForm = () => {
                     name="propertyStatus"
                     value={formData.propertyStatus}
                     onChange={handleChange}
-                    className="p-3 w-full rounded-full outline-0 bg-[#1263a100] text-[#1262A1] border border-[#1262A1]/30"
+                    className="p-3 w-full rounded-full outline-none bg-[#1263a100] text-[#1262A1]"
+                    style={{
+                      WebkitAppearance: "none",
+                      MozAppearance: "none",
+                      appearance: "none",
+                    }}
                   >
                     <option value="">Select Property Status</option>
                     <option value="Owned">Owned</option>
@@ -804,15 +814,19 @@ const MyForm = () => {
                 <label className="text-gray-800 font-medium">
                   Time at Property
                 </label>
-                <div className="relative rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
+                <div className="flex overflow-hidden rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
                   <select
                     name="timeAtPropertyMonths"
                     value={formData.timeAtPropertyMonths}
                     onChange={handleChange}
-                    className="w-1/2 rounded-l-full outline-0 p-3 bg-[#1263a100] text-[#1262A1] border border-r-0 border-[#1262A1]/30"
+                    className="w-1/2 rounded-l-full outline-none p-3 bg-[#1263a100] text-[#1262A1] border-r border-[#1262A1]/30"
+                    style={{
+                      WebkitAppearance: "none",
+                      MozAppearance: "none",
+                      appearance: "none",
+                    }}
                   >
                     <option value="">Month</option>
-                    {/* Add month options */}
                     {[...Array(12).keys()].map((i) => (
                       <option key={i} value={i + 1}>
                         {new Date(0, i).toLocaleString("default", {
@@ -821,14 +835,19 @@ const MyForm = () => {
                       </option>
                     ))}
                   </select>
+
                   <select
                     name="timeAtPropertyYears"
                     value={formData.timeAtPropertyYears}
                     onChange={handleChange}
-                    className="w-1/2 rounded-r-full outline-0 p-3 bg-[#1263a100] text-[#1262A1] border border-[#1262A1]/30"
+                    className="w-1/2 rounded-r-full outline-none p-3 bg-[#1263a100] text-[#1262A1]"
+                    style={{
+                      WebkitAppearance: "none",
+                      MozAppearance: "none",
+                      appearance: "none",
+                    }}
                   >
                     <option value="">Year</option>
-                    {/* Add year options */}
                     {[...Array(20).keys()].map((i) => (
                       <option key={i} value={2020 + i}>
                         {2020 + i}
@@ -853,17 +872,11 @@ const MyForm = () => {
                     name="monthlyCost"
                     value={formData.monthlyCost}
                     onChange={handleChange}
-                    style={{
-                      height: "3rem",
-                    }}
-                    className="w-full rounded-full outline-0 p-3 pl-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                    placeholder="Enter a monthly cost"
+                    className="w-full h-12 rounded-full outline-none placeholder:text-[#1262A1] pl-16 pr-4 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                   />
-                  <FaDollarSign
-                    className="absolute left-5 text-xl top-1/2 transform -translate-y-1/2 border text-[#1262A1]"
-                    width="20"
-                    height="20"
-                  />
-                  <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin border-0 left-6 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
+                  <FaDollarSign className="absolute left-5 top-1/2 -translate-y-1/2 text-[#1262A1] text-lg" />
+                  <PiLineVerticalThin className="absolute left-6 top-1/2 -translate-y-1/2 text-[#1262A1] text-[3rem] opacity-40" />
                 </div>
                 {errors.monthlyCost && (
                   <p className="text-red-500 text-sm">{errors.monthlyCost}</p>
@@ -877,7 +890,8 @@ const MyForm = () => {
                   name="region"
                   value={formData.region}
                   onChange={handleChange}
-                  className="p-3 w-full rounded-full outline-0 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  placeholder="Enter region"
+                  className="w-full p-3 rounded-full outline-none bg-[#1262A11A] text-[#1262A1] placeholder:text-[#1262A1] border border-[#1262A1]/30"
                 />
                 {errors.region && (
                   <p className="text-red-500 text-sm">{errors.region}</p>
@@ -888,12 +902,12 @@ const MyForm = () => {
                 <label className="text-gray-800 font-medium">
                   Residential Status
                 </label>
-                <div className="relative rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
+                <div className="relative">
                   <select
                     name="residentialStatus"
                     value={formData.residentialStatus}
                     onChange={handleChange}
-                    className="p-3 w-full rounded-full outline-0 bg-[#1263a100] text-[#1262A1] border border-[#1262A1]/30"
+                    className="w-full p-3 pr-10 rounded-full outline-none appearance-none bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                   >
                     <option value="">Select Residential Status</option>
                     <option value="NZ Citizen">NZ Citizen</option>
@@ -901,7 +915,24 @@ const MyForm = () => {
                     <option value="Non NZ Resident">Non NZ Resident</option>
                     <option value="Work Visa">Work Visa</option>
                   </select>
+
+                  {/* Custom dropdown arrow */}
+                  <svg
+                    className="pointer-events-none absolute right-4 top-1/2 transform -translate-y-1/2 text-[#1262A1] w-4 h-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
                 </div>
+
                 {errors.residentialStatus && (
                   <p className="text-red-500 text-sm">
                     {errors.residentialStatus}
@@ -909,6 +940,7 @@ const MyForm = () => {
                 )}
               </div>
             </div>
+
             <div>
               <label
                 htmlFor=""
@@ -917,16 +949,17 @@ const MyForm = () => {
                 Employment
               </label>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 gap-y-10 w-full">
+                {/* Employment Status */}
                 <div className="space-y-2">
                   <label className="text-gray-800 font-medium">
                     Employment Status
                   </label>
-                  <div className="relative rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
+                  <div className="relative">
                     <select
                       name="employmentStatus"
                       value={formData.employmentStatus}
                       onChange={handleChange}
-                      className="p-3 w-full rounded-full outline-0 bg-[#1263a100] text-[#1262A1] border border-[#1262A1]/30"
+                      className="w-full p-3 pr-10 rounded-full appearance-none outline-none bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                     >
                       <option value="">Select Employment Status</option>
                       <option value="Employed Full-Time">
@@ -946,6 +979,20 @@ const MyForm = () => {
                       <option value="WINZ & ACC">WINZ & ACC</option>
                       <option value="Studylink">Studylink</option>
                     </select>
+                    <svg
+                      className="pointer-events-none absolute right-4 top-1/2 transform -translate-y-1/2 text-[#1262A1] w-4 h-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
                   </div>
                   {errors.employmentStatus && (
                     <p className="text-red-500 text-sm">
@@ -954,6 +1001,7 @@ const MyForm = () => {
                   )}
                 </div>
 
+                {/* Job Title */}
                 <div className="space-y-2">
                   <label className="text-gray-800 font-medium">Job Title</label>
                   <input
@@ -961,48 +1009,80 @@ const MyForm = () => {
                     name="jobTitle"
                     value={formData.jobTitle}
                     onChange={handleChange}
-                    className="w-full rounded-full outline-0 p-3 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                    placeholder="Please provide a job title"
+                    className="w-full p-3 rounded-full outline-none bg-[#1262A11A] text-[#1262A1] placeholder:text-[#1262A1] border border-[#1262A1]/30"
                   />
                   {errors.jobTitle && (
                     <p className="text-red-500 text-sm">{errors.jobTitle}</p>
                   )}
                 </div>
 
+                {/* Time at Employment */}
                 <div className="space-y-2">
                   <label className="text-gray-800 font-medium">
                     Time at Employment
                   </label>
-                  <div className="flex rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
-                    <select
-                      name="timeAtEmployerMonths"
-                      value={formData.timeAtEmployerMonths}
-                      onChange={handleChange}
-                      className="w-1/2 rounded-l-full outline-0 p-3 bg-[#1263a100] text-[#1262A1] border border-r-0 border-[#1262A1]/30"
-                    >
-                      <option value="">Month</option>
-                      {/* Add month options */}
-                      {[...Array(12).keys()].map((i) => (
-                        <option key={i} value={i + 1}>
-                          {new Date(0, i).toLocaleString("default", {
-                            month: "long",
-                          })}
-                        </option>
-                      ))}
-                    </select>
-                    <select
-                      name="timeAtEmployerYears"
-                      value={formData.timeAtEmployerYears}
-                      onChange={handleChange}
-                      className="w-1/2 rounded-r-full outline-0 p-3 bg-[#1263a100] text-[#1263a1f7] border border-[#1262A1]/30"
-                    >
-                      <option value="">Year</option>
-                      {/* Add year options */}
-                      {[...Array(20).keys()].map((i) => (
-                        <option key={i} value={2020 + i}>
-                          {2020 + i}
-                        </option>
-                      ))}
-                    </select>
+                  <div className="flex rounded-full overflow-hidden border border-[#1262A1]/30 text-[#1262A1] bg-[#1262A11A]">
+                    <div className="relative w-1/2">
+                      <select
+                        name="timeAtEmployerMonths"
+                        value={formData.timeAtEmployerMonths}
+                        onChange={handleChange}
+                        className="w-full p-3 pr-10 appearance-none outline-none bg-transparent text-[#1262A1] border-r border-[#1262A1]/30"
+                      >
+                        <option value="">Month</option>
+                        {[...Array(12).keys()].map((i) => (
+                          <option key={i} value={i + 1}>
+                            {new Date(0, i).toLocaleString("default", {
+                              month: "long",
+                            })}
+                          </option>
+                        ))}
+                      </select>
+                      <svg
+                        className="pointer-events-none absolute right-3 top-1/2 transform -translate-y-1/2 text-[#1262A1] w-4 h-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </div>
+                    <div className="relative w-1/2">
+                      <select
+                        name="timeAtEmployerYears"
+                        value={formData.timeAtEmployerYears}
+                        onChange={handleChange}
+                        className="w-full p-3 pr-10 appearance-none outline-none bg-transparent text-[#1262A1]"
+                      >
+                        <option value="">Year</option>
+                        {[...Array(20).keys()].map((i) => (
+                          <option key={i} value={2020 + i}>
+                            {2020 + i}
+                          </option>
+                        ))}
+                      </select>
+                      <svg
+                        className="pointer-events-none absolute right-3 top-1/2 transform -translate-y-1/2 text-[#1262A1] w-4 h-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </div>
                   </div>
                   {errors.timeAtProperty && (
                     <p className="text-red-500 text-sm">
