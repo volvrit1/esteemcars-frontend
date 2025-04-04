@@ -11,6 +11,7 @@ import { SlCalender } from "react-icons/sl";
 import { toast } from "react-toastify";
 import OtpVerification from "./OtpVerification";
 import Link from "next/link";
+import { countries } from "@/data/data";
 
 interface FormData {
   loanAmount: string;
@@ -23,6 +24,7 @@ interface FormData {
   maritalStatus: string;
   noOfDependents: string;
   drivingLicenceType: string;
+  countryCode: string;
   mobile: string;
   email: string;
   preferredContact: string;
@@ -61,6 +63,7 @@ const MyForm = () => {
     maritalStatus: "",
     noOfDependents: "",
     drivingLicenceType: "",
+    countryCode: "",
     mobile: "",
     email: "",
     preferredContact: "",
@@ -101,10 +104,10 @@ const MyForm = () => {
     // Basic validation for demonstration
     if (!formData.firstName) newErrors.firstName = "First name is required";
     if (!formData.lastName) newErrors.lastName = "Last name is required";
+    if (!formData.countryCode)
+      newErrors.countryCode = "CountryCode is required";
     if (!formData.mobile) {
       newErrors.mobile = "Mobile is required";
-    } else if (!/^\d{10}$/.test(formData.mobile)) {
-      newErrors.mobile = "Mobile number must be exactly 10 digits";
     }
     if (!formData.email) {
       newErrors.email = "Email is required";
@@ -181,7 +184,7 @@ const MyForm = () => {
         const res: any = await Post("/api/loan-application", formData, 5000);
         if (res.success) {
           setId(res?.data?.id);
-          setOtpMail(res?.data?.email);
+          setOtpMail(res?.data?.countryCode + " " + res?.data?.mobile);
           setAgreed(false);
           window.scrollTo({
             top: 0,
@@ -546,7 +549,7 @@ const MyForm = () => {
                 <label className="text-gray-800 font-medium">
                   Mobile Number:
                 </label>
-                <div className="relative">
+                {/* <div className="relative">
                   <input
                     type="number"
                     name="mobile"
@@ -563,7 +566,35 @@ const MyForm = () => {
                   />
 
                   <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin border-0 left-5 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
+                </div> */}
+
+                <div className="relative flex items-center bg-[#1262A11A] border border-[#1262A1]/30 rounded-full overflow-hidden px-3">
+                  {/* Country code dropdown - auto width */}
+                  <select
+                    name="countryCode"
+                    value={formData.countryCode}
+                    onChange={handleChange}
+                    className="bg-transparent w-1/5 text-[#1262A1] border-r-[2px] border-[#1262A1]/30 outline-none appearance-none py-3"
+                  >
+                    <option value="+64">+64</option>
+                    {countries.map((country, index) => (
+                      <option key={index} value={country.code}>
+                        {country.code}
+                      </option>
+                    ))}
+                  </select>
+                  {/* Mobile number input - takes the rest of the width */}
+                  <input
+                    type="number"
+                    name="mobile"
+                    value={formData.mobile}
+                    onChange={handleChange}
+                    className="flex-1 w-full py-3 pl-2 bg-transparent text-[#1262A1] outline-none"
+                  />
                 </div>
+                {errors.countryCode && (
+                  <p className="text-red-500 text-sm">{errors.countryCode}</p>
+                )}
                 {errors.mobile && (
                   <p className="text-red-500 text-sm">{errors.mobile}</p>
                 )}

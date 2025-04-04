@@ -5,7 +5,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 export default function LandingHeroSection() {
   return (
-    <div className="relative w-full h-[50vh] lg:h-[120vh] mt-[5.7rem] lg:mt-[7rem] p-4 lg:p-16">
+    <div className="relative w-full h-[50vh] lg:h-screen mt-[5.7rem] lg:mt-[7rem] p-4 lg:p-16">
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#1262A1] via-[#1262A1]/80 to-[#1262A1]/30 z-10"></div>
 
