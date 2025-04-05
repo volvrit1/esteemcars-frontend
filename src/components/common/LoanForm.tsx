@@ -63,7 +63,7 @@ const MyForm = () => {
     maritalStatus: "",
     noOfDependents: "",
     drivingLicenceType: "",
-    countryCode: "",
+    countryCode: "+64",
     mobile: "",
     email: "",
     preferredContact: "",
@@ -104,8 +104,8 @@ const MyForm = () => {
     // Basic validation for demonstration
     if (!formData.firstName) newErrors.firstName = "First name is required";
     if (!formData.lastName) newErrors.lastName = "Last name is required";
-    if (!formData.countryCode)
-      newErrors.countryCode = "CountryCode is required";
+    // if (!formData.countryCode)
+    //   newErrors.countryCode = "CountryCode is required";
     if (!formData.mobile) {
       newErrors.mobile = "Mobile is required";
     }
@@ -197,7 +197,8 @@ const MyForm = () => {
       }
     } catch (error: any) {
       console.error("Error submitting form:", error);
-      toast.error(error?.message);
+      // toast.error(error?.message);
+      toast.error(error?.details);
     }
   };
 
@@ -581,7 +582,7 @@ const MyForm = () => {
 
                 <div className="relative flex items-center bg-[#1262A11A] border border-[#1262A1]/30 rounded-full overflow-hidden px-4">
                   {/* Country code select */}
-                  <select
+                 {/*    <select
                     name="countryCode"
                     value={formData.countryCode}
                     onChange={handleChange}
@@ -599,6 +600,7 @@ const MyForm = () => {
                       </option>
                     ))}
                   </select>
+                  */}
 
                   {/* Mobile input */}
                   <input
