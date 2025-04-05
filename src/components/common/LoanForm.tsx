@@ -63,7 +63,7 @@ const MyForm = () => {
     maritalStatus: "",
     noOfDependents: "",
     drivingLicenceType: "",
-    countryCode: "",
+    countryCode: "+64",
     mobile: "",
     email: "",
     preferredContact: "",
@@ -104,8 +104,8 @@ const MyForm = () => {
     // Basic validation for demonstration
     if (!formData.firstName) newErrors.firstName = "First name is required";
     if (!formData.lastName) newErrors.lastName = "Last name is required";
-    if (!formData.countryCode)
-      newErrors.countryCode = "CountryCode is required";
+    // if (!formData.countryCode)
+    //   newErrors.countryCode = "CountryCode is required";
     if (!formData.mobile) {
       newErrors.mobile = "Mobile is required";
     }
@@ -173,16 +173,39 @@ const MyForm = () => {
     );
   };
 
+  const sendMessage = async () => {
+    try {
+      const accessToken =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxNGM4OTU5NS1jNGZlLTQwZWUtYWYwNy05ODVmYTVkMDUyODIiLCJ1bmlxdWVfbmFtZSI6ImVzdGVlbWZpbmFuY2U3QGdtYWlsLmNvbSIsIm5hbWVpZCI6ImVzdGVlbWZpbmFuY2U3QGdtYWlsLmNvbSIsImVtYWlsIjoiZXN0ZWVtZmluYW5jZTdAZ21haWwuY29tIiwiYXV0aF90aW1lIjoiMDQvMDMvMjAyNSAwNzo0NToxOSIsInRlbmFudF9pZCI6IjQyNTMyMiIsImRiX25hbWUiOiJtdC1wcm9kLVRlbmFudHMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBVE9SIiwiZXhwIjoyNTM0MDIzMDA4MDAsImlzcyI6IkNsYXJlX0FJIiwiYXVkIjoiQ2xhcmVfQUkifQ.sfPB9WoIoxjNoqE5ku1TVmHgSSDnCn31xlFT5Vakvvc";
+      const apiUrl = `https://live-mt-server.wati.io/425322/api/v1/sendTemplateMessage?whatsappNumber=64${formData.mobile}`;
+
+      const data = {
+        template_name: "thankyou",
+        broadcast_name: "thankyou_050420251219",
+      };
+      await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+    } catch (error) {
+      console.log("Send message: ", error);
+    }
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
       const isValid = validate1(formData);
       const isValid2 = validate2(formData);
-      console.log(formData);
       if (isValid && isValid2) {
         const res: any = await Post("/api/loan-application", formData, 5000);
         if (res.success) {
+          await sendMessage();
           setId(res?.data?.id);
           setOtpMail(res?.data?.countryCode + " " + res?.data?.mobile);
           setAgreed(false);
@@ -197,7 +220,8 @@ const MyForm = () => {
       }
     } catch (error: any) {
       console.error("Error submitting form:", error);
-      toast.error(error?.message);
+      // toast.error(error?.message);
+      toast.error(error?.details);
     }
   };
 
@@ -220,9 +244,8 @@ const MyForm = () => {
       <div className="flex items-center justify-evenly mb-12">
         {" "}
         <span
-          className={`rounded-full p-2 flex items-center justify-center w-10 h-10 ${
-            step === 1 ? "bg-[#1262A1]" : "bg-[#1262A1]/50"
-          }`}
+          className={`rounded-full p-2 flex items-center justify-center w-10 h-10 ${step === 1 ? "bg-[#1262A1]" : "bg-[#1262A1]/50"
+            }`}
         >
           {" "}
           1{" "}
@@ -230,15 +253,13 @@ const MyForm = () => {
         <span className="w-5/6 h-2 bg-gray-300 rounded-full relative">
           {" "}
           <span
-            className={`h-2 bg-[#1262A1] rounded-full absolute ${
-              step === 1 ? "w-1/2" : "w-full"
-            }`}
+            className={`h-2 bg-[#1262A1] rounded-full absolute ${step === 1 ? "w-1/2" : "w-full"
+              }`}
           ></span>{" "}
         </span>{" "}
         <span
-          className={`rounded-full p-2 flex items-center justify-center w-10 h-10 ${
-            step === 2 ? "bg-[#1262A1]" : "bg-[#1262A1]/50"
-          }`}
+          className={`rounded-full p-2 flex items-center justify-center w-10 h-10 ${step === 2 ? "bg-[#1262A1]" : "bg-[#1262A1]/50"
+            }`}
         >
           {" "}
           2{" "}
@@ -284,9 +305,8 @@ const MyForm = () => {
              [&::-moz-range-thumb]:rounded-full 
              [&::-moz-range-thumb]:cursor-pointer"
                   style={{
-                    background: `linear-gradient(to right, #1262A1 ${
-                      ((formData?.loanAmount - 1000) / (10000 - 1000)) * 100
-                    }%, #DDE5EB 0%)`,
+                    background: `linear-gradient(to right, #1262A1 ${((formData?.loanAmount - 1000) / (10000 - 1000)) * 100
+                      }%, #DDE5EB 0%)`,
                   }}
                 />
               </div>
@@ -324,11 +344,10 @@ const MyForm = () => {
              [&::-moz-range-thumb]:rounded-full 
              [&::-moz-range-thumb]:cursor-pointer"
                   style={{
-                    background: `linear-gradient(to right, #1262A1 ${
-                      ((formData?.weeklyPayment - 500) /
-                        (Math.min(formData?.loanAmount, 5000) - 500)) *
+                    background: `linear-gradient(to right, #1262A1 ${((formData?.weeklyPayment - 500) /
+                      (Math.min(formData?.loanAmount, 5000) - 500)) *
                       100
-                    }%, #DDE5EB 0%)`,
+                      }%, #DDE5EB 0%)`,
                   }}
                 />
               </div>
@@ -361,9 +380,8 @@ const MyForm = () => {
              [&::-moz-range-thumb]:rounded-full 
              [&::-moz-range-thumb]:cursor-pointer"
                   style={{
-                    background: `linear-gradient(to right, #1262A1 ${
-                      ((formData?.termYears - 1) / (10 - 1)) * 100
-                    }%, #DDE5EB 0%)`,
+                    background: `linear-gradient(to right, #1262A1 ${((formData?.termYears - 1) / (10 - 1)) * 100
+                      }%, #DDE5EB 0%)`,
                   }}
                 />
               </div>
@@ -376,6 +394,7 @@ const MyForm = () => {
               My Details
             </label>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full mb-10">
+              {/* Title */}
               <div className="space-y-2">
                 <label className="text-gray-800 font-medium">Title:</label>
                 <select
@@ -384,8 +403,11 @@ const MyForm = () => {
                   onChange={handleChange}
                   style={{
                     height: "3.1rem",
+                    WebkitAppearance: "none",
+                    MozAppearance: "none",
+                    appearance: "none",
                   }}
-                  className="p-3 w-full rounded-full outline-0 px-4 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  className="p-3 w-full rounded-full outline-none px-4 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                 >
                   <option value="">Select Title</option>
                   <option value="Mr">Mr</option>
@@ -399,6 +421,7 @@ const MyForm = () => {
                 )}
               </div>
 
+              {/* First Name */}
               <div className="space-y-2">
                 <label className="text-gray-800 font-medium">First Name:</label>
                 <input
@@ -406,13 +429,20 @@ const MyForm = () => {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
-                  className=" p-3 w-full rounded-full outline-0 px-2 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  autoComplete="off"
+                  placeholder="Enter your first name"
+                  className="p-3 w-full rounded-full placeholder:text-[#1262A1] outline-none px-4 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  style={{
+                    WebkitAppearance: "none",
+                    appearance: "none",
+                  }}
                 />
                 {errors.firstName && (
                   <p className="text-red-500 text-sm">{errors.firstName}</p>
                 )}
               </div>
 
+              {/* Last Name */}
               <div className="space-y-2">
                 <label className="text-gray-800 font-medium">Last Name:</label>
                 <input
@@ -420,7 +450,13 @@ const MyForm = () => {
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className=" p-3  w-full rounded-full outline-0 px-2 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  autoComplete="off"
+                  placeholder="Enter your last name"
+                  className="p-3 w-full rounded-full outline-none placeholder:text-[#1262A1] px-4 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  style={{
+                    WebkitAppearance: "none",
+                    appearance: "none",
+                  }}
                 />
                 {errors.lastName && (
                   <p className="text-red-500 text-sm">{errors.lastName}</p>
@@ -441,7 +477,7 @@ const MyForm = () => {
                     style={{
                       height: "3.1rem",
                     }}
-                    className="p-3 w-full rounded-full outline-0 pl-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                    className="p-3 w-full rounded-full outline-none pl-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                   />
 
                   <Image
@@ -456,7 +492,7 @@ const MyForm = () => {
                 </div>
               </div>
 
-              <div className="space-y-2 ">
+              <div className="space-y-2">
                 <label className="text-gray-800 font-medium">
                   Marital Status:
                 </label>
@@ -465,25 +501,29 @@ const MyForm = () => {
                     name="maritalStatus"
                     value={formData.maritalStatus}
                     onChange={handleChange}
+                    className="p-3 w-full rounded-full outline-none px-16 text-[#1262A1] bg-transparent appearance-none"
                     style={{
                       height: "3rem",
+                      WebkitAppearance: "none", // Safari fix
+                      MozAppearance: "none", // Firefox fix
+                      appearance: "none", // General fix
                     }}
-                    className="p-3 w-full bg-[#1263a100] rounded-full  outline-0 px-16 "
                   >
                     <option value="">Select Marital Status</option>
                     <option value="Single">Single</option>
                     <option value="Married">Married</option>
                     <option value="Divorced">Divorced</option>
                   </select>
+
                   <Image
-                    src={"/assets/users.png"}
-                    alt=""
-                    className="absolute left-4 text-2xl top-1/2 transform -translate-y-1/2 border text-[#1262A1]"
-                    width="24"
-                    height="24"
+                    src="/assets/users.png"
+                    alt="user icon"
+                    width={24}
+                    height={24}
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#1262A1]"
                   />
 
-                  <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin border-0 left-5 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
+                  <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin left-5 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
                 </div>
               </div>
 
@@ -495,21 +535,27 @@ const MyForm = () => {
                     name="noOfDependents"
                     value={formData.noOfDependents}
                     onChange={handleChange}
-                    className=" p-3  w-full rounded-full outline-0 px-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
-                  />
-                  <Image
-                    src={"/assets/human.png"}
-                    alt=""
-                    className="absolute font-semibold text-2xl left-4 top-1/2 transform -translate-y-1/2 border text-[#1262A1]"
-                    width="16"
-                    height="16"
+                    placeholder="Enter dependencies"
+                    className="p-3 w-full rounded-full placeholder:text-[#1262A1] outline-none px-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30 appearance-none"
+                    style={{
+                      MozAppearance: "textfield", // Firefox: removes spinner
+                    }}
+                    // For Safari & Chrome: removes spinner arrows
+                    onWheel={(e) => e.currentTarget.blur()}
                   />
 
-                  <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin border-0 left-5 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
+                  <Image
+                    src="/assets/human.png"
+                    alt="dependents icon"
+                    width={16}
+                    height={16}
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#1262A1]"
+                  />
+
+                  <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin left-5 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
                 </div>
               </div>
             </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full mb-10">
               <div className="space-y-2">
                 <label className="text-gray-800 font-medium">
@@ -522,8 +568,11 @@ const MyForm = () => {
                     onChange={handleChange}
                     style={{
                       height: "3rem",
+                      WebkitAppearance: "none", // for Safari
+                      MozAppearance: "none", // for Firefox
+                      appearance: "none", // general
                     }}
-                    className="p-3 w-full rounded-full outline-0 px-16 bg-[#1263a100]"
+                    className="p-3 w-full rounded-full outline-none px-16 bg-transparent text-[#1262A1] cursor-pointer"
                   >
                     <option value="">Select DL Type</option>
                     <option value="Restricted">Restricted</option>
@@ -536,62 +585,52 @@ const MyForm = () => {
                   <Image
                     src={"/assets/dl.png"}
                     alt=""
-                    className="absolute text-2xl left-4 top-1/2 transform -translate-y-1/2 border text-[#1262A1]"
+                    className="absolute text-2xl left-4 top-1/2 transform -translate-y-1/2 text-[#1262A1]"
                     width="20"
                     height="20"
                   />
-
                   <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin border-0 left-5 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
                 </div>
               </div>
-
               <div className="space-y-2">
                 <label className="text-gray-800 font-medium">
                   Mobile Number:
                 </label>
-                {/* <div className="relative">
-                  <input
-                    type="number"
-                    name="mobile"
-                    value={formData.mobile}
-                    onChange={handleChange}
-                    className=" p-3  w-full rounded-full outline-0 px-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
-                  />
-                  <Image
-                    src={"/assets/call.png"}
-                    alt=""
-                    className="absolute text-2xl left-4 top-1/2 transform -translate-y-1/2 border text-[#1262A1]"
-                    width="20"
-                    height="20"
-                  />
 
-                  <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin border-0 left-5 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
-                </div> */}
-
-                <div className="relative flex items-center bg-[#1262A11A] border border-[#1262A1]/30 rounded-full overflow-hidden px-3">
-                  {/* Country code dropdown - auto width */}
+                <div className="relative flex items-center bg-[#1262A11A] border border-[#1262A1]/30 rounded-full overflow-hidden px-4">
+                  {/* Country code select */}
                   <select
                     name="countryCode"
-                    value={formData.countryCode}
+                    defaultValue={"+64"}
                     onChange={handleChange}
-                    className="bg-transparent w-1/5 text-[#1262A1] border-r-[2px] border-[#1262A1]/30 outline-none appearance-none py-3"
+                    className="bg-transparent w-12 text-[#1262A1] border-r border-[#1262A1]/30 outline-none py-3 pr-3 appearance-none"
+                    style={{
+                      WebkitAppearance: "none",
+                      MozAppearance: "none",
+                      appearance: "none",
+                    }}
                   >
                     <option value="+64">+64</option>
-                    {countries.map((country, index) => (
+                    {/* {countries.map((country, index) => (
                       <option key={index} value={country.code}>
                         {country.code}
                       </option>
-                    ))}
+                    ))} */}
                   </select>
-                  {/* Mobile number input - takes the rest of the width */}
+
+
+                  {/* Mobile input */}
                   <input
-                    type="number"
+                    type="tel"
                     name="mobile"
                     value={formData.mobile}
                     onChange={handleChange}
-                    className="flex-1 w-full py-3 pl-2 bg-transparent text-[#1262A1] outline-none"
+                    placeholder="Enter mobile number"
+                    className="flex-1 py-3 pl-4 pr-2 placeholder:text-[#1262A1] bg-transparent text-[#1262A1] outline-none"
                   />
                 </div>
+
+                {/* Validation Errors */}
                 {errors.countryCode && (
                   <p className="text-red-500 text-sm">{errors.countryCode}</p>
                 )}
@@ -599,7 +638,6 @@ const MyForm = () => {
                   <p className="text-red-500 text-sm">{errors.mobile}</p>
                 )}
               </div>
-
               <div className="space-y-2">
                 <label className="text-gray-800 font-medium">Email:</label>
                 <div className="relative">
@@ -608,7 +646,8 @@ const MyForm = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className=" p-3  w-full rounded-full outline-0 px-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                    placeholder="Enter your email"
+                    className="py-3 w-full placeholder:text-[#1262A1] rounded-full outline-none pl-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                   />
                   <Image
                     src={"/assets/email.png"}
@@ -624,20 +663,35 @@ const MyForm = () => {
                   <p className="text-red-500 text-sm">{errors.email}</p>
                 )}
               </div>
-
               <div className="space-y-2">
                 <label className="text-gray-800 font-medium">
                   Preferred Contact Method:
                 </label>
-                <div className="relative overflow-hidden rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
+
+                <div className="relative overflow-hidden rounded-full bg-[#1262A11A] border border-[#1262A1]/30 text-[#1262A1]">
+                  {/* Icon */}
+                  <Image
+                    src="/assets/contacti.png"
+                    alt="contact"
+                    width={20}
+                    height={20}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 z-10"
+                  />
+
+                  {/* Vertical line */}
+                  <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin border-0 left-5 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
+
+                  {/* Select field */}
                   <select
                     name="preferredContact"
                     value={formData.preferredContact}
                     onChange={handleChange}
+                    className="appearance-none w-full py-3 pl-16 pr-8 bg-transparent text-[#1262A1] outline-none rounded-full cursor-pointer"
                     style={{
-                      height: "3rem",
+                      WebkitAppearance: "none",
+                      MozAppearance: "none",
+                      appearance: "none",
                     }}
-                    className="p-3 w-full rounded-full outline-0 px-16 bg-[#1263a100]"
                   >
                     <option value="">Select Preferred Contact</option>
                     <option value="Phone">Phone</option>
@@ -649,15 +703,23 @@ const MyForm = () => {
                     <option value="WhatsApp">WhatsApp</option>
                     <option value="Signal">Signal</option>
                   </select>
-                  <Image
-                    src={"/assets/contacti.png"}
-                    alt=""
-                    className="absolute text-2xl left-4 top-1/2 transform -translate-y-1/2 border text-[#1262A1]"
-                    width="20"
-                    height="20"
-                  />
 
-                  <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin border-0 left-5 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
+                  {/* Optional custom dropdown arrow */}
+                  <svg
+                    className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[#1262A1]"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M1.5 5.5l6 6 6-6"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      fill="none"
+                    />
+                  </svg>
                 </div>
               </div>
             </div>
@@ -679,9 +741,10 @@ const MyForm = () => {
                 <input
                   type="text"
                   name="streetAddress"
+                  placeholder="Enter street address"
                   value={formData.streetAddress}
                   onChange={handleChange}
-                  className="p-3 w-full rounded-full outline-0 px-2 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  className="p-3 w-full rounded-full placeholder:text-[#1262A1] outline-none px-2 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                 />
                 {errors.streetAddress && (
                   <p className="text-red-500 text-sm">{errors.streetAddress}</p>
@@ -695,9 +758,10 @@ const MyForm = () => {
                 <input
                   type="text"
                   name="addressLine2"
+                  placeholder="Apartment, suite, etc."
                   value={formData.addressLine2}
                   onChange={handleChange}
-                  className="p-3 w-full rounded-full outline-0 px-2 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  className="p-3 w-full rounded-full placeholder:text-[#1262A1] outline-none px-2 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                 />
                 {errors.addressLine2 && (
                   <p className="text-red-500 text-sm">{errors.addressLine2}</p>
@@ -709,9 +773,10 @@ const MyForm = () => {
                 <input
                   type="text"
                   name="city"
+                  placeholder="Enter city"
                   value={formData.city}
                   onChange={handleChange}
-                  className="w-full rounded-full outline-0 p-3 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  className="w-full rounded-full placeholder:text-[#1262A1] outline-none p-3 px-2 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                 />
                 {errors.city && (
                   <p className="text-red-500 text-sm">{errors.city}</p>
@@ -721,11 +786,14 @@ const MyForm = () => {
               <div className="space-y-2">
                 <label className="text-gray-800 font-medium">Postal Code</label>
                 <input
-                  type="number"
+                  type="text"
                   name="postalCode"
+                  placeholder="Enter postal code"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
                   value={formData.postalCode}
                   onChange={handleChange}
-                  className="p-3 w-full rounded-full outline-0 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  className="p-3 w-full rounded-full placeholder:text-[#1262A1] outline-none px-2 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                 />
                 {errors.postalCode && (
                   <p className="text-red-500 text-sm">{errors.postalCode}</p>
@@ -741,7 +809,12 @@ const MyForm = () => {
                     name="propertyStatus"
                     value={formData.propertyStatus}
                     onChange={handleChange}
-                    className="p-3 w-full rounded-full outline-0 bg-[#1263a100] text-[#1262A1] border border-[#1262A1]/30"
+                    className="p-3 w-full rounded-full outline-none bg-[#1263a100] text-[#1262A1]"
+                    style={{
+                      WebkitAppearance: "none",
+                      MozAppearance: "none",
+                      appearance: "none",
+                    }}
                   >
                     <option value="">Select Property Status</option>
                     <option value="Owned">Owned</option>
@@ -760,15 +833,19 @@ const MyForm = () => {
                 <label className="text-gray-800 font-medium">
                   Time at Property
                 </label>
-                <div className="relative rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
+                <div className="flex overflow-hidden rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
                   <select
                     name="timeAtPropertyMonths"
                     value={formData.timeAtPropertyMonths}
                     onChange={handleChange}
-                    className="w-1/2 rounded-l-full outline-0 p-3 bg-[#1263a100] text-[#1262A1] border border-r-0 border-[#1262A1]/30"
+                    className="w-1/2 rounded-l-full outline-none p-3 bg-[#1263a100] text-[#1262A1] border-r border-[#1262A1]/30"
+                    style={{
+                      WebkitAppearance: "none",
+                      MozAppearance: "none",
+                      appearance: "none",
+                    }}
                   >
                     <option value="">Month</option>
-                    {/* Add month options */}
                     {[...Array(12).keys()].map((i) => (
                       <option key={i} value={i + 1}>
                         {new Date(0, i).toLocaleString("default", {
@@ -777,14 +854,19 @@ const MyForm = () => {
                       </option>
                     ))}
                   </select>
+
                   <select
                     name="timeAtPropertyYears"
                     value={formData.timeAtPropertyYears}
                     onChange={handleChange}
-                    className="w-1/2 rounded-r-full outline-0 p-3 bg-[#1263a100] text-[#1262A1] border border-[#1262A1]/30"
+                    className="w-1/2 rounded-r-full outline-none p-3 bg-[#1263a100] text-[#1262A1]"
+                    style={{
+                      WebkitAppearance: "none",
+                      MozAppearance: "none",
+                      appearance: "none",
+                    }}
                   >
                     <option value="">Year</option>
-                    {/* Add year options */}
                     {[...Array(20).keys()].map((i) => (
                       <option key={i} value={2020 + i}>
                         {2020 + i}
@@ -809,17 +891,11 @@ const MyForm = () => {
                     name="monthlyCost"
                     value={formData.monthlyCost}
                     onChange={handleChange}
-                    style={{
-                      height: "3rem",
-                    }}
-                    className="w-full rounded-full outline-0 p-3 pl-16 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                    placeholder="Enter a monthly cost"
+                    className="w-full h-12 rounded-full outline-none placeholder:text-[#1262A1] pl-16 pr-4 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                   />
-                  <FaDollarSign
-                    className="absolute left-5 text-xl top-1/2 transform -translate-y-1/2 border text-[#1262A1]"
-                    width="20"
-                    height="20"
-                  />
-                  <PiLineVerticalThin className="absolute text-[3.6rem] opacity-40 font-thin border-0 left-6 top-1/2 transform -translate-y-1/2 text-[#1262A1]" />
+                  <FaDollarSign className="absolute left-5 top-1/2 -translate-y-1/2 text-[#1262A1] text-lg" />
+                  <PiLineVerticalThin className="absolute left-6 top-1/2 -translate-y-1/2 text-[#1262A1] text-[3rem] opacity-40" />
                 </div>
                 {errors.monthlyCost && (
                   <p className="text-red-500 text-sm">{errors.monthlyCost}</p>
@@ -833,7 +909,8 @@ const MyForm = () => {
                   name="region"
                   value={formData.region}
                   onChange={handleChange}
-                  className="p-3 w-full rounded-full outline-0 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                  placeholder="Enter region"
+                  className="w-full p-3 rounded-full outline-none bg-[#1262A11A] text-[#1262A1] placeholder:text-[#1262A1] border border-[#1262A1]/30"
                 />
                 {errors.region && (
                   <p className="text-red-500 text-sm">{errors.region}</p>
@@ -844,12 +921,12 @@ const MyForm = () => {
                 <label className="text-gray-800 font-medium">
                   Residential Status
                 </label>
-                <div className="relative rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
+                <div className="relative">
                   <select
                     name="residentialStatus"
                     value={formData.residentialStatus}
                     onChange={handleChange}
-                    className="p-3 w-full rounded-full outline-0 bg-[#1263a100] text-[#1262A1] border border-[#1262A1]/30"
+                    className="w-full p-3 pr-10 rounded-full outline-none appearance-none bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                   >
                     <option value="">Select Residential Status</option>
                     <option value="NZ Citizen">NZ Citizen</option>
@@ -857,7 +934,24 @@ const MyForm = () => {
                     <option value="Non NZ Resident">Non NZ Resident</option>
                     <option value="Work Visa">Work Visa</option>
                   </select>
+
+                  {/* Custom dropdown arrow */}
+                  <svg
+                    className="pointer-events-none absolute right-4 top-1/2 transform -translate-y-1/2 text-[#1262A1] w-4 h-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
                 </div>
+
                 {errors.residentialStatus && (
                   <p className="text-red-500 text-sm">
                     {errors.residentialStatus}
@@ -865,6 +959,7 @@ const MyForm = () => {
                 )}
               </div>
             </div>
+
             <div>
               <label
                 htmlFor=""
@@ -873,16 +968,17 @@ const MyForm = () => {
                 Employment
               </label>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 gap-y-10 w-full">
+                {/* Employment Status */}
                 <div className="space-y-2">
                   <label className="text-gray-800 font-medium">
                     Employment Status
                   </label>
-                  <div className="relative rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
+                  <div className="relative">
                     <select
                       name="employmentStatus"
                       value={formData.employmentStatus}
                       onChange={handleChange}
-                      className="p-3 w-full rounded-full outline-0 bg-[#1263a100] text-[#1262A1] border border-[#1262A1]/30"
+                      className="w-full p-3 pr-10 rounded-full appearance-none outline-none bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
                     >
                       <option value="">Select Employment Status</option>
                       <option value="Employed Full-Time">
@@ -902,6 +998,20 @@ const MyForm = () => {
                       <option value="WINZ & ACC">WINZ & ACC</option>
                       <option value="Studylink">Studylink</option>
                     </select>
+                    <svg
+                      className="pointer-events-none absolute right-4 top-1/2 transform -translate-y-1/2 text-[#1262A1] w-4 h-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
                   </div>
                   {errors.employmentStatus && (
                     <p className="text-red-500 text-sm">
@@ -910,6 +1020,7 @@ const MyForm = () => {
                   )}
                 </div>
 
+                {/* Job Title */}
                 <div className="space-y-2">
                   <label className="text-gray-800 font-medium">Job Title</label>
                   <input
@@ -917,48 +1028,80 @@ const MyForm = () => {
                     name="jobTitle"
                     value={formData.jobTitle}
                     onChange={handleChange}
-                    className="w-full rounded-full outline-0 p-3 bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30"
+                    placeholder="Please provide a job title"
+                    className="w-full p-3 rounded-full outline-none bg-[#1262A11A] text-[#1262A1] placeholder:text-[#1262A1] border border-[#1262A1]/30"
                   />
                   {errors.jobTitle && (
                     <p className="text-red-500 text-sm">{errors.jobTitle}</p>
                   )}
                 </div>
 
+                {/* Time at Employment */}
                 <div className="space-y-2">
                   <label className="text-gray-800 font-medium">
                     Time at Employment
                   </label>
-                  <div className="flex rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30">
-                    <select
-                      name="timeAtEmployerMonths"
-                      value={formData.timeAtEmployerMonths}
-                      onChange={handleChange}
-                      className="w-1/2 rounded-l-full outline-0 p-3 bg-[#1263a100] text-[#1262A1] border border-r-0 border-[#1262A1]/30"
-                    >
-                      <option value="">Month</option>
-                      {/* Add month options */}
-                      {[...Array(12).keys()].map((i) => (
-                        <option key={i} value={i + 1}>
-                          {new Date(0, i).toLocaleString("default", {
-                            month: "long",
-                          })}
-                        </option>
-                      ))}
-                    </select>
-                    <select
-                      name="timeAtEmployerYears"
-                      value={formData.timeAtEmployerYears}
-                      onChange={handleChange}
-                      className="w-1/2 rounded-r-full outline-0 p-3 bg-[#1263a100] text-[#1263a1f7] border border-[#1262A1]/30"
-                    >
-                      <option value="">Year</option>
-                      {/* Add year options */}
-                      {[...Array(20).keys()].map((i) => (
-                        <option key={i} value={2020 + i}>
-                          {2020 + i}
-                        </option>
-                      ))}
-                    </select>
+                  <div className="flex rounded-full overflow-hidden border border-[#1262A1]/30 text-[#1262A1] bg-[#1262A11A]">
+                    <div className="relative w-1/2">
+                      <select
+                        name="timeAtEmployerMonths"
+                        value={formData.timeAtEmployerMonths}
+                        onChange={handleChange}
+                        className="w-full p-3 pr-10 appearance-none outline-none bg-transparent text-[#1262A1] border-r border-[#1262A1]/30"
+                      >
+                        <option value="">Month</option>
+                        {[...Array(12).keys()].map((i) => (
+                          <option key={i} value={i + 1}>
+                            {new Date(0, i).toLocaleString("default", {
+                              month: "long",
+                            })}
+                          </option>
+                        ))}
+                      </select>
+                      <svg
+                        className="pointer-events-none absolute right-3 top-1/2 transform -translate-y-1/2 text-[#1262A1] w-4 h-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </div>
+                    <div className="relative w-1/2">
+                      <select
+                        name="timeAtEmployerYears"
+                        value={formData.timeAtEmployerYears}
+                        onChange={handleChange}
+                        className="w-full p-3 pr-10 appearance-none outline-none bg-transparent text-[#1262A1]"
+                      >
+                        <option value="">Year</option>
+                        {[...Array(20).keys()].map((i) => (
+                          <option key={i} value={2020 + i}>
+                            {2020 + i}
+                          </option>
+                        ))}
+                      </select>
+                      <svg
+                        className="pointer-events-none absolute right-3 top-1/2 transform -translate-y-1/2 text-[#1262A1] w-4 h-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </div>
                   </div>
                   {errors.timeAtProperty && (
                     <p className="text-red-500 text-sm">
@@ -1032,9 +1175,8 @@ const MyForm = () => {
           type="button"
           onClick={() => setStep(1)}
           disabled={step === 1}
-          className={`bg-gray-50 border w-1/3 lg:w-1/5 m-auto text-gray-500 p-3 rounded-full hover:bg-gray-100 ${
-            step === 1 ? "opacity-50 cursor-not-allowed" : ""
-          }`}
+          className={`bg-gray-50 border w-1/3 lg:w-1/5 m-auto text-gray-500 p-3 rounded-full hover:bg-gray-100 ${step === 1 ? "opacity-50 cursor-not-allowed" : ""
+            }`}
         >
           Previous
         </button>
@@ -1043,9 +1185,8 @@ const MyForm = () => {
           type="button"
           onClick={handelForm}
           disabled={step === 2 && !agreed}
-          className={`bg-[#1262A1] w-1/3 lg:w-1/5 m-auto text-white p-3 rounded-full hover:bg-[#1262A1]/90 ${
-            step === 2 && !agreed ? "opacity-50 cursor-not-allowed" : ""
-          }`}
+          className={`bg-[#1262A1] w-1/3 lg:w-1/5 m-auto text-white p-3 rounded-full hover:bg-[#1262A1]/90 ${step === 2 && !agreed ? "opacity-50 cursor-not-allowed" : ""
+            }`}
         >
           {step === 1 ? "Next" : "Submit"}
         </button>

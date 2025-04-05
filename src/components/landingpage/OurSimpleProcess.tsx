@@ -32,7 +32,7 @@ export default function OurSimpleProcess() {
   return (
     <div className="max-w-7xl m-auto p-4 lg:p-16 lg:pb-4">
       <div className="w-full lg:w-3/5 m-auto  text-center mb-8">
-        <h2 className="text-gray-900 text-2xl font-[alexandria] font-semibold mb-2">
+        <h2 className="text-gray-900  text-2xl font-[alexandria] font-semibold mb-2">
           Cruise Through Our Simple Process
         </h2>
         <p className="text-gray-700 font-[cabin]">
@@ -55,9 +55,9 @@ export default function OurSimpleProcess() {
                 className="w-full h-44"
               />
             </div>
-            <h3 className="text-gray-900 text-xl font-[alexandria] font-medium relative px-4 mb-4">
+            <h3 className="text-gray-900 text-center text-xl font-[alexandria] font-medium relative px-4 mb-4">
               {data?.title}
-              <span className="w-8 h-8 rounded-full p-2 bg-blue-300/50 absolute left-0 top-1/2 -translate-y-1/2"></span>
+              {/* <span className="w-8 h-8 rounded-full p-2 bg-blue-300/50 absolute left-5 top-1/2 -translate-y-1/2"></span> */}
             </h3>
             <p className=" font-[cabin] text-base/7 font-thin text-center m-auto text-gray-500">
               {data?.description}
