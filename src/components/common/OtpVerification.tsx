@@ -90,7 +90,7 @@ const OtpVerification = ({
   const handleResend = async () => {
     setTimer(30);
     setIsResendDisabled(true);
-    await Post(`/api/loan-application/verify-otp/${id}`, { mobile: email });
+    await Post(`/api/loan-application/verify-otp/${id}`, { email });
     setOtp(Array(6).fill(""));
   };
 
@@ -122,10 +122,11 @@ const OtpVerification = ({
     <div className="flex flex-col items-center justify-center">
       <div className="bg-white px-6 py-10 w-full max-w-md">
         <h1 className="text-3xl font-bold text-primary text-center mb-4">
-          Enter OTP to verify your <br className="hidden bg:block" /> Mobile Number
+          Enter OTP to verify your <br className="hidden bg:block" /> Email
+          Address
         </h1>
         <p className="text-center text-sm font-semibold text-primary/70 mb-5">
-          We&apos;ve sent an OTP to this mobile number <br />
+          We&apos;ve sent an OTP to this email address <br />
           <span className="text-primary/70 pt-1 flex justify-center items-center font-semibold cursor-pointer">
             {email}{" "}
             {/* <span

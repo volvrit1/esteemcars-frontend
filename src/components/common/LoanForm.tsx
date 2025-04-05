@@ -207,7 +207,7 @@ const MyForm = () => {
         if (res.success) {
           await sendMessage();
           setId(res?.data?.id);
-          setOtpMail(res?.data?.countryCode + " " + res?.data?.mobile);
+          setOtpMail(res?.data?.email);
           setAgreed(false);
           window.scrollTo({
             top: 0,
@@ -697,11 +697,6 @@ const MyForm = () => {
                     <option value="Phone">Phone</option>
                     <option value="SMS">SMS</option>
                     <option value="Email">Email</option>
-                    <option value="Facebook Messenger">
-                      Facebook Messenger
-                    </option>
-                    <option value="WhatsApp">WhatsApp</option>
-                    <option value="Signal">Signal</option>
                   </select>
 
                   {/* Optional custom dropdown arrow */}
