@@ -36,7 +36,7 @@ const HeroSection = async ({
                 ? process.env.NEXT_PUBLIC_BASE_URL + bannerData[0].image
                 : "/assets/blog.png"
             }`}
-            className="object-cover w-full hidden lg:block" // hidden on mobile, shown on larger screens
+            className="object-cover max-h-screen w-full hidden lg:block" // hidden on mobile, shown on larger screens
           />
         )}
 
