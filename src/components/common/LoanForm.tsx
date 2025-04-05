@@ -221,9 +221,8 @@ const MyForm = () => {
       <div className="flex items-center justify-evenly mb-12">
         {" "}
         <span
-          className={`rounded-full p-2 flex items-center justify-center w-10 h-10 ${
-            step === 1 ? "bg-[#1262A1]" : "bg-[#1262A1]/50"
-          }`}
+          className={`rounded-full p-2 flex items-center justify-center w-10 h-10 ${step === 1 ? "bg-[#1262A1]" : "bg-[#1262A1]/50"
+            }`}
         >
           {" "}
           1{" "}
@@ -231,15 +230,13 @@ const MyForm = () => {
         <span className="w-5/6 h-2 bg-gray-300 rounded-full relative">
           {" "}
           <span
-            className={`h-2 bg-[#1262A1] rounded-full absolute ${
-              step === 1 ? "w-1/2" : "w-full"
-            }`}
+            className={`h-2 bg-[#1262A1] rounded-full absolute ${step === 1 ? "w-1/2" : "w-full"
+              }`}
           ></span>{" "}
         </span>{" "}
         <span
-          className={`rounded-full p-2 flex items-center justify-center w-10 h-10 ${
-            step === 2 ? "bg-[#1262A1]" : "bg-[#1262A1]/50"
-          }`}
+          className={`rounded-full p-2 flex items-center justify-center w-10 h-10 ${step === 2 ? "bg-[#1262A1]" : "bg-[#1262A1]/50"
+            }`}
         >
           {" "}
           2{" "}
@@ -285,9 +282,8 @@ const MyForm = () => {
              [&::-moz-range-thumb]:rounded-full 
              [&::-moz-range-thumb]:cursor-pointer"
                   style={{
-                    background: `linear-gradient(to right, #1262A1 ${
-                      ((formData?.loanAmount - 1000) / (10000 - 1000)) * 100
-                    }%, #DDE5EB 0%)`,
+                    background: `linear-gradient(to right, #1262A1 ${((formData?.loanAmount - 1000) / (10000 - 1000)) * 100
+                      }%, #DDE5EB 0%)`,
                   }}
                 />
               </div>
@@ -325,11 +321,10 @@ const MyForm = () => {
              [&::-moz-range-thumb]:rounded-full 
              [&::-moz-range-thumb]:cursor-pointer"
                   style={{
-                    background: `linear-gradient(to right, #1262A1 ${
-                      ((formData?.weeklyPayment - 500) /
-                        (Math.min(formData?.loanAmount, 5000) - 500)) *
+                    background: `linear-gradient(to right, #1262A1 ${((formData?.weeklyPayment - 500) /
+                      (Math.min(formData?.loanAmount, 5000) - 500)) *
                       100
-                    }%, #DDE5EB 0%)`,
+                      }%, #DDE5EB 0%)`,
                   }}
                 />
               </div>
@@ -362,9 +357,8 @@ const MyForm = () => {
              [&::-moz-range-thumb]:rounded-full 
              [&::-moz-range-thumb]:cursor-pointer"
                   style={{
-                    background: `linear-gradient(to right, #1262A1 ${
-                      ((formData?.termYears - 1) / (10 - 1)) * 100
-                    }%, #DDE5EB 0%)`,
+                    background: `linear-gradient(to right, #1262A1 ${((formData?.termYears - 1) / (10 - 1)) * 100
+                      }%, #DDE5EB 0%)`,
                   }}
                 />
               </div>
@@ -582,9 +576,9 @@ const MyForm = () => {
 
                 <div className="relative flex items-center bg-[#1262A11A] border border-[#1262A1]/30 rounded-full overflow-hidden px-4">
                   {/* Country code select */}
-                 {/*    <select
+                  <select
                     name="countryCode"
-                    value={formData.countryCode}
+                    value={"+64"}
                     onChange={handleChange}
                     className="bg-transparent w-12 text-[#1262A1] border-r border-[#1262A1]/30 outline-none py-3 pr-3 appearance-none"
                     style={{
@@ -593,14 +587,14 @@ const MyForm = () => {
                       appearance: "none",
                     }}
                   >
-                    <option value="+64">+64</option>
-                    {countries.map((country, index) => (
+                    <option selected value="+64">+64</option>
+                    {/* {countries.map((country, index) => (
                       <option key={index} value={country.code}>
                         {country.code}
                       </option>
-                    ))}
+                    ))} */}
                   </select>
-                  */}
+
 
                   {/* Mobile input */}
                   <input
@@ -1158,9 +1152,8 @@ const MyForm = () => {
           type="button"
           onClick={() => setStep(1)}
           disabled={step === 1}
-          className={`bg-gray-50 border w-1/3 lg:w-1/5 m-auto text-gray-500 p-3 rounded-full hover:bg-gray-100 ${
-            step === 1 ? "opacity-50 cursor-not-allowed" : ""
-          }`}
+          className={`bg-gray-50 border w-1/3 lg:w-1/5 m-auto text-gray-500 p-3 rounded-full hover:bg-gray-100 ${step === 1 ? "opacity-50 cursor-not-allowed" : ""
+            }`}
         >
           Previous
         </button>
@@ -1169,9 +1162,8 @@ const MyForm = () => {
           type="button"
           onClick={handelForm}
           disabled={step === 2 && !agreed}
-          className={`bg-[#1262A1] w-1/3 lg:w-1/5 m-auto text-white p-3 rounded-full hover:bg-[#1262A1]/90 ${
-            step === 2 && !agreed ? "opacity-50 cursor-not-allowed" : ""
-          }`}
+          className={`bg-[#1262A1] w-1/3 lg:w-1/5 m-auto text-white p-3 rounded-full hover:bg-[#1262A1]/90 ${step === 2 && !agreed ? "opacity-50 cursor-not-allowed" : ""
+            }`}
         >
           {step === 1 ? "Next" : "Submit"}
         </button>
