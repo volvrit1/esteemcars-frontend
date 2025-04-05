@@ -173,16 +173,39 @@ const MyForm = () => {
     );
   };
 
+  const sendMessage = async () => {
+    try {
+      const accessToken =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxNGM4OTU5NS1jNGZlLTQwZWUtYWYwNy05ODVmYTVkMDUyODIiLCJ1bmlxdWVfbmFtZSI6ImVzdGVlbWZpbmFuY2U3QGdtYWlsLmNvbSIsIm5hbWVpZCI6ImVzdGVlbWZpbmFuY2U3QGdtYWlsLmNvbSIsImVtYWlsIjoiZXN0ZWVtZmluYW5jZTdAZ21haWwuY29tIiwiYXV0aF90aW1lIjoiMDQvMDMvMjAyNSAwNzo0NToxOSIsInRlbmFudF9pZCI6IjQyNTMyMiIsImRiX25hbWUiOiJtdC1wcm9kLVRlbmFudHMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBVE9SIiwiZXhwIjoyNTM0MDIzMDA4MDAsImlzcyI6IkNsYXJlX0FJIiwiYXVkIjoiQ2xhcmVfQUkifQ.sfPB9WoIoxjNoqE5ku1TVmHgSSDnCn31xlFT5Vakvvc";
+      const apiUrl = `https://live-mt-server.wati.io/425322/api/v1/sendTemplateMessage?whatsappNumber=64${formData.mobile}`;
+
+      const data = {
+        template_name: "thankyou",
+        broadcast_name: "thankyou_050420251219",
+      };
+      await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+    } catch (error) {
+      console.log("Send message: ", error);
+    }
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
       const isValid = validate1(formData);
       const isValid2 = validate2(formData);
-      console.log(formData);
       if (isValid && isValid2) {
         const res: any = await Post("/api/loan-application", formData, 5000);
         if (res.success) {
+          await sendMessage();
           setId(res?.data?.id);
           setOtpMail(res?.data?.countryCode + " " + res?.data?.mobile);
           setAgreed(false);
@@ -578,7 +601,7 @@ const MyForm = () => {
                   {/* Country code select */}
                   <select
                     name="countryCode"
-                    value={"+64"}
+                    defaultValue={"+64"}
                     onChange={handleChange}
                     className="bg-transparent w-12 text-[#1262A1] border-r border-[#1262A1]/30 outline-none py-3 pr-3 appearance-none"
                     style={{
@@ -587,7 +610,7 @@ const MyForm = () => {
                       appearance: "none",
                     }}
                   >
-                    <option selected value="+64">+64</option>
+                    <option value="+64">+64</option>
                     {/* {countries.map((country, index) => (
                       <option key={index} value={country.code}>
                         {country.code}
