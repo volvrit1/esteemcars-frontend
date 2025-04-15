@@ -24,18 +24,18 @@ export default function WeAreHere() {
       icon: <IoMailOutline />,
       link: "mailto:info@esteemfinance.co.nz",
     },
-    {
-      unit: "Location",
-      value: "42 Rosebank Road, Avondale, Auckland, 1026",
-      icon: <CiLocationOn />,
-      link: "#",
-    },
-    {
-      unit: "Location",
-      value: "31 Tironui Road, Takanini, Takanini, 2112",
-      icon: <CiLocationOn />,
-      link: "#",
-    },
+    // {
+    //   unit: "Location",
+    //   value: "42 Rosebank Road, Avondale, Auckland, 1026",
+    //   icon: <CiLocationOn />,
+    //   link: "#",
+    // },
+    // {
+    //   unit: "Location",
+    //   value: "31 Tironui Road, Takanini, Takanini, 2112",
+    //   icon: <CiLocationOn />,
+    //   link: "#",
+    // },
   ];
   return (
     <div className="max-w-7xl mx-auto  relative overflow-hidden p-4 lg:p-16 lg:pb-0">
@@ -51,6 +51,7 @@ export default function WeAreHere() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-y-4">
+      <span className="hidden md:inline-block"></span> 
         {contactData.map((data, index) => (
           <Link href={data?.link} key={index}>
             <div
@@ -65,6 +66,7 @@ export default function WeAreHere() {
             </div>
           </Link>
         ))}
+        <span className="hidden md:inline-block"></span>
       </div>
     </div>
   );

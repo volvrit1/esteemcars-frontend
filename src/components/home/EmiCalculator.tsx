@@ -4,9 +4,9 @@ import Link from "next/link";
 import { useState } from "react";
 
 const EmiCalculator = () => {
-  const [loanAmount, setLoanAmount] = useState(70000);
+  const [loanAmount, setLoanAmount] = useState(0);
   const [tenure, setTenure] = useState(12);
-  const [interestRate, setInterestRate] = useState(9.9);
+  const [interestRate, setInterestRate] = useState(8.70);
   const [tenureType, setTenureType] = useState("monthly");
 
   // EMI Calculation Function
@@ -25,7 +25,7 @@ const EmiCalculator = () => {
   const totalAmount = (parseFloat(totalInterest) + loanAmount).toFixed(2);
 
   // Gradient Calculation for Loan Amount Range
-  const loanRangeGradient = ((loanAmount - 70000) / (2000000 - 70000)) * 100;
+  const loanRangeGradient = (loanAmount / 2000000) * 100;
 
   // Gradient Calculation for Tenure Range
   const tenureRangeGradient =
@@ -47,7 +47,7 @@ const EmiCalculator = () => {
   // Handle Loan Amount Change
   const handleLoanAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newLoanAmount = Number(e.target.value);
-    if (newLoanAmount >= 70000 && newLoanAmount <= 2000000) {
+    if (newLoanAmount >= 0 && newLoanAmount <= 2000000) {
       setLoanAmount(newLoanAmount);
     }
   };
@@ -55,7 +55,7 @@ const EmiCalculator = () => {
   // Handle Interest Rate Change
   const handleInterestRateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newInterestRate = Number(e.target.value);
-    if (newInterestRate >= 9.9 && newInterestRate <= 20) {
+    if (newInterestRate >= 8.70 && newInterestRate <= 20) {
       setInterestRate(newInterestRate);
     }
   };
@@ -103,7 +103,9 @@ const EmiCalculator = () => {
             height={100}
             className="w-full "
           />
-          <p className="text-gray-700 text-sm mb-8">Calculate your EMI and Apply for Loan today</p>
+          <p className="text-gray-700 text-sm mb-8">
+            Calculate your EMI and Apply for Loan today
+          </p>
           <Link
             href={"/apply-loan"}
             className="bg-[#1262A1] hover:bg-gray-400 transition-colors ease-in-out px-6 lg:px-16 py-3 flex justify-center items-center font-[poppins] h-11 text-base lg:text-sm m-auto rounded"
@@ -122,7 +124,7 @@ const EmiCalculator = () => {
                 $
                 <input
                   type="number"
-                  min="70000"
+                  min="0"
                   max="2000000"
                   step="1000"
                   value={loanAmount}
@@ -133,7 +135,7 @@ const EmiCalculator = () => {
             </div>
             <input
               type="range"
-              min="70000"
+              min="0"
               max="2000000"
               step="1000"
               value={loanAmount}
@@ -146,7 +148,7 @@ const EmiCalculator = () => {
             />
             <div className="flex justify-between items-center p-2">
               <span className="text-[#7d7d7d] font-semibold text-sm w-1/3 mb-2">
-                $70,000
+                $0
               </span>
               <span className="text-[#7d7d7d] font-semibold text-sm w-1/3 mb-2 text-right">
                 $2,000,000
@@ -212,7 +214,7 @@ const EmiCalculator = () => {
               <div className="w-2/4 flex items-center border-[1.5px] text-[#7d7d7d] border-gray-300 rounded-lg px-2">
                 <input
                   type="number"
-                  min="9.9"
+                  min="8.70"
                   max="20"
                   step="0.1"
                   value={interestRate}
@@ -224,14 +226,14 @@ const EmiCalculator = () => {
             </div>
             <input
               type="range"
-              min="9.9"
+              min="8.70"
               max="20"
               step="0.1"
               value={interestRate}
               onChange={handleInterestRateChange}
               style={{
                 background: `linear-gradient(to right, #ED6A00 ${
-                  ((interestRate - 9.9) / 10.1) * 100
+                  ((interestRate - 8.70) / 10.1) * 100
                 }%, #DDE5EB ${(interestRate / 200) * 100}%)`,
                 WebkitAppearance: "none",
               }}
@@ -239,7 +241,7 @@ const EmiCalculator = () => {
             />
             <div className="flex justify-between items-center p-2">
               <span className="text-[#7d7d7d] font-semibold text-sm w-1/3 mb-2">
-                9.9%
+                8.70%
               </span>
               <span className="text-[#7d7d7d] font-semibold text-sm w-1/3 mb-2 text-right">
                 20%

@@ -52,15 +52,16 @@ const Navbar = () => {
     <div className=" w-full h-auto absolute top-0 z-[1000] font-[poppins]">
       <HeaderInfo />
       <nav
-        className={`bg-[#252525] flex justify-between px-4 lg:px-0 lg:justify-evenly items-center h-24 lg:h-[115px] w-full ${inter.variable} fixed top-0 z-[10000]`}
+        className={`bg-[#252525] flex justify-between pr-4 lg:px-0 lg:justify-evenly items-center h-24 lg:h-[115px] w-full ${inter.variable} fixed top-0 z-[10000]`}
       >
         <div>
           <Link href={"/"}>
             <Image
-              src={"/assets/esteemf.svg"}
-              width={140}
-              height={60}
+              src={"/assets/esteemlogonew.png"}
+              width={900}
+              height={900}
               alt="sky field"
+              className="w-36 h-24"
             />
           </Link>
         </div>

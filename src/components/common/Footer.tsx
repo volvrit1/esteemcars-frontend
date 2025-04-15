@@ -37,7 +37,7 @@ const Footer = () => {
         brandSetting: {
           brandName: "Esteem Finance",
           brandSubTitle: "undefined",
-          brandImg: "https://esteemfinance.co.nz/assets/esteemf.svg",
+          brandImg: "https://esteemfinance.co.nz/assets/esteemlogonew.pngg",
           welcomeText: "Hi there!\nHow can I help you?",
           messageText: "Hello",
           backgroundColor: "#00e785",
@@ -64,9 +64,9 @@ const Footer = () => {
           <div className="col-span-2">
             <div className="mb-4">
               <Image
-                src="/assets/esteemf.svg"
-                width={170}
-                height={80}
+                src="/assets/esteemlogonew.png"
+                width={200}
+                height={90}
                 alt="Sky Field"
               />
             </div>
@@ -92,7 +92,7 @@ const Footer = () => {
           </div>
 
           {/* Company Links */}
-          <div className="col-span-1">
+          <div className="col-span-2 lg:pl-24">
             <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="mt-2 space-y-5 text-base lg:text-sm text-gray-300 font-thin font-[cabin]">
               <Link href="/" className="mb-2 block">
@@ -114,7 +114,7 @@ const Footer = () => {
           </div>
 
           {/* Support Links */}
-          <div className="col-span-1">
+          <div className="col-span-1 hidden">
             <h3 className="text-lg font-semibold mb-4">Support</h3>
             <ul className="mt-2 space-y-5 text-gray-300 text-base lg:text-sm font-thin font-[cabin]">
               <li>Getting Started</li>

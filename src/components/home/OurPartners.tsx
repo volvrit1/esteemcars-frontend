@@ -6,11 +6,11 @@ import { motion } from "framer-motion";
 
 const OurPartners = () => {
   const clients = [
-    { id: 1, name: "anz", logo: "/assets/client/client1.png" },
-    { id: 2, name: "kiwi", logo: "/assets/client/client2.png" },
-    { id: 3, name: "tsb", logo: "/assets/client/client3.png" },
-    { id: 4, name: "westpac", logo: "/assets/client/client4.png" },
-    { id: 5, name: "client5", logo: "/assets/client/client5.png" },
+    { id: 1, name: "anz", logo: "/assets/client/newclient/client1.png" },
+    { id: 2, name: "kiwi", logo: "/assets/client/newclient/client2.png" },
+    { id: 3, name: "tsb", logo: "/assets/client/newclient/client3.png" },
+    { id: 4, name: "westpac", logo: "/assets/client/newclient/client4.png" },
+    { id: 5, name: "client5", logo: "/assets/client/newclient/client5.png" },
   ];
 
   // Duplicate the list to create a seamless effect
@@ -41,57 +41,41 @@ const OurPartners = () => {
           width={1920} // Adjust width accordingly
           height={300} // Adjust height accordingly
           className="w-20 h-auto absolute hidden md:inline-block top-20 right-0 z-10"
-
         />
       </div>
-      <div className="relative flex w-full">
+      <div className="relative w-full overflow-hidden">
         <motion.div
-          className="flex"
+          className="flex w-max"
           animate={{
-            x: ["0%", "-50%"], // Moves the entire container by 50%
+            x: ["0%", "-50%"],
           }}
           transition={{
             repeat: Infinity,
             repeatType: "loop",
             ease: "linear",
-            duration: 15, // Adjust the speed of the scroll here
+            duration: 35, // Adjust speed here
           }}
         >
-          {/* First scrollable row */}
-          <div className="flex space-x-6">
-            {repeatedClients.map((client, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 h-28 w-28 rounded-lg overflow-hidden"
-              >
-                <Image
-                  src={client.logo}
-                  width={300}
-                  height={100}
-                  alt={`Client ${client.name}`}
-                  className="object-cover h-28 w-28 scale-125 p-2"
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Second identical row to make the loop seamless */}
-          <div className="flex space-x-6">
-            {repeatedClients.map((client, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 h-28 w-28 rounded-lg overflow-hidden"
-              >
-                <Image
-                  src={client.logo}
-                  width={300}
-                  height={100}
-                  alt={`Client ${client.name}`}
-                  className="object-cover h-28 w-28 scale-125 p-2"
-                />
-              </div>
-            ))}
-          </div>
+          {/* Repeated content twice for seamless scroll */}
+          {[...Array(2)].map((_, i) => (
+            <div key={i} className="flex space-x-4">
+              {repeatedClients.map((client, index) => (
+                <div
+                  key={`${i}-${index}`}
+                  className="flex-shrink-0 rounded-lg overflow-hidden"
+                >
+                  <Image
+                    src={client.logo}
+                    width={300}
+                    height={100}
+                    alt={`Client ${client.name}`}
+                    unoptimized
+                    className="object-contain h-20 w-fit p-2"
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>
