@@ -37,7 +37,7 @@ const Footer = () => {
         brandSetting: {
           brandName: "Esteem Finance",
           brandSubTitle: "undefined",
-          brandImg: "https://esteemfinance.co.nz/assets/esteemlogonew.pngg",
+          brandImg: "https://esteemfinance.co.nz/assets/esteemfinancelogo.pngg",
           welcomeText: "Hi there!\nHow can I help you?",
           messageText: "Hello",
           backgroundColor: "#00e785",
@@ -64,7 +64,7 @@ const Footer = () => {
           <div className="col-span-2">
             <div className="mb-4">
               <Image
-                src="/assets/esteemlogonew.png"
+                src="/assets/esteemfinancelogo.png"
                 width={200}
                 height={90}
                 alt="Sky Field"
