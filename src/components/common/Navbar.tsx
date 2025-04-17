@@ -57,7 +57,7 @@ const Navbar = () => {
         <div >
           <Link href={"/"} >
             <Image
-              src={"/assets/esteemfinancelogo.png"}
+              src={"/assets/esteemfinallogo.png"}
               width={1600}
               height={1600}
               alt="sky field"
@@ -76,7 +76,7 @@ const Navbar = () => {
               className="border-none outline-none"
             >
               <li
-                className={`text-sm font-['inter'] flex-justify-center items-center ${
+                className={`text-lg font-['inter'] flex-justify-center items-center ${
                   pathname === item.path
                     ? "border-b-2 border-[#1262A1] text-[#1262A1] font-bold"
                     : "text-gray-900 hover:text-[#1262A1] transition duration-200"

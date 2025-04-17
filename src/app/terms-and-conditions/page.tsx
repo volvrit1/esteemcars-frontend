@@ -2,7 +2,7 @@ import React from "react";
 
 export default function page() {
   return (
-    <div className="p-6 max-w-4xl mx-auto mt-[5.7rem] lg:mt-[7rem] text-gray-800">
+    <div className="p-6 max-w-4xl mx-auto mt-[5.7rem] lg:mt-[9rem] text-gray-800">
       <h1 className="text-3xl font-bold mb-4">Terms and Conditions</h1>
       <p className="mb-2">
         Welcome to our website. By accessing or using our service, you agree to

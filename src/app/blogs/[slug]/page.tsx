@@ -68,7 +68,7 @@ const page = () => {
   const cleanHTML = DOMPurify.sanitize(blog?.content); // Sanitize HTML
 
   return (
-    <div className="bg-transparent mt-[5.7rem] lg:mt-[7rem] font-[poppins]">
+    <div className="bg-transparent mt-[5.7rem] lg:mt-[9rem] font-[poppins]">
       <div className="max-w-7xl lg:max-w-6xl m-auto p-4 lg:py-4">
         <div className="text-gray-700 mb-4 ">
           <Link href={"/blogs"} className="text-blue-600">

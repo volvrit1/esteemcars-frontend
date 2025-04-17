@@ -5,7 +5,7 @@ import React from "react";
 export default function page() {
   return (
     <div className="bg-white">
-      <div className="w-full mt-[6rem] lg:mt-[7rem]">
+      <div className="w-full mt-[6rem] lg:mt-[9rem]">
         <Image
           src="/assets/applyloan.png"
           alt="Loan Form"

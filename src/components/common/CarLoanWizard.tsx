@@ -415,7 +415,7 @@ const CarLoanWizard = ({ id }: any) => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen mt-[5.7rem] lg:mt-[7rem] p-4 lg:p-16 bg-gray-100 font-[poppins]">
+    <div className="flex justify-center items-center min-h-screen mt-[5.7rem] lg:mt-[9rem] p-4 lg:p-16 bg-gray-100 font-[poppins]">
       <div className="bg-[#1262A1] text-white rounded-2xl shadow-lg  w-full lg:w-auto p-4 lg:p-16">
         {step === 1 && (
           <Step1
