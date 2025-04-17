@@ -49,26 +49,26 @@ const Navbar = () => {
   // }
 
   return (
-    <div className=" w-full h-auto absolute top-0 z-[1000] font-[poppins]">
+    <div className=" w-full h-auto font-[poppins] fixed top-0 z-[10000]">
       <HeaderInfo />
       <nav
-        className={`bg-[#252525] flex justify-between pr-4 lg:px-0 lg:justify-evenly items-center h-24 lg:h-[115px] w-full ${inter.variable} fixed top-0 z-[10000]`}
+        className={`bg-[#EDEDED] shado flex justify-between pr-4 lg:px-0 lg:justify-evenly items-center h-24 lg:h-[95px] w-full ${inter.variable} `}
       >
-        <div>
-          <Link href={"/"}>
+        <div >
+          <Link href={"/"} >
             <Image
               src={"/assets/esteemfinancelogo.png"}
-              width={900}
-              height={900}
+              width={1600}
+              height={1600}
               alt="sky field"
-              className="w-36 h-28"
+              className="w-40 h-36"
             />
           </Link>
         </div>
         <span className="h-3/5 w-[1px] bg-gray-500 hidden lg:block "></span>
 
         {/* Desktop Menu */}
-        <ul className="hidden lg:flex justify-evenly items-center  w-3/5 text-gray-50">
+        <ul className="hidden lg:flex justify-evenly items-center  w-3/5 text-gray-500">
           {menuItems.map((item) => (
             <Link
               key={item.path}
@@ -78,8 +78,8 @@ const Navbar = () => {
               <li
                 className={`text-sm font-['inter'] flex-justify-center items-center ${
                   pathname === item.path
-                    ? "border-b-2 border-gray-50 text-gray-100 font-bold"
-                    : "text-gray-300 hover:text-gray-100 transition duration-200"
+                    ? "border-b-2 border-[#1262A1] text-[#1262A1] font-bold"
+                    : "text-gray-900 hover:text-[#1262A1] transition duration-200"
                 }`}
               >
                 {item.name}
