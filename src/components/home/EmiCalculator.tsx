@@ -38,7 +38,7 @@ const EmiCalculator = () => {
     const newTenure = Number(e.target.value);
     if (
       (tenureType === "monthly" && newTenure >= 12 && newTenure <= 72) ||
-      (tenureType === "weekly" && newTenure >= 52 && newTenure <= 312)
+      (tenureType === "weekly" || tenureType === "fortnightly" && newTenure >= 52 && newTenure <= 312)
     ) {
       setTenure(newTenure);
     }
@@ -179,6 +179,7 @@ const EmiCalculator = () => {
                 >
                   <option value="monthly">Monthly</option>
                   <option value="weekly">Weekly</option>
+                  <option value="fortnightly">Fortnightly</option>
                 </select>
               </div>
             </div>
