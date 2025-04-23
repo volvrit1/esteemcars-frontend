@@ -10,8 +10,9 @@ import React, { useEffect } from "react";
 import { FaFacebookF, FaGoogle, FaLinkedinIn } from "react-icons/fa";
 import NewsLetter from "./NewsLetter";
 import Link from "next/link";
-import { FaX } from "react-icons/fa6";
-import { IoCallOutline, IoMailOutline } from "react-icons/io5";
+import { FaLocationPin, FaX } from "react-icons/fa6";
+import { IoCallOutline, IoLocateOutline, IoMailOutline } from "react-icons/io5";
+import { TiLocationOutline } from "react-icons/ti";
 
 const Footer = () => {
   useEffect(() => {
@@ -139,6 +140,16 @@ const Footer = () => {
                 <IoCallOutline className="text-xl" />
                 <Link href="tel:0210371229">
                   <span className="text-base">0210371229</span>
+                </Link>
+              </div>
+
+              <div className="flex items-center space-x-2">
+                <TiLocationOutline className="text-2xl" />
+                <Link href="tel:0210371229">
+                  <span className="text-base">
+                    {" "}
+                    13 Binsted Road, New Lynn, Auckland 0600
+                  </span>
                 </Link>
               </div>
             </div>

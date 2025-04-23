@@ -98,22 +98,12 @@ const ContactSection = () => {
                 <IoLocationOutline size={25} className="text-xl m-2" />
                 <div className="text-xs">
                   <p className="text-gray-50 text-sm">
-                    42 Rosebank Road, Avondale, Auckland, 1026
+                  13 Binsted Road, New Lynn, Auckland 0600
                   </p>
                 </div>
               </div>
             </Link>
-            <Link href={"mailto:example@gmail.com"}>
-              <div className="flex items-center gap-2">
-                <IoLocationOutline size={25} className="text-xl m-2" />
-
-                <div className="text-xs">
-                  <p className="text-gray-50 text-sm">
-                    31 Tironui Road, Takanini, Takanini, 2112
-                  </p>
-                </div>
-              </div>
-            </Link>
+           
           </div>
           <div className="text-gray-50 flex items-center justify-start gap-4  mb-6 ">
             <Link href={"tel:123-456-7890"}>

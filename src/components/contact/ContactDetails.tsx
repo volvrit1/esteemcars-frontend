@@ -6,7 +6,7 @@ export default function ContactDetails() {
     {
       id: 1,
       name: "Office Address",
-      desc: "33 Ha’tasiya Ave, Haifa Israel, 3296024",
+      desc: "13 Binsted Road, New Lynn, Auckland 0600",
       logo: "/images/location.png",
     },
     {
