@@ -26,12 +26,6 @@ export default function WhyEsteeemLanding() {
         <h2 className="text-gray-900 text-2xl font-[alexandria] font-semibold mb-2">
           Why Esteem?
         </h2>
-        <p className="text-gray-700 font-[cabin]">
-          Browse through a wide range of cars that suit both your budget and
-          specific needs. Our easy-to-use platform allows you to easily and
-          conveniently browse through different options, making it easy for you
-          to find the ideal car that meets your lifestyle and needs.
-        </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
         <div className="lg:col-span-2">
