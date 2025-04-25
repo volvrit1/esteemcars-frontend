@@ -33,14 +33,14 @@ const LatestNews = async () => {
                     {data?.title ||
                       "Car Loans for Bad Credit: Options and Strategies?"}
                   </h2>
-                  <p className="text-base text-[#7d7d7d] font-[cabin] max-h-12 min-h-12 overflow-hidden line-clamp-2">
+                  {/* <p className="text-base text-[#7d7d7d] font-[cabin] max-h-12 min-h-12 overflow-hidden line-clamp-2">
                     {data?.description ||
                       "Addresses the challenges of bad credit and explores available loan options..."}
-                  </p>
+                  </p> */}
                 </div>
                 {/* Text Section */}
 
-                <div className="w-full mt-8 lg:mt-4 lg:text-center border-t-2 flex items-center gap-4 py-4">
+                <div className="w-full mt-4 lg:mt-4 lg:text-center border-t-2 flex items-center gap-4 py-2">
                   <Image
                     src={`${
                       data?.coverImage
@@ -48,12 +48,12 @@ const LatestNews = async () => {
                         : "/assets/profile.png"
                     }`}
                     alt={"image"}
-                    width={30}
-                    height={30}
+                    width={300}
+                    height={300}
                     className="rounded-full min-h-12 max-h-12 max-w-12 min-w-12 object-cover border border-gray-100   "
                   />
                   <div>
-                    <h2 className="text-xs sm:text-xs md:text-xs lg:text-xs xl:text-xs font-normal  line-clamp-4 text-[#252525]  leading-7 uppercase">
+                    <h2 className="text-sm sm:text-sm md:text-sm lg:text-sm xl:text-sm font-semibold  line-clamp-4 text-[#252525]  leading-7 uppercase">
                       {data?.author || "BY JOHN WICK"}
                     </h2>
                   </div>

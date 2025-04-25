@@ -89,7 +89,7 @@ const page = () => {
             alt="Blog Banner"
             className="w-full h-80 object-cover rounded-lg"
           />
-          <h1 className="text-4xl font-bold text-[#252525] mt-6">
+          <h1 className="text-xl lg:text-3xl font-bold text-[#252525] mt-6">
             {blog?.title || "Blog Title"}
           </h1>
           <p className="text-[#7d7d7d] text-sm mt-2">
@@ -112,49 +112,48 @@ const page = () => {
         </div>
 
         <div className="mt-8">
-          <h3 className="text-2xl font-semibold text-[#252525]">
+          <h3 className="text-2xl mb-4 font-semibold text-[#252525]">
             Latest Blogs
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {blogsData &&
               blogsData?.map((blog: any, index: number) => (
-                <div
-                  key={index}
-                  className="container mx-auto mb-4 lg:mb-0 lg:p-2 flex flex-col lg:flex-col items-center justify-between"
-                >
-                  <div className=" h-60 w-full flex justify-center rounded overflow-hidden ">
-                    <Image
-                      src={`${
-                        blog?.coverImage
-                          ? process.env.NEXT_PUBLIC_BASE_URL + blog?.coverImage
-                          : "/assets/carimg.png"
-                      }`}
-                      alt="Explore Image"
-                      width={800}
-                      height={630}
-                      className="rounded-none shadow-lg w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl object-cover"
-                    />
-                  </div>
-
-                  <div className={` w-full mt-8 lg:mt-4 lg:text-left  `}>
-                    <h2 className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl font-normal  text-gray-900 leading-7 mb-3">
-                      {"Loan"}
-                    </h2>
-                    <h2 className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl font-bold text-gray-900 leading-7 mb-1">
-                      {blog?.title}
-                    </h2>
-                    <Link
-                      href={`/blogs/${blog?.slug}`}
-                      className="mt-6 w-12 h-12 text-sm sm:text-base md:text-lg bg-transparent text-black rounded  border border-[#F75D34] transition flex justify-center items-center"
-                    >
-                      <IoIosArrowForward
-                        width={18}
-                        height={18}
-                        className="font-thin"
+                <Link href={`/blogs/${blog?.slug}`} key={index}>
+                  <div className="container mx-auto lg:p-2 flex flex-col lg:flex-col items-center justify-between">
+                    <div className="relative h-60 w-full flex justify-center rounded overflow-hidden ">
+                      <Image
+                        src={`${
+                          blog?.coverImage
+                            ? process.env.NEXT_PUBLIC_BASE_URL +
+                              blog?.coverImage
+                            : "/assets/carimg.png"
+                        }`}
+                        alt="Explore Image"
+                        width={800}
+                        height={630}
+                        className="rounded-none shadow-lg w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl object-cover"
                       />
-                    </Link>
+                      <div className="absolute top-4 left-4 flex itece justify-start gap-4">
+                        <h2 className="text-xs sm:text-xs md:text-xs lg:text-xs xl:text-xs font-[alexandria] rounded font-normal  line-clamp-4 leading-7 border bg-blue-900/70 text-white inline-block p-2 uppercase">
+                          {blog?.author || "BY JOHN WICK"}
+                        </h2>
+                      </div>
+                    </div>
+
+                    <div className={` w-full mt-8 lg:mt-4 lg:text-left  `}>
+                      <h2 className="text-lg sm:text-lg md:text-lg lg:text-lg xl:text-lg text-justify font-semibold text-gray-800 line-clamp-2 leading-7 mb-1">
+                        {blog?.title}
+                      </h2>
+                    </div>
+                    <div className="text-gray-900  p-1 flex justify-start w-full ">
+                      <div className="flex items-center justify-start text-gray-700 text-sm font-[poppins]">
+                        {blog?.date
+                          ? dayjs(blog?.date).format("MMMM DD YYYY")
+                          : "02 MARCH 2025"}
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))}
           </div>
         </div>

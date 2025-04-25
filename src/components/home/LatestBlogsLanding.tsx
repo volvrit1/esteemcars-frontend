@@ -54,7 +54,7 @@ const LatestBlogsLanding = () => {
           data?.map((data: any, index: number) => (
             <SwiperSlide key={index} className="h-full">
               <Link key={index} href={`/blogs/${data?.slug}`}>
-                <div key={index} className="container">
+                <div key={index} className="container h-full">
                   <div className="w-full relative h-56 mb-4">
                     <Image
                       src={`${
@@ -65,37 +65,27 @@ const LatestBlogsLanding = () => {
                       alt={"image"}
                       width={800}
                       height={800}
-                      className="object-fill w-full h-full border border-gray-100   "
+                      className="object-cover w-full h-full border border-gray-100   "
                     />
                     <div className="absolute top-4 left-4 flex itece justify-start gap-4">
-                      <h2 className="text-xs sm:text-xs md:text-xs lg:text-xs xl:text-xs font-[alexandria] rounded font-normal  line-clamp-4 leading-7 border bg-white/20 text-white inline-block p-2 uppercase">
-                        {data?.author || "BY JOHN WICK"}
-                      </h2>
-                      <h2 className="text-xs sm:text-xs md:text-xs lg:text-xs xl:text-xs font-[alexandria] rounded font-normal  line-clamp-4 leading-7 bg-white/20 text-white inline-block p-2 uppercase">
+                      <h2 className="text-xs sm:text-xs md:text-xs lg:text-xs xl:text-xs font-[alexandria] rounded font-normal  line-clamp-4 leading-7 border bg-blue-900/70 text-white inline-block p-2 uppercase">
                         {data?.author || "BY JOHN WICK"}
                       </h2>
                     </div>
                   </div>
-                  <div className="mb-4">
-                    <h2 className="text-lg sm:text-lg md:text-lg lg:text-base xl:text-base font-[alexandria] font-bold text-[#252525] min-h-12 max-h-20 overflow-hidden line-clamp-3 leading-7 mb-4">
+                  <div className="mb-2 h-full">
+                    <h2 className="text-lg sm:text-lg md:text-lg lg:text-base xl:text-base font-[alexandria] text-justify font-bold text-[#252525] min-h-12 overflow-hidden line-clamp-2 leading-7 mb-4">
                       {data?.title ||
                         "Car Loans for Bad Credit: Options and Strategies?"}
-
-                      <span className="text-gray-500 font-normal ml-1">
-                        {data?.description ||
-                          "Addresses the challenges of bad credit and explores available loan options..."}
-                      </span>
                     </h2>
                   </div>
                   {/* Text Section */}
 
-                  <div className="text-gray-900  py-4 flex justify-start w-full ">
+                  <div className="text-gray-900  p-1 flex justify-start w-full ">
                     <div className="flex items-center justify-start text-gray-700 text-sm font-[poppins]">
                       {data?.date
                         ? dayjs(data?.date).format("MMMM DD YYYY")
                         : "02 MARCH 2025"}
-
-                        {" 2 minute read"}
                     </div>
                   </div>
                 </div>
