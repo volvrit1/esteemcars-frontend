@@ -65,10 +65,11 @@ const Footer = () => {
           <div className="col-span-2">
             <div className="mb-4">
               <Image
-                src="/assets/esteemfinallogo.png"
+                src="/assets/logo.png"
                 width={200}
                 height={90}
                 alt="Sky Field"
+                className="filter invert brightness-0"
               />
             </div>
             <p className="text-gray-300 mt-2 mb-4 text-base lg:text-sm">

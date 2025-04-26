@@ -57,11 +57,11 @@ const Navbar = () => {
         <div >
           <Link href={"/"} >
             <Image
-              src={"/assets/esteemfinallogo.png"}
+              src={"/assets/logo.png"}
               width={1600}
               height={1600}
               alt="sky field"
-              className="w-40 h-36"
+              className="w-40 h-32"
             />
           </Link>
         </div>
