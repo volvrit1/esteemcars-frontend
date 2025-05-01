@@ -108,7 +108,9 @@ const MyForm = () => {
     //   newErrors.countryCode = "CountryCode is required";
     if (!formData.mobile) {
       newErrors.mobile = "Mobile is required";
-    }
+    } else if (!/^\d{10}$/.test(formData.mobile)) {
+      newErrors.mobile = "Mobile number must be exactly 10 digits";
+    }    
     if (!formData.email) {
       newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
