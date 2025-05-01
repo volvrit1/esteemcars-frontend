@@ -621,7 +621,7 @@ const MyForm = () => {
 
                   {/* Mobile input */}
                   <input
-                    type="tel"
+                    type="number"
                     name="mobile"
                     value={formData.mobile}
                     onChange={handleChange}
