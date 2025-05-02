@@ -53,7 +53,7 @@ const MyForm = () => {
   const [otpMail, setOtpMail] = useState("");
   const [setOtpLocal, setSetOtpLocal] = useState("");
   const [formData, setFormData] = useState<any>({
-    loanAmount: 1000,
+    loanAmount: 10000,
     weeklyPayment: 0,
     termYears: 1,
     title: "",
@@ -163,7 +163,7 @@ const MyForm = () => {
   };
 
   const resetFormData = (formData: any) => {
-    const data: any = { loanAmount: 1000, weeklyPayment: 0, termYears: 1 };
+    const data: any = { loanAmount: 10000, weeklyPayment: 0, termYears: 1 };
     setFormData(
       Object.fromEntries(
         Object.keys(formData).map((key) =>
@@ -205,7 +205,7 @@ const MyForm = () => {
       const isValid = validate1(formData);
       const isValid2 = validate2(formData);
       if (isValid && isValid2) {
-        const res: any = await Post("/api/loan-application", formData, 1000);
+        const res: any = await Post("/api/loan-application", formData, 10000);
         if (res.success) {
           await sendMessage();
           setId(res?.data?.id);
@@ -290,9 +290,9 @@ const MyForm = () => {
                 <input
                   type="range"
                   name="loanAmount"
-                  min="1000"
-                  max="10000"
-                  step="500"
+                  min="10000"
+                  max="100000"
+                  step="1000"
                   value={formData?.loanAmount}
                   onChange={handleChange}
                   className="w-full rounded-full h-2 bg-[#DDE5EB] appearance-none [&::-webkit-slider-thumb]:appearance-none 
@@ -307,7 +307,7 @@ const MyForm = () => {
              [&::-moz-range-thumb]:rounded-full 
              [&::-moz-range-thumb]:cursor-pointer"
                   style={{
-                    background: `linear-gradient(to right, #1262A1 ${((formData?.loanAmount - 1000) / (10000 - 1000)) * 100
+                    background: `linear-gradient(to right, #1262A1 ${((formData?.loanAmount - 10000) / (100000 - 10000)) * 100
                       }%, #DDE5EB 0%)`,
                   }}
                 />
@@ -320,19 +320,22 @@ const MyForm = () => {
                     I want to pay
                   </label>
                   <span className="rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30 p-[1.3px] px-3">
-                    $ {Math.min(Math.max(formData?.weeklyPayment || 0, 0), formData?.loanAmount)} / week
+                    {/* $ {Math.min(Math.max(formData?.weeklyPayment || 0, 0), formData?.loanAmount)} */}
+                    $ {formData?.weeklyPayment} / week
                   </span>
                 </div>
                 <input
                   type="range"
                   name="weeklyPayment"
-                  min="500"
-                  max={Math.min(formData?.loanAmount)} // Max is either loanAmount or 1000
+                  min="0"
+                  max={1000}
+                  // max={Math.min(formData?.loanAmount)} // Max is either loanAmount or 1000
                   step="100"
-                  value={Math.min(
-                    formData?.weeklyPayment,
-                    formData?.loanAmount
-                  )} // Ensure it doesn't exceed loanAmount
+                  value={formData?.weeklyPayment}
+                  // value={Math.min(
+                  //   formData?.weeklyPayment,
+                  //   formData?.loanAmount
+                  // )} // Ensure it doesn't exceed loanAmount
                   onChange={handleChange}
                   className="w-full rounded-full h-2 bg-[#DDE5EB] appearance-none  [&::-webkit-slider-thumb]:appearance-none 
              [&::-webkit-slider-thumb]:w-4 
@@ -346,13 +349,12 @@ const MyForm = () => {
              [&::-moz-range-thumb]:rounded-full 
              [&::-moz-range-thumb]:cursor-pointer"
                   style={{
-                    background: `linear-gradient(to right, #1262A1 ${((formData?.weeklyPayment - 500) /
-                      (Math.min(formData?.loanAmount) - 500)) *
-                      100
-                      }%, #DDE5EB 0%)`,
+                    background: `linear-gradient(to right, #1262A1 ${((formData?.weeklyPayment - 0) / 10)}%, #DDE5EB 0%)`,
                   }}
                 />
               </div>
+              {/* // (Math.min(formData?.loanAmount) - 0)) *
+                    // 100 */}
 
               {/* Term Slider */}
               <div className="w-full">
@@ -366,7 +368,7 @@ const MyForm = () => {
                   type="range"
                   name="termYears"
                   min="1"
-                  max="10"
+                  max="5"
                   step="1"
                   value={formData?.termYears}
                   onChange={handleChange}
@@ -382,7 +384,7 @@ const MyForm = () => {
              [&::-moz-range-thumb]:rounded-full 
              [&::-moz-range-thumb]:cursor-pointer"
                   style={{
-                    background: `linear-gradient(to right, #1262A1 ${((formData?.termYears - 1) / (10 - 1)) * 100
+                    background: `linear-gradient(to right, #1262A1 ${((formData?.termYears - 1) / (5 - 1)) * 100
                       }%, #DDE5EB 0%)`,
                   }}
                 />
