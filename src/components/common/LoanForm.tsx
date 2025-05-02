@@ -53,8 +53,8 @@ const MyForm = () => {
   const [otpMail, setOtpMail] = useState("");
   const [setOtpLocal, setSetOtpLocal] = useState("");
   const [formData, setFormData] = useState<any>({
-    loanAmount: 5000,
-    weeklyPayment: 1000,
+    loanAmount: 1000,
+    weeklyPayment: 0,
     termYears: 1,
     title: "",
     firstName: "",
@@ -110,7 +110,7 @@ const MyForm = () => {
       newErrors.mobile = "Mobile is required";
     } else if (!/^\d{10}$/.test(formData.mobile)) {
       newErrors.mobile = "Mobile number must be exactly 10 digits";
-    }    
+    }
     if (!formData.email) {
       newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
@@ -627,6 +627,7 @@ const MyForm = () => {
                     name="mobile"
                     value={formData.mobile}
                     onChange={handleChange}
+                    maxLength={10}
                     placeholder="Enter mobile number"
                     className="flex-1 py-3 pl-4 pr-2 placeholder:text-[#1262A1] bg-transparent text-[#1262A1] outline-none"
                   />
