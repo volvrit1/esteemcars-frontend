@@ -52,6 +52,7 @@ const MyForm = () => {
   const [id, setId] = useState("");
   const [otpMail, setOtpMail] = useState("");
   const [setOtpLocal, setSetOtpLocal] = useState("");
+  const [isDisabled, setIsDisabled] = useState(false)
   const [formData, setFormData] = useState<any>({
     loanAmount: 10000,
     weeklyPayment: 0,
@@ -205,6 +206,7 @@ const MyForm = () => {
       const isValid = validate1(formData);
       const isValid2 = validate2(formData);
       if (isValid && isValid2) {
+        setIsDisabled(true)
         const res: any = await Post("/api/loan-application", formData, 10000);
         if (res.success) {
           await sendMessage();
@@ -216,11 +218,13 @@ const MyForm = () => {
             behavior: "smooth", // Smooth scrolling effect
           });
           setStep(3);
+          setIsDisabled(false)
           toast.success(res?.message);
           resetFormData(formData);
         }
       }
     } catch (error: any) {
+      setIsDisabled(false)
       console.error("Error submitting form:", error);
       // toast.error(error?.message);
       toast.error(error?.details);
@@ -239,6 +243,11 @@ const MyForm = () => {
       }
     }
   };
+
+
+
+  const isStepTwoAndNotAgreed = step === 2 && !agreed;
+  const isButtonDisabled = isStepTwoAndNotAgreed;
 
   return (
     <div className="max-w-7xl m-auto p-4 lg:p-16 font-[poppins]">
@@ -1180,18 +1189,29 @@ const MyForm = () => {
         >
           Previous
         </button>
-
-        <button
-          type="button"
-          onClick={handelForm}
-          disabled={step === 2 && !agreed}
-          className={`bg-[#1262A1] w-1/3 lg:w-1/5 m-auto text-white p-3 rounded-full hover:bg-[#1262A1]/90 ${step === 2 && !agreed ? "opacity-50 cursor-not-allowed" : ""
-            }`}
-        >
-          {step === 1 ? "Next" : "Submit"}
-        </button>
+        {
+          isDisabled ? (
+            <button
+              type="button"
+              disabled={isDisabled}
+              className={`bg-gray-50 border w-1/3 lg:w-1/5 m-auto text-gray-500 p-3 rounded-full hover:bg-gray-100 ${step === 3 ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+            >
+              Sending OTP...
+            </button>
+          ) :
+            <button
+              type="button"
+              onClick={handelForm}
+              disabled={isButtonDisabled}
+              className={`bg-[#1262A1] w-1/3 lg:w-1/5 m-auto text-white p-3 rounded-full hover:bg-[#1262A1]/90 ${isStepTwoAndNotAgreed ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+            >
+              {step === 1 ? "Next" : "Submit"}
+            </button>
+        }
       </div>
-    </div>
+    </div >
   );
 };
 
