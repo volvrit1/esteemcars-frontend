@@ -330,7 +330,7 @@ const MyForm = () => {
                   min="0"
                   max={1000}
                   // max={Math.min(formData?.loanAmount)} // Max is either loanAmount or 1000
-                  step="100"
+                  step="50"
                   value={formData?.weeklyPayment}
                   // value={Math.min(
                   //   formData?.weeklyPayment,
