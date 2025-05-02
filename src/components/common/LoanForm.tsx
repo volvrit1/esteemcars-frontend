@@ -163,7 +163,7 @@ const MyForm = () => {
   };
 
   const resetFormData = (formData: any) => {
-    const data: any = { loanAmount: 5000, weeklyPayment: 1000, termYears: 1 };
+    const data: any = { loanAmount: 1000, weeklyPayment: 0, termYears: 1 };
     setFormData(
       Object.fromEntries(
         Object.keys(formData).map((key) =>
@@ -205,7 +205,7 @@ const MyForm = () => {
       const isValid = validate1(formData);
       const isValid2 = validate2(formData);
       if (isValid && isValid2) {
-        const res: any = await Post("/api/loan-application", formData, 5000);
+        const res: any = await Post("/api/loan-application", formData, 1000);
         if (res.success) {
           await sendMessage();
           setId(res?.data?.id);
@@ -284,7 +284,7 @@ const MyForm = () => {
                     I want to borrow
                   </label>
                   <span className="rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30 p-[1.3px] px-3">
-                    ${formData?.loanAmount}
+                    $ {formData?.loanAmount}
                   </span>
                 </div>
                 <input
@@ -320,14 +320,14 @@ const MyForm = () => {
                     I want to pay
                   </label>
                   <span className="rounded-full bg-[#1262A11A] text-[#1262A1] border border-[#1262A1]/30 p-[1.3px] px-3">
-                    ${formData?.weeklyPayment} / week
+                    $ {Math.min(Math.max(formData?.weeklyPayment || 0, 0), formData?.loanAmount)} / week
                   </span>
                 </div>
                 <input
                   type="range"
                   name="weeklyPayment"
                   min="500"
-                  max={Math.min(formData?.loanAmount, 5000)} // Max is either loanAmount or 5000
+                  max={Math.min(formData?.loanAmount)} // Max is either loanAmount or 1000
                   step="100"
                   value={Math.min(
                     formData?.weeklyPayment,
@@ -347,7 +347,7 @@ const MyForm = () => {
              [&::-moz-range-thumb]:cursor-pointer"
                   style={{
                     background: `linear-gradient(to right, #1262A1 ${((formData?.weeklyPayment - 500) /
-                      (Math.min(formData?.loanAmount, 5000) - 500)) *
+                      (Math.min(formData?.loanAmount) - 500)) *
                       100
                       }%, #DDE5EB 0%)`,
                   }}
