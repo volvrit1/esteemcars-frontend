@@ -12,6 +12,7 @@ import Footer from "@/components/common/Footer";
 import OpenHour from "@/components/common/OpenHour";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Script from "next/script";
 
 export const poppins = Poppins({
   subsets: ["latin"],
@@ -55,6 +56,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Use Script for external Google tag */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17055029188"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17055029188');
+          `}
+        </Script>
+      </head>
       <body
         className={`${poppins.variable} ${alexandria.variable} ${fustat.variable} ${cabin.variable} ${plusJakartaSans.variable} antialiased`}
       >
