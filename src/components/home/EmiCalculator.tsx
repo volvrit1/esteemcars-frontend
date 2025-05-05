@@ -4,19 +4,68 @@ import Link from "next/link";
 import { useState } from "react";
 
 const EmiCalculator = () => {
-  const [loanAmount, setLoanAmount] = useState(0);
-  const [tenure, setTenure] = useState(12);
-  const [interestRate, setInterestRate] = useState(8.70);
+  const [loanAmount, setLoanAmount] = useState<any>(0);
+  const [tenure, setTenure] = useState<any>(12);
+  const [interestRate, setInterestRate] = useState<any>(0);
   const [tenureType, setTenureType] = useState("monthly");
 
   // EMI Calculation Function
+  // const calculateEMI = () => {
+  //   const monthlyRate = interestRate / 100 / 12;
+
+  //   // Validate input values
+  //   if (
+  //     isNaN(loanAmount) ||
+  //     isNaN(interestRate) ||
+  //     isNaN(tenure) ||
+  //     loanAmount <= 0 ||
+  //     interestRate < 0 ||
+  //     tenure <= 0
+  //   ) {
+  //     return "0.00";
+  //   }
+
+  //   const emi =
+  //     (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, tenure)) /
+  //     (Math.pow(1 + monthlyRate, tenure) - 1);
+
+  //   if (isNaN(emi) || emi < 0 || !isFinite(emi)) {
+  //     return "0.00";
+  //   }
+
+  //   return emi.toFixed(2); // Returns EMI rounded to 2 decimal places
+  // };
+
   const calculateEMI = () => {
-    const monthlyRate = interestRate / 100 / 12; // Monthly interest rate
-    const emi =
-      (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, tenure)) /
-      (Math.pow(1 + monthlyRate, tenure) - 1);
-    return emi.toFixed(2); // Returns EMI rounded to 2 decimal places
+    const principal = parseFloat(loanAmount);
+    const rate = parseFloat(interestRate);
+    const months = parseInt(tenure, 10);
+
+    // Validate inputs
+    if (
+      isNaN(principal) || principal <= 0 ||
+      isNaN(rate) || rate < 0 ||
+      isNaN(months) || months <= 0
+    ) {
+      return "0.00";
+    }
+
+    const monthlyRate = rate / 100 / 12;
+
+    let emi;
+
+    if (monthlyRate === 0) {
+      // Handle 0% interest case
+      emi = principal / months;
+    } else {
+      // Standard EMI formula
+      const factor = Math.pow(1 + monthlyRate, months);
+      emi = (principal * monthlyRate * factor) / (factor - 1);
+    }
+
+    return emi.toFixed(2); // Rounded to 2 decimal places
   };
+
 
   const totalInterest = (
     parseFloat(calculateEMI()) * tenure -
@@ -55,7 +104,7 @@ const EmiCalculator = () => {
   // Handle Interest Rate Change
   const handleInterestRateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newInterestRate = Number(e.target.value);
-    if (newInterestRate >= 8.70 && newInterestRate <= 20) {
+    if (newInterestRate >= 0 && newInterestRate <= 29.99) {
       setInterestRate(newInterestRate);
     }
   };
@@ -120,10 +169,10 @@ const EmiCalculator = () => {
               <label className="block text-gray-900 font-semibold text-sm w-1/3 mb-2">
                 Loan amount
               </label>
-              <div className="w-2/4 flex items-center border-[1.5px] text-[#7d7d7d] border-gray-300 rounded-lg px-2">
+              <div className="w-2/4 flex items-center border-[1.5px] text-[#7d7d7d] border-gray-29.990 rounded-lg px-2">
                 $
                 <input
-                  type="number"
+                  type="text"
                   min="0"
                   max="2000000"
                   step="1000"
@@ -162,7 +211,7 @@ const EmiCalculator = () => {
               <label className="block text-gray-900 font-semibold mb-2">
                 Tenure
               </label>
-              <div className="w-2/4 flex items-center border-[1.5px] text-[#7d7d7d] border-gray-300 rounded-lg px-2">
+              <div className="w-2/4 flex items-center border-[1.5px] text-[#7d7d7d] border-gray-29.990 rounded-lg px-2">
                 <input
                   type="number"
                   min={tenureType === "monthly" ? "12" : "52"}
@@ -212,11 +261,11 @@ const EmiCalculator = () => {
               <label className="block text-gray-900 font-semibold mb-2">
                 Interest rate
               </label>
-              <div className="w-2/4 flex items-center border-[1.5px] text-[#7d7d7d] border-gray-300 rounded-lg px-2">
+              <div className="w-2/4 flex items-center border-[1.5px] text-[#7d7d7d] border-gray-29.990 rounded-lg px-2">
                 <input
-                  type="number"
-                  min="8.70"
-                  max="20"
+                  type="text"
+                  min="0"
+                  max="29.99"
                   step="0.1"
                   value={interestRate}
                   onChange={handleInterestRateChange}
@@ -227,25 +276,32 @@ const EmiCalculator = () => {
             </div>
             <input
               type="range"
-              min="8.70"
-              max="20"
+              min="0"
+              max="29.99"
               step="0.1"
               value={interestRate}
               onChange={handleInterestRateChange}
               style={{
-                background: `linear-gradient(to right, #ED6A00 ${
-                  ((interestRate - 8.70) / 10.1) * 100
-                }%, #DDE5EB ${(interestRate / 200) * 100}%)`,
+                background: `linear-gradient(to right, #ED6A00 ${((interestRate - 0) / 29.99) * 100
+                  }%, #DDE5EB ${(interestRate / 29.99) * 100}%)`,
                 WebkitAppearance: "none",
               }}
-              className="w-full appearance-none h-[7px] rounded-lg [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:bg-gradient-to-r [&::-webkit-slider-thumb]:from-[#ED6A00] [&::-webkit-slider-thumb]:to-[#F69B00] [&::-webkit-slider-thumb]:rounded-full"
+              className="w-full appearance-none h-[7px] rounded-lg 
+    [&::-webkit-slider-thumb]:appearance-none 
+    [&::-webkit-slider-thumb]:w-4 
+    [&::-webkit-slider-thumb]:h-4 
+    [&::-webkit-slider-thumb]:bg-gradient-to-r 
+    [&::-webkit-slider-thumb]:from-[#ED6A00] 
+    [&::-webkit-slider-thumb]:to-[#F69B00] 
+    [&::-webkit-slider-thumb]:rounded-full"
             />
+
             <div className="flex justify-between items-center p-2">
               <span className="text-[#7d7d7d] font-semibold text-sm w-1/3 mb-2">
-                8.70%
+                0%
               </span>
               <span className="text-[#7d7d7d] font-semibold text-sm w-1/3 mb-2 text-right">
-                20%
+                29.99%
               </span>
             </div>
           </div>

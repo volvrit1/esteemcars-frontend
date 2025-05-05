@@ -121,7 +121,7 @@ export default function MobileMenu() {
     <nav className="relative">
       {/* Hamburger Button */}
       <button
-        className="lg:hidden text-gray-50 focus:outline-none flex justify-center items-center"
+        className="lg:hidden text-[#1262A1] focus:outline-none flex justify-center items-center"
         onClick={toggleMenu}
       >
         {isOpen ? <IoClose size={32} /> : <IoMenu size={32} />}
