@@ -1123,8 +1123,8 @@ const MyForm = () => {
           </div>
         )}
         {step == 3 && (
-          <div className="fixed inset-0 flex items-center justify-center z-[5000] bg-black bg-opacity-50">
-            <div className="bg-white text-[#1262A1] p-6 rounded-lg text-center">
+          <div className="fixed inset-0 flex items-center justify-center z-[5000]  bg-black bg-opacity-50">
+            <div className="bg-white text-[#1262A1] p-6 rounded-lg text-center mt-[7.5rem]">
               <OtpVerification
                 id={id}
                 email={otpMail}

@@ -22,6 +22,7 @@ const OtpVerification = ({
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [isResendDisabled, setIsResendDisabled] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   // Enable the verify button when all OTP digits are filled
   useEffect(() => {
@@ -48,7 +49,7 @@ const OtpVerification = ({
     index: number
   ) => {
     const value = e.target.value;
-
+    setErrorMessage("");
     // Handle case when pasting a 6-digit OTP
     if (value.length === 6 && index === 0) {
       const newOtp = value.split("").slice(0, 6);
@@ -107,12 +108,17 @@ const OtpVerification = ({
       );
 
       if (response.success) {
-        toast.success(response?.message);
+        // toast.success(response?.message);
         localStorage.setItem("accessToken", response?.data?.accessToken);
         setIsModalVisible(4);
       }
     } catch (error: any) {
-      toast.info(error?.message);
+      // toast.info(error?.message);
+      setErrorMessage(error?.message);
+      if (error?.message === "Invalid OTP") {
+        setOtp(Array(6).fill(""));
+        inputRefs.current[0].focus();
+      }
       console.log(error);
     } finally {
       setLoading(false);
@@ -157,15 +163,19 @@ const OtpVerification = ({
             />
           ))}
         </form>
+        {errorMessage && (
+          <p className="text-red-500 text-sm text-center mt-2">
+            {errorMessage}
+          </p>
+        )}
         <button
           type="submit"
           onClick={handleSubmit}
           disabled={isButtonDisabled}
-          className={`w-full py-2 text-white rounded-md  transition text-xl duration-200 flex items-center justify-center  ${
-            isButtonDisabled
-              ? "bg-[#1262A1]/30 cursor-not-allowed"
-              : "bg-[#1262A1] hover:bg-[#1262A1]/80"
-          }`}
+          className={`w-full py-2 text-white rounded-md  transition text-xl duration-200 flex items-center justify-center  ${isButtonDisabled
+            ? "bg-[#1262A1]/30 cursor-not-allowed"
+            : "bg-[#1262A1] hover:bg-[#1262A1]/80"
+            }`}
         >
           {loading && (
             <svg

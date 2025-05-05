@@ -69,6 +69,7 @@ export default function RootLayout({
           newestOnTop={true}
           position="top-right"
           hideProgressBar={false}
+          className={"z-[99999]"}
         />
         <Footer />
       </body>
