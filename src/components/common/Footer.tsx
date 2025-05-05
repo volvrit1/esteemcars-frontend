@@ -7,7 +7,7 @@ declare global {
 }
 import Image from "next/image";
 import React, { useEffect } from "react";
-import { FaFacebookF, FaGoogle, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaGoogle, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import NewsLetter from "./NewsLetter";
 import Link from "next/link";
 import { FaLocationPin, FaX } from "react-icons/fa6";
@@ -78,18 +78,16 @@ const Footer = () => {
             </p>
             <h2>Follow Us</h2>
             <div className="flex space-x-4 mt-4">
-              <div className="rounded-full border border-gray-50 p-2">
-                <FaFacebookF className="text-white cursor-pointer" />
-              </div>
-              <div className="rounded-full border border-gray-50 p-2">
-                <FaX className="text-white cursor-pointer" />
-              </div>
-              <div className="rounded-full border border-gray-50 p-2">
-                <FaGoogle className="text-white cursor-pointer" />
-              </div>
-              <div className="rounded-full border border-gray-50 p-2">
-                <FaLinkedinIn className="text-white cursor-pointer" />
-              </div>
+              <Link target="blank" href={"https://www.facebook.com/esteemfinance.co.nz"}>
+                <div className=" rounded-full border border-gray-50 p-2">
+                  <FaFacebookF className="text-gray-50 cursor-pointer" />
+                </div>
+              </Link>
+              <Link target="blank" href={"https://www.instagram.com/esteemfinance/"}>
+                <div className=" rounded-full border border-gray-50 p-2">
+                  <FaInstagram className="text-gray-50 cursor-pointer" />
+                </div>
+              </Link>
             </div>
           </div>
 
@@ -146,7 +144,7 @@ const Footer = () => {
 
               <div className="flex items-center space-x-2">
                 <TiLocationOutline className="text-2xl" />
-                <Link href="tel:0210371229">
+                <Link href="">
                   <span className="text-base">
                     {" "}
                     13 Binsted Road, New Lynn, Auckland 0600
