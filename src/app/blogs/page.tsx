@@ -1,4 +1,5 @@
 import HeroSection from "@/components/home/HeroSection";
+import LatestBlogsLanding from "@/components/home/LatestBlogsLanding";
 import LatestNews from "@/components/home/LatestNews";
 import React from "react";
 
@@ -22,7 +23,8 @@ export default function Page() {
         textShow={true}
         slug="blog"
       />
-      <LatestNews />
+      {/* <LatestNews /> */}
+      <LatestBlogsLanding />
     </div>
   );
 }

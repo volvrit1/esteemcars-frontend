@@ -74,7 +74,7 @@ const LatestBlogsLanding = () => {
                     </div>
                   </div>
                   <div className="mb-2 h-full">
-                    <h2 className="text-lg sm:text-lg md:text-lg lg:text-base xl:text-base font-[alexandria] text-justify font-bold text-[#252525] min-h-12 overflow-hidden line-clamp-2 leading-7 mb-4">
+                    <h2 className="text-lg sm:text-lg md:text-lg lg:text-base xl:text-base font-[alexandria] text-justify font-medium text-[#252525] min-h-12 overflow-hidden line-clamp-2 mb-4">
                       {data?.title ||
                         "Car Loans for Bad Credit: Options and Strategies?"}
                     </h2>
