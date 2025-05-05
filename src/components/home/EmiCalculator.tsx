@@ -369,9 +369,10 @@ const EmiCalculator = () => {
             </p>
           </div>
 
-          <button className="mt-6 bg-gray-100 hover:bg-orange-400 text-[#1262A1] hover:text-white font-sem text-base lg:text-sm font-semibold py-4 px-4 w-full rounded">
+          <Link
+            href={"/apply-loan"} className="mt-6 inline-block text-center ease-in-out transition-all duration-300  bg-gray-100 hover:bg-orange-400 text-[#1262A1] hover:text-white font-sem text-base lg:text-sm font-semibold py-4 px-4 w-full rounded">
             Check Eligibility In 2 Min
-          </button>
+          </Link>
         </div>
       </div>
     </div>
