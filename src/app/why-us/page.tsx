@@ -1,3 +1,5 @@
+// app/why-us/page.tsx (for example)
+
 import CreditScore from "@/components/whyUs/CreditScore";
 import HowWeWork from "@/components/whyUs/HowWeWork";
 import WhyWeAreBest from "@/components/whyUs/WhyWeAreBest";
@@ -8,10 +10,18 @@ import OurPartners from "@/components/home/OurPartners";
 import LoanBanner from "@/components/home/LoanBanner";
 import Testimonials2 from "@/components/home/Testimonials2";
 
-const page = async () => {
+export const metadata = {
+  title: "Why Choose Esteem Finance | Trusted Car Loan Experts",
+  description:
+    "Discover why Esteem Finance stands out in NZ. Offering expert advice, competitive rates, and a customer-centric approach to car financing.",
+  keywords:
+    "Esteem Finance benefits, car loan experts NZ, trusted vehicle financing, customer-focused loans",
+    metadataBase: new URL("https://esteemfinance.co.nz"),
+};
 
+const Page = () => {
   return (
-    <div >
+    <div>
       <WhyUsHeroSection />
       <OurPartners />
       <CreditScore />
@@ -25,6 +35,6 @@ const page = async () => {
   );
 };
 
-export default page;
+export default Page;
 
 export const revalidate = 60;

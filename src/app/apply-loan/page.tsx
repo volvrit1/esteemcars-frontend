@@ -1,13 +1,23 @@
+// app/apply/page.tsx
+
 import LoanForm from "@/components/common/LoanForm";
 import Image from "next/image";
 import React from "react";
 import { BiTimer } from "react-icons/bi";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { FaRegClock } from "react-icons/fa";
-import { FaClock } from "react-icons/fa6";
-import { GoClock } from "react-icons/go";
 
-export default function page() {
+// ✅ App Router metadata export
+export const metadata = {
+  title: "Apply for Car Finance | Quick Approval - Esteem",
+  description:
+    "Start your car loan application with Esteem Finance. Experience a swift, easy process with competitive rates tailored for you.",
+  keywords:
+    "apply car loan NZ, Esteem Finance application, quick car finance, vehicle loan apply",
+  metadataBase: new URL("https://esteemfinance.co.nz"),
+};
+
+export default function Page() {
   return (
     <div className="bg-white">
       <div className="w-full mt-[6rem] lg:mt-[9rem]">
@@ -17,7 +27,7 @@ export default function page() {
           width={500}
           height={500}
           unoptimized
-          className="object-conteian h-32 w-full object-cover"
+          className="object-contain h-32 w-full object-cover"
         />
       </div>
       <div className="max-w-7xl m-auto text-center pt-12">
@@ -44,7 +54,9 @@ export default function page() {
             <span>Same Day Funding</span>
           </div>
         </div>
-        <p className="text-gray-700 mt-6 lg:w-1/2 m-auto ">Applying for a loan or just exploring your options? Either way, it only takes a few moments to get the ball rolling.
+        <p className="text-gray-700 mt-6 lg:w-1/2 m-auto">
+          Applying for a loan or just exploring your options? Either way, it
+          only takes a few moments to get the ball rolling.
         </p>
       </div>
       <LoanForm />

@@ -1,9 +1,19 @@
+// app/blog/page.tsx
+
 import HeroSection from "@/components/home/HeroSection";
 import LatestBlogsLanding from "@/components/home/LatestBlogsLanding";
-import LatestNews from "@/components/home/LatestNews";
 import React from "react";
 
-// This is the page function where the static props will be fetched and revalidated
+// ✅ SEO Metadata
+export const metadata = {
+  title: "Car Finance Insights | Esteem Finance Blog",
+  description:
+    "Stay informed with Esteem Finance's blog. Get the latest tips, news, and advice on car financing in New Zealand.",
+  keywords:
+    "car finance blog, vehicle loan tips, Esteem Finance articles, NZ car financing news",
+  metadataBase: new URL("https://esteemfinance.co.nz"),
+};
+
 export default function Page() {
   const data = {
     title: "Our Latest Blogs",
@@ -16,10 +26,10 @@ export default function Page() {
   return (
     <div>
       <HeroSection
-        title={data?.title}
-        description={data?.description}
-        link={data?.link}
-        image={data?.image}
+        title={data.title}
+        description={data.description}
+        link={data.link}
+        image={data.image}
         textShow={true}
         slug="blog"
       />
@@ -29,4 +39,4 @@ export default function Page() {
   );
 }
 
-export const revalidate = 60; 
+export const revalidate = 60;
