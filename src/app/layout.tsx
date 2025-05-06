@@ -57,18 +57,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Use Script for external Google tag */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17055029188"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17057891149"
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics-2" strategy="afterInteractive">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-17055029188');
-          `}
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17057891149');
+    `}
         </Script>
       </head>
       <body
