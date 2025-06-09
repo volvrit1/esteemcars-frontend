@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-
 export default function Step1({
   nextStep,
   prevStep,
@@ -113,6 +112,7 @@ export default function Step1({
             <option value="">Select one option</option>
             <option value="single">Single</option>
             <option value="married">Married</option>
+            <option value="partner">Partner</option>
           </select>
           {errors.maritalStatus && (
             <p className="text-red-500">{errors.maritalStatus}</p>
@@ -179,9 +179,10 @@ export default function Step1({
           >
             <option value="">Select one option</option>
             <option value="Learner">Learner</option>
-            <option value="Restricted">Restricted</option>
+            {/* <option value="Restricted">Restricted</option> */}
             <option value="Full">Full</option>
-            <option value="Overseas">Overseas</option>
+            <option value="International">International</option>
+            {/* <option value="Overseas">Overseas</option> */}
           </select>
           {errors.driverLicenseType && (
             <p className="text-red-500">{errors.driverLicenseType}</p>

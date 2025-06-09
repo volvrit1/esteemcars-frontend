@@ -11,8 +11,6 @@ export default function Step1({
 }: any) {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-
-
   return (
     <div className="bg-[#1262A1] lg:p-6 rounded-lg min-w-[70vw] mx-auto text-white">
       <h2 className="text-2xl font-bold mb-10">
@@ -24,7 +22,9 @@ export default function Step1({
         <span></span>
         <span></span>
         <span></span>
-        <span className="text-center">Monthly Payments</span>
+        <span className="text-center">
+          {formData?.incomeType || "Monthly"} Payments
+        </span>
       </div>
 
       {/* Financial Items Grid */}
@@ -119,7 +119,7 @@ export default function Step1({
 
       {/* Total Monthly Payments */}
       <div className="mt-6 bg-white text-[#1262A1] font-medium p-8 rounded-lg flex justify-between">
-        <span>Total Monthly Payments</span>
+        <span>Total {formData?.incomeType || "Monthly"} Payments</span>
         <span>
           $
           {(

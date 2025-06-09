@@ -14,12 +14,14 @@ export default function Step1({
     if (!formData.loanBalance)
       newErrors.loanBalance = "Loan balance is required";
     if (!formData.loanMonthlyPayments)
-      newErrors.loanMonthlyPayments = "Monthly payment is required";
+      newErrors.loanMonthlyPayments = `${
+        formData?.incomeType || "Monthly"
+      } payment is required`;
     if (!formData.creditCardLimit)
       newErrors.creditCardLimit = "Credit card limit is required";
     if (!formData.creditCardMonthlyPayments)
       newErrors.creditCardMonthlyPayments =
-        "Credit card monthly payment is required";
+        `Credit card ${formData?.incomeType} payment is required`;
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -39,7 +41,7 @@ export default function Step1({
       <div className="grid grid-cols-3 gap-4 text-sm font-medium mb-2">
         <span></span>
         <span className="text-center">Limit</span>
-        <span className="text-center">Monthly Payments</span>
+        <span className="text-center">{formData?.incomeType || "Monthly"} Payments</span>
       </div>
 
       {/* Financial Items Grid */}
@@ -85,7 +87,7 @@ export default function Step1({
         <div className="grid grid-cols-3 gap-4 text-sm font-medium mb-2">
           <span></span>
           <span className="text-center">Balance</span>
-          <span className="text-center">Monthly Payments</span>
+          <span className="text-center">{formData?.incomeType || "Monthly"} Payments</span>
         </div>
 
         {/* Loans */}
@@ -128,7 +130,7 @@ export default function Step1({
       </div>
 
       <div className="mt-6 bg-white text-[#1262A1] font-medium p-8 rounded-lg flex justify-between">
-        <span>Total Monthly Payments</span>
+        <span>Total {formData?.incomeType || "Monthly"} Payments</span>
         <span>
           $
           {(

@@ -52,7 +52,7 @@ const MyForm = () => {
   const [id, setId] = useState("");
   const [otpMail, setOtpMail] = useState("");
   const [setOtpLocal, setSetOtpLocal] = useState("");
-  const [isDisabled, setIsDisabled] = useState(false)
+  const [isDisabled, setIsDisabled] = useState(false);
   const [formData, setFormData] = useState<any>({
     loanAmount: 10000,
     weeklyPayment: 0,
@@ -197,7 +197,7 @@ const MyForm = () => {
     } catch (error) {
       console.log("Send message: ", error);
     }
-  }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -206,7 +206,7 @@ const MyForm = () => {
       const isValid = validate1(formData);
       const isValid2 = validate2(formData);
       if (isValid && isValid2) {
-        setIsDisabled(true)
+        setIsDisabled(true);
         const res: any = await Post("/api/loan-application", formData, 10000);
         if (res.success) {
           await sendMessage();
@@ -218,13 +218,13 @@ const MyForm = () => {
             behavior: "smooth", // Smooth scrolling effect
           });
           setStep(3);
-          setIsDisabled(false)
+          setIsDisabled(false);
           toast.success(res?.message);
           resetFormData(formData);
         }
       }
     } catch (error: any) {
-      setIsDisabled(false)
+      setIsDisabled(false);
       console.error("Error submitting form:", error);
       // toast.error(error?.message);
       toast.error(error?.details);
@@ -244,8 +244,6 @@ const MyForm = () => {
     }
   };
 
-
-
   const isStepTwoAndNotAgreed = step === 2 && !agreed;
   const isButtonDisabled = isStepTwoAndNotAgreed;
 
@@ -255,8 +253,9 @@ const MyForm = () => {
       <div className="flex items-center justify-evenly mb-12">
         {" "}
         <span
-          className={`rounded-full p-2 flex items-center justify-center w-10 h-10 ${step === 1 ? "bg-[#1262A1]" : "bg-[#1262A1]/50"
-            }`}
+          className={`rounded-full p-2 flex items-center justify-center w-10 h-10 ${
+            step === 1 ? "bg-[#1262A1]" : "bg-[#1262A1]/50"
+          }`}
         >
           {" "}
           1{" "}
@@ -264,13 +263,15 @@ const MyForm = () => {
         <span className="w-5/6 h-2 bg-gray-300 rounded-full relative">
           {" "}
           <span
-            className={`h-2 bg-[#1262A1] rounded-full absolute ${step === 1 ? "w-1/2" : "w-full"
-              }`}
+            className={`h-2 bg-[#1262A1] rounded-full absolute ${
+              step === 1 ? "w-1/2" : "w-full"
+            }`}
           ></span>{" "}
         </span>{" "}
         <span
-          className={`rounded-full p-2 flex items-center justify-center w-10 h-10 ${step === 2 ? "bg-[#1262A1]" : "bg-[#1262A1]/50"
-            }`}
+          className={`rounded-full p-2 flex items-center justify-center w-10 h-10 ${
+            step === 2 ? "bg-[#1262A1]" : "bg-[#1262A1]/50"
+          }`}
         >
           {" "}
           2{" "}
@@ -316,8 +317,9 @@ const MyForm = () => {
              [&::-moz-range-thumb]:rounded-full 
              [&::-moz-range-thumb]:cursor-pointer"
                   style={{
-                    background: `linear-gradient(to right, #1262A1 ${((formData?.loanAmount - 10000) / (100000 - 10000)) * 100
-                      }%, #DDE5EB 0%)`,
+                    background: `linear-gradient(to right, #1262A1 ${
+                      ((formData?.loanAmount - 10000) / (100000 - 10000)) * 100
+                    }%, #DDE5EB 0%)`,
                   }}
                 />
               </div>
@@ -358,7 +360,9 @@ const MyForm = () => {
              [&::-moz-range-thumb]:rounded-full 
              [&::-moz-range-thumb]:cursor-pointer"
                   style={{
-                    background: `linear-gradient(to right, #1262A1 ${((formData?.weeklyPayment - 0) / 10)}%, #DDE5EB 0%)`,
+                    background: `linear-gradient(to right, #1262A1 ${
+                      (formData?.weeklyPayment - 0) / 10
+                    }%, #DDE5EB 0%)`,
                   }}
                 />
               </div>
@@ -393,8 +397,9 @@ const MyForm = () => {
              [&::-moz-range-thumb]:rounded-full 
              [&::-moz-range-thumb]:cursor-pointer"
                   style={{
-                    background: `linear-gradient(to right, #1262A1 ${((formData?.termYears - 1) / (5 - 1)) * 100
-                      }%, #DDE5EB 0%)`,
+                    background: `linear-gradient(to right, #1262A1 ${
+                      ((formData?.termYears - 1) / (5 - 1)) * 100
+                    }%, #DDE5EB 0%)`,
                   }}
                 />
               </div>
@@ -589,11 +594,11 @@ const MyForm = () => {
                   >
                     <option value="">Select DL Type</option>
                     <option value="Restricted">Restricted</option>
-                    <option value="Full Licence">Full Licence</option>
+                    {/* <option value="Full Licence">Full Licence</option> */}
                     <option value="Learner">Learner</option>
-                    <option value="No Licence">No Licence</option>
+                    {/* <option value="No Licence">No Licence</option> */}
                     <option value="International">International</option>
-                    <option value="Other">Other</option>
+                    {/* <option value="Other">Other</option> */}
                   </select>
                   <Image
                     src={"/assets/dl.png"}
@@ -630,7 +635,6 @@ const MyForm = () => {
                       </option>
                     ))} */}
                   </select>
-
 
                   {/* Mobile input */}
                   <input
@@ -1002,9 +1006,10 @@ const MyForm = () => {
                       <option value="Disabled">Disabled</option>
                       <option value="Temporary">Temporary</option>
                       <option value="Retired">Retired</option>
-                      <option value="WINZ">WINZ</option>
-                      <option value="ACC">ACC</option>
-                      <option value="WINZ & ACC">WINZ & ACC</option>
+                      <option value="Super-Annuation">Super Annuation</option>
+                      {/* <option value="WINZ">WINZ</option> */}
+                      {/* <option value="ACC">ACC</option> */}
+                      {/* <option value="WINZ & ACC">WINZ & ACC</option> */}
                       <option value="Studylink">Studylink</option>
                     </select>
                     <svg
@@ -1184,34 +1189,36 @@ const MyForm = () => {
           type="button"
           onClick={() => setStep(1)}
           disabled={step === 1}
-          className={`bg-gray-50 border w-1/3 lg:w-1/5 m-auto text-gray-500 p-3 rounded-full hover:bg-gray-100 ${step === 1 ? "opacity-50 cursor-not-allowed" : ""
-            }`}
+          className={`bg-gray-50 border w-1/3 lg:w-1/5 m-auto text-gray-500 p-3 rounded-full hover:bg-gray-100 ${
+            step === 1 ? "opacity-50 cursor-not-allowed" : ""
+          }`}
         >
           Previous
         </button>
-        {
-          isDisabled ? (
-            <button
-              type="button"
-              disabled={isDisabled}
-              className={`bg-gray-50 border w-1/3 lg:w-1/5 m-auto text-gray-500 p-3 rounded-full hover:bg-gray-100 ${step === 3 ? "opacity-50 cursor-not-allowed" : ""
-                }`}
-            >
-              Sending OTP...
-            </button>
-          ) :
-            <button
-              type="button"
-              onClick={handelForm}
-              disabled={isButtonDisabled}
-              className={`bg-[#1262A1] w-1/3 lg:w-1/5 m-auto text-white p-3 rounded-full hover:bg-[#1262A1]/90 ${isStepTwoAndNotAgreed ? "opacity-50 cursor-not-allowed" : ""
-                }`}
-            >
-              {step === 1 ? "Next" : "Submit"}
-            </button>
-        }
+        {isDisabled ? (
+          <button
+            type="button"
+            disabled={isDisabled}
+            className={`bg-gray-50 border w-1/3 lg:w-1/5 m-auto text-gray-500 p-3 rounded-full hover:bg-gray-100 ${
+              step === 3 ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+          >
+            Sending OTP...
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={handelForm}
+            disabled={isButtonDisabled}
+            className={`bg-[#1262A1] w-1/3 lg:w-1/5 m-auto text-white p-3 rounded-full hover:bg-[#1262A1]/90 ${
+              isStepTwoAndNotAgreed ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+          >
+            {step === 1 ? "Next" : "Submit"}
+          </button>
+        )}
       </div>
-    </div >
+    </div>
   );
 };
 

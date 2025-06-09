@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 
-export default function Step9({
-  handleChange,
-  formData,
-  setStep,
-}: any) {
+export default function Step9({ handleChange, formData, setStep }: any) {
   const [errors, setErrors] = useState<any>({});
 
   // Form validation
@@ -59,6 +55,7 @@ export default function Step9({
               <option value="Part-Time">Part Time</option>
               <option value="Casual">Casual</option>
               <option value="Beneficiary">Beneficiary</option>
+              <option value="Super-Annuation">Super Annuation</option>
             </select>
             {errors.employmentType && (
               <p className="text-red-500">{errors.employmentType}</p>
