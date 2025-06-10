@@ -131,10 +131,10 @@ const MyForm = () => {
   const validate2 = (formData: FormData) => {
     const newErrors: { [key in keyof FormData]?: string } = {};
 
-    if (!formData.streetAddress)
-      newErrors.streetAddress = "Street Address is required";
-    if (!formData.addressLine2)
-      newErrors.addressLine2 = "Address Line 2 is required";
+    // if (!formData.streetAddress)
+    //   newErrors.streetAddress = "Street Address is required";
+    // if (!formData.addressLine2)
+    //   newErrors.addressLine2 = "Address Line 2 is required";
     if (!formData.city) newErrors.city = "City is required";
     if (!formData.postalCode) newErrors.postalCode = "Postal Code is required";
     if (!formData.propertyStatus)
@@ -748,7 +748,7 @@ const MyForm = () => {
               Address...
             </label>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 gap-y-10 w-full mb-10">
-              <div className="space-y-2">
+              {/* <div className="space-y-2">
                 <label className="text-gray-800 font-medium">
                   Street Address
                 </label>
@@ -763,9 +763,9 @@ const MyForm = () => {
                 {errors.streetAddress && (
                   <p className="text-red-500 text-sm">{errors.streetAddress}</p>
                 )}
-              </div>
+              </div> */}
 
-              <div className="space-y-2">
+              {/* <div className="space-y-2">
                 <label className="text-gray-800 font-medium">
                   Address Line 2
                 </label>
@@ -780,7 +780,7 @@ const MyForm = () => {
                 {errors.addressLine2 && (
                   <p className="text-red-500 text-sm">{errors.addressLine2}</p>
                 )}
-              </div>
+              </div> */}
 
               <div className="space-y-2">
                 <label className="text-gray-800 font-medium">City</label>
@@ -1156,33 +1156,44 @@ const MyForm = () => {
           </div>
         )}
         {step === 2 && (
-          <div className="mt-6 flex items-center">
-            <input
-              type="checkbox"
-              id="agree"
-              className="mr-2"
-              checked={agreed}
-              onChange={() => setAgreed(!agreed)}
-            />
-            <label htmlFor="agree" className="text-sm text-gray-800">
-              I agree to the{" "}
-              <Link
-                target="blank"
-                href="/terms-and-conditions"
-                className="text-blue-600 underline"
-              >
-                Terms and Conditions
-              </Link>{" "}
-              and{" "}
-              <Link
-                target="blank"
-                href="/privacy-policy"
-                className="text-blue-600 underline"
-              >
-                Privacy Policy
-              </Link>
-            </label>
-          </div>
+          <>
+            <div className="mt-6 flex items-center">
+              <input
+                type="checkbox"
+                id="agree"
+                className="mr-2"
+                checked={agreed}
+                onChange={() => setAgreed(!agreed)}
+              />
+              <label htmlFor="agree" className="text-sm text-gray-800">
+                I agree to the{" "}
+                <Link
+                  target="blank"
+                  href="/terms-and-conditions"
+                  className="text-blue-600 underline"
+                >
+                  Terms and Conditions
+                </Link>{" "}
+                and{" "}
+                <Link
+                  target="blank"
+                  href="/privacy-policy"
+                  className="text-blue-600 underline"
+                >
+                  Privacy Policy
+                </Link>
+              </label>
+            </div>
+            <div className="mt-2 flex items-center">
+              <label htmlFor="agree" className="text-xs font-bold text-gray-800">
+                Note:{" "}
+                <span className="text-gray-600 font-normal text-xs">
+                  You will receive an OTP in your email to proceed with this
+                  form.{" "}
+                </span>
+              </label>
+            </div>
+          </>
         )}
       </div>
       <div className="w-full text-center space-x-10 lg:space-x-4  ">
