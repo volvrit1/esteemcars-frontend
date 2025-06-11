@@ -1001,12 +1001,12 @@ const MyForm = () => {
                       <option value="Employed Part-Time">
                         Employed Part-Time
                       </option>
-                      <option value="Contractor">Contractor</option>
+                      {/* <option value="Contractor">Contractor</option> */}
                       <option value="Self Employed">Self Employed</option>
-                      <option value="Unemployed">Unemployed</option>
+                      {/* <option value="Unemployed">Unemployed</option> */}
                       <option value="Disabled">Disabled</option>
-                      <option value="Temporary">Temporary</option>
-                      <option value="Retired">Retired</option>
+                      <option value="Casual">Casual</option>
+                      {/* <option value="Retired">Retired</option> */}
                       <option value="Super-Annuation">Super Annuation</option>
                       {/* <option value="WINZ">WINZ</option> */}
                       {/* <option value="ACC">ACC</option> */}
