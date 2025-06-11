@@ -595,7 +595,7 @@ const MyForm = () => {
                   >
                     <option value="">Select DL Type</option>
                     <option value="Restricted">Restricted</option>
-                    {/* <option value="Full Licence">Full Licence</option> */}
+                    <option value="Full Licence">Full Licence</option>
                     <option value="Learner">Learner</option>
                     {/* <option value="No Licence">No Licence</option> */}
                     <option value="International">International</option>
